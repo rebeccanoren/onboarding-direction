@@ -1,0 +1,329 @@
+Speaker A 00:02:
+Have a look at this page and then just share your thoughts about what you see. And there is, like, no wrong or right things you can do or comment on here.
+
+Speaker B 00:15:
+Yep. Start by looking at the whole page. Explore channels.
+
+Speaker A 00:48:
+So what is this page, Shabbat?
+
+Speaker B 00:55:
+It's trying to tell me that, that I can use one API to send to through multiple channels. And I'm seeing the channels here that I'm seeing is Messenger, line, which I don't know about and, Viber. Yeah. Some familiar with some familiar to me and some not. RCS and SMS and WhatsApp. Conversational mode. K. Two way community. Yeah. And dispatch mode. One way messaging at scale. Okay. Yeah. I'm assuming that dispatch mode is what I would probably use most of the time. Yeah. Recommended channels. Yep. I'm gonna try out RCS
+
+Speaker A 02:23:
+Yes.
+
+Speaker B 02:25:
+Because, that's why I wanted to what I came to check out.
+
+Speaker A 02:30:
+Mhmm.
+
+Speaker B 02:32:
+Okay. RCS for businesses, for business. Engage customers with rich branded conversations. Yeah. I wanna send a test message. Add a phone number.
+
+Speaker A 02:52:
+You can just add that phone number for the prototype. Let's imagine you're based in the US. Alright. And for RCS, maybe it's good to mention you will get a notification on your phone, so you need to accept to become a tester. It will be like a message for you to accept.
+
+Speaker B 03:14:
+K. What does rich card mean? Okay. It just means that it, it's just layout, I guess. Media without text. K. This is not my phone number, so I don't
+
+Speaker A 03:53:
+you know, in reality would be your phone number. So you would Sure. Not get the phone. Can't really prototype that part, unfortunately.
+
+Speaker B 04:07:
+No. I get it. K. And this is probably what I would look at, first, actually. Mhmm. I can tell it's just the HTTP message, looks pretty simple to construct Yeah, in playground. Would be kind of cool if this was editable on its own, I guess.
+
+Speaker A 04:59:
+Mhmm.
+
+Speaker B 05:06:
+Documentation. K. So how do I send this message? Your project ID, app ID, API credentials, and RCS agent. I didn't create an RCS agent, So I guess I would go back. And I would be curious what is an RCS agent and how do we set one up. Brand verified profiling messaging. I guess I would go with the same.
+
+Speaker A 06:47:
+You don't need to add these, in the prototype here. You can just move on.
+
+Speaker B 06:53:
+Yeah. These details can't be changed later. Alright. Then I would be interested in figuring out what these use cases are. And promotional and and how they affect me. I
+
+Speaker A 07:27:
+Mhmm.
+
+Speaker B 07:28:
+I guess I would go with multiuse unless I figure that promotional is cheaper.
+
+Speaker A 07:38:
+Yeah. Not sure that link works.
+
+Speaker B 07:43:
+Oh, it doesn't. It doesn't look like it's the it does. Yeah. K. I would probably go for multi use on the first one, and I would probably just testing this out, like, pretending that I'm this real company. I would probably just do, multi use first. And then if I can't create another agent or something, I would try and start over.
+
+Speaker A 08:29:
+Yep.
+
+Speaker B 08:30:
+But,
+
+Speaker A 08:34:
+yeah.
+
+Speaker B 08:53:
+Looks good to me. Choose country. Yeah. Guess it's fine. It's on the company card. Alright. Details.
+
+Speaker A 09:48:
+What is this about?
+
+Speaker B 09:55:
+I I think they're asking me how I find my users pretty much. Like, what business do you have sending these messages to these people? And let's say I'm a large furniture store or something, and then I think all of them apply or could apply. Opt out communicate confirmation message. So is this when you I'm assuming this is when someone has, replied stop to number or, well, RCS, it wouldn't be to a number. Let's simply just reply stop. Messaging content. They might do all of it. I don't
+
+Speaker A 11:59:
+think you can rearrange these, unfortunately, in this prototype.
+
+Speaker B 12:05:
+Okay.
+
+Speaker A 12:08:
+But And how does this feel?
+
+Speaker B 12:12:
+How will users interact with your business through the agent? I guess I'm, I would I'm confused as to why I would need to know this. Is this, if this is something that Cinch wants to know to get to know me as a customer better or if it's something that's sent passed on to, I guess, Google for RCS registration. Phone number. Please include a phone number or email address. K. So wouldn't they be able to just reply? I do something like this. Because the image tells me that this is, I mean, thinking first from, like, an SMS perspective, I would assume that it it would be a number that I have, purchased or something. But but this, image tells me that, oh, no. RCS is is more, complex or how to put it, and would allow me like, this looks like a a profile picture of sorts.
+
+Speaker A 15:12:
+And
+
+Speaker B 15:12:
+so so that's why I figured that, this is where I, I I just I need to provide other channels for my users to to reach out if they have any complaints or whatnot.
+
+Speaker A 15:45:
+Verify business.
+
+Speaker B 15:57:
+I feel like I well, I didn't verify it, but I put my corporation name before. So I feel like I did this already, kind of.
+
+Speaker A 16:40:
+You don't need to fill this out. You can just press continue also in to move on in the prototype because there's a lot of information.
+
+Speaker B 16:50:
+Yeah. Website and phone number. Okay. Yeah. So this is, whoever they should ask for when yeah. Well, how they should address the person that replies to these emails or phone numbers, in the next step. I'm assuming that this is still we're talking about, setting up an agent. So at this point, for me as a user, I'm not sure who that's who who is going to, reach out to me. Yep. If that's some RCS entity or if it's Cinch.
+
+Speaker A 18:07:
+Yep.
+
+Speaker B 18:12:
+But maybe it was stated somewhere, and I didn't, read properly. That's possible. Use case. But we did this already as well. So it's it's not that difficult to, to fill this out, but, feel feels like it's stuff that has already been entered. So maybe some of it could be prepopulated. Mhmm. I'm assuming that I will need to do this for each country right now. Like, if I was to add, Sweden in here or yeah. I'm assuming that I would need to do similar things, or maybe it's different per country. I don't know that. That could definitely be the case.
+
+Speaker A 20:17:
+So you don't need to do this, step. It's pretty complicated. I'm not sure if it works even. But it's, it's an process for the US where you need to sign a document and reupload it. Yes. But I think they are removing this anyway, so we don't need to spend time on it.
+
+Speaker B 20:42:
+Okay. Test numbers. Okay. So I can before I have my my, sender, my agent registered, I could use a regular phone number, I'm assuming that.
+
+Speaker A 21:11:
+But
+
+Speaker B 21:14:
+not working.
+
+Speaker A 21:17:
+And
+
+Speaker B 21:20:
+connect to a conversation API app. Let's see.
+
+Speaker A 21:30:
+So what is this about?
+
+Speaker B 21:36:
+She can handle delivery conversations and webhooks. It's kind of hard because I know what it is. Mhmm. So it's kind of hard for me to to be objective. But I think I would just I would probably cancel, and then I would, and only then would I read this text. I would try to to figure out if this is something that I need to do or or what what it is. Yep. And then I would probably go back and just
+
+Speaker A 22:48:
+But did it feel like it was something you needed to do before, like, the first time you clicked on it? Or
+
+Speaker B 23:01:
+So I think that I wouldn't read so carefully, that I might miss. I know that we mentioned app earlier, and we also mentioned project. And I think if I, then I think in here, talk about project app ID. Yeah. So I would know, or I would recognize the word app, somewhat at least.
+
+Speaker A 23:42:
+What do you think about it as a concept in general? Like, even now when you have some pre knowledge about what is conversation API and how it works.
+
+Speaker B 23:54:
+I think as a first time I think as a first time user, I would just want to say, like, okay. Give me give me RCS. And then this app business is sort of a detail that I don't need to know about. But if I go to the app, they mentioned webhooks, and I would definitely want to or, really, I think if if I was a a real user, I would probably at this point, I would try to I would I would I would want to to check if my my agent is created and if if I'm able to send, I I would just, I would probably either look for the test number and try to use the API at this point, to do a test message just through either curl or some some test project on my local machine. Yeah. Just scaffold something quickly. Just to send one initial message. And then I would probably test things like webhook to see, like, okay. I can see that I got a a ping.
+
+Speaker A 25:57:
+So do you think we're you're, encountering webhooks a bit too early here? Or
+
+Speaker B 26:04:
+Yeah. I think so. I think I would want to try and send a test message. And, ideally, I would want to send it with my, company name Yeah. To my own phone. I think that's what I would would like to see immediately because I don't really care about webhooks until I mean, if if I send to my own phone, then I I don't really need confirmation elsewhere. Then I might try webhooks because to do something, I would probably test Webhooks using some third party app. I just, I think it's called, like, webhooks dot com or something. If I just want to see that that it's working, like, to test that, okay, I can trust Cinch with this. Yeah. And and potentially quite, potentially, like, weeks after I would build out the proper webhook handling on my own end. Yeah. And then I would like to know how to, how to set that up securely because I don't want I want the webhooks to be delivered securely to my system. And then, so probably looking to some authentication and stuff. Yeah. Yeah. Like, here we have tokens. That's good. That's good. That looks pretty simple. Yeah. So, yeah, maybe that, maybe for smaller businesses, actually, it makes more sense to have webhooks somewhat earlier because they might use something like AWS, Lambda or Azure functions
+
+Speaker A 28:40:
+Mhmm.
+
+Speaker B 28:41:
+Or something else that is easily available. But, like, if I wanted to like, larger corporations would probably have it sent directly to them and, do authentication through through tokens or something else.
+
+Speaker A 29:09:
+Yep. So when it comes to your RCS, like, getting familiar with RCS journey, how does this feel so far?
+
+Speaker B 29:32:
+I haven't encountered anything that felt difficult, but there is kind of a lot of steps to go through. I think that's probably, yeah, not something that we added for fun. It's, it's, something that, that's mandated by by RCS as such.
+
+Speaker A 29:58:
+Mhmm.
+
+Speaker B 30:03:
+Yeah. I I mean, I didn't nothing that would cause me to rage quit. No. I guess I'm I'm kind of, wondering what best for high throughput, best for two way. This is a bit confusing to me.
+
+Speaker A 30:46:
+Yep. And
+
+Speaker B 30:47:
+it's the same kind of in SMS, world, I guess. I think a little bit you probably need to know some things about telecom to to understand why this is the case. But, I mean, as a user, I would probably just assume to be able to do everything.
+
+Speaker A 31:14:
+Yeah.
+
+Speaker B 31:21:
+And it doesn't tell me that I won't be able to do conversations, I suppose. Okay. Or two way messaging explicitly. I'm a little bit unsure of what to pick here. Yeah. Message just are stored for seven days. Alright. Channel fallback. Secondary channels. Okay. So then I can enable that, but I don't have any secondary channel right now that I know of. But now there's a web book here as well. There's another way to set up webhooks. K.
+
+Speaker A 33:04:
+Let me get the prototype present one hundred percent here. Yeah. This should be, like, your senders that you actually created yourself and Okay. Connected to the app. So
+
+Speaker B 33:16:
+Yeah. It's about here. I didn't see I didn't see it because of I didn't see the the bottom immediately since, the teams, was there.
+
+Speaker A 33:31:
+Yeah.
+
+Speaker B 33:31:
+So that, kind of tainted the the quest here, because that's probably what I would do immediately when, coming here. Mhmm. Yeah.
+
+Speaker A 33:50:
+So you would like to send from your own, sender that you just created?
+
+Speaker B 33:54:
+Yes. That's what I would like to do immediately after creating it.
+
+Speaker A 33:58:
+Yeah. And why do you would would you like to do that?
+
+Speaker B 34:02:
+I mean, that's the kind of the the killer feature of RCS. Right? To be able to especially if I'm a US customer that doesn't have alphanumeric sending. Mhmm. I would like to be able to to see, like and with my company logo and everything that, Microsoft is, has a sale on their new Operating system or whatever. Yeah. I would like to see my my logo. Because it it it makes the message looks look more, legitimate than, an SMS. Yeah. I would like to immediately see what the user can expect. And then I would go and and see what else I can can do with this, like webhooks. I would probably look for some statistics. I would try to I would like to see, like, how much do I owe you? I don't know what the what the what did this message cost me? Yep. How much? Do I have any credits left? Message state. AI powered add on. I would probably feel like this is very interesting. So I would probably make a note to come back to that and, and see what else is there because it's Yep. Probably a big topic. I would probably click it though and, have a quick look. But, probably enable it later. Message state. No need to rely on webhooks. Right. Would probably want that more so if I had conversational stuff. There are well, probably a few use cases that I would really care for about that, Like, booking appointments, at the bank or doctors or whatever. Make sure that the customer read it.
+
+Speaker A 37:14:
+Do you feel like you're done with RCS now? Because now you're on the app, context. So do you feel fine with just, yeah, not being on the RCS side any longer?
+
+Speaker B 37:34:
+Yes. I would. I'm not sure if I would even notice as much.
+
+Speaker A 37:44:
+Yeah.
+
+Speaker B 37:45:
+I or I see I mean, I may see I I had channel, and I remember that I decided to do the RCS channel. Mhmm. So, yeah, I would probably just like to test it out immediately. Yep. And then I would see what other features are here. Yes. I would probably go here.
+
+Speaker A 38:17:
+Yep. Yep. Maybe it's not really
+
+Speaker B 38:22:
+Yeah.
+
+Speaker A 38:22:
+Adjusted to your use case at the moment.
+
+Speaker B 38:26:
+No. I wouldn't expect, any analytics or anything visible through this screen or anything like that, but I would explore the website some more. Yeah. Try and figure out, billing, prices and and so on. Yep.
+
+Speaker A 38:54:
+And what would be your steps after that? Or what would you like to do?
+
+Speaker B 39:16:
+After this, I would probably do some some some test. And after this, I would probably be ready to start building the start integrating Mhmm. On my end. I would probably need to look for the documentation again. Yes. What is an app? But I would also want documentation as to how to send how do I send the the, messages with Yep. This API? That's probably what I would would, go and try and look for. I already had this open in some in some previous step. I would probably go back here. I would do this test message, and then I would do the same with curl. Maybe change some things.
+
+Speaker A 40:42:
+Mhmm.
+
+Speaker B 40:43:
+Yes. Open my terminal and see that it's working. Potentially, if I work for a big company, I would definitely look into whatever the rules and regulations are around us. Yes.
+
+Speaker A 41:15:
+Mhmm.
+
+Speaker B 41:24:
+And then I would then I would look at other channels. I would probably look at SMS immediately. But that's if I was South American or live somewhere where WhatsApp is huge, I would definitely look into WhatsApp as a separate channel as well. I mean, I would definitely like, in general that that we have this multichannel thing, and I would look for where to set that up, to order them, like or how how one channel is decided over another. That's what I would look for in the in the documentation Yeah. When I had added some channels. Like, how does this is there, like, I don't know if if there is a priority or if I can specify that for, Brazilian customers, I want to send them a WhatsApp message. But for Swedish customers, I want RCS. And then for all of them, I want SMS if, all else fails. Mhmm. Now I'm finding it difficult to find my way okay. Here, test the API. That's where I would click, but I wouldn't I don't know how to find my way back to the app view that I was at previously.
+
+Speaker A 43:27:
+Which, was the app view?
+
+Speaker B 43:31:
+Where I could set up all of the, webhooks and stuff.
+
+Speaker A 43:34:
+Uh-huh.
+
+Speaker B 44:08:
+Integrate. There I saw apps. So okay. Now I'm back. I immediately looked for, like, API information, and I was looking mainly here. Mhmm. But, yeah, I'm also used to the site looking a certain way. So reset session data. Is that is that maybe It
+
+Speaker A 45:09:
+is, for yeah. I think it's for the prototype Yeah. Part.
+
+Speaker B 45:16:
+Makes sense.
+
+Speaker A 45:27:
+Yeah. So now I don't know why you you have the two channels here now, and you didn't before. But
+
+Speaker B 45:34:
+Yep.
+
+Speaker A 45:35:
+Yeah. It's a little buggy, this prototype.
+
+Speaker B 45:39:
+Yeah. But, yeah, the channels make sense to have them listed here. That I would that would feel reassuring, assuming that I saw my corporation.
+
+Speaker A 45:58:
+Yeah. Yeah. That would be your agent, not this one.
+
+Speaker B 46:03:
+Yeah.
+
+Speaker A 46:10:
+But if you would summarize this entire journey now, we spent, like, an almost an hour trying this out. Like, how does this feel to you as a developer?
+
+Speaker B 46:30:
+It's pretty good, considering, that there is a a lot of questions asked. I maybe would maybe would good to emphasize that, like, why we are asking for this. Mhmm. That this is, yeah, this is required by to register the agent. But, also, I didn't I didn't spend much time reading up about agents. Yeah. I mean yeah. We are we are not the most patient people, developers. So but I I managed to get through it, with not that much, of a hassle considering the amount of questions. I would just like for for some of the stuff to to be prefilled in when I
+
+Speaker A 47:43:
+Yep.
+
+Speaker B 47:44:
+Or at least, suggested to me when I'm asked the same question again. Mhmm. Maybe to have it asked on sign up even when I create my account. I'm assuming that at least some of these things would be available, or known by Synch already. Although, like, my email address might not be the it's it's not the same necessarily. That's the one that Google should be speaking to.
+
+Speaker A 48:28:
+Yep.
+
+Speaker B 48:29:
+So yeah. I get it. But, no, I think it's good, overall.
+
+Speaker A 48:35:
+Mhmm.
+
+Speaker B 48:36:
+We just, like like to say the, yeah, reintroduce to how to to use my my service immediately.
+
+Speaker A 48:49:
+What do you mean by that?
+
+Speaker B 48:51:
+Like, to to to get this. I I would probably want to to find the curl version immediately as well. Test your setup. Okay. Here is some learning more about it. But, yeah, I I would, I would probably swap webhooks and testing the set setup Yep. Around.
+
+Speaker A 49:24:
+And so you want to see exactly what, you should just send as a API request to send messages?
+
+Speaker B 49:31:
+Yeah.
+
+Speaker A 49:32:
+Yeah. Mhmm. And but I think that was everything. So I will stop the recording if you don't have any other comments.
+
+Speaker B 49:52:
+Nope. I don't.

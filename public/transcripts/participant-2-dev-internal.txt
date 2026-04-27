@@ -1,0 +1,372 @@
+Speaker A 00:14:
+Jag har så svårt att få länkarna att funka. Jag tror inte du behöver logga in egentligen, den ska vara öppen. Jag ska bara ändra några slags inställningar. Jenny du förresten att du har koll på
+
+Speaker B 00:38:
+Ja, hyfsat. Jag var ju med och byggde det. Både från både version ett och version två.
+
+Speaker A 00:50:
+Okej, testa de här istället om den funkar. Just nu så har du signat upp på Sinch för du har hört att Sinch har RCS. Och du har sagt då när du har signat upp att jag är intresserad av messaging och så hamnar du här då som en helt ny användare.
+
+Speaker B 01:16:
+Precis, också
+
+Speaker A 01:17:
+på IPCC-sidan. Vad tänker du om det här?
+
+Speaker B 01:26:
+Troligtvis så hade jag kollat först på Headn och sett Conversation EPI. Och så hade jag tänkt okej men jag var intresserad av RCS så då hade jag troligtvis fått redan snegla mot menyerna. Troligtvis hade jag skannat lite här och bara sa ja okej vi har lite olika. Kanske att jag hade klickat här.
+
+Speaker A 01:54:
+Det är ju en prototyp kan jag lova så den funkar ju inte.
+
+Speaker B 02:00:
+Nej precis. Vissa saker lär jag säkert funkar kanske eller vara klickbara.
+
+Speaker A 02:07:
+Ja precis, du kan ju testa så och säga om det är något som är. Ja.
+
+Sandbox
+
+Speaker B 02:13:
+Och sen så har jag kommit hit. RSS4 Business. Jag hade läst vad detta känt jag men det här är vad jag letade efter. Vad är det? Vad är en agent? Feature and capabilities? Lite vad den kan göra. Jättebra. Sen hade jag troligtvis Om jag har fått uppgifter att implementera kanske price-detaljer inte är så intressant men antingen hade jag tryckt på dokumentation eller testat. Vad
+
+Speaker A 02:54:
+hade du valt först?
+
+Speaker B 02:58:
+Jag tror kanske att jag hade valt dokumentation först.
+
+Speaker A 03:02:
+Du kan testa och klicka på den om du vill.
+
+Speaker B 03:06:
+Precis. Så då kommer vi till en sida med dokumentation. Jättebra. Också att den visar att det här kommer leda till att du får skicka ditt första access. Då gör man så okej med det precis vad jag vill göra. Och att den visar vad jag behöver också. Sen så kanske man då, om jag är helt ny då har jag ju inte de här sakerna på plats redan. Då kanske det hade varit bra med någon form av länk som visar hur jag kan sätta upp varje grej här. Men det är bra att man har så här tydligt vad behöver man innan man börjar. För det kan annars vara svårt att få en helhetsförståelse för vad kommer jag behöva för att kunna skicka liksom. Det här är skitbra. Jag älskar när man kan kopiera och när det är tydligt att det är http. Rätt ofta när man går in på saker så finns det drop downs på vilket sätt man vill se saker på. Hotell PBL vill vara det vanligaste liksom. Men naturligt att nästa steg är autentisering. Det är bra med det här att man kan kopiera.
+
+Speaker A 04:59:
+Vad hade du velat göra nu då?
+
+Speaker B 05:08:
+Alltså vanligtvis så innan jag testar brukar jag kolla igenom hela, hur gör man? Vanligtvis så brukar jag titta typ såhär, okej men vad är det jag ska skicka med? Hur ser ett meddelande ut? Och egentligen vad är detta här liksom? Sen hade det Det står här: If the requested Success for så svara med ett accepterat message ID. Det är annars en sådan grej som är så här man är intresserad som utvecklare av hur ser requested ut och vad är en förväntad respons? Precis också bra att det är tydligt med så här limiteringar. Men det är bra att det är exempel på olika saker. Okej, och här nere kommer responsen. Ja, det funkar väl det också. Här annars så brukar man liksom, Jag vet inte om du har varit inne och kollat så mycket på vår dokumentation ser ut när vi är utvecklare. När vi använder ett API så är det här interfacet som vi oftast tittar på. Och då ligger liksom alla endpoints som en lista så här. Och så har man först såhär: Vad heter endpointen? Och sen så en beskrivning på hur request ska se ut och sen kommer en beskrivning på
+
+Speaker A 07:13:
+hur
+
+Speaker B 07:13:
+respons ska se ut. Och då har man olika typer. Om det är fel, om det är unatheris, vad kan jag få? Hur ser successful response ut? Hur ser unatheriz, hur ser serverR ut liksom? Så det här är hur vi som utvecklare är vana vid att titta på ett API. Du har liksom de här sakerna och hur ser request och hur ser respons ut? Är det någonting som jag hade varit så här är det att egentligen så är man kanske mer van vid att se exempel respons vid själva requesten.
+
+Speaker A 07:50:
+Att det inte ska vara en egen block. Ja
+
+Speaker B 07:54:
+och kanske Aur as stetes också. Jag tycker det är ganska bra, alltså breakdown. Nu känner jag ju redan till det här API:et ganska väl. Jag vet ju hur pass komplext det är, men jag tycker det är en ganska bra break där man börjar med att det här kan man göra. Men att det finns mer saker man kan få ut också, kräver dock mer saker. Men för att få den här första vyn.
+
+Speaker A 08:42:
+Vad är det som är viktigast I första mötet med dokumentationen?
+
+Speaker B 08:50:
+För mig så är det exempel på de viktigaste sakerna de vill göra. Så vad jag misstänker att de flesta vill göra när de kommer hit det är just precis som det står. Man vill skicka ett testmeddelande och kanske framförallt vill man testa ett Rich meddelande som har någonting mer. Så att man visar så här, så här gör man för att kunna göra det absolut lättaste möjliga utan så mycket alltså setup med typ sånt här. Det är inte det första man tittar på som utvecklare utan man vill kunna lösa sin uppgift. Så jag är okej, det här är det första som jag ska göra. Det är denna Endpoint jag kommer behöva använda. Ja. Efter detta då hade jag nog gått tillbaks och tryckt på den här testa. Och här hade jag nog förväntat mig att få fram någon form av Sandbox eller något sånt här. Något där jag faktiskt kan skicka liksom ett meddelande utan att behöva göra ett konto och lägga in kortuppgifter och så utan bara för att veta är det här en intressant tjänst för mig? Ja. Så det tycker jag makes to docens. Okej så kommer jag hit. Återigen får jag en bra länk till dokumentationen om man vill göra det igen men annars så är det ganska tydligt så här ett, två, det här är det första, attestfound number. Den här tycker jag är viktig också. För det är rätt många, typ som jag nu. Jag jobbar gärna med det här och min telefon är inte AC-kompatibel.
+
+Speaker A 10:50:
+Nej inte min heller.
+
+Speaker B 10:54:
+Jag vet inte om man skulle kunna göra liksom någon sån här om du inte har en RC-kompatibel telefon så att man kan testa det på något sätt ändå. Se hur det hade sett ut liksom. Okej du har ingen vill du prova ändå vi kan liksom visa dig hur meddelandet kommer se ut och så vidare. Ja. Den här är ju mex-end's. Nu leker vi med tanken att jag har en telefon. Då tycker jag ändå det mex sens. När de berättade för mig att jag ska fått något på din telefon då hade jag gått in på min telefon och klickat acceptera. Det är bara att man kan se att det finns olika options och se liksom en previewer på hur det ska se ut. Det här var precis det jag pratade om också, att det är nice när man kan få olika de vanligaste, hur vill jag skicka detta? Det här var också najs. Då funkar det även för dem som föredrar att skicka mer tekniskt och för dem som föredrar att använda vårt AI. Det gillar jag. Troligtvis, om syftet är att jag bara ska gå in och typ tänker att jag ska bara kolla vad finns det? Det finns Twilio och det finns Sinch. Att jag går in och säger såhär okej men jag vill bara kolla hur det ser ut och vad skillnaden är. Då hade jag troligtvis bara använt den här Sending rörvat smidigt liksom att slippa någon set på alls liksom att ens behöva generera någonting.
+
+Speaker A 13:33:
+Den slumpar fram lite
+
+Speaker B 13:42:
+I. Det här lär väl vara ganska vanligt tänker jag. Eller I och för sig den borde I och för sig redan catchats I detta steget här.
+
+Speaker A 13:54:
+Men
+
+Speaker B 13:57:
+jag tänker
+
+Speaker A 13:57:
+skicka igen så kan du få ett annat meddelande kanske.
+
+Speaker B 14:06:
+Okej.
+
+Speaker A 14:08:
+Det är inte helt logiskt.
+
+Speaker B 14:28:
+Det här är nice.
+
+Speaker A 14:39:
+Varför?
+
+Speaker B 14:39:
+Därför att man kan se liksom exakt vad som har skickats. Jag vet själv, jag brukar sitta om jag sitter med någonting om jag tar den här baren här uppe som från Teams som är som täcker vad man vill kolla på. Jag sitter ofta för att bara ge dig en vink på hur vi brukar jobba. Så har de sådana här: säg att jag vill testa någonting eller så. Då kan jag trycka I så här och klicka. Men vanligtvis så kan jag se liksom då att okej, den skickades och den skickades med detta här och så. För då ser man som användare att så här ser ett korrekt request med data ut. Ibland kan man liksom vila in sig och vara så här skickar jag rätt för jag får felkoder? Är liksom mitt request rätt eller är det någonting som har hänt någon annanstans? För mig så är det väldigt najs att kunna liksom jämföra. Okej, här har vi ett request som har funkat, som var rätt liksom. Titta på hur såg det ut då? Hur ska det vara? Jag tänker att efter detta. Om man har sett att det funkar och man har sett att det var ganska lätt att sätta upp. Det blev lite så In the mind är det lätt att sätta upp tills man kommer till alla specialcase och så där.
+
+Speaker A 16:46:
+Ja. Vad skulle det vara som är svårt?
+
+Speaker B 16:53:
+Det är ju när du behöver alla webhux och hitan ditan som det börjar bli mer avancerat och när du har många kanaler. Men det här tycker jag är jättestor förbättring mot det vi har speciellt när detta kommer ligga och man kommer inte behöva ja men såhär bli alltså det spelar ingen roll om du är prepad eller postpad. Alla kan göra detta. Du behöver inte lägga in någonting, du behöver inte komma hitta till någonting men du kan se att det funkar
+
+Speaker A 17:37:
+och hur det funkar.
+
+Speaker B 17:38:
+Jag tycker du har tänkt jätterätt här.
+
+Speaker A 17:46:
+Kul att höra. Kan du testa send with Code också?
+
+Speaker B 18:30:
+Okej. Den
+
+Speaker A 18:37:
+där knappen är bara för ett användningsstest. Vad tycker du om den här sen-linc Code Ja
+
+Speaker B 18:56:
+Jag hade kanske delat så att själva curRL-requestet ligger för sig själv och parametrar för sig själv.
+
+Speaker A 19:07:
+Det
+
+Speaker B 19:10:
+blir tydligare speciellt osäker på hur vi har gjort med med pappret. För här så är det ju inte att man får dem ifyllda på det sättet. Oftast så får du ju liksom Ofta så får man ju dem liksom som en Ja, det kan inte hända. Men ofta får man ju dem liksom som tomt att här ska du fylla I liksom. Kan man göra det? Eller ska man kunna göra det? Ändra saker själv? Den trivs
+
+Speaker A 20:04:
+I från Är det en bit här liksom?
+
+Speaker B 20:07:
+Det fylls I härifrån liksom, från testnumret här.
+
+Speaker A 20:12:
+Ja, det är väl det som är tanken att du ska kunna kopiera det här och köra det bara utan att behöva ändra det.
+
+Speaker B 20:19:
+Typ säg att du vill ändra meddelandet här eller så. Ska man kunna göra det? Då gör man det själv I sin cur request?
+
+Speaker A 20:34:
+Vad känner du?
+
+Speaker B 20:36:
+Alltså, ja.
+
+Speaker A 20:42:
+Är det normalt att ändra kod?
+
+Speaker B 20:47:
+Nej, jag tror inte. Jag tror man brukar göra det själv sen.
+
+Speaker A 20:51:
+Jo,
+
+Speaker B 20:56:
+men det här är bra tycker jag.
+
+Speaker A 21:00:
+Varför?
+
+Speaker B 21:05:
+Därför att du kan I stort sett bara kopiera liksom. Pajton kan jag inte alls. Det är säkert bra.
+
+Speaker A 21:42:
+Bara. Vad hade du valt? Alltså vilket språk har du velat se I?
+
+Speaker B 21:47:
+Jag hade valt cur. Det här är typ som vi gör alltså I vår kod. Curley, hur en utvecklare Alltså jag tror de flesta hade använt detta när man pratar I ett sånt här, vad ska man säga, mer sandbox scenario. Detta är ju hur vi liksom sen pratar med typ papper el och Conwwapiel och så. Eller papper ju framför allt. Vi pratar inte så mycket
+
+Speaker A 22:37:
+med ConVARPI. Vad hade du velat göra nu då? Nu. Jag har gjort
+
+Speaker B 22:53:
+I terminalen.
+
+Speaker A 23:23:
+Det där är vår mun att köra, det är inga riktiga
+
+Speaker B 23:27:
+Terminalen
+
+Speaker A 23:33:
+och sen att det hade gått bra, vad hade det varit I nästa steg?
+
+Speaker B 23:41:
+Jag hade väl rapporterat mina findings till personen jag fick uppdraget av, men jag hade nog känt att här var jag klar. Det finns ju inga fler steg I detta. Även om jag hade testat de olika. Men mer än så tror jag liksom inte jag hade gjort utan jag hade nog känt liksom okej, men nu har jag provat. Jag vet att det går att skicka ett access meddelande här. Ja. Om man jämför med idag. Om man kommer in och så ska man liksom för att komma hit liksom. Du ska gå igenom allting, sätta upp agenter. Du ska liksom allt detta innan du sedan kan komma. Till lägga till testnummer innan du sedan kan komma till ett steg där du vill skicka ett testmeddelande. Det är liksom för långt om man ska jämföra. Jag kan säga för mig, det beror ju på. Skulle jag fått den här uppgiften när jag sitter och jobbar I en så här, att jag har liksom tid på mig. Då hade jag ju tagit tiden och jag hade kollat på reviews, jag hade kollat på vad säger andra utvecklare på reddit på, alltså stärk overflow och sånt. Om jag skulle bara sätta upp något för mig själv när jag bygger någonting då hade jag typ testat väldigt snabbt. Och sen hade jag varit så okej, men det här funkar och det var ganska lätt. Och sen hade jag kollat pris om det var mig själv.
+
+Speaker A 25:42:
+Nu vet vi ju om att det finns så många webbbooks inställningar och så. Hur tänker du kring dem och vad man skulle behöva I ett test?
+
+Speaker B 25:56:
+Alltså jag tycker det är jättesvårt. På ett sätt så vill man inte skrämma bort folk med hur svårt de kan vara. Jag jobbar ju här. När jag går in och kollar på vissa saker så är de så pass oklara att jag har ingen aning vad det betyder.
+
+Speaker A 26:16:
+Just
+
+Speaker B 26:18:
+när det kommer till webhuxen och sånt också. Du har I princip den enda texten du har som säger vad du ska göra. Det är liksom stora bokstäver, understreck, alltså så här. Det är inte så förklarande. Så om man kommer in som någon dag som inte har jobbat med detta förut då tror jag man kommer behöva rätt mycket guidance. Jag vänner, kanske fler drop-downs och sånt. Så att man är så här, detta är vad de gör. Att det blir tydligare vad varje sak gör. Jag fattar det är svårt att tänka på hur man ska göra detta på ett simpelt sätt. Det är samma som när Lars kommer med sin alltså sån här chatt-bort där han säger att ja, kolla man kan sätta upp och skicka testmeddelanden jätteenkelt. Så ja, det hade vi kunnat göra jätteenkelt också. Om det bara är att man skickar det minsta möjliga. Då hade vi också kunnat göra I princip en knapptryckning, run som skickar allting. Men det är ju komplexiteten med allt annat som ska till också. Och liksom alla konfigureringar och sånt. Och frågan är, hör du ens hemma I en sandbox på det här sättet?
+
+Speaker A 28:08:
+Tänker du att de konfigureringarna handlar mer om konsumenttions API:et eller är det kopplat till RCS?
+
+Speaker B 28:17:
+Nej men det är väl generellt för alla våra kanaler att vi har saker som är mer svåra typ med RES. Då har vi vissa länder som har när du sätter upp en RCS-center. Då har vi vissa länder
+
+Speaker A 28:39:
+där man
+
+Speaker B 28:39:
+måste speciella formulär och sånt. Typ Spanien, UK. Det är klart att man kan göra någonting som är en knapptryckning eller jättelätt så om man inte tar hänsyn till alla de extra grejerna som kommer. Men ja Jag vet inte. Jag personligen hade nog inte efter Det är nog inte det jag hade känt I en sån här initial sandbox. Att jag hade velat göra det.
+
+Speaker A 29:22:
+Jag
+
+Speaker B 29:27:
+tror dock att dokumentationen för att tydliga exempel där man har satt upp för allting. Ja. Sedan. Så man behöver liksom en snabb biget startsida Där man liksom bara som utvecklare kan gå in och vara så här: Hur gör jag alltså nu, direkt. Men sen för alla såhär edge-krises för allt sånt. Att då har man liksom klickat sig djupare in I dokumentationen. Och har tydliga exempel där också. På liksom bequesten och så där.
+
+Speaker A 30:11:
+Jag ser det som att man har ett steg som är fågeln inte redo att kunna användas för att skicka livemeddelande. Men sen så är ju en annan del integrationen, hur man hanterar foodbacks och webbbooks. Jag ser det som två olika saker lite grann. Jag vet inte hur du ser det.
+
+Speaker B 30:29:
+Ja, men jag håller med. Och det är också så här, om vi hade kunnat komma på en lösning som visar allting vi gör I en demoversion där alla våra funktioneraliteter finns med I liksom demon. Då hade vi kunnat det som vår produkt istället. Om du fattar vad jag menar? Ja. Men jag tror liksom det du precis visade mig. För mig så löser det två ganska stora problem. Och det är att det tar bort väggen som är när man kommer in som användare att där är en vägg av du måste signa upp, du måste bli godkända användare, du måste skicka in dina kreditkortsgrejer innan du ens kan testa något. Så den grejen är ju väldigt viktig och det tycker jag att det här absolut skulle lösa. Om man då har någon form av testverktyg som detta. Och sen så är det liksom att visa upp den här MVPIN av vår produkt. Att det går lätt att sätta upp. Det lät på Lars som att vi får klagomål på att det är komplicerat.
+
+Speaker A 32:10:
+Att man
+
+Speaker B 32:10:
+väljer att skilja för att det känns som ett lättare alternativ. Men nu har jag faktiskt inte testat Skiljers produkt men jag kan ju tänka mig att de har minst lika mycket konfigureringar och sånt som vi har. Men att de kanske är bättre på att visa på den här lätta MVPIN. Du kan skicka ett meddelande utan särskilt mycket Z-up. Att Z-up en kamerasten om man vill göra specifika saker. Så för mig tycker jag att det här känns jättebra.
+
+Speaker A 32:44:
+Vad skulle du vilja mer? Det låter ändå som att du inte tycker att det här tar en hela vägen.
+
+Speaker B 33:07:
+Jag tycker Jag tycker det här är bra Men sen så har vi den här grejen med Den lär dig rätt mycket om vår kapacitet som Sinch, den lär dig ganska lite om vår dashboard. Du kommer komma in och du kommer fatta att jag kan använda Sinch för de här grejerna. Men sedan kommer man ändå signa upp och du kommer hamna på Wadashboard med att du ska skapa upp sändders och allting själv efter det. Jag tycker det här är en jättebra början men vi har ju mycket mer jobb sen också om du vet vad jag menar. För det här kommer lösa problemet att du går in och du signanar upp dig på Sinch och du är så Jag har inte testat produkten, jag vet inte om det funkar skitsamma, jag väljer att skilja. Men om syftet är att pinpointen att man ska tycka att vår produkt är komplicerad då kommer man ju få det I nästa steg sen igen. Vad
+
+Speaker A 34:44:
+exakt är det som är komplicerat just nu I Dashboard? Det
+
+Speaker B 34:57:
+är svårt för en som jobbar med det att säga exakt. Jag tror att det är mycket ord för samma saker. Det är för att vi speglar vad saker heter I de olika applikationerna. Men det hade förvirrat mig. Var en business profa, var en agent, var en zundher. Jag tror det är många steg där man fastnar. Nu väntar vi på easy. Så det står att du har ansökt om detta och så måste man vänta tills något har blivit process. Det tror jag är en sån grej där jag typ hade tappat tålamod och att man inte kommer vidare då heller. De väntar på det men jag kan inte fortsätta göra konfigurationen. Jag vet att de har gjort en del filmer på hur man sätter upp grejer och instruktionsvideos. Jag tror det kan vara svårt att komma in och förstå helheten. Att man kommer in och ser bitar överallt och man vet inte riktigt vad man behöver för att nå till Alltså såhär Vad krävs för att jag ska kunna skicka ut det jag vill skicka ut? Att det kan vara svårt att se.
+
+Speaker A 36:44:
+Vi ska kolla på prototyperna två. Det är samma scenario igen då?
+
+Speaker B 36:59:
+Ja, fast annan Här har jag ett konto, här började jag komma in I. Under helgen så försvann min sån här access så jag fick mail idag om att jag var tvungen att ansöka om ny access. Det var därför jag blev utloggad.
+
+Speaker A 37:35:
+Ja, det händer ni också. Jag hade lite tecken här, men Men nu? Du har signa upp
+
+Speaker B 37:47:
+Vad sa du?
+
+Onboarding app
+
+Speaker A 37:48:
+Du har signa upp på att tänka dig och sagt att du är intresserad av messaging och vill testa ASS.
+
+Speaker B 37:56:
+Här vill jag testa ASS. Okej. Jag tror det här också är lite så här, vissa hade säkert klickat här uppe, Get started. Jag hade nog faktiskt letat efter det jag faktiskt är sugen efter och klickat Get started där. Så är jag liksom inte intresserad av WhatsApp, Facebook och Instagram så kommer jag vara så Conversation ecpire, jag vet inte, men RCS, det jag letar efter. Kan jag klicka där? Där jag har flera olika steg. Vilket I och för sig är det trevligt att veta var man är I en process liksom. Så då är mitt första steg triout RCS. Då är det: Send a message. Då har jag en länk till dokumentationen. Den hade jag nu gått till.
+
+Speaker A 39:29:
+Ja, okej. Men
+
+Speaker B 39:35:
+Testphone number, då hade jag lagt till mitt telefonnummer. Hoppas att det var ett SSSS-nummer. Sen hade jag valt en variant här. Det
+
+Speaker A 40:07:
+är lite konstigt, du ska inte någon aktiestid, det är första gången du här.
+
+Speaker B 40:13:
+Det är det jag tänker att allt sånt här, hade du nog I ett testscenario velat redan ifyllt för en test sönder liksom. Eller dolt. Jag vet inte riktigt vilket som är bäst. Men här tycker jag det är najs att man har både request och respons bredvid varandra. På detta sätt att det gillar jag. Det påminner rätt mycket om Svagger och så. Och sen så hade jag väl skickat meddelandet. Är tanken här att man ska kunna gå in och ändra eller?
+
+Speaker A 41:16:
+Det är inte definierat riktigt.
+
+Speaker B 41:21:
+Det är ändå en ganska interaktiv grej att kunna vara så det jag skriver här är det jag kommer få på mobilen. Jag har nu förväntat mig någon form av så här nu har vi skickat liksom, alltså någon form av respons att någonting har hänt när jag klickar på sänd. Men när jag väl hade fått ett meddelande så hade jag väl känt att jag har testat och kanske provat några varianter. Sen gått vidare I Oisherden. Den här känns lite mer uttömmande här. Kan man hoppa över saker? Jag tror helt enkelt att de sakerna som är med information Det hade jag nog mest skummat igenom I en sån här där jag vill testa snabbt en produkt liksom och se om det är något för mig. Jag tycker det är nice när man kan se exempel såhär. Ja, vad sa det konstigt att hamna utanför utanför Wizören men
+
+Speaker A 43:31:
+ja. Hur menar du då?
+
+Speaker B 43:33:
+Om jag tycker någonstans här då hade jag nog inte förväntat mig att hamna utanför Wizardden. Jag hade nog tänkt att jag får se det I här ändå. Det är bra om man får en liten introduktion till vad saker är. Gillar att den har en egen sådan. Sen hade jag kanske att jag har möte.
+
+Speaker A 44:29:
+Sen hade jag kanske
+
+Speaker B 44:29:
+haft mer information här. Som faktiskt hämtar en aktieskris och så. Ska det här vara länkar då
+
+Speaker A 45:02:
+eller? Ja.
+
+Speaker B 45:08:
+Vissa grejer här ger mer värde än andra. Typ att man ska kunna testa, skicka testmasages, så här API-cases, att kunna se pailodes och så Det tycker jag är mer värd än en som bara är länkar till Docxen Support typ. Jag tror det är najs att lite mer uttömmande men jag tror man ska tänka på vad som faktiskt ger värde och inte. Det här är mer Då tycker jag nog det var bättre som I förra, att man har en Sandbox och en sida för dokumentation. Att de är liksom skilda snarare än att man har en Sandbox och sen referenser till dokumentation på detta sättet.
+
+Speaker A 46:27:
+Hur tänker du då?
+
+Speaker B 46:31:
+Typ som den här som bara är länkar till olika dokumentationsidor. Då hade jag nog hellre gjort så som det var I lavabour att man har en help for link dokumentation och sen så har man allting I den istället så att man är I För den här känns som en wishword med steg man ska ta sig igenom. Och sen så är det oklart när man är klar. Om du förstår vad jag menar? I så fall tycker jag det är make more sense och är den vanliga patronen också för utvecklare att man har en sida som innehåller dokumentation för ett API eller en tjänst. Och sen så att man har en separat sandbox eller att sandboxen är liksom på en sida I dokumentationsavsnittet. Jag har nog känt att jag har klickat väldigt många gånger. Och Det som var intressant var framförallt första biten och kanske så här IPI Key-case.
+
+Speaker A 48:23:
+Om vi kollar på den första delen, Trialt RCS. Den är ganska liten. Vilken av dessa tycker du bäst om? Om man tänker skillnader så finns det några små variationer men en av de största är att Analytics är på en egen sida eller delivery reportts. Lite mer information där.
+
+Speaker B 48:43:
+Men det tyckte jag var ganska najs. Den här första sektionen tycker jag är trevlig. Och jag tycker gränssnittet till det här med request-Response på detta sättet är trevligt också. Ja och jag gillar liksom att ja. Det känns liksom Alltså det känns som att det är verkligen minimum att det här är minst det du kan göra Men ändå liksom visar upp vad finns det för capabilities här. Ja. Så jag skulle säga om jag får säga vad jag tycker, jag tycker vi ska prata med några till också. Men hur jag hade föredragit hade varit att dokumentationen på sättet som är I Lavabo. Men att man har request respons så här och att man delar upp det lite mer. Det tyckte jag var ganska trevligt. I själva, vad ska man säga, testing toolet. Jag tycker kanske att det är lite oklart att det här är en en wished, I och med att det faktiskt inte är action I dessa på samma sätt. Utan det här är mer att läsa igenom. Då tycker jag att det passar bättre I detta formatet.
+
+Speaker A 50:47:
+Tänker du som en regel då? Om det var information kan det vara I dokumentationen men om det är något interaktivt steg så kan det få plats I en research?
+
+Speaker B 50:59:
+Jag tror det är lite så jag tänker Lite undermedväsendet så. Det är vad jag förväntar mig I alla fall.
+
+Speaker A 51:16:
+Ja. Alright.
+
+Speaker B 51:16:
+Är det
+
+Speaker A 51:17:
+någonting annat som du tänker på?
+
+Speaker B 51:20:
+Nej, jag tyckte lite credit. Jag tycker det känns bra att ni är på rätt väg.
+
+Speaker A 51:31:
+Tack!
+
+Speaker B 51:37:
+Involvera och sluta.
+
+Speaker A 51:40:
+Ja, särskilt när det är väldigt utvecklade nära saker som vi bygger.
+
+Speaker B 51:47:
+Precis.
+
+Speaker A 51:50:
+Tack så jättemycket för din feedback och det var jättebra att du gick igenom lite kring dokumentationen. Jag har ju bara promtat den här dokumentationen I lövboll. Det skiljer sig lite från vad vi har idag.
+
+Speaker B 52:00:
+Men det
+
+Speaker A 52:01:
+var väldigt bra att höra dina tankar kring det särskilt. Och tack för feedback kring de andra prostipen.
+
+Speaker B 52:10:
+Toppen. Men kul bara hugg tag I de andra. Jag vet hur du jobbar nu om det är sista dagen imorgon kanske.
+
+Speaker A 52:20:
+Ja,
+
+Speaker B 52:23:
+Jakob och Mihal jobbar också imorgon om du vill snacka med dem.
+
+Speaker A 52:29:
+Toppen. Bra, tack så jättemycket.
+
+Speaker B 52:35:
+Tack själv. Hejdå.
+
+Speaker A 52:36:
+Det bra. Hejdå.

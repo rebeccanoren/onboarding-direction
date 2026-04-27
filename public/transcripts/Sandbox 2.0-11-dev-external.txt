@@ -1,0 +1,332 @@
+Well, a lot of people in the Paris officefSpeaker A 00:02:
+I think it's this one.
+
+Speaker B 00:03:
+Mhmm. Perfect.
+
+Speaker A 00:04:
+Can you see my screen?
+
+Speaker B 00:06:
+Yes. I can see. So, you can start, you scroll up here. So this is the beginning of the of the page. And, I would just to give you a scenario
+
+Speaker A 00:20:
+so
+
+Speaker B 00:20:
+you understand what happened before coming here. So imagine you signed up to Build, and this is the first place you land after sign up.
+
+Speaker A 00:30:
+Yeah.
+
+Speaker B 00:31:
+And, you are interested in RCS. And I want you to just explore RCS as much as you can.
+
+Speaker A 00:38:
+Mhmm.
+
+Speaker B 00:39:
+And just, please share your thoughts with me out loud, like, what you see and what you understand from from it.
+
+Speaker A 00:45:
+Okay. Yeah.
+
+Speaker B 00:47:
+Do you have any questions?
+
+Speaker A 00:49:
+No. Not yet, at least.
+
+Speaker B 00:52:
+Yeah.
+
+Speaker A 00:53:
+For for now, it's it's, it's a clean interface. Like, since I'm going for the RCS, it's like, you know, it's just there. It says, like, you know, popular channels. We have all three RCS SMS WhatsApp. And if I'm a person who is looking for RCS, this is, like, directing. So I would click on the first, square here
+
+Speaker B 01:20:
+Mhmm.
+
+Speaker A 01:20:
+That says RCS. And I could see, on my, left hand side, there's a RCS channel as well. But, as a new person, I wouldn't go there because this is the first thing that I would, like, click on Mhmm. Just to get started thing. So I would click on get started, and it says send test message, create agent. So my honest opinion, because, I'm not much familiar with the RCS workflow, If I, like, do we expect the client to know which one, they should create? Like, you know, do a test message first or create a RCS agent?
+
+Speaker B 02:19:
+What do you feel like doing?
+
+Speaker A 02:21:
+I if I have a like, I would first, like, do the send test message, and, yeah, this is, yeah, this is much more straightforward. So, yeah, if let's say, if I have a number, can I try it out?
+
+Speaker B 02:40:
+Yeah. You can try it out. You won't receive an RCS message, but you can try this process if you would like. And you can just continue using that number because it's Okay. It actually doesn't, work. I just press continue. So in RCS, you will get this, on your phone. Like, you have to become a tester. Okay. Okay. So you can just press confirm here
+
+Speaker A 03:03:
+as well. And yes. And let's choose a message type. So, yeah, if I want to see, like, if I'm a, technical person, yeah, I would definitely leave the code and just understand, like, you know, what's gonna be sent and how the, the call the curl payload gonna look like here. And if not, like, you know, if it is just, if I just want to see the easy one without the code and stuff, this is much more clearer. Like, you know, so I could just, edit all this stuff, like, you know, have a title, do a small description. And if I have a custom image, sitting on, can I upload anything from here or just should it be a URL with, like, you know, on the web?
+
+Speaker B 04:07:
+So everything here is just a work in progress. So you can tell me if you would prefer to upload an image here, or what do you think would be the nicest experience, from your perspective?
+
+Speaker A 04:21:
+Since this is a test message, I I don't think I would have a an image, or, like, you know, fifty fifty. If I if I'm just a, not a technical person, I wouldn't have an image, which would be on the Internet, but I could, search one and just, like, you know, grab one. But I may have an image that I lying around on my computer, which I would like to upload and then send it. But I don't know, like, what what are the implications, we would have on the on our side. But after that, there's a button label. I'm not sure if this triggers any, event or something. I'm not familiar with it. But apart from that, all of these is very direct, and, like, I could understand what they are mean. Like, you know, what why they're here and what they're gonna do. And, basically, I could see all the stuff if I say, just it just, like, you know, update everything what I do from on these tabs or the text boxes on the right hand side of the screen. Mhmm. So I could, like, have a, clear image on what I'm what I will be sending to the, live mobile phone. So I don't have any issues with here. But here I'm not sure which card and okay. Uh-huh. Okay. So I get to select on what type of, RCS message I'm gonna send. Yes. So as a person who doesn't have any experience with RCS sending, through a platform, this is easy, to understand. And if you just, like, you know, click on everything, it's just straightforward, even if you switch back on these options as well. And I don't think it's difficult to understand here. And you have already given an an adoption if somebody wants to read the code as well. So
+
+Speaker B 06:45:
+Mhmm.
+
+Speaker A 06:47:
+So I'm gonna send a test message just to see.
+
+Speaker B 06:50:
+Just before you do that, how do you like the different tabs sending UI and new code? Like, which one do you prefer of those?
+
+Speaker A 07:00:
+Sending UI and VIB code?
+
+Speaker B 07:02:
+Yeah. Yeah. You clicked on both. Like, how do you like them if you compare?
+
+Speaker A 07:07:
+If I compare if I if I'm a person who doesn't understand coding or have little understanding of those Yeah. I would I would prefer the send in UI, which is much easy. And I still do prefer having the Viv code option, if they have, a person who wants to, like, you know, view them in a
+
+Speaker B 07:31:
+Yep. In
+
+Speaker A 07:32:
+a technical way of view weaving. Yeah.
+
+Speaker B 07:35:
+And is your background more technical? Like, do you like to see the code here or if you talk from your, like, personal opinions?
+
+Speaker A 07:44:
+In my personal opinion, depending on what I want to do with it, yes, I would, I would want to beep the code. And I could see, like, you know, how the payload is, like, structured and stuff. I'm exactly not sure, like, what I can do with the payload, basically. Maybe, like, you know, seeing this and, having a RCS agent, I could, like, manipulate it, much more than having it, seeing on in the UI itself. Mhmm. So if if that is the, path, where I'm focusing, like, you know, having using it on a on a code itself, And I if I want to manipulate it, like, having, dynamic values to populate it from my end, then sure. I would, love to have the code instead of the send UI. But if I am a person who doesn't want to see the code, I just want to, like, you know, send a message, and I want to be, I want it to be simple as it could be, I would prefer to send you why. Mhmm. So right now, I would prefer to send in UI because I don't know what I'm gonna do with the code right now. Yep. But
+
+Speaker B 09:12:
+how do you like that you can see the code here? Is, is that just maybe not you're not ready for this, or do you think it's, it makes sense to put it here anyway?
+
+Speaker A 09:24:
+I think it makes sense to put it here because I don't think, like, I think any, any client who is using, RCS, through our platform would definitely leverage it and use it on their own code base, and they would definitely won't have static content for this. They would definitely, like, you know, have dynamic content. Then it would make sense for them to have this option to read the code. So they would have a sample that they could, like, you know, use and test on their code base. So I think it's it's, it's a great plus. It's if we have both of them at the same time. And if I'm an account manager, I would, without, like, you know, not a technical account manager, but only want to send a message and try to go with the flow and, like, you know, get myself familiar with the, RCS workflow, then I would use the same UI. But if I have another engineer who is, like, you know, interested in within the code as well at the same time, then both of those can be achieved, since we have, these tabs to, like, you know, switch between the UI and the code. So I think it's a great idea. And I I personally love it. Yes.
+
+Speaker B 10:48:
+Okay.
+
+Speaker A 10:49:
+Yeah.
+
+Speaker B 10:50:
+You can try to send a message as you
+
+Speaker A 10:54:
+So yes. And, yeah, assuming I have the mobile device, then I would get it on my end right now. And at the same time, it's it's super good to, like, see the message logs here. I haven't seen that, yet in our synch build. But it's kind of makes sense, that the person who's sending could see the Vivo message logs here, and they could actually provide some information if they have anything, to ask or anything to support or their account manager or technical account manager. So I think this is, yeah, super useful to have free message logs. Let me check. Okay. So, yeah, I could see the conversation ID, for this RCS message. This is something, I think that we would have to, what'd you call it? I don't think, a new customer would know what is conversation ID or correlation IDs. Mhmm. That that is my first guess thinking that they don't have much experience on our platform. Since, like, I'm a online customer who is signing myself up, I think it is best to assume that I do not have a good knowledge on what these, parameters mean, when you send it, but it depends. But if he's a customer who is already been working with Cinch build platform, then he they would have, like, come across conversation ID and correlation ID. But definitely, it gives out give gives out a meaning that, like, you know, okay. This is a message ID kind of thing, which, maps to the message that I sent. So they would know, okay. This is something like, let's say, they reach out to support or the account manager saying that, okay. I need more information. What happened to this message? It it here it says everything. That's the best thing. Like, you know, here it's it shows you the message got queued, on the RCSN, and it got delivered. And and reply received from the recipient. Okay. So a recipient actually, replied to the RCS message. So I think the queries that right now we have would be reduced, actually, if we have this. Because right now, I don't think there's a way to view these. So most of the time, when client wants to know what happened to the message, they would basically, they would have to reach out to AM or they would create a create a ticket to us. Mhmm. And we would check and get back to them. Yep. So I think this is, like, you know, really nice that they could, like, you know, see, the message that they send and what's the status of the message. And if they have any, like, you know, incoming message here. It's super nice, I would say. Basically, we get a lot of queries, revolving around these, because the customer only could see a few details of the message they have sent, but not, descriptive, details of the message. So, yeah, my take is this is super nice, and they could download it as well. And and the fact that they could, like, copy these off of the Sage build is, like, you know, it's gonna help them when they want to, like, you know, get these to their engineers or our our engineers, like, you know, to the support as well, and which makes our lives easier as well.
+
+Speaker B 15:10:
+Yeah. And what if you're, like, a new customer coming here and this is your your first encounter with all of these things? What do you think about that then?
+
+Speaker A 15:25:
+Even if I'm not a person a technical person, the parameters itself kind of, like, you know, self explanatory explanatory. And it's just like, you know, you could read them and just understand them, like, you know, okay, what these, payloads are saying, basically. So I could see okay. The first one, the message got queued, which means, like, you know, we accepted it and handed to the RCS agent. And the first three ones just are the IDs, for the message. They wouldn't know much about them, but if we were to ask any ID or if they want to provide any ID, they would definitely go with these two IDs. Mhmm. And the channel is basic, like, you know, RCS where and it makes sense. We are sending through RCS. And identity is the number that we sent. Contact ID, I'm not sure. I don't think because okay. Okay. So, yeah, you get, like, you know, pop ups with, help, what you call them, help notifications or something when you go on top of those. Yeah. Now it it now it makes more sense. Like, you know, if some if I'm like, I had doubts on contact ID. So having this explain it to me, kind of make it more clear for me, okay, what, what this parameter is correlating to. So it's it's nice as well. Yeah. It's basically a contact ID if if I have, like, a saved contact or something that we send, and it's it just kind of, like, gets saved as a contact on a on I I'm not sure, but it just gives a a bit of understanding to a person who's reading it at least. So I could, like, you know, go on, understand a bit and then ask questions about it if I have questions from the account manager. And the first one, it's it's all good. The project ID, I think they would have an understanding because they're before you go to the synced build, definitely, they would have to create a project ID, to have a RCS, RCS agent or RCS app, set up. So they would need to know what is their project ID and the name, or they would set it up. So they would know, what this means. But, again, it explains it when you go on top of it, and the event time is, the time we sent. And and having the ability to, like, you know, beep the payload, for each of the events that is happening is really good. And, like, for all of the events, I could see the status is changing and every other thing is the same apart from the event time and the status. So I could, I could see if there is any delays or anything. I could basically, like, you know, check from here and understand, okay, where exactly or at least, like, have a small idea on where the delay was in, and then ask questions from the support if they need to. So I think it's it's, super nice to have the payload, and it's easy to understand. And even if I have some doubts on some parameters, it's really good that we kind of, like, give a small description of what that parameter means. And then if I still have, doubts, I could basically reach out to my account manager and ask few questions about it and then understand and map, okay, what what this parameter is linked to. Mhmm. Yeah. That's, my idea on on this part. And, Yeah. Next up, I'm gonna do I'm gonna go for the open API playground Mhmm. And just see what's what's there. So I'm gonna click on the open API playground. Okay. This is. Okay. So this is basically a sandbox setup that I could play with, and, like, you know, have access key here. Maybe Okay. I think, the person who will be using this one would be technical, because here, we would be, making API request to our endpoint. And to understand this, I think they would have to understand, what a call request means. And I think, the people who will access this will be technical people, engineers, or at least TAMs, who could, like, you know, do a curl and see, if it is, like, you know, going through from there instead of the Finch build itself. So I think, it's pretty straightforward. The only question that I have is would they know, fifty fifty biggest, I've seen, even the engineers kind of, like, come and ask, what they should use for the, authenticating this. So sometimes they would know, but it's good that, like, you know, it's the API credentials is up on the screen, so they they kind of, like, see this before they kind of, like, go to the API request. And they would know, okay. So these are the credentials they have to use, to, like, you know, correctly authenticate this call or the API call. So I think it's pretty straightforward. And, since this API calls call is already generated, like, you know, I assume everything here is, like, you know, you don't have to edit it. Like, it's already set up according to what we have chosen above apart from the access key and the, secret key which you can copy from here. So I think it's, you you could basically, like, you know, copy those two, put this curl, into postman or any, any way that you're gonna do the call. And and do, like a call and and see for yourself if it is working from your end. And if they want to go to, like, integrate this into it, they are Node. Js code base or Python, they could use the same, like, you know, copy these and just update the, access key and secret key. But this one already have it, Node.
+
+Speaker B 23:32:
+Js. And maybe the examples here aren't perfect, but the idea is that everything should be prefilled. Maybe not the key secrets because that's something you're not allowed to see.
+
+Speaker A 23:45:
+Yeah. Yeah. I think I think since we have the epic API credentials here, I think we could keep it like this, like, you know, your key ID, your key secret. So like this, but these two have it included, on the header. Yeah. For security reasons or oh, something like, you know, you could, like, have it, not prefilled, only those two parameters, but they could, see it from here. Yeah. So so if somebody wants to, like, copy this and use it, I think it's pretty straightforward to understand everything because it's, prefilled. You don't have to do anything apart from copying and filling the access key and the secret key. You don't have to type it as well. So it's you could copy and paste. So it will be, there will be less mistakes when you do that. So yeah. So I think, yeah. Let me let me see if I could run a request.
+
+Speaker B 24:55:
+It wouldn't, it's not working. I don't think this
+
+Speaker A 24:57:
+is an
+
+Speaker B 24:58:
+example is, about something you would like to do to run it your on your own, computer?
+
+Speaker A 25:07:
+Through here, you mean?
+
+Speaker B 25:11:
+Or how can you copy the access key? Would you like to be able to try this out on your computer, like, through the terminal sending this curl just to if this was real, then what what what would you like to do? That that's the question. So,
+
+Speaker A 25:30:
+if I have postman, definitely, I would go for the postman and just, like, you know, paste this and, do the post. But since this is a curl, I think it's really easy to copy paste and do through terminal, but depends on, depends on, what tool, the engineer is like, you know Yep. Has or, like I think it both are the same. I think, the Linux terminal is something everybody has if he's a, engineer or somebody who is, like, you know, technical. So, definitely, he would copy or I would do, like, you know, copy this and put it on a terminal on my computer and try it out instead of the UI Okay. And see if it is working from my end just to make sure. Mhmm. And, it's it's good that I could, like, you know, switch between, I'm not sure what you call these, but, switch between the types of formats of our CS messages that I could send. And it change like, it it predefines or prefill everything, depends on the messages that I select or the format. So it's super nice. I could basically send all three three types of these, just by copy pasting, from here and just changing from these, options. So Okay. Okay. There's super nice as well. So you could basically edit it, and then run the request through here as well. I think is, is that why we have run requests here?
+
+Speaker B 27:28:
+And what do you think?
+
+Speaker A 27:31:
+I, I, I think, it is, it is to run the request, because it's not running. Okay. And it does. So yeah. Okay. So this is like, making a API call through Cinch build, and and we could edit hit here as well, through the change build. So it will, like, you know, save some time if they just want to check check how this works and everything and how the, payload would work. So this is super nice and, like, you know, the the option to edit it on the sensibility build itself is really nice because you don't have to copy it and then paste it on a notepad and then do all the edits and everything. So I think it will, like, reduce the mistakes that someone would do because you could basically, like, load everything based on the type of the RCS message that you want to send and then edit it from the, from the Synch build itself. And then if you want, you could send it from here, and it is working. And if you want, after that, you could copy it from here and then paste it on the on your terminal and do it as well just to make sure everything is working from your computer instead of since you build. And and just like earlier, I could see all the logs, and the payloads, for the message. And the other one, I would be interested in this one.
+
+Speaker B 29:26:
+I'm not sure if that works.
+
+Speaker A 29:27:
+Oh, okay.
+
+Speaker B 29:28:
+Unfortunately, it's not fully fleshed out. But you can go if you scroll up and go back to test, the API, here in the, banner, if you switch the stepper in the top, it says test the API. Test the API. It's green and with a checkbox.
+
+Speaker A 29:52:
+This one?
+
+Speaker B 29:53:
+The second one.
+
+Speaker A 29:56:
+This one. Okay. Test the API.
+
+Speaker B 29:58:
+And then you can continue testing that.
+
+Speaker A 30:01:
+Okay. Yeah. So that was here. Run request. Yeah. So, yeah, I would keep this as is. And, these ones are super useful, just like before. We I get all the information that I need if I want to extract them, from my end. I don't have to contact, support to retrieve these information. And if they want to check anything from their end, they could. If they want to, give this information to the support, they could read as a I'm not sure. I've I've not used the earlier version of it. So I'm not sure if they were able to do this, but this would be super useful for them as a user. Mhmm. And
+
+Speaker B 30:54:
+So you mean also when you're sending production messages, you would like to have access to this more detailed payloads, of the events?
+
+Speaker A 31:06:
+I'm not sure how productive, that is for Cinch, but it would be nice to have at least some kind of, payload, not for everything. At least, like, let's say I get, I get the payload for what I've sent.
+
+Speaker B 31:27:
+Mhmm.
+
+Speaker A 31:28:
+And then I would see these two, events without the payload because that's
+
+Speaker B 31:34:
+Okay.
+
+Speaker A 31:35:
+The only thing that is changing is the event time and the status. Mhmm. Yep. That's that's my, understanding of this flow. But it it would be super nice to have the payload. Definitely. Because, there are lots of times we always ask, the client. Okay. Can you please share what what is the payload that you have sent, instead of the ID? Because for us, from my end, we don't have a direct way of getting the payload. We would have to check the logs and everything. But it if, if this is available for them, this would be a straight, direct access for their payload, but they have sent instead of them making a call, on their post API or a current request, on their machine. This would be like, they would use since build more instead of the instead of making the API calls. So I think, from my, point of view, I would rather have delivered payload and then the rest of the two events without the payload because it's the same payload changing
+
+Speaker B 32:48:
+Yeah.
+
+Speaker A 32:48:
+With with the status and the event time.
+
+Speaker B 32:50:
+So the goal is to to track the status of a message, basically.
+
+Speaker A 32:54:
+Yeah. Yeah. And and, since, like, the event, it would be nice, if I could see the event time on the, on this, banner, like, you know, here. Yeah. Because if I were to, like, you know, if I don't have this part here, then having event time somewhere here or, like, you know, as a drop down or something would be nice instead of having this. Okay. So you
+
+Speaker B 33:26:
+think this is, like, too detailed?
+
+Speaker A 33:29:
+No. No. Actually, but I think it's, it's it's okay. I I mean, it's it's it's nice, but I think it's redundant because redundant in a sense we have the same payload repeating itself. But the only, thing that is changing is the status and event time. So I think it would be okay to, like, you know, remove those two and just have Yeah. Event time instead of So
+
+Speaker B 33:58:
+the the idea here is to give them an idea of what the webhook looks like because how it works today, they need to set up webhooks themselves first if they create something, on their own. Mhmm. But this is, just to give them, like, this is what you will get once you have the webhooks, set up.
+
+Speaker A 34:20:
+Okay. Then that would make sense if they are set like, you know, setting up, webhooks for different events.
+
+Speaker B 34:30:
+Mhmm.
+
+Speaker A 34:31:
+If that is, what we are focusing on.
+
+Speaker B 34:35:
+Yeah. It's just to give, like, your users the first hand experience with our CS and conversation API. So this entire journey is for, like, new customers only. Okay. Just to introduce them, mostly.
+
+Speaker A 34:53:
+Okay. So, yeah. I I think in in that in that sense, if you put it that way, I think it's useful, if they want to set up, webhooks and, like, you know, how, the pay would payload would look like on different statuses. Mhmm. So, yeah, that's something I didn't know. But, yeah, then it would make sense to have the payload as a example. So they could, like, you know, use these to set up, or modify whatever they are setting up on there. So, yeah, it makes sense. Then I would keep it instead of removing, the Yeah.
+
+Speaker B 35:37:
+But for if you are actually using our CS later and you want to see the full analytics, maybe that can be more condensed. We don't need to have all these details, if I understood you correctly.
+
+Speaker A 35:52:
+Yes. Yeah. If I if I want to, like, you know, in introduction, logs or something that we kind of, give them. Let's say, we have a message search for our CS. I'm not sure how that's gonna go for them. But, if we could, like, you know, let them view the payload they have sent, and if we are going to let them view the events as well, then the event time Mhmm. Would be enough or, like, I would, want to see the event time. Rest of the stuff is okay. I don't mind because I have the payload already. Yep.
+
+Speaker B 36:36:
+It makes sense.
+
+Speaker A 36:39:
+So here, it's it's it's all that. Like, you know, that's it from here. And, so I think handle replies and delete reports. Okay. Save messages, explore message
+
+Speaker B 37:02:
+types. I would
+
+Speaker A 37:05:
+okay. This redirects me to the documentation. Okay. Yeah. This is super nice how you have, put it out. Yeah. I I like the fact that, we have, the statuses described first and the parameters, explained first. Then, like, you know, we kind of, like, show an example of, message delivery example, a payload that they get from my end. So I kind of, like, have a I could, understand, like, you know, like, if I refer these, statuses and the, explanations, then I'm able to understand what we are getting here and use them on on my side, on the code. So it's pretty straightforward. And and I could, like, you know, focus on what are the events that I want to set up, webhooks. If I want to, like, you know, set up separate webhooks for each event or have, like, a one webhook to get get them all, depend on, like, what their use cases. Yeah. It it it even shows how how you could, like, you know, use the events on on there. So this is super nice. And, like, if if somebody doesn't have an idea, okay, they know webhooks, like, you know, how they could use it, this is this would be super nice to, like, you know, get them started. And then, like, you know, advance from there because they have this, use case here. Yeah. I I think it's super nice. I haven't touched or, like, you know, involved in, setting up my books or how it would look like on a client's end. But I think this would be straightforward for them to, start going instead of, like, you know, them starting from the scratch because they have a example to go on. So this is good. And now
+
+Speaker B 39:34:
+I'm gonna close this one and
+
+Speaker A 39:37:
+send and receive messages. Okay.
+
+Speaker B 39:39:
+Okay. So not everything works here, unfortunately. All of these would, lead you to the documentation.
+
+Speaker A 39:48:
+So, yeah, I will leave this one then, for now. And I will go for create production process agent.
+
+Speaker B 39:59:
+And yeah. And so but before, could you just summarize, everything you experienced so far? Like, how has this been?
+
+Speaker A 40:09:
+As a new customer, the UI was pretty straightforward. Everything was explained and everything was, like, you know, structured in a clear way that, I don't I I was I didn't have to search for anything. It was just there. So I I first approached RCS because I wanted to set up RCS. And when I went there, the only decision I had to make make was which option that I'm gonna do, like, you know, to do a live test or do, API testing, or RC like, create a RCs agent. That's the only decision I had to make, and everything else is like having a form. Like, you know, you have predefined, steps that you have to do. And once you do it, you you could basically see dynamically what you're editing and what you're gonna send and what will be received on the, mobile send or the end user send, which is super nice. And I think it will it is like, you know, it will save more time for the user, than because they don't have to think about what's happening because nothing is going, like, happening on, in the background, basically. Everything is happening on the front end. They have visibility to the code if they want and how it gonna show up. And that is super nice because they don't have to think or wait until, like, it's being received on the mobile, sir. So I think it's really transparent. Visibility was there for the user. For me, it was not difficult to understand, the workflow or the process. It was just like, you know, if I go through them one by one, read everything, and the next time, I would know how to do it and what, what every option, means and what in what is intended for. That's my take on, all the options that I have taken right now as far as now.
+
+Speaker B 42:18:
+Yeah. Yeah. Thank you for summarizing.
+
+Speaker A 42:20:
+Yeah. So I would go for the create production RCS agent, and it says, go live with RCS in three steps. Set up at countries, add details, and submit approval. Okay. And just in case
+
+Speaker B 42:44:
+I don't think that link works or maybe it will.
+
+Speaker A 42:46:
+Oh, okay.
+
+Speaker B 42:47:
+Yeah. No. Yeah. But that will be some pricing information.
+
+Speaker A 42:51:
+So I would go for continue. Okay. So I would say test brand if I have a brand. And test agent. I'll describe it. This these are just, like, you know, if you have your requirement, this is this would be, like, pretty, straightforward what you're gonna fill in them. And if you have that
+
+Speaker B 43:22:
+to add the the brand and logo Yeah. You can just press Yeah. Continue here if you want to go.
+
+Speaker A 43:28:
+Yeah. And it's super nice that you could actually basically, edit the template here. How the test agent gonna look like and how like, you basically, you are you have a, how do you call it? How do you put it? You could basically see what you what what you're gonna, edit and modify on the screen, and then you're gonna know this is how it's gonna look like to, to the end user. Mhmm. I think, so it's it's it's if it if it is that workflow, then it is super nice that you could basically see and edit what you're gonna do here. Mhmm. So, yeah, I'm gonna click continue. And, yeah, the region, whatever the region I'm gonna host, the RCS. And the use case, yeah, basically, this would be the requirements, client would know. So if I'm sending one of these category if I'm sending traffic that belongs to one of these categories, I would basically choose one of these. Like, for now, let's see trans promotion, maybe. And yeah. These are straightforward as well. I assuming, the client, like, have been working with SMS, definitely, even though they haven't worked with Cinch, I think they would have a working knowledge on SMS and stuff. Then this would make sense, like, you know, what this pricing model is. So, basically, like, conversational. It's like, you know, you send a message and you keep opening like, you keep the tunnel open until for twenty four hours until a user replies. And within that twenty four hours, if somebody replies and if there's a discussion, they will be billed. Otherwise, if nothing comes in, after twenty four hours, it will be billed for one message. And if I don't expect, them to be conversational, it's just like in a one way message, Then I would choose basically nonconversation. It's just, something for them to look at and just, like, you know, we don't expect any messages back. So, yeah, it's in the summary, you get, your agent details and your use case. You could, like, you know, basically review them again just to make sure and continue. So I have created my test, RCS agent and, yeah, here business details. I would basically add my business details here. Said draft. Okay. So I have one question. So, should one, fill all of these, in order to submit the approval? What do you think? Yes. Yeah. I think I got my answer. So it's it's yeah. If if yeah. I would say, like, if one person comes here and just, like, see everything, and even if they don't see this, definitely, they're gonna go for this approved. So it it kind of, like, redirect me back to these steps. It says, complete these steps. Add country, add verification details, add contact details, contact information. Yeah. Definitely, I would come here and then, like, you know, put every information as, advised here and it's pretty straightforward. And send RCS message. Connect. Okay.
+
+Speaker B 48:06:
+Connect tab. What is this about?
+
+Speaker A 48:20:
+I my first thought is, like, you know, I don't have any idea. I, it's it's not because of the, how it presented, but, I'm I'm not familiar with the workflow Yeah. Be just because of that. But it says, I know this is the application I created. I know that. This will be the, app under the RCS, basically. I I know like, you know, if I'm if I have created my application, then I would definitely recognize the name and the ID here. So it's it's it's, I I think, anyone else would recognize that, but I'm not sure what connecting your RCS agent to the conversation API means. Maybe it's like, you know, getting your RCS agent live so that it could send a test message through conversation API. But I I I you could read and understand a bit, but I don't think I would have a super good understanding of what I'm doing right here. But I would basically, like, you know, connect my app and see what's happening. So it's now says connected to messaging app. So because I know in my head what conversation API is, then I could, like, you know, correct the dots. But if a customer doesn't know what conversation API is, then there might be a doubt.
+
+Speaker B 50:01:
+Yeah.
+
+Speaker A 50:01:
+But it's not because of the UI. It's because of I don't know how, the product itself is working.
+
+Speaker B 50:09:
+Yeah. Yes. I see our time is, running up, but I
+
+Speaker A 50:13:
+Yeah. Yeah.
+
+Speaker B 50:14:
+So this is also something we're struggling with, like, how to connect, RCS agent with the conversation API app because that's not a simple concept to some users. Yeah. So yeah. But, yeah, it makes sense what you shared. And thank you so much for your time and sharing all of your thoughts. It has been really interesting following, and it has been really good feedback, for me and the team as well. So thank you so much.
+
+Speaker A 50:41:
+No worries. And thank thank you for letting me, doing this. Now I'm kind of, like, you know, know how the house is set up is working. So Yeah. I could, check from my end as well. But thank you.
+
+Speaker B 50:52:
+Yes. So And We are redoing the send to build, RCS flow. So soon, it will look more like this, but it's still, the old, flow, like how it is right now. But they will change during the year.
+
+Speaker A 51:07:
+Yeah. And I, my honest opinion, I love the UI. It is just, straightforward and it's easy to understand. And it's clear as well because it's everything is white. So I love the white background as well and the, yellow B team going on. So it's, it's super nice. Yeah.
+
+Speaker B 51:29:
+Yeah. Thank you so much for, for everything and have a great rest of your day.
+
+Speaker A 51:34:
+Yeah. You too. You too. And bye bye. Have a nice day then.
+
+Speaker B 51:38:
+Take care. Bye.
+
+Speaker A 51:40:
+Take care. Bye bye.

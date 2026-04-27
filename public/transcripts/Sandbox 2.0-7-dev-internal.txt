@@ -1,0 +1,449 @@
+Speaker A 00:02:
+So, just, share your thoughts, what you see, and what you understand from what you see, here.
+
+Speaker B 00:14:
+So yes. Initially drawn to the, what do you call it, the banner type thing. Connect with your customers on their preferred messaging channels through a single unified API to improve engagement, streamline your communication workflow. I guess my first question would be if I was, an IKEA employee, like you said, looking into RCS, would I initially go here, or would I try to navigate through the the channel?
+
+Speaker A 00:55:
+Whatever you'll need to.
+
+Speaker B 01:00:
+Four channel, unpreferred platform, recommended channels, RCS. So maybe I would have scrolled down and, gone here, start with RCS. Engage with customers with each branded conversations. Yeah. So, I mean, initially, I would be curious about this, but I wouldn't be able maybe I am able to. Maybe I've already gotten the phone number. I don't know.
+
+Speaker A 01:36:
+And, yeah, just to give you some background about s RCS here. So in order to be able to send test messages, you need to register your own, phone number.
+
+Speaker B 01:49:
+Mhmm.
+
+Speaker A 01:49:
+So that's, it's not similar to SMS, what you're used to. This is more like your personal phone number that you need to verify Yeah.
+
+Speaker B 01:59:
+Gotcha. So So this would be, like, for the sake of the prototype, it doesn't matter, though. Right?
+
+Speaker A 02:16:
+Yeah. That will be your phone number. So Yeah. Let's just imagine that's yours. Yes. And then you will get the notification on your phone saying, like, do you want to become a tester? Gotcha. So that's what the process looks like, with Google.
+
+Speaker B 02:49:
+That's cool. Okay. Morning special blah blah blah and text message. Ah, I didn't see this. Okay.
+
+Speaker A 03:01:
+What didn't you see?
+
+Speaker B 03:03:
+I I was focusing more on this. I didn't, I didn't realize the, the, what do you call it? The frame iframe or whatever
+
+Speaker A 03:13:
+it's called. Yeah.
+
+Speaker B 03:17:
+But that's probably just more so that I'm focused on these fields.
+
+Speaker A 03:21:
+Mhmm. So what is going on here on this page?
+
+Speaker B 03:26:
+Yeah. If I actually interacted with it, I would have seen, you know, that I can that that it updates this. So I, yeah, I think I was just too, too quick. And, obviously, these wouldn't be filled out, you know, or maybe they are filled out. I don't know. Are are they filled out when you initially come to the like, is it filled out with, with this kind of template before?
+
+Speaker A 03:59:
+Yes. That would be the idea just to to, show what that kind of message looks like. You have the message type here in the top, so you can just try different variants and also to have some content inside. So it's really easy to just send a message.
+
+Speaker B 04:17:
+Yeah.
+
+Speaker A 04:17:
+But you can also customize, of course, if
+
+Speaker B 04:19:
+you want to change. Gotcha. I'm just curious what the other ones do. Media.
+
+Speaker A 04:31:
+Maybe it's not where it's I made this prototype in lovable for me.
+
+Speaker B 04:35:
+Oh, okay. Perfect. But Yeah. So then I click that. Okay. So then I see all of my oh, that's really cool. So I I, sorry. I'm not saying what I think is cool. So I can see all the, like, message information here. The test messages, I can see the IDs, the channel, recipient, correlation ID, and then I can see when it was delivered and when it was queued. You can click on the view payload. That's a little bit more information there for me. Download. Okay. So now I've tested it, and now I wanna see test the APIs. So that's nice. So I'm guessing this is just what you need in order to set up your API, like, the, keys and stuff?
+
+Speaker A 05:59:
+Is that a question for me? Or Yeah. Yeah. Kindly. What do you think?
+
+Speaker B 06:04:
+Yeah. I would assume this is, like, my, this is, like, you know, credentials and, all the information that I have for my API stuff.
+
+Speaker A 06:24:
+So, could you please just update this, page? Because I'm realizing I have made some changes that wasn't published before. So maybe I can you can just go to send test message again.
+
+Speaker B 06:38:
+Mhmm.
+
+Speaker A 06:38:
+And then just go down
+
+Speaker B 06:41:
+to the so you can
+
+Speaker A 06:42:
+go to the next. You don't need to complete, Oh, okay. Everything in order to go there. So So just, this yes. Here. Okay.
+
+Speaker B 06:57:
+Uh-huh. Okay. The wording here is better, I think,
+
+Speaker A 07:04:
+than How is it better?
+
+Speaker B 07:07:
+It's more straight to the point than, the safe environment to to test. Create your own and replace the sandbox setup. So that I don't remember if that was in the last one, but I think that makes more, sense.
+
+Speaker A 07:31:
+And what does sandbox mean to you?
+
+Speaker B 07:36:
+As me as a developer or as me as a so it's kind of like, you know, like a playground type scenario. We use we have, something called Apollo, and they have something called Apollo Sandbox. And that's kind of where you can test your queries and and things like that. So for me, it it's kinda like what you the environment to, play around with an API or something like that.
+
+Speaker A 08:13:
+Mhmm.
+
+Speaker B 08:37:
+So one thing I'm curious about is, I'm guessing this is more like, how to plug it into your app or something. More than like, the test message is just to initially see that it works to to deliver messages to your phone. Mhmm. I'm guess I'm just curious about this part, the API request. So is that to show me as a developer how I can connect this to my node app or my Python app?
+
+Speaker A 09:28:
+What do you think?
+
+Speaker B 09:31:
+I would assume so. I think the first one is, like, that I don't have to even have an app set. Like, my my business app. Right? I don't have to have it plugged in yet. I can just do it either via a Chrome request or or that just that button clicking that button and setting those fields. But for this, to me, it feels more like it's to set up, in my app and test it within my app Mhmm. So that I can see, like, my server actually, you know, completes this API request.
+
+Speaker A 10:12:
+Yep.
+
+Speaker B 10:14:
+That is what my but what is this? Run request. So what I need to can I edit? Yeah. I can edit. Okay. So what was my key ID? So key ID would, I'm assuming, be your access key, and then my secret key would be this one because it's called secret key. Access key and key ID ID was a little bit, like, I'm just assuming, But I think that makes sense. So now I can actually run this request. Okay. So the message was sent. So it's not really like, what is the difference then than the previous page? Can I go back?
+
+Speaker A 11:41:
+Yeah. I can go back.
+
+Speaker B 11:44:
+Just trying to figure out. So the send test message, they also have this.
+
+Speaker A 11:51:
+Mhmm.
+
+Speaker B 11:56:
+But you can't test this with Okay. So this is just to send from the API. This is to show you that it's yeah. That there is the code, but you have to go to the API playground to get there or to actually, like, to, to run it. Okay. That makes sense then.
+
+Speaker A 12:25:
+Do you think that's weird?
+
+Speaker B 12:30:
+No. I'm just kind of I'm trying to give you more than, you know, like, I I I'm trying to speak as much as possible. So, I I just was curious, like, what the difference between this and, that other screen we went to was. But now I think that makes sense. So, I can go there. I can okay. That's just documentation stuff. K. Now let's set up an agent.
+
+Speaker A 13:05:
+But, just, before we move on. So, you were mentioning you were expecting more about, like, how to integrate this with your actual app. Do you feel that's missing? Or
+
+Speaker B 13:21:
+well, I was meaning more so that, so what I was trying to distinct between the two, this one, this, send a test message and then the test the API. Mhmm. And I was saying that I think the purpose of this over the other one was to show you how to plug it in to your, you know, back end. Yeah. Obviously, the one before you have the, you can view the code as well. But maybe yeah. Maybe if you're blowing through it, you kinda just do the send the UI because it's it feels more natural.
+
+Speaker A 14:17:
+Mhmm.
+
+Speaker B 14:20:
+But, you know, it's not like this is hidden or not not in sight. I did see it the first time through. But all I was trying to say was that I, try I was trying to figure out the difference between the two. Like, what what is the reasoning for, the second part? But but now I see that, it makes sense, altogether with the, you know, with my credentials and all of that stuff, my sandbox credentials. And, yeah, and this, request box that I can run the request.
+
+Speaker A 15:09:
+Mhmm. So which, one of these do you prefer? The send in the UI or this where it's more detailed?
+
+Speaker B 15:21:
+That's a good question. And this is speaking as a tech person?
+
+Speaker A 15:36:
+Or is it like, you yourself.
+
+Speaker B 15:46:
+I mean, I think both are useful in different for different reasons. I think this is useful for just, like, seeing the capabilities of of RCS. So receiving this text, it would be, you know, cool the first time around because I'm you know, maybe I've looked at the product just very briefly, and I'm just like, well, what what can I do with RCS? And, this is nice because it's not overwhelming information. It's a form that I I can play around with and be like, oh, cool. You know? I can, you know, make this or I can, do text and media or, so I I think this is helpful for right off from the start. Okay. What what does, what does Cinch do for me? You know? But as a tech person, then here, this is like okay. I've seen I've seen the functionality, and here now I can see how to actually implement that in my app, you know, how it will kind of look. So this is information that I don't think is a hundred percent necessary from the start, if that makes sense. Like, the test u UI one, yeah, I don't have to understand this right off the bat or or have this right off the bat. I think it's nice to see its capability first and then, then get the more detailed information. Does that make sense?
+
+Speaker A 17:41:
+Yeah. Do you feel anything is missing from this page?
+
+Speaker B 17:57:
+I mean, I don't know if the iframe is necessary or not. That's the only thing I I would think is that, Yeah. I I would, okay. Here's one input I have. The second sentence, when you're ready to go live, create your own and replace the sandbox setup. Perhaps there could be, like, a link or something that if I'm lazy and I'm because I think a lot of us in tech are, like, we just kinda scan. You know? We don't necessarily, like, read the full thing. So if I am just, like, scanning through this, I see this sentence. Okay. Where do I create my own? And now I see that I've scrolled to the bottom. I see that I created here. But maybe you could have something that points me down to this button or something that takes me you know, if I don't wanna go through with this whole thing.
+
+Speaker A 19:22:
+Yep.
+
+Speaker B 19:23:
+You know, with the whole sandbox, like, I'm I'm ready to just get started. I'm ready to get going. Yeah. That's that's one input I would have. Okay. The iframe maybe, but I don't know if it's necessary when we had it on the previous page. You know?
+
+Speaker A 19:40:
+Yeah. Because
+
+Speaker B 19:41:
+I already know, like, what my rich card or my, media or my text. That being said, I would recommend that if I'm doing my okay. So if I'm doing this and I edit these fields, I think it would be smart for that data to persist to this page. So if I change this to a media or text in media on the first screen on the test API. Right? Yeah. And I changed the fields and all that. It would be a nice feature for that to persist to this. But, again, I don't know if that's a hundred percent necessary just like I don't I don't know if the iframe is a hundred percent necessary. This is just me talking out loud. I'd have to
+
+Speaker A 20:36:
+kinda think about it. That's great.
+
+Speaker B 20:38:
+Yep.
+
+Speaker A 20:40:
+So what do you think is the next step for if you imagine back to the scenario, what what would you do next?
+
+Speaker B 20:50:
+From the sandbox page?
+
+Speaker A 20:53:
+Yeah. Or from, like, now you've been sending test messages. You've been looking at the sandbox environments.
+
+Speaker B 21:00:
+Mhmm.
+
+Speaker A 21:00:
+How would you move on?
+
+Speaker B 21:02:
+I'd wanna do this create. I would wanna create the production one. I wouldn't wanna, you know, be using the sandbox anymore or the testing. I I wanna I wanna create a real one so that I can hook it up to my app, I guess.
+
+Speaker A 21:21:
+Okay. Yeah. You can move on. Do whatever you want to. So what is this?
+
+Speaker B 21:43:
+Just a brief, like, kinda walking me through, the steps of creating a RCS agent. What what will be required. I need to add brand details and use case, and then I need to add countries, and then I need to add, some details that will be reviewed by yeah. I'm guessing the local, yeah, local operators in Google. I can go to visit more documentation, and I can go to see how pricing works. Maybe if I yeah.
+
+Speaker A 22:32:
+Yeah. It's alright. It does not work. Some leaks are yeah.
+
+Speaker B 22:37:
+If I really am interested, I would click that, but I probably wouldn't, to be honest. Yeah. I don't know. A lot of the times when I'm working, I'm just trying to get the thing done. You know? And if it's on the behalf of my company and we've already talked about that we're gonna use this, I'm probably not gonna look at the pricing because it might not affect me. You know what I mean? Yeah. So, the brand name would be IKEA. Is it all capitals?
+
+Speaker A 23:21:
+Yeah. I believe so. Yeah. Or they usually they just type it. That's you don't need to add the new branding here if you don't
+
+Speaker B 23:40:
+Oh, okay.
+
+Speaker A 23:42:
+You can continue.
+
+Speaker B 23:44:
+So continue. Europe. Multi use. Conversational. So I would maybe be curious about this and Yeah.
+
+Speaker A 24:23:
+Not sure if they will work, but you will be or maybe you can try clicking on them to see if there's some more addition info. It doesn't work? Okay. Yeah. But you will be there will be some more details about the different categories.
+
+Speaker B 24:44:
+But I think that's good and helpful that you have that, like, what's right for me. Because you maybe don't think of that stuff, you know, from the outsider's perspective. And Add countries and send test messages. Okay. So I have configured my app, I'm guessing now. Or, sorry, my agent. Yeah. I don't see that's cool. Yeah. Just a summary of of what I did. So what was that? We did the details and the use case. Now I'm guessing it's gonna be the the local operator needs to, approve us or something. So the country that I added was only for the appearance or, two hundred euro approval fee. And I'm guessing if this was legit, it would take it said, like, four to five business days, it said. I
+
+Speaker A 26:35:
+think And
+
+Speaker B 26:37:
+This wouldn't happen right away, I'm guessing. Completed or, like,
+
+Speaker A 27:04:
+What is this?
+
+Speaker B 27:12:
+So I'm assuming that this is how they sign up for this, contact from us and, I'm guessing also how they unsubscribe or whatever. Maybe not. Just by making a purchase in store online wouldn't make sense. But, yeah, how they receive these messages. Like, what what I'll, what do they do in order for them to receive these messages? So have they bought something, or are they subscribing to, like, the newsletter or whatever? So I'm guessing that's just so that, there's probably some, I don't know, EU rules or something like that on whether they have, given consent to receive the messages. That would be my assumption.
+
+Speaker A 28:21:
+Yeah.
+
+Speaker B 28:21:
+Sorry. I'm having a really hard time because I'm, like, somehow wanting feedback from you, but I know that that's
+
+Speaker A 28:28:
+not the point of this. So Yeah. I understand it.
+
+Speaker B 28:33:
+So I'm guessing this would be, like, our terms and conditions or something that they have had to click yes or no on. And this is yeah. Okay. So this is, like, the, like, reply stop in all capital letters, or whatever they need. Okay. Sorry. No. This is if they were to write reply stop to us. This is, like, hate to see you go or something. We could customize the message that's sent out. Right? Mhmm. I keep saying right, but I know you're not supposed to. The web URL, maybe it's no information here. But, I don't know what that would be. Maybe, like, maybe, like, the, setting the user preferences. I know that I've done that at least when I've, you know, maybe I bought something for Christmas for someone, and then I just received so many emails from them that I go to their you know, on the email, you can click on subscribe, and it'll take you to this thing. And it will say you know, you check off, like, I do wanna receive offers, newsletter, and, order status. Right? And then you can check those off. That's what I would guess the web URL is, but not entirely sure. I'm sure this info thing would tell me more, though. Yeah. I think this is self explanatory, but nice to have the extra just in case you're unsure. K. So here, what I'm seeing here is just how to and, again, I also feel like I'm explaining the obvious, but I think that's also the point. How how do these messages like, how are they triggered, basically? Is it from marketing campaigns or, yeah, user actions. This this makes total sense to me. How how the messages go out. Like, is it scheduled or manual or whatever? Okay. So that's interesting. So I can, order how
+
+Speaker A 31:39:
+I'm not sure they work, though, like this interaction.
+
+Speaker B 31:43:
+Yeah. I know. So okay. So my question on this would be, is there, how does this work? Like, do I and I I know I would be able to know if this this was fully functional, but, I'm just curious as as an actual question for you. Do I are these, like, preset values in a list, or are they, like, when I click this ad, I'm able to type, like
+
+Speaker A 32:25:
+they are presets. They are presets. Yeah. But they are coming from the type of, when you had the in in the beginning when you set the use case for the agent. So they are just generated, like, suggestions, but then you can't edit.
+
+Speaker B 32:45:
+You can't edit them?
+
+Speaker A 32:46:
+Mhmm. Yeah.
+
+Speaker B 32:51:
+But this is all of this stuff is for for, like, the third party like, the network operators and, Google and stuff. Like, all of this information, I'm guessing. Right? Okay. Yeah. Or am I wrong?
+
+Speaker A 33:13:
+No. That that's, actually true. It's for the Okay. Furthers.
+
+Speaker B 33:18:
+Yeah. Yeah. I I was just wondering how, like and it definitely doesn't matter. I was just wondering how how this works because, you know, obviously, this isn't behind some sort of logic or anything. It's it's mostly just, details. It's it's doesn't affect the actual product, if that makes sense.
+
+Speaker A 33:45:
+Yeah. That's right.
+
+Speaker B 33:49:
+Yep. And then I just, you know, would put whoever is responsible.
+
+Speaker A 33:57:
+You don't need to fill anything in here. You can also just save, I think.
+
+Speaker B 34:03:
+So contact information. Okay. So this is just how they get in touch with, like, our customer support, I would assume. Yeah. Because I'm get, what I know of RCS is, like, the when you set up these brands and stuff, you have, like, like, it's like a verifiable it's it's more safe than SMS because you have these, registered brands that, you know, I can actually go and view their stuff kinda like this.
+
+Speaker A 34:59:
+Mhmm.
+
+Speaker B 35:00:
+Alright. Terms of service, privacy policy URL makes sense. Yeah. All that straightforward. Did I need to enter something maybe? Doesn't check off. Okay. Wait. What happened? No.
+
+Speaker A 35:56:
+No. Yeah. Sorry. It doesn't say the progress. If you just click continue, it will just be
+
+Speaker B 36:11:
+Okay. But I
+
+Speaker A 36:13:
+think here you just need to enter anything.
+
+Speaker B 36:22:
+Country, test numbers. And this is a big big project.
+
+Speaker A 36:35:
+What what is this?
+
+Speaker B 36:49:
+Yeah. So RCS is just the channel on the, on the conversation API. So conversation API is the overall, kinda like the wrapper, I would say, for like, I can add SMS there, and I can add WhatsApp and all of those other messaging channels. So here, I'm just connecting it to that wrapper, like, to the conversation API. Now I know that because I work here, so I don't know if I would know that directly. Yeah.
+
+Speaker A 37:44:
+But does it feel like a natural concept or do you think it's, not so common? Or
+
+Speaker B 38:12:
+Yeah. I, I will so at this point, I'm guessing because I have this app here, I would have had to have created the conversation API app first. Right? So then I think I would have a bit more background on that.
+
+Speaker A 38:38:
+If you would create it yourself?
+
+Speaker B 38:41:
+Yes. I get the concept, though. I mean, it does make sense that, you know, I'm not gonna be contacting all of my customers through one. You know? I I there's email. There's SMS. There's WhatsApp, Instagram, all that stuff. So I get that the company needs, like, several several channels, and those are all encapsulated in one app because one might be, like, my marketing, and one might be my, you know, promotions or, well, two factor authentication or something like that. I don't know. Mhmm. So I get that. I get I think it makes sense.
+
+Speaker A 39:35:
+Yeah. But why do you think it would make more sense if you would need to create it yourself first instead of just being given it like this app from the start?
+
+Speaker B 39:51:
+I think what I meant by that was, understanding the use case for the conversation API, if that makes sense. So, if I go through the steps of creating it, I can kind of see how it's applied. But if I'm creating an agent and then I have to connect it to an app, I might not get that right off the bat.
+
+Speaker A 40:14:
+Okay.
+
+Speaker B 40:26:
+Yeah. But, see, I can create one here. I I guess I would just say that maybe, well, I mean, you do have this description here. Maybe some sort of link or something where I can read up on that could be helpful for somebody who doesn't fully understand the concept. But I do think this wording is good. Yeah. I do think the wording is good. I just was trying to cover every you know, if I'm a bit, struggling with the product. Yeah. Yeah. K. So I can go to my app, which will take me to conversation API. Test number. I can to the verified number. K.
+
+Speaker A 41:57:
+Sweden.
+
+Speaker B 42:04:
+What does this conversation tab do?
+
+Speaker A 42:06:
+Anyway, it would just give you, illustration of what it would look like when you're sending messages, like, with your branding, or your provider.
+
+Speaker B 42:22:
+All that is self explanatory.
+
+Speaker A 42:28:
+What would you like to do next?
+
+Speaker B 42:32:
+So I would, I think I would probably go to submit for approval, because now I've, you know, checked everything off and Well, maybe I would like to test this, actually. Oh, I would probably check it. I might have been able to do that from there. I don't know. Yeah. But, I would wanna go to submit for approval. K. So I don't feel like I have to have everything correct. Right? I I can come back and change this stuff later. I can add more countries at some point and, pay the fee then, and it won't have to I won't have to recreate an app or or an agent or anything like that.
+
+Speaker A 44:12:
+Mhmm.
+
+Speaker B 44:18:
+Yeah. And then I send it to Google, and I see that it's in progress. And then I guess I would I would feel like I I'm done until the review process is over. Mhmm.
+
+Speaker A 44:47:
+So, yeah, this is the and, like, you can't go any further here in the zip prototype. Mhmm. But how, what are your, how does this experience feel, like, from the start until where you are right now?
+
+Speaker B 45:04:
+I think it's definitely a step up from our current experience in, like, SMS because I felt, you know, SMS can be a bit overwhelming. Like, we're you know, like, clicking around and trying to figure out how to how to get this all started. I think this is super helpful that it walks you through and, gets you, like, baby steps, you know, and explains the the reason for this field and why I need to, you know, do this with countries or, my cuss you know, business details and stuff like that. So I do like that it holds your hand a little bit as well as explains before you start the steps. I find that very helpful when I'm, when I'm working with something that, it'll explain it to me before I actually go through those those, stages, what it is for briefly and why. I think it is, like, just as a whole, this isn't just Cinch, but, you know, Twilio, any of them. Like, it is a more complicated product because of the issue. You know? It's all of the security things and and stuff that we need to take into account. So you have these, you know, review processes and, setting up things. So, but I do think it breaks this problem down, so that it is not as complicated as it needs to be.
+
+Speaker A 47:07:
+Mhmm.
+
+Speaker B 47:08:
+So definitely a huge improvement, from our current, you know, SMS product.
+
+Speaker A 47:18:
+Yeah. And from, like, a developer's point of view because now it's, you added both, like, business details and you did, testing the API and stuff. How did that, feel to you?
+
+Speaker B 47:35:
+Yeah. It felt pretty seamless. Like I said, the the business part wasn't even if I don't, you know, come from that background or whatever. Like, I it let's say I'm just purely involved in the tech. Like, I understand because I understand what those business things are doing because, because I've been on the other end of receiving texts. You know? So I I can get, yeah. I think I think it's pretty self explanatory. And the testing, I think, the UI is really nice, especially with the iframe and stuff like that. I can, you know, physically see what I'm doing before I even send because I I think you can be a little, yeah, nervous to send something.
+
+Speaker A 48:38:
+Yeah.
+
+Speaker B 48:39:
+But being able to see it beforehand is is super nice.
+
+Speaker A 48:48:
+And what would you like to improve of everything you saw so far?
+
+Speaker B 49:03:
+I really don't have much much feedback on that. I I like I said, I think it's designed very well. I like that, I like that it doesn't throw me into the deep end. Because I, like, I can I can feel that way sometimes when setting up, like, a service API is that, you know, if I have no if I am an employee in IKEA, I've got no, like, idea how the anything about the SMS world? Some of these things are just like, okay. Well, what do I how do I do this? You know, what do I do here? Why why do I need this? Why does this actually what is the function of of this, like, default originator? You know?
+
+Speaker A 49:56:
+Yeah.
+
+Speaker B 49:58:
+And there's not much information on it either, on our pages compared to this. So I like that it walks me through the setup of it, so that I almost can't go the wrong way. You know? I kinda have to go, like, follow the correct steps.
+
+Speaker A 50:18:
+Yeah. Yeah. But, when it comes to the conversation API, and setting up, like, webhooks and all of the technical parts, Do you feel that or how would you learn about those things you think? Are those missing here, do you think? Or
+
+Speaker B 50:43:
+didn't you have I can't remember where it was. Somewhere. Maybe here. Yeah. I think it could be helpful, like I said, to have something here. Mhmm. Right. If let's say another team member of mine set up the conversation API, and I'm tasked with setting up our CS agent. So I have no I don't really know much about the conversation API app, like, what it does Yeah. Other than this sentence. I think it could be helpful to have, you know, go here to learn more about, you know, conversation API app.
+
+Speaker A 51:44:
+But, are you fine with, like, going somewhere else to learn about it? Like or what would you expect, that experience to be like?
+
+Speaker B 51:57:
+Yeah. I I think I would be fine going somewhere else. I also really love, like, learning, visually. So if there's some sort of graphic that explains, you know, this is your conversation API and here's your s WhatsApp channel and here's your SMS channel and all that stuff. If I can see a quick, like, little graphic, then, I understand. Okay. So this is the encapsulating app that, you know, sends out these mess modes of communication.
+
+Speaker A 52:37:
+Yep.
+
+Speaker B 52:40:
+So either one. It could be even here somewhere, you know, in the integrate. Right? It could be there as well that, like, that image or or what conversation API does. You could have a bit of description or something. It doesn't need to be on the front page because I am not even at that point yet. You know? Yep. So either one of those makes sense for me, to it to another page or to right right there. Mhmm.
+
+Speaker A 53:25:
+Alright. Is it anything else you've been thinking about?
+
+Speaker B 53:32:
+No. I I really like the UI, though. I think everything, especially, like yeah. Since we've changed the and stuff, I think everything looks really nice. So,
+
+Speaker A 53:45:
+good job. I'm happy to hear that you like it. And thank you so much for giving me your feedback. It has been really great listening to your, thought process. And you're really good at sharing what you are thinking, so it has been really helpful.
+
+Speaker B 54:01:
+Okay. Good. I was getting a little nervous. They're like,
+
+Speaker A 54:05:
+I'm just getting a little nervous. It's a bit of, like, an awkward situation. I get that. But, yeah, you did really well.
+
+Speaker B 54:12:
+Yeah. It's it's funny because I noticed how much when I do things like this, like, I notice how much, like, feedback in a conversation is necessary. Because with the silence, I'm kinda like, oh god. Am I doing something wrong? Am I saying something?
+
+Speaker A 54:31:
+Yeah. That's part of the process. But, yeah, thank you so much, and have a really great, rest of your day.
+
+Speaker B 54:40:
+Yeah. Thank you. Same to you.
+
+Speaker A 54:42:
+Yeah. Great. Take care.
+
+Speaker B 54:43:
+Thursday. Yep. See you. Bye. Bye.

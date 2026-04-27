@@ -1,0 +1,416 @@
+Speaker A 00:02:
+Signed up to Cinch build portal.
+
+Speaker B 00:05:
+Yeah.
+
+Speaker A 00:06:
+So you created an account and did the initial onboarding thingies. And now you are interested in RCS, so your task here is to explore RCS. Like, imagine that you want to use it, for your business.
+
+Speaker B 00:24:
+Okay. Alright. So I'm here on the page. The thing that I immediately get drawn to is popular channels because it's got the images. First one is RCS, so I will go click on that. Oh, and it's a card. Nice. I don't have to go directly to get started. So now I'm on RCS for business. Send a test message, create RCS agent. I don't know what an RCS agent is, so I think the first thing that I would do is click on send test message to see if I can do that. Alright, so I can send it to my device which is what I would want to do so I click here to add my phone number That looks good
+
+Speaker A 01:16:
+enough. Your phone is r c is capable. Confirm.
+
+Speaker B 01:22:
+Your test number has been verified. Alright. So then I can choose a message or use code. This is cool.
+
+Speaker A 01:34:
+It won't be able to run that, unfortunately. Oh, okay. So let me But you could, send it in the UI just to see what it looks like, after sending a message to the API. But that's, I guess, what you would like to do, run it somewhere in your terminal? Or
+
+Speaker B 01:55:
+So since I'm a developer, my instinct could be just to open up a terminal and run this command in curl because that would be the simplest way. I don't have to, like, open up a file, throw this in there, and then run it. It just runs directly, and then I'll see the app within the terminal. But I'm gonna instead go to send in UI. And so here, we've got all this. That is fine. I'm gonna just modify that and then send a test message. So it says queued. Oh, now it says delivered. That's cool. Getting the real
+
+Speaker A 02:39:
+time updates. And now we've got some more detail here. Let me check out this payload.
+
+Speaker B 02:51:
+Accepted in queued processing. That's all info that would be handy to have. And alright. Let's see. If I wanna go back to do something else, I would click here. And then I would probably go to test the API next after that. And could
+
+Speaker A 03:19:
+you just update your, the URL refresh? Because I realized, I have a newer version, and I just published it. So maybe I will it's just, like, really small details. But if you just update you, you will see the most recent one. And then you can just click on, send test message quickly, And then you can go back, it will take you to where you were before, I guess. So here it's mostly the same as we just saw.
+
+Speaker B 04:20:
+K. So delivered, and then we can tell when the message is read. That's cool. Alright. So I would want to go back up here
+
+Speaker A 04:36:
+to send a test message. Oh, where is this?
+
+Speaker B 04:39:
+There's a preview of our image. Oh, that's pretty neat. Oh,
+
+Speaker A 04:48:
+yep. That's the right thing. What do you think about this page in general? Like,
+
+Speaker B 04:59:
+I like the layout of this page. It looks great. I like the fact that the cards are collapsed here, just showing a preview of the information, but the very last one is expanded to show me the output of the commands here. And I like that if I wanted to, I could download that JSON file from either one of these to look at it later. This doesn't really mean anything to me, but I like the fact that you've got these buttons here where I can easily copy it. I'm assuming that is gonna be important for other things in this dashboard. So So it's nice that there's that user friendliness there. And then I really like the preview here of the the messages where you can change to different types of messages and see the previews. And the fact that they're live, it can't get set up. It's
+
+Speaker A 06:04:
+awesome. I got
+
+Speaker B 06:08:
+and I can see, like, what the the output would look like for those as well. So I'll see them very clean. The whole next up thing, open API playground, since I'm unfamiliar, I would ignore these and go back to this page and try to figure out what is next. And, like, this would be the very next thing that I'd wanna do since I did the UI thing first, then I'd wanna go to testing out the API and grabbing this, sending this in a terminal. So I'm guessing one of the keys I copied could be put here. So I would try to paste that in, then copy this whole thing. Maybe edit this if I wanted to. Oh, so let me click on edit. There we go. So I would then try to update those, go in here, edit some of this text, then come over and let me just do this. Two. We're here. Check the preview. They don't have to copy it instead of run. So then I would run the request and see what happens after that.
+
+Speaker A 07:38:
+Mhmm.
+
+Speaker B 07:39:
+So wait. So let me generate a key first. There we go. So these would be the things that I want here. Oh, it's already there, which is beautiful. So now this is run request, and I click on that. Alright. That is nice having this here, so I don't need to actually copy this manually and go to my terminal and run all those. And the fact that whenever I click on the generate key button here that it auto populates down here, also very nice. I would expect that it would also put the keys in here, and it is doing basic cost for that. Same for Python. Yeah. And then again, just this this part being collapsed is pretty nice. It looks like it doesn't expand the last one of these down here. So I would like to just see what the very last message is and have that expanded just like it did with, the previous version. Mhmm. And then this is like, did you know you can reply to messages? No. I didn't. And let's see. What do these
+
+Speaker A 09:15:
+Yeah. Maybe not all links are functional, unfortunately.
+
+Speaker B 09:19:
+That's alright. So, yeah, I would go back to this page to see what's next, and I was like, alright. What is the RCS agent? So I can have my brand name and logo and colors. Okay.
+
+Speaker A 09:37:
+Before going there, how would you, make sense of the two different pages that you just, tried out if you noticed they were different? One had a preview, and the other one didn't. Okay. Send test message step and the test day API step.
+
+Speaker B 10:05:
+That isn't something I noticed as missing on the test API page, but I did like it when it was present on the send test message page. So here when I'm on the test API page, the thing I would expect is to be just typing in keys and copying, like, JSON and then pasting it into a terminal. So the fact that I didn't have a graphical preview is fine because I I don't have that expectation whenever I'm interacting with an API.
+
+Speaker A 10:43:
+Yeah. But do you think it makes sense for them to be two different pace pages?
+
+Speaker B 10:49:
+Yeah. I
+
+Speaker A 10:51:
+do. And why?
+
+Speaker B 10:53:
+I think that prevents people who, like, don't gravitate towards the API part from getting overloaded with all of that Cody nonsense. Like me, personally, I would probably go directly to the the API page, but I can see other folks who just want the the graphical part first. And if you're targeting a wide range of people, it makes sense to offer the simple version first, and then go into the more nerdy stuff after. And it here. Let's go back. I think there was a way to get to, yeah, the code if you wanted to from here. So like me, I probably, if I landed on this page, would have gone to view code Mhmm. Copied this, and then kept on going. Or, actually, just click on this thing here to go directly to this part and then do this whole story and dance.
+
+Speaker A 11:59:
+Would you prefer going straightly to this page?
+
+Speaker B 12:02:
+I would.
+
+Speaker A 12:04:
+Yeah. Okay.
+
+Speaker B 12:12:
+I do appreciate having this around just because of this preview that is here, but I would probably when I'm just getting familiar with the product, I check out this page one time, and then every single time after that I'll just go straight to the API
+
+Speaker A 12:34:
+page.
+
+Speaker B 12:39:
+So then I'm coming up to this part, which I don't know what this is, so this is gonna be interesting. So go live with RCS. Step one, start an agent, add countries, and add details. And then there's this big continue button, but this says, here's our RCOS pricing works. So I would actually wanna see how this works first.
+
+Speaker A 13:05:
+Unfortunately, that's not working either. But that would take you to a more detailed page about how we charge for, sending messages in different countries. And Alright. So with that. So I can You can continue.
+
+Speaker B 13:25:
+I'd probably come up here and open this up in a different tab.
+
+Speaker A 13:28:
+I think that one would work if you would try that one later.
+
+Speaker B 13:33:
+Let's see. Up up here. So there we go. So I would open that in a different tab, which is exactly what that does, which is great. Just have that on the back burner and keep on going here. So I'm gonna create a
+
+Speaker A 13:54:
+new profile. Enter the agent display name. Okay. Alright. I don't think you're required to add a logo here or a brand color. You can just continue if you would like, but you can pick another color. Not sure that these are working. To run maybe you're not able to upload images, but you can select another color for the background better.
+
+Speaker B 14:44:
+Yep. So this is continue button was covered. I can see it. So this preview, that's pretty neat. I did not expect if I came over here to select color that it would override the brand color. So that is sort of unexpected, which is confusing to me because I'm like, why are there two different things? And why is it not possible for me to use my brand color and the background color? Like, maybe here, I'd have the background color, and then on my logo, the background of that, instead of being white, would be the brand color.
+
+Speaker A 15:34:
+It's, not so clear here, but, in the conversation, you can also select the color of the chat bubbles. But, unfortunately, I don't have a preview for that here.
+
+Speaker B 15:46:
+But,
+
+Speaker A 15:47:
+it's a good feedback that you want to understand where this color will be used.
+
+Speaker B 15:53:
+Yep. Alright. So where is my agent gonna be used? Let's say the US. Oh, I want it for sending transactional info. Which billing is right for me? K. Alright. Conversational charge per twenty four hour conversation window if the user replies. If no reply, build per message. Not supported for sending RCS messages to the United States. So it sounds like I can't use that, so I would have to try this. So nonconversational it is. Continue. Alright. So there are more steps. Thought I did this already when I added or I chose the USA. Oh, this is where I'm sending to, so I can send two different countries. Can I select multiple countries? No. Just one. That works. Add local mobile operator details. Cool. Can I add another country here? Looks like this isn't working yet to manage. Should required. Verify. Oh, we've got more info. Hang on. Okay. So
+
+Speaker A 18:08:
+And if you don't need to input this information, you can also go to next step.
+
+Speaker B 18:15:
+Okay.
+
+Speaker A 18:16:
+But, yeah, these are the requirements for going live with an agent in the US. It's, quite heavy.
+
+Speaker B 18:33:
+Website is w w w dot w w dot com. Alright. Contact person is.
+
+Speaker A 18:55:
+Alright. So that looks good.
+
+Speaker B 19:04:
+Alright. I'll wait for these people. There's nothing I can do here. Back to this. I wanted to go back to the RCS setup page. So looks like I need to go down here to agent.
+
+Speaker A 19:31:
+What is this page about?
+
+Speaker B 19:35:
+This is the agent page that I just set up that I wanna go back to and finish the rest of the the steps because I've only done one out of four. So it looks like I can't do anything else on this page. See if I can add some of these. Yep. That's the one I care about. When does your business send messages? How will users interact?
+
+Speaker A 20:30:
+I don't think this section would work in the prototype, unfortunately.
+
+Speaker B 20:40:
+Alright. That one's done.
+
+Speaker A 20:57:
+And what is
+
+Speaker B 21:01:
+this? I do not know what this is. Oh, looks like this is how users can reach me when they're in the agent UI. So I set up a phone number or email or can send them to a web website. K. So this is going to call the agent, I assume. But if they wanna reach me directly, they can use just one of these channels that I've picked, which currently I picked phone number. Let me go at these links. So if I hit save, looks like I can't do anything else here because I'm still waiting for my country. Oh, start Google review. Apprairie won't begin until the steps are completed. Looks like I need to do this. It wasn't clear to me that I need to do both of these or click on both of these items down here.
+
+Speaker A 22:40:
+Mhmm.
+
+Speaker B 22:40:
+So even after I saw, like, this action required, I just assumed you guys are gonna send me an email that requires more action. So Yep. So I didn't click on this right away. So now clicking on that. Tell us what kind of messages you will send, what will trigger
+
+Speaker A 23:05:
+them. Does it feel like, filling out this information?
+
+Speaker B 23:37:
+It feels very tedious filling out this information. But I do like the fact that, tabbing works, so I don't have to, like, go click on each thing. So the accessibility is pretty good. Hey. Now I'm ready. Okay. So now I noticed that we've got some other tabs here, actually. I didn't notice those before. So I'm gonna click on those and check those out. K. Let's do whatever that is so I
+
+Speaker A 24:33:
+can test this. What is this?
+
+Speaker B 24:45:
+I have no idea what this is. A conversation API app is required to send and receive messages. It messages your channels, credentials, and message events. So I don't know that I need this. I would just ignore that and go up here and click on submit for approval. And now we come to a price. So I either accept or I don't. So I would submit, which takes me back here. I see it says waiting for approval, and that is where I would kinda stop because I can't do this anymore. So, yeah, I would just wait.
+
+Speaker A 25:52:
+Mhmm.
+
+Speaker B 25:52:
+Oh, wait. So one of three completed. Oh, so I do have to do this connection. So only apps in this region are showing. So I'm guessing I would already have apps set up in Cinch build, and I'm connecting them.
+
+Speaker A 26:17:
+So what do you think this is? Like, why do you need to do this step?
+
+Speaker B 26:23:
+So that I can link the web application that I have with this agent. So seems like I would already have this app set up in since build somewhere. And now the agent that I'm trying to get approved is gonna be linked to the app so that it can send messages, or it can be used with the app, or I could create a new one. So that is working. I can send a test message, which I do love to do. And this says you can use a template or it'd be custom.
+
+Speaker A 27:02:
+Yeah. May this one isn't working, but we yeah. You could send, like, an RCS message to yourself from this agent.
+
+Speaker B 27:12:
+Yeah. And it says the message is sent. So I actually would then go to the app here to see how that is working together with everything. And since I have an app, I would think I need to do something on the other end, and I do. I need to set up webhooks, and that's how the app is gonna talk to the conversation API. So I am guessing that the agent would be, like, sending its messages, and then it would send events to the webhook endpoint that I'm gonna set up here to notify the app about things happening. And whenever it delivered a message, have a hook, whatever one is inbound. Channel event, I don't know what that is. Let's start off with this.
+
+Speaker A 28:26:
+I
+
+Speaker B 28:31:
+oh. AWS functions. That's cool.
+
+Speaker A 28:36:
+Unfortunately, this part of the prototype isn't, like, really fleshed out yet.
+
+Speaker B 28:42:
+Yeah.
+
+Speaker A 28:42:
+But it's so, yeah, this step is still looking like it needs to be completed. But what is your idea of what the app is and, like, how you came here from RCS? Like, does it make sense to you? Or
+
+Speaker B 29:02:
+So I am assuming I would have to have this already set up beforehand. So this would have already been here, and then I wanted to integrate the RCS agent with it. So coming back here, from there, that does make sense.
+
+Speaker A 29:24:
+But do you think that the test app is something you created yourself?
+
+Speaker B 29:28:
+Yep. I would think that this is something I created myself. Mhmm. Not something you guys created for me.
+
+Speaker A 29:34:
+Yeah. And what purpose does it serve from your understanding?
+
+Speaker B 29:41:
+To test out the message sending. So, like, here, I should be able to oh, should I click that? Okay. So this, I would wanna be in test mode to do whatever it is. I'm trying. Add that number. If one is our CS capable. So I want to do something like this.
+
+Speaker A 30:29:
+Oh, no.
+
+Speaker B 30:31:
+I don't want to do
+
+Speaker A 30:32:
+something like that. Let me go back. Yeah. This is really, far in the prototype. So this is not really working, but it's, interesting to see what you would like to do here. I
+
+Speaker B 30:51:
+was just gonna follow the send test
+
+Speaker A 30:53:
+Mhmm. Test message. Because you wanted to send the using the agent that you created or like this one.
+
+Speaker B 31:01:
+I was just clicking on it because I saw the button, and I was like, oh, what's that? So just being curious.
+
+Speaker A 31:07:
+Mhmm. But, from all of what you have tested so far, like, how what do you think about this experience?
+
+Speaker B 31:19:
+This part is confusing to me just because I didn't actually set up a test app beforehand. So, like, this setting up the webhooks part, that makes sense. Yep. But the, like, the whole dropping me into this page is a kind of weird because I'm like, well, I didn't create this from the beginning. So how how did we get here to the test app?
+
+Speaker A 31:50:
+Yep.
+
+Speaker B 32:06:
+And then channel.
+
+Speaker A 32:08:
+I don't think these would work, either, unfortunately.
+
+Speaker B 32:13:
+Okay. So this is something that I would already have set up with
+
+Speaker A 32:21:
+build. Yes. I mean, I can explain a bit to you because, this is a confusing concept. I understand that. But it's, we have the apps as a, like, container so you can configure and attach multiple different channels to them. So you would do an integration like sending, via your application, and, that is using the conversation API. So, it makes sense if you want to send with both SMS and RCS because then you can say, try with the RCS first. And then if it's not, if the, receiver doesn't have RCS an RCS capable device, then try with SMS, for example. So it's like how you
+
+Speaker B 33:10:
+yeah. So this has channels. One of the channels here was RCS. Since I'm currently configuring the RCS channel Mhmm. Why doesn't it populate down here so
+
+Speaker A 33:23:
+I could It it should. It's just like a
+
+Speaker B 33:26:
+Okay.
+
+Speaker A 33:27:
+A flaw of this prototype.
+
+Speaker B 33:28:
+Okay.
+
+Speaker A 33:29:
+And because usually, I don't use it as this part, but, maybe it should be, more detailed so it would make more sense to you. But it's, seems like it's a bit of, like, a weird concept to you, like, how the app like, its role in all of this.
+
+Speaker B 33:52:
+The I wouldn't say it's a weird concept. It makes sense because you have to or I would have to connect my application that I want to work with the agent somehow. So either on my end, I am, like, creating my own admin area where I'm putting in, like, conversation API hooks on that end, or you allowed me to do it here easily. Yeah. And looks like you're doing it here. It's just confusing because I didn't actually do the creation part, so I just got dropped here. And I'm like, alright. I don't really know what a channel is, but apparently that's good. I know what a webhook is, so I need to hook up the webhook to, like, my this would be something, like, I created, I would guess, my target URL, where I want your application to send the data to on my web server. So I'd have an actual URL to send this to. And then this would be the secret just so that anyone can't send step two, and then that would and then I'd pick yeah. I only want you to send me the webhook whenever you guys have delivered a message, or I could pick when you're just sending one here. And I I don't know what channel that is. So
+
+Speaker A 35:24:
+Yep. So, you mean that the weird part here is not the the concept of an app, but that you didn't create it yourself and you'd it was difficult for you to see. But when would it make sense in this journey to, create an app? Because you might sign up and you want to use RCS. That's our assumption at least in our team. That you want do you want the channel? You don't really care about exactly how you configure the channel or that you need to create an app? So that's more of like, okay. Now I have my RCS agent. I can send messages, and then you will focus on exactly how you will use it. Is that a fair assumption or what you thank you. Yeah. But it's, you would like to start with create your app, and then we should explain what is an app.
+
+Speaker B 36:23:
+I would not like the app to be created for this is just me. I don't want you to create the app for me just and have me drop into this UI. Like Yep. You started calling it, like, test app. I was like Yep. Alright. So I guess I created it before. Like, I should be determining, like, what the name is from the very start and know that I'm in the test app creation flow or app creation flow. So maybe, like, add a little banner explaining, now you need to create your app. And this is what you're gonna do instead of I think how we got here was from one of these things.
+
+Speaker A 37:11:
+Yeah. It's under integrate. In the tab section here.
+
+Speaker B 37:22:
+Oh, yeah. So I clicked on this just because I saw the integrate, and I was like, connect to conversation API app. Alright. So once we are here, I saw this, my first app. If you are the ones creating that Yep. That is confusing. I would just wanna be like, alright. Let's do the yeah. Yep. This is what I would expect. So I'm creating the my awesome app, then I'm doing this. So I have all the context of what's going on. Mhmm. If it's my first time, this makes sense? And then I could be like, alright. So I have this. Now I'm gonna go over here and okay.
+
+Speaker A 38:11:
+No. The name didn't balance.
+
+Speaker B 38:13:
+Yeah.
+
+Speaker A 38:13:
+Change. Yeah. Yeah. It's something you you created yourself.
+
+Speaker B 38:17:
+Yeah. Since I created that, now I'm like, alright. The whole setting up the webhooks thing, that makes sense because I know how I got there.
+
+Speaker A 38:25:
+Yep. As you feel more in control, like, this is I recognize the name or where it came from.
+
+Speaker B 38:35:
+Yeah. And I know what it's for because I'm the one that did the action to create it. Mhmm. So, like, before, since I wasn't familiar with the whole, like, RCS conversation API ecosystem, I assumed before I even got to this point, that app was created by me, and I'm just, like, going in and hooking it up.
+
+Speaker A 39:02:
+Yep. Got it. And the first part of the experience before you started to set up these agents, What was that like?
+
+Speaker B 39:22:
+That was actually super easy. Like, the sending the test message, working with the API, I really liked how user friendly that flow was. And once I started using, like, the keyboard to navigate, I was like, oh, it actually works. And I could see, like, you have thought about the different focus states for whenever you go from control to control. So that's also a nice touch that I like is they're designing for accessibility. Now I'm wondering if you guys have a dark mode because it's very bright.
+
+Speaker A 39:56:
+Yeah. This is just a prototype, so we don't have a dark mode. And we don't have it for a Cinch build at all. But, yeah, maybe we will add it.
+
+Speaker B 40:09:
+Developers love their dark mode.
+
+Speaker A 40:11:
+Yeah. Yeah. They do. Nice. But it felt like, like, this experience creating the agent, that was when it became more, like, okay. What is going on here? Yeah. Yeah.
+
+Speaker B 40:31:
+Once I got to this part, I was like, okay. I guess I'll just follow the prompt. So I'm already done the brand details. I'll add the country and do that. But I wasn't certain of what to do once I got here Yeah. To this point.
+
+Speaker A 40:54:
+And we're just, like, going with that flow a bit. But it's, so this part is more like, for compliance, like when you want to really use this in production. That's why we require so much details because otherwise, you're not allowed to send any messages using this agent. It's requirements from the local, carriers and from Google. So if you are a developer who just wants to try it out and send test messages and work on the integration parts, these steps wouldn't be necessary for you because that would be more like go live.
+
+Speaker B 41:40:
+Yep. Yep.
+
+Speaker A 41:42:
+But the second to do list here, send RCS messages, is more like how you set up the app and, test numbers because then you can start to send messages. So then you can also try it to pro programmatically, like sending messages through your API.
+
+Speaker B 42:06:
+Okay.
+
+Speaker A 42:10:
+So I'm just like you would like to prefer maybe send our CS messages to be the first,
+
+Speaker B 42:16:
+thing. Yeah. Yep. That's what I was just gonna say. I was like, probably just, like, move it up one.
+
+Speaker A 42:23:
+Yeah. Is it something else that you've been thinking about, like, during this when you were testing?
+
+Speaker B 42:40:
+No. But I did open up the documentation here. So at some point, I'd probably go back and be like, alright. What are the
+
+Speaker A 42:48:
+the
+
+Speaker B 42:48:
+docs like?
+
+Speaker A 42:50:
+Mhmm.
+
+Speaker B 42:51:
+If I wasn't familiar with RCS, this page seems very handy. Knowing that there are limits, types of media that I can use. Let's see. Good information to have. Yeah, what are my limitations? So that works. Feature phones not supported. Carousels. So this is, like, image carousels? We could support that?
+
+Speaker A 43:43:
+Yeah. I'm not sure if it's I generated this, the AI. So I'm not sure if it's true. I I believe all of these different content types would be available. But it's just that Apple doesn't, all of mobile carriers haven't enabled RCS or iPhone devices.
+
+Speaker B 44:07:
+Are you okay?
+
+Speaker A 44:14:
+Mhmm. But thank you so much for sharing your input. It has been really valuable seeing how you navigate and what you understand from what you see. And also good to get some clarity on the integrate part with the conversation API app as well.
+
+Speaker B 44:33:
+Okay. Yeah. Well, I'm, I don't know, not, I would say a typical developer. So I like doing things on the command line. Maybe get some other people's input too.
+
+Speaker A 44:52:
+Yeah. Yeah. Well, I'm collecting inputs from different, people. More from developers. Just
+
+Speaker B 45:01:
+Yeah. Yeah. Some people are very much like, I wanna do everything on the command line that I can. Mhmm. Some people are like, I want a graphical interface all the way. Yeah. And a lot of people are in the middle. So
+
+Speaker A 45:16:
+Mhmm.
+
+Speaker B 45:17:
+That all depends on what you prefer.
+
+Speaker A 45:19:
+Yeah. But you were, like, really fast just clicking, trying, and seeing what you could do. Is that how you normally go Yeah.
+
+Speaker B 45:28:
+Whenever I get to an interface like that, like, Stripe has a dashboard, I'll just Yep. Click around and Yeah. See what it offers.
+
+Speaker A 45:36:
+Mhmm. Yeah. It makes sense. Okay. But thank you so much for for your time. And hope you have a really nice Easter as well. Enjoy your
+
+Speaker B 45:51:
+time. Same to you. Happy Easter. Bye bye.
+
+Speaker A 45:54:
+Thank you. Bye.

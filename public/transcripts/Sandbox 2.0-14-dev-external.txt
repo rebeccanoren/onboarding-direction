@@ -1,0 +1,398 @@
+Speaker A 00:02:
+You signed up to CinchBuild here. So you already completed, like, sign up, and, you said you're interested in messaging. And let's say that, you are interested in RCS. So that's why that's the reason why you ended up here signing up to Cinch. Mhmm. And this is where you end up. So I just want you to explore RCS and and just see and try to go about, as natural as you would in real life. And just give me any feedback that you think about. I just want to hear it all so we can, improve.
+
+Speaker B 00:39:
+Certainly. My, my UX designer wife will be, critiquing me in the background silently. So
+
+Speaker A 00:46:
+Perfect. What job? Then you've been Alright. Doing some tests before I can
+
+Speaker B 00:52:
+A little bit. Yeah. Tried to do the, the UX design side and the dev, the dev side, bring that together and see what sticks. So
+
+Speaker A 01:00:
+Yeah. Perfect.
+
+Speaker B 01:02:
+Alright. So I am looking for RCS, which I I definitely see two very, very simple clear options. Typically, at least for for me, especially if, if I'm a developer looking for something in particular, I'll usually just do a quick scroll just to see kind of take in everything and make sure, it's like, yes. The the popular channels is pretty, is pretty much where my eye drew to immediately, but I'll also check the side just to see is there RCS? Is there another flavor of RCS that I should be concerned with? Does my cat approve or not? Very important question. But then we go straight to RCS. Alright. So very clear, at least, finding what, what I'm looking for. And knowing me, I probably would have clicked through every, every other channel page, but I'll save that for now. Alright. So RCS for business, zero RCS agents. What is RCS for business, simple messaging into branded interactive conversations? Okay. Because I I will definitely, as again, a a an ignorant I'll I'll assume that, say, I've been asked to implement RCS, and I'm aware of SMS, but not, not RCS. So I'm probably drawing for comparison between actually, I'm drawing for exactly that, comparison between SMS messaging compared to, to RCS. So Are
+
+Speaker A 02:40:
+you familiar with SMS from before?
+
+Speaker B 02:45:
+In the sense of, a long, long time ago, the early, early days of Twilio, perhaps. Yeah. But, let's see. So verified brand identity, read and delivery status, watch videos and carousels, and only GIFs. Okay. So nothing too difficult there. Let's see here. Me personally, I I tend to go for if there is a, if there is a demo, go for the demo. So that's that's kind of why I honed in straight into send a test message versus create an agent, but Mhmm. I'm also going off of this is giving me a, a path to follow, and I like to follow paths because then I don't get lost. So we'll assume add a phone number is enough. Phone is RCS capable. Please accept the invitation.
+
+Speaker A 03:41:
+Be notified, like, on your personal phone here to accept to become a tester. So that's, a specific accept for RCS. Now we can't really mimic that here,
+
+Speaker B 03:52:
+but yeah.
+
+Speaker A 03:53:
+Just so you know.
+
+Speaker B 03:54:
+The day the day that happens, the, the UX, test test phase will become wild. Yeah. Okay. So then selecting a message type, send in UI versus view code. Excellent. And thank you very much for presenting curl first. I'm old, so I I like, seeing the the curl version first. Better way to promote, engage customers. Okay. So okay. In this particular case, I I'm taking note of the different, message types.
+
+Speaker A 04:43:
+Okay.
+
+Speaker B 04:43:
+Mostly just because, again, I have no context of what is what. So I look at things like, a delivery update is is text. A booking option is text plus plus actions. It it kinda kinda tracks to to perhaps maybe for something simple. Maybe I would do just a delivery update if I'm just trying to see this in particular. But a delivery update, a promotion. So interestingly, I will note that I actually my eyes skipped over this, this demo here.
+
+Speaker A 05:22:
+Mhmm.
+
+Speaker B 05:22:
+I'm not sure why though. I was probably so zoned into, here are inputs, so I must I must consider the inputs that I actually my eye didn't draw to the, to the example. So that is very useful. Oh, that is, yes, that is very good. That this actually in particular helps me to answer my question previously of, well, what is what is the difference between them? So I love seeing this. And then, of course, all of these assuming the same thing. Perfect. Messages, choices. I'd probably spend a a good ten, fifteen minutes doing a doing a comparison between these, but I won't do that for the sake of brevity.
+
+Speaker A 06:13:
+Mhmm. So what do would you compare, like, if you would spend time?
+
+Speaker B 06:17:
+In in this case, I'm mostly just looking at the code to see is there a a major difference between, say, is my company doing promotional, messaging, or is it doing more, like, tech support messaging? Is there a big difference here?
+
+Speaker A 06:32:
+Mhmm.
+
+Speaker B 06:37:
+And, honestly, at this point, but this is purely because I'm a bit, I'm a bit older, older fashioned. I would probably end up taking these examples out of the playground, and I would probably end up taking them into my, into my terminal to do a diff between them. Yeah. And that's mostly for my own personal curiosities. Mhmm. Getting a little ahead of myself, but send a test. Message delivered. K. I am trained to look bottom right and then bottom left for, for Toast messages. I'm only mentioning that for the, for the sole purpose of of consistency. Alright. Yes. What is this RCS test agent? Beautiful. Oh, message logs. Yes. Message queued, message delivered, message read. So these would be, events associated to the message. Oh, I see. Okay. Interesting. A, a secondary part, the developer kicked in and went, okay. I've sent the message. How am I gonna get notification back that the message has been acted on or or so forth? So scrolling to this, kind of answered that that for me. Okay. So let's see here. OpenAPI playground. I'll skip for the sake of, for the sake of this. My eye did go to, to the playground.
+
+Speaker A 08:32:
+You can go there if you would like.
+
+Speaker B 08:37:
+Ah, excellent. So what, what I was kind of thinking there is that, usually after an example, I would go straight into, kinda again, what I would have been doing in my terminal, this is probably the the better way to do it. Mhmm. Just trying to do a comparison again between the different, the different messaging types, like promotion versus support, for example, and then kind of playing around with this a little bit just to honestly, I'd probably start trying to break things because that's that's what I do.
+
+Speaker A 09:13:
+So
+
+Speaker B 09:14:
+but this is, this is pretty straightforward. After this, any anywhere in particular that you, that you'd like me to, to drive? Like,
+
+Speaker A 09:25:
+what do you think about this page? If you compare it to the previous page, how
+
+Speaker B 09:30:
+Mhmm.
+
+Speaker A 09:31:
+Are they different? Does it make sense to have both? What are your opinions on on that?
+
+Speaker B 09:41:
+So oops. Let me go back here if I can go back into send test. I really like this view. I know that as a as a dev, I am going to need, this bit, eventually, but I I like this view because of this, because of the the combined I can see the code. I can see what I need to do, and I can also see, just visually what the, what the differences are. It educates me a little bit before I actually start working on a product, which is very nice. The the OpenAPI play around I mean, this, this part in particular is important, certainly, but I I'm almost finding myself less interested in, in this version versus, versus the previous version. Even if I was doing, if I was doing tests on, on my phone, I would probably have the, the comparison or the the preview that you have on the screen and then probably sitting there with my phone and going, can I replicate what I'm seeing on the, on the screen Mhmm? If doing test messages. But, let's see here. Just double checking if there's anything more anything more than
+
+Speaker A 11:20:
+There are a few differences. If you see the code example here, there are no access keys, and there's no action to generate the access keys. So that is, something that I put in the other screen more dedicated towards developers. So, I don't know what you would feel if you would copy this and try to, like, break it, send messages. You would first need to access the access keys and secret.
+
+Speaker B 11:53:
+True. And I I think that was partially because I was assuming, from this, so we're testing with this number. So in a way, I am, I'm testing mostly variations of what I see here
+
+Speaker A 12:09:
+Mhmm.
+
+Speaker B 12:10:
+Possibly actually, that's a that's a question. Viewing the code, I see that I can see the code, but really all of the the actions actually interacting with the API. If I were to, you know, change this to, something, I would only be able to send the test on the UI view. Correct?
+
+Speaker A 12:31:
+Yes. Since you would need an access key to run this. I don't know what you feel about, that.
+
+Speaker B 12:42:
+It it is a little, a little odd, at least only from the perspective of if this is set up to be a test message and then this is able to send test messages to my phone as well as visualize them here, I would almost assume that this code would be more or less the same, the same code, but using that, whatever temporary access key is being used in the background.
+
+Speaker A 13:12:
+Mhmm.
+
+Speaker B 13:13:
+So you
+
+Speaker A 13:13:
+would expect just to be able to copy and run that snippet of of code in the example.
+
+Speaker B 13:19:
+In this view. Yeah. Yep. If I were to if I were to take this code out and run it in my own terminal, at that point, I would absolutely be looking for the, the API key. Mhmm. Because to your point, I can't run it, in the, I can't run it from the UI. And I I'm assuming that I'm using a a a temporary key or something in the background for this to work as expected. So Yep. Makes sense. And then, of course, I would be doing things, just to to see, like, okay. AI, cat, and then it stops me. Very good. Thank you. Do not let heathens like me go, go unedited with these APIs.
+
+Speaker A 14:06:
+Yeah. I never tried that myself in this prototype. So yeah.
+
+Speaker B 14:11:
+I was a I was a QA in a prior life, so it was my job to to break things, and that never left my head. Yeah. But, yeah. I mean, honestly, I would probably have, at least looking at this, figuring out that there was no editing, that I would really be doing here. I honestly would have probably seen the code went excellent. This is, this is great, and then gone back here, played around a little bit. And then is the code it is. Okay. So the code is actually updating as I'm updating the UI. So once I've done something here and I've kind of created the preview here, I could come over here, copy the code, go off, get my API key, and then continue with my my experimentation. Perfect. Yeah. Pretty straightforward, to be perfectly honest. Mhmm. But, yeah, I I think I I will walk back a a tiny bit, on this is definitely I would say if this was I was in more of a hurry. If I was in more of a I need to I am in ticket mode and I just need to go, this would probably make sense to me, as just like, I know what I'm doing or rather I think I know what I'm doing. Mhmm. Just generate the access key, get things that I need, take my, take this code copy, pop that over into where I need it to be, and then start playing from there. This makes sense, as just a more streamlined approach. But I really like this this view if I'm actually trying to understand what it is, like, the consequence of what I'm doing. Yep. Shall. Alright. Shall I go into the agent flow then? K.
+
+Speaker A 16:06:
+If you want to.
+
+Speaker B 16:08:
+Let's see. So RCS messages are sent using the conversation API. I will usually always do that just to have documentation up in the background. Add countries. Okay. Add details and submit for approval. I probably have that page tabbed out as well as I slowly try to figure out, what am I what am I allowed to do and what am I not and how much is it gonna cost my, my employer.
+
+Speaker A 16:43:
+Alright. So here So This would be if you had any brands created already. That's it.
+
+Speaker B 16:48:
+Yeah. Okay. It could be pre submitted. So would it, let's see here. I'm, I'm trying to think of how to how to formulate this question. Would a brand typically be expected to be created by someone else? Would that typically be a different role, or would a developer potentially be, be creating a a temporary brand?
+
+Speaker A 17:17:
+So any role could create a brand.
+
+Speaker B 17:19:
+Mhmm.
+
+Speaker A 17:20:
+It's not not not something we have today in Cinch build, but you can create, like, multiple brands and store your, like, business information.
+
+Speaker B 17:29:
+Gotcha. Okay. And most of that is, is kind of the the editing of of this, how it shows up in a in an RCS message?
+
+Speaker A 17:39:
+Yeah. So it it contains both the, like, information about the business, but also, like, logos and other details.
+
+Speaker B 17:46:
+Gotcha. I I can't, I can't resist, throwing something in there. A business profile will be created. Your verified identity used by carriers to approve messaging on our CSSMS and WhatsApp. Okay. I know, at least, initially that, that kind of the thought that triggered in my head was, I wonder what, what that implies or what, what consequences are for it's like your verified identity. I just made something up. So, at this stage, am I verified? Probably not. I'd probably explore that later. Mhmm. RCS agent display name? Well, I have to go with my cat since she's sitting right next to me. So
+
+Speaker A 18:40:
+I also had a cat named Zelda.
+
+Speaker B 18:44:
+She actually yeah. That would be, that would be quite, quite odd to do. But, hey. Let's see here. So Mech Labs provides many cat photos from the early two thousands, two hundreds, two thousands. There we go. Describe what the agent does and what users will receive when they interact with it. Do not use slogans or taglines. Do not use slogans or taglines. Why is that?
+
+Speaker A 19:18:
+It's mostly a requirement from, the US carriers. They want, you see the little description here. They want, to be very specific about what you're actually supposed to get from this RCS agents when you send messages to it.
+
+Speaker B 19:35:
+So then in that case, it would be more, maybe something like customer support, kinda more direct about what it
+
+Speaker A 19:45:
+is. Strict.
+
+Speaker B 19:46:
+Yeah. Gotcha. I I will say that weird to
+
+Speaker A 19:50:
+you, like, where where you are right now testing this out?
+
+Speaker B 19:56:
+It, it was definitely the the freedom of a, of a text box with a requirement that I wasn't aware of. Yeah. Or rather, I guess, would that be something that potentially if I just went and put some random, random description in, that would potentially, hurt me later in the flow?
+
+Speaker A 20:20:
+Yeah. Potentially.
+
+Speaker B 20:23:
+Got it. That that would probably be, what I what I kind of instinctually did is I went, to either click on, this part in particular, because I see that as a as a requirement that I or a restriction that I don't understand. So I was going Yeah. Like, clicking, looking for more information. Branding logo, do the drag and drop, brand color. Oh, yes. No. You do not want any of the, the emoji on my on my computer.
+
+Speaker A 20:55:
+So I don't think you can up upload the file here, unfortunately.
+
+Speaker B 20:58:
+Perfect.
+
+Speaker A 21:01:
+You you can continue,
+
+Speaker B 21:03:
+in the form. It is better that way. You'll just get a bunch of brew emojis everywhere. Okay. So, agent region. These details cannot be changed later. I probably would have missed that. Actually, it kinda depends on how how far into, Jira fatigue I am for that day. I might have missed that caveat, but I would imagine this would be a, oh, no. I've created an RCS agent that has a bunch of memes in its description. I should probably delete and recreate that would be my my guess. Alright. So this is going to be probably transactional. Say transactional. Oh, I love these. I love I love models that will give me examples of, especially if I'm trying to draw a comparison between my company and, the thing that I'm trying to implement. I love these types of suggestions, if you will. Mhmm. Billing category. Usually bill. This can't be changed later. Charged per twenty four hour conversation window or charge per message set. Okay. So not supported for sending messages in the United States, that would do it. That would be an immediate an immediate nope. If I was European if I was a European company, The the thought in my head here is, the the billing method, charge per message sent versus charged per twenty four hour conversation window. I'm I'm not immediately understanding, what that means. Yeah. If anything, it it might, what I'd probably do at this point is I'd probably make note of it, go nonconversational, and then I'd probably go looking for if there is an example. Is there an example billing, that I could reference? Oh, this is what it would potentially cost. Do some napkin math from there. Yep. So next, you'll add countries, send test messages. Okay. All the things that I just input. Transaction important, not placed like order, non conversational. K. Alright. So now prepare to go live. Oh, so I'm I'm reading that these are the, the next, the next things for me to do. Is it fair to say that these two are kind of like, you've done the first part, you've created your agent, now you must do step one, step two to actually start using the agent, as the prepare to go live.
+
+Speaker A 24:24:
+How do you understand it?
+
+Speaker B 24:26:
+That's where my mind went. Initially, I was I I got a little tripped up, by not started versus one of four steps completed. Initially, my mind kind of went, well, do I need to do this step, or do I need to do this step? But I see test, and I immediately went for that first to kind of confirm that I had done things properly, if you will.
+
+Speaker A 24:54:
+Yeah.
+
+Speaker B 24:58:
+It knows it knows that I'm an imposter. Oh, no. Connect a conversation API, add test number, and send a test message, or submit for approval and go live. Okay. Is this different from the country selection that I made previously? For, oh, for agent hosting region. Choose the countries this RCA agent will send to. Ah, okay. Okay. The agent is hosted in Europe, but the country that I will be sending to is different. That makes sense. Let's see. Developer brain very, very briefly went, should this not also be Europe? But that may not necessarily make sense. Let's say we're sending to Canada. Add country. Ready to submit. Perfect. Which I'd
+
+Speaker A 26:12:
+send You could also add the US here if you would like.
+
+Speaker B 26:19:
+Approval fee free for now. Charge after local operator approval. Okay. So in okay. So if I had chosen US, it would, it would have okay. So we do all the things. We do business display name is still Medj Labs. We do a legal form. I am totally a private actually, realistically, I'm a I'm a sole proprietor, and I am in technology because what else are cats taking over? Tax ID one one two two three four four, I think it was. Business address, Yeah. I shouldn't give it a
+
+Speaker A 27:01:
+I think there are only a few examples here. Mhmm. And one two three Main Street.
+
+Speaker B 27:08:
+Praise be to one two three Main Street. Meds lab dot o I o and plus one zero zero zero zero zero zero zero. Just in case. My my brain naturally goes, oh, yes. I must fill this in. Medge labs. Person does a thing and oops. And then I forget that I have escape hit there. Oh, thank you for saving my details. I hope, if even if it's just the, if it's just the, the prototype, it would be lovely if this actually did save my my input if I am because I have escape is, is mapped to the key right next to my pinky, so I hit that all the time. Save. So we verified the business and then use case setup. Okay. Here's need this information to understand your use case and ensure it may to just absolutely cat memes. Nobody surely would deny a good cat meme. Oh, interesting. K. The first, the first thought that popped into my mind, here was, do I need to have, so we we went through the first step where I was doing the, the preview and kind of doing more rich, rich messaging. And then I come to here, and I'm I'm assuming that this is just they need text form, not I don't have to, I don't have to copy any type of rich text setup here, would be my guess.
+
+Speaker A 28:59:
+Zelda approves.
+
+Speaker B 29:01:
+Zelda denies. This needs to be different from message one. Oh, you poor souls. You're asking a developer to be creative. I'm so sorry. Contacts will primarily opt out via, say, website, even though the US is garbage for that. Medjula Labs dot io. First message a user sends to join a conversation. Cats. Absolutely. And welcome. Zelda groups. And then Zelda will allow it. It's just my personality pouring into, into this recording, and it shall be kept for forever.
+
+Speaker A 29:54:
+Why do you think all of that information is required from you?
+
+Speaker B 30:00:
+So I do see, at least initially when, when we started talking about, which one was it? Oh, no. It was, it was the use case. Once I got to the use case, information, I started to get a sense that this was, this was either regulatory compliance or I'm checking a box for something. What might trip me up since I have the benefit of of making things up on the spot, what might have tripped me up here is if I didn't have that information. If, if I'm doing an exploratory analysis of Cinch, for example. Let's see here. And it seems like Or, actually, ready to submit.
+
+Speaker A 31:01:
+Unfortunately, there's an error here in the prototype, so these chips shouldn't be waiting for approval. I don't know why it ended up like that. Gotcha. Canada if those are different. Okay. Yeah. So all of these should be, like, not waiting for approval, like, here.
+
+Speaker B 31:21:
+Gotcha. Okay. Would this be, would this be something that is there a consequence for, say, if I went through this the first time, I just absolutely screwed this up and all the the operators were like, no. Absolutely not. Would this be something that I could then go back, edit, edit my my business details, edit my use case, resubmit, and then am I expected to wait here, or should I be going forward? Because for me, personally, I probably just keep going, if, I assume submit for approval would have been available at that point.
+
+Speaker A 32:00:
+Yes. So now you are not able to submit for approval, so that hasn't happened
+
+Speaker B 32:05:
+yet. Got it. So what I probably would have done if I saw that it was ready to submit, I probably would have kept going.
+
+Speaker A 32:20:
+Mhmm.
+
+Speaker B 32:21:
+I I think I would have read this page as, this is something that, when I think of submitting to a third party for approval, I assume a a long async process, so I kind of start going forward in the process. Yep. So same thing for here. Adding a test number. It's a minor thing, but I I did have a a slight thought in my brain of, should my test number from before have been ported over to here since it was already approved? Yeah. But, I could see the reason why you wouldn't do that. Okay. And then integrate. Got it. Okay. So I'd probably use that if, if I were were going down that path, but, okay. So and then we assume at this point that it's, that it's gone through for ready. So now I must do verification details. I do, if I can go back for a brief moment. I do like this, in the like, this giving me a list of steps to, to do to prepare for go live. It it makes sense. What's, what's slightly tripping me up is the again, whether I'm supposed to be doing both of these or if I'm only supposed to be doing this one. My instinct would have been to go here first for testing, with the assumption that, that I'm not, deep into billing territory. Mhmm. But, oh, okay. So this takes me back to this. I see. I see. Okay. Oh, they're oh, they're connected. Interesting. I didn't initially see the connection between the steps that I that I did previously and that this was doing a setup for, the test. I was actually treating these as two distinct blocks of things to be done.
+
+Speaker A 34:42:
+But how do you think they relate?
+
+Speaker B 34:45:
+So I just happen to notice that, and definitely tell me if this is just the, the details of the prototype. When I was going through the brand details, doing the country setup, I believe it was when I was here. I went back to the, to the main page. Oh, no. I was going through here, and I added the test number at this point. That's where I started to see the two, the two update at at once. So in my mind, when I did, when I went here, I was in, in my mind, I was in the submit for approval and go live flow. I thought all of those, what is it? I thought all of these, were actually part of a flow that I was going through. I didn't actually put together that they were just things, steps to do. But I also come from the early two thousands, web, and all of those webs were just wizards for days. So Yeah. I think
+
+Speaker A 35:49:
+that was a result.
+
+Speaker B 35:53:
+Alright. Let's see. Google requires this information to verify and approve your RCS agent. Fair enough. How do you opt in? Pre preapproved options. Fantastic. My users absolutely are sending carrier pigeon. Show users how to, show how users agree to receive messages, upload a screenshot or link showing where they opt in. If this is a oh, interesting. If this is to be a message, if it's to be a, an SMS, My brain is thinking that there's a connection between the, if I were if I were creating a message to do this opt in as a part of this flow, my brain jumped back to the beginning and went, oh, wait. Did I, did I not set an a message like that up? So I was almost imagining that at the beginning, I may have created a message to say, do you want to, to opt in to our insert thing here? And I say yes, and I'm thinking that that preview is what I would need here, but I I don't necessarily know if that's correct or not. Because I guess at this point, if I if I said paper form, then I would be uploading a picture of the the paper form. Or if I was doing a website form, I would be uploading a a screenshot of the website here. So, yes, that's what I get from this. We'll do that as well. Okay. I see. I see. Okay. I think the I think the threads are are connecting. This is why you pay attention to the fictitious, company that you are creating in your in your brain. QR code scan, upload a screenshot or a, a URL to the QR code to be added to the distribution. Voila. You have a thing. And opt out confirmation. Zelda goodbye. Got it. Got it. Got it. Writing tips. This message should be sent to confirm. User has unsubscribed. It should click confirm user's message. I'll be sure that no further messages will be sent and optional. As an American, this makes me laugh because it's sad that we we have to be reassured that, no, really, we're gonna go away. Yep. Option optionally mention how to resubscribe. Got it. Okay. Excellent. That's not, it it did take me a minute, I think, but I think that's mostly just because of my, my ignorance of what the end to end flow would look like just as the user trying to set this up. I had a brief moment of I didn't have the full picture in my head of what end to end looks like, and the usual answer for me there is keep going. Like, see what, see what else you need to figure out, and then that'll that'll build the picture. Help Google understand your messaging patterns. Business initiated. Absolutely. Okay. Be specific. After a purchase is better than notifications. Ah, okay. Oh, interesting. So then, in this case, I kind of read these as pretty generic, which is kind of antithesis an antithesis to the tip. But if I didn't bother to click this, I probably wouldn't have bothered to, I wouldn't have bothered at all, to be honest. I probably would have gone, oh, these are scheduled messages. I'll just click scheduled and then keep going with
+
+Speaker A 40:14:
+it. But,
+
+Speaker B 40:16:
+I'm going to gut check the time because I forgot how long we have.
+
+Speaker A 40:19:
+I think we have an hour, right, until
+
+Speaker B 40:23:
+Perfect. Okay. Yeah. Because I will I will yap into the prototype as much as, as much as you would like me to. But Yeah. I like to be
+
+Speaker A 40:31:
+I'm just following along. It's it's really great. Good.
+
+Speaker B 40:36:
+Alright. Describe what actions or events trigger messages. Okay. So we'll call this probably loyalty program updates to match the schedule. Should I include here describe specific action or events such as placing an order? Makes sense. Pretty clear.
+
+Speaker A 41:04:
+I
+
+Speaker B 41:06:
+paused briefly and then remember my age to decide whether or not I was, I was keen on a model or a, or a popover, but I'm going to ignore that thought. Mhmm. That's, am I in a rush, or am I just exploring? Yeah. Which in this case, Manage Labs, contact position, cat pawn, and absolutely, medj labs dot a o. Alright. Messaging details saved. So now I've done that part. And then finally, contact information. Phone number or email for users to contact you, both are recommended. Website is optional. Okay. Is oh, is this different from the brand from before, or is this potentially because I created a brand kind of ad hoc, so I I didn't really have a pre created brand at that point. I I noticed, this, this graphic from the, I think it was one of the first steps when I was selecting a brand and my brain went, should this have already been populated? At that point, I probably would have just typed in the, the same information again. The void. Absolutely. So we would do a phone number. We would do a an email. Label for email, totally red. And privacy policy URL, I really want one. And terms of service URL, be kind. Why not? Right. Alright. So I have completed the steps for go live. In a, in a a realistic scenario, I assume that, well, actually yeah, I I probably would have assumed that by this box being completed that I am able to then go and start writing code and start using this, this resource, Or at least I'm not seeing anything that, that would tell me to the contrary.
+
+Speaker A 43:50:
+Could you explain that? Do you think that you need to complete all of these and submit it and then use it and integrate the messages.
+
+Speaker B 44:01:
+Yes. Now, is this, would this just be the the prototype? Or after completing these steps, would this, well, actually, I have not submitted for approval. So that's a problem. That's what I was missing. I broke the prototype and created my own confusion. My apologies. Okay. So at this point, we'd be waiting for approval. We do all of this fun. Okay. So now this has become I've done the things. I need to click the approval button. The major problem to me seeing that was not the button's fault, it was team's fault. So I'm gonna move that over. So let's see. Anything else that's ticks out to me? Not particularly. Me personally, just because I'm silly, I probably would have clicked that button just to make it, just to make it a green check mark. Yeah. Yeah, nothing nothing sticking out to me here.
+
+Speaker A 45:25:
+Mhmm. So, you are actually able to complete the integration part before your agent has been submitted for approval. So the submit for approval is more of like a compliance. Then you can send messages to any phone number, and before that, you can only send to the test numbers that you added. I'm not sure if that's clear to you. Or
+
+Speaker B 45:49:
+Not particularly. And and I think most of that is because I'm still in the mindset of these are, like, step one, step two, step three, step step four. Mhmm. I didn't actually register or I should say, initially, I ignored the integrate, tab Yep. Mostly because I was taking it from the approach of I just want to, to write some code to send a message real quick. I'll worry about the integration later.
+
+Speaker A 46:17:
+Mhmm.
+
+Speaker B 46:19:
+But the, the the steps here, the, you know, test the, the RCS agent, the steps that were here previously, they, they kind of led me into a step one, step two, step three, steps, step four. I'm I'm not sure I'm not sure how I would have reacted, if I didn't have, obviously, the the benefits of the prototype. Say, here's a an integration.
+
+Speaker A 46:45:
+Mhmm.
+
+Speaker B 46:46:
+I might have clicked the submit for approval button anyway, just to see what happens. I do. I believe submitting for approval also costs money, so I probably would have hesitated to click the button initially, but somebody else gives me approval and then I click the button. But, but, no, it it it was not it was not immediately clear. And I would say that, I I'm trying to think of why, but I wasn't drawing a a clear distinction between the test numbers and the go live numbers.
+
+Speaker A 47:26:
+Mhmm.
+
+Speaker B 47:29:
+What I'm trying to think of why that is is the agent details, brand details, verification details. Well, in this case, this would have been my go live number.
+
+Speaker A 47:51:
+That's the number that you have in your contact information. So that's what will be when the agent is approved, then you can send messages to it. Or if you send, with test to your test number, that's what would what it would look like. And those contact information will be presented in the, business information of the agent.
+
+Speaker B 48:16:
+I see. I see.
+
+Speaker A 48:17:
+So the Okay. There are, like, two different paths here. Like, that's why there are two different, to do checklists. So one is to test and to create the integration if you are more of a developer, and the other path is more to get, to become compliant in the countries you want to send to.
+
+Speaker B 48:36:
+I see. I see. I'm I'm struggling a little bit to think of, honestly, of a of a better flow. It it probably would have made a little bit, or it would have made it a little bit clearer if there was, say, a well, actually, I I have the benefit of foresight or the benefit of hindsight now, so I'm I'm trying to to keep that in, in check a little bit. Honestly, if I had if I had gone through this, again, FreshSlate, I probably would have gone through the test flow first. To to your point, I am I am trying to see the system work, so I probably wouldn't have bothered with the, the other step. At that point, once I had completed the test flow, I would have probably disconnected, gone off to, to the decision makers and been like, okay. I think I know what we have to do for testing. But for go live, here's a thing that we need to investigate further.
+
+Speaker A 49:56:
+Mhmm.
+
+Speaker B 50:00:
+But but,
+
+Speaker A 50:01:
+I think Yeah. I think, also, maybe most users would be stopped if we would ask them to pay, like, two hundred dollars as well.
+
+Speaker B 50:10:
+Very much so. It, it it might make, oh, let's see here. I'm trying to think. Because I I can also consider, that I would possibly start going down that path, and then I get to the end and I see the cost. And I I assume the cost is variable depending on the countries that you set up and some of the the information provided as part of that flow. Is that correct?
+
+Speaker A 50:37:
+Yeah. It's based on on how many countries you add. So we have review fees, per country.
+
+Speaker B 50:44:
+Gotcha. Okay. I I want to put the benefit of the doubt to, I I want to. Whether I should or not is a completely different discussion, but I want to put the benefit to if you're if you're not at that stage to go live, then you probably wouldn't bother with the go live flow as I did. I would like to think that the test, the test flow is where you would naturally gravitate to.
+
+Speaker A 51:11:
+Mhmm. Was it clear to you that one was to, like, set up for testing? Like, this is if you're a developer, and the other one was more like, this is compliance.
+
+Speaker B 51:23:
+It it was clear that they were it was clear that they were different. It wasn't necessarily clear of the role differentiator, and Mhmm. Using role a little, a little lightly. But that is mostly because I have worked in many, many companies where I have filled out the go live details because the answer was, we need to go, like, tomorrow, and I just barreled forward. So
+
+Speaker A 51:48:
+Mhmm. Yeah. So it could be, like, two different roles completing these checklists, but it could also be, like, a developer doing both of them. So Right. That's why it's a bit vague here.
+
+Speaker B 52:01:
+Definitely. Yeah. I don't necessarily see it as, as a negative in the way that it was presented. I I think the role, that is running through the flow would probably gravitate naturally. And like you said, if they did start, doing setup and they see the, the need for a credit card, well, that's an immediate stop for most developers. So
+
+Speaker A 52:22:
+Mhmm. Yeah.
+
+Speaker B 52:24:
+What? So I
+
+Speaker A 52:24:
+just see we have a few more minutes. But how was this, experience? Like, if you summarize everything you've seen so far.
+
+Speaker B 52:33:
+I love the, the previews. The previews give visual to the configuration that I am barreling through, and I think that made a huge difference, especially in comparison to some of, some other products that I have seen but not interacted with. The the differentiation of role is, again, it's it's not immediately clear, but I don't really know if it needs to be. It might make sense, at least in my brain, to call out that certain things are required for compliance in some way.
+
+Speaker A 53:11:
+Yep.
+
+Speaker B 53:12:
+If, if I, as a developer, hear that something is required for compliance, I immediately start to start getting, stakeholders involved. I start trying to figure out who is responsible for, for making sure that that is done proper. Yep. So that honestly would be the the only, the only big thing that I can think of. This is fantastic. The the flow from send test, test the API to, so forth. This is fantastic. I love this. It is very intuitive. It is very, very intuitive, and it seems like, especially from this perspective, this is the the one that I'm honing in on the most. Here's the thing. Copy the code. Go off and do what you need to do. Like, need need more more of, of these things and, need more of these things in mail gun. I shouldn't have said that on recording, but sorry about
+
+Speaker A 54:09:
+Yeah.
+
+Speaker B 54:10:
+Ciao. Yeah. It was it was lovely. I love this.
+
+Speaker A 54:14:
+Mhmm. Yeah. But thank you so much. I got a lot of, great feedback from you. So I'm really thankful for, you agreeing on meeting with me and, going through the prototype.
+
+Speaker B 54:25:
+Of course. Thank you very much. I am, I am hopeful that any of my rambling would be even remotely useful. So thank you so much. It will be.
+
+Speaker A 54:34:
+Enjoy the rest of your day.
+
+Speaker B 54:36:
+Cheers. You as well.
+
+Speaker A 54:37:
+Thank you
+
+Speaker B 54:37:
+so much.
+
+Speaker A 54:37:
+Yeah. Bye.

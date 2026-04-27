@@ -1,0 +1,617 @@
+Speaker A 00:02:
+Feedback you got, like, positive and negative. There's really not any negative feedback, and I just want you to be like yourself
+
+Speaker B 00:10:
+Yeah.
+
+Speaker A 00:11:
+And explore RCS here as the focus. Okay. Yeah. And give it a go and say say, what you think about it. And, also, you could, share your thoughts. Like, just say out loud what you are thinking
+
+Speaker B 00:28:
+Okay.
+
+Speaker A 00:28:
+And what you see.
+
+Speaker B 00:32:
+First of all, this is pretty simple. RCS for business, two options, create the agent, send test message, and then create the agent again. This is let me see. Yeah. K. Set up countries. Details in for pool. Yeah. This is also, this is also pretty straightforward. I think that someone without a dev background would be able to go in and and set that up pretty well. Let me see.
+
+Speaker A 01:36:
+K. Yeah. I'm not sure if all links are working, unfortunately.
+
+Speaker B 01:44:
+No. It's okay. Okay. I'm gonna do a company I used to work.
+
+Speaker A 01:54:
+Mhmm. Have you ever created a Narcissist agent before?
+
+Speaker B 01:58:
+No. I have not. This would be the first time.
+
+Speaker A 02:00:
+Mhmm.
+
+Speaker B 02:15:
+I'm so
+
+Speaker A 02:15:
+think you you don't need to input everything here. You can just continue also.
+
+Speaker B 02:22:
+Okay.
+
+Speaker A 02:24:
+But what do you think about this, so far? Like, what is happening right now?
+
+Speaker B 02:28:
+Yeah. Again, I think it's pretty straightforward. I think it would like, the the option to have the logo ready immediately, kind of like instantly have how you want the message to come across. It's pretty pretty simple. Like, if I think about, like, Delta's RCS, it would it would look exactly, you know, like, in theory, the message should come across exactly like that. I like the branding color too to to kind of, like, add that personalization. I think that's a that's a good unique touch that a lot of, you know, a lot of companies have, like, a a color palette that they like to use for for branding. So for for this this is, like, really good for a marketing persona who, like, they would be able to come in and and send this up. I think they they would find good use in good use in the the ease of this setup. Mhmm. US promotional. Update orders and notifications. Okay. Okay.
+
+Speaker A 03:50:
+What is this?
+
+Speaker B 03:52:
+I'm thinking about this. I'm wondering if there's a better way to to word it than conversational and nonconversational, but, I I mean, this gets the point across. I'm just I'm just trying to think if there's another way to be a little bit more clear. Yeah. I'm sure, does this link work? I'm sure this explains it, so that's fine.
+
+Speaker A 04:20:
+I'm not sure. You can you can try,
+
+Speaker B 04:22:
+but,
+
+Speaker A 04:24:
+one hundred percent sure.
+
+Speaker B 04:27:
+It doesn't. It's okay. Okay. But, yeah, this is fine. Like, having this available for for clarification is good.
+
+Speaker A 04:36:
+Mhmm. But are you familiar with these these categories from before?
+
+Speaker B 04:40:
+Yes. Yes. So this makes sense to me because this is exactly, like, how I would sell the product. I would ask them, do you guys or, you know, do you want the agent to be able to respond back or you're just sending one way, like, one time passcodes. Right? Or, like, are you just sending messages that are just notifications, versus conversational? Do you want people to interact with the agent? So this makes sense. This is this is why I was like, maybe there's a better way to word it, but I'm sure the link adds a better clarification.
+
+Speaker A 05:13:
+So, if you ask a customer this, do they understand what it means? Or, like, what what could be other ways to phrase this?
+
+Speaker B 05:22:
+The way the way we ask is one way or two way.
+
+Speaker A 05:27:
+Mhmm.
+
+Speaker B 05:30:
+Which, like, it kind of said one way. Yep. But, yeah, usually, we're just like, are you trying to send one way messaging or two way messaging? Mhmm. Conversational. Because technically to, like, this would make sense to maybe a person who's in telecom, but if you just ask the marketing person, like, would they would just say, like, conversational versus non conversational? Like, aren't all messages conversational? Like, that's that's the type of stuff that it like, I would say they would be thinking. One way or two way is also some people may find that confusing. But that just, like, I know at least in the US, that's that's the, like, language we're told to use. Okay. This looks good. This summary, this is really good. K.
+
+Speaker A 06:46:
+So what happened now?
+
+Speaker B 06:49:
+This is fine. I'm just looking at the different information that it's that it's given. I think this comes in some way, like, via email. Right? Like, they have another they have another way to see all this besides just on this page?
+
+Speaker A 07:10:
+So if you're a self serve client just signing up from CenturyBuild, you can see in this view, but I they don't they don't receive an email with all of this information. Okay. But we also have APIs if you want to do it, if you're another developer.
+
+Speaker B 07:28:
+Yeah. Okay. Yeah. This this is all it's a good summary. The only reason I was asking about the if they get this via email is because, like, it would be nice to have a confirmation of, like, like, outside of the database. Like, if they had, like, a confirmation, like, hey. Your agent was successfully set up. This is your Google agent ID. This is your Cinch ID. This is the phone number that the messages are coming in from. If you have any further questions, contact support at, like, having, like, an email confirmation afterwards. In addition to this, would be maybe helpful. Maybe. I don't know.
+
+Speaker A 08:11:
+Yep.
+
+Speaker B 08:12:
+Yeah. Other than that, this looks good. Yeah. So oh, so let me
+
+Speaker A 08:24:
+Yeah. So maybe not everything is clickable here. I guess.
+
+Speaker B 08:27:
+Yeah. You're fine. Is the sending example message that is that clickable or not? You know? No. I'm sure. That's this the send test message.
+
+Speaker A 08:41:
+You can try. Try Yeah. You can just, continue. That's, yeah, it doesn't matter what number you type.
+
+Speaker B 08:54:
+Oh, okay.
+
+Speaker A 08:54:
+Because it it won't it won't send any real messages here because this is just
+
+Speaker B 09:01:
+Okay.
+
+Speaker A 09:01:
+Yeah. To illustrate the experience, kind of.
+
+Speaker B 09:04:
+Okay. Message type. I like this feature a lot to to be able to view the code. This is nice.
+
+Speaker A 09:19:
+Mhmm. Do you think customers would be interested in that to see the code or what?
+
+Speaker B 09:25:
+Some would. Yep. Yeah. Even because usually, like, even if it is a marketing person sending the messages, maybe they don't have a dev team. If they ever, like, consult somebody or they ask, like, hey. Does everything look good? They'd just be able to see the code. And so, like, it's nice to have that reference for them to be able to see it. Because you never know who's using this. Right? Like, even there there are developers who also want a simple out of the box solution. They don't wanna buy. They don't need, like, build. They can just do this off of engaged, like, the way this is set up, like yeah. So all in all, I think this is solid. I really don't have many critiques. I think it's pretty straightforward.
+
+Speaker A 10:21:
+Yep. So if you go to, send in the UI, you switch to you can also send a message here, like, you just put a click of a button.
+
+Speaker B 10:32:
+Let me see if I actually did get a message.
+
+Speaker A 10:35:
+Yeah. But, you it it doesn't send any messages. It's just, a prototype, like, for No. It's UI because it's not connected to the back end. But if you scroll down here, the idea is to show some message logs, for, yeah, just to illustrate how we are showing in the analytics kind of.
+
+Speaker B 11:08:
+I see. This is cool. Yeah. Like, being able to see, like, like, have updates on what's going on, like, if they're being able like, if they're reading it, that has been delivered, that has been sent. Because that way they'll know if they send a message to, like, a singular number. If the number was bad, they'd have access to information. Right? Like, if it bounces, it'd say, like, message not delivered.
+
+Speaker A 11:40:
+Yeah.
+
+Speaker B 11:40:
+Yeah.
+
+Speaker A 11:42:
+But for this experience, you can only send to yourself because you need to verify the number, like, in the
+
+Speaker B 11:47:
+But in general, like
+
+Speaker A 11:48:
+Yeah. In general, that's, but this is more to showcase, the functionality, like, that we have with the the conversation API and the our sales agents.
+
+Speaker B 11:58:
+That's nice.
+
+Speaker A 12:01:
+And, also, if you scroll up here a bit, again, I just wanted to ask you about, there are different, templates to pick from.
+
+Speaker B 12:09:
+Uh-huh.
+
+Speaker A 12:11:
+Is that something that is interesting to customers, do you think? Or do they ask about this, or do they care?
+
+Speaker B 12:20:
+Yeah. They would. This is one of those things that we would really have to, like, I think on the sales side, depending on, like, you know, when the product gets demoed or whatever, depending on the brand of the company, like, what exactly because different like, this would appeal to, like, a retail brand. Right? Where you can, like, send out the media or send out whatever. Some people want this type of experience. I think most of the bigger brands, a lot of, like, people in the food industry, people in the tech update industry, people in, like, anything online, like, retail, they would like this. Like, the rich card experience where they can send you, like, an offer and then you order it, and then you go through the, you know, like, the card like app like experience where you order now, set the time for pickup, like, customize your order all within the text message so that, you know, like, they would really enjoy that. But other brands would like the different templates. So this was yeah. This is beneficial. You can always change it, start let me see. Yeah. I like the I like the way that the the user would be able to, like, have full control and then see what it looks like. This is cool.
+
+Speaker A 14:13:
+Mhmm. Because the idea here is just to give some examples, like, not all templates available, but we could also have functionality to, like, customize your own message.
+
+Speaker B 14:22:
+Yeah.
+
+Speaker A 14:22:
+Is that something that customers would like to do, you think?
+
+Speaker B 14:27:
+Yeah. One hundred percent. One hundred percent. I think that it it it's very beneficial. Templates are are are helpful, but being able to plug a template in and then adjust it, like, you know, depending on the brand would be cool. So this type of stuff, yeah, I think it this is helpful. And they can always change the, you know Yeah. Image URL and whatever's coming in. Yeah. Yeah. This is good. I think this yeah. This this is like most most the I think, the bulk of the the use case would be the the rich card. This is this would still give, like, that MMS feeling of just texting. But I understand that some brands only want RCS for the, the branded messaging, but I think most people like the the card, like, the app like experience. So I think offering all three is cool. Yeah. It's good. Yeah. Was there anything else you wanted me to play with on on this on this side?
+
+Speaker A 16:01:
+You can scroll down to the bottom here. This is like next steps.
+
+Speaker B 16:10:
+Okay. Into this one. Okay. This is the sandbox. I got a little place. Buy a property of sandbox.
+
+Speaker A 16:31:
+Does this make any sense to you?
+
+Speaker B 16:35:
+What would generating an access key do exactly? Like, what what is the use case for that?
+
+Speaker A 16:42:
+That's more of, like, a developer task. So if you want to, you can use this code and, send it. Like, you can send a real message. So before you just click the button to to send it, but for a developer, that will mean if they have the access code, they can also just, send it themselves, kind of.
+
+Speaker B 17:01:
+They can send it. Okay. Okay. Yeah. That makes sense.
+
+Speaker A 17:04:
+So it's, like, activating this code snippet kind of thing. So they could send it, like, from their environment or terminal. So that's more of a, like, a developer experience kind of. I'm not sure how how much you are in touch with develop developers during this.
+
+Speaker B 17:25:
+Yeah. I'm I'm, I'm I'm more so curious. We do we do work with some of the I mean, we have to usually pull in a when it gets further along in the process, we have to pull in a dev. So Mhmm. It's cool to see, like, what they end up having to do Yeah. On the development side. Yeah.
+
+Speaker A 17:45:
+Mhmm. But are you in touch for them? Do you know what what the developers are doing in this process?
+
+Speaker B 17:51:
+No. But
+
+Speaker A 17:53:
+do you get any feedback from them?
+
+Speaker B 17:57:
+Honestly, no. They don't talk to us yet. They really don't talk to us.
+
+Speaker A 18:02:
+Yeah. Maybe they just talk internally.
+
+Speaker B 18:05:
+Yeah. Most likely. This is also cool, again, like, being able to this is the API request, and then you can see at the bottom, that the message queue is like, having the steps available, along with, you know, the status. Like, I like the the status bubbles, and then I like the, the exact, like, position it's in. Because that way, if there is a a point of failure, you'll know where the where the API failed, quote unquote, or where the message didn't send. So you'll see that all the message is queued. It's been queued for thirty minutes. That's a problem. Right? Like so then we gotta you can call support like, hey. I've had this message queued up for thirty minutes. What's going on? And then you can Yeah. You know, you'll you'll know exactly what what kind of the problem is. So this is very cool. Then yeah. I like that it's always taking you to, like, what the next step in the process is. So, like, somebody, like, you know like, let's say I wasn't testing it and I was an actual, like, you know, customer, I would know, like, I would be able to follow the the steps. Like, I wouldn't be confused on what to do next. Mhmm. And now
+
+Speaker A 19:29:
+you already created an Yeah.
+
+Speaker B 19:31:
+Agent? I've already done this end. Multineers. Yeah. Yeah.
+
+Speaker A 19:50:
+Like, for where did you click?
+
+Speaker B 19:52:
+I just want
+
+Speaker A 19:52:
+to do here. Okay. Yeah. Mhmm. Yeah. You can click on the MCM agent, the update. Yeah. So this that one that you created.
+
+Speaker B 20:03:
+Yes. Let me just add a country for now. Okay. And now when adding a country, is there any restrictions, or is it just, like, if the country has RCS enabled, we can do it? Are there any other restrictions?
+
+Speaker A 20:21:
+There are some restrictions, so, for example, for the US, if you try to add the US.
+
+Speaker B 20:31:
+So Approval process. Ah, I see. Okay. Okay. Okay. Okay. Is this the only country that we have to do this with?
+
+Speaker A 20:45:
+There were, like, four countries where you have some additional information that we need
+
+Speaker B 20:49:
+to make. Okay.
+
+Speaker A 20:51:
+Yeah. So they are not ready to go live straight away, but they need to complete, some processes to, have it ready to be able to submit it for Google approval and also to be reviewed by the local operators as well. As you you don't need to fill this out, you can also just click continue. But there is a lot of information that they need to input, unfortunately. Okay.
+
+Speaker B 21:18:
+And then use case setup is, like, do you have to upload any templates, or it's it's more so just, like, you
+
+Speaker A 21:24:
+It's more explaining words.
+
+Speaker B 21:27:
+Explaining. Okay.
+
+Speaker A 21:30:
+Not sure if you're part of the process where your customer, actually launches their agents.
+
+Speaker B 21:38:
+No. But I am part of the like, I've had to help customers get their campaign, like, their ten deals you campaign approved.
+
+Speaker A 21:47:
+Okay.
+
+Speaker B 21:47:
+So I have access to, like, the current campaigns that come in and, like, how long that approval process takes on. So yeah.
+
+Speaker A 21:56:
+Yeah. So this is the exact same process for verified business and use case. Okay. It's the ten DLC brand and ten DLC campaign for the US. But other countries, they don't have those requirements.
+
+Speaker B 22:08:
+Yeah. Yeah. K. Very cool.
+
+Speaker A 22:16:
+Trying
+
+Speaker B 22:22:
+to think if I missed anything. Add a test number. Continue. K. This is cool.
+
+Speaker A 22:43:
+What is this about?
+
+Speaker B 22:46:
+I'm assuming this is connecting it to the build, like, the combo API, outside of simple gauge protocol. So this is first app, connect your RCS agent to combo API. Your RCS agent needs to send messages and all the API options. So this is just connecting the agent to the API that's gonna actually send the message, I'm assuming. And then you get the code for the rate and agree.
+
+Speaker A 23:25:
+So what do you know about the conversation API?
+
+Speaker B 23:28:
+The conversation API is, like, the you know, it's our omnichannel. What one one umbrella API that allows you to send all your SMS, MMS, RCS. So this is just connecting that agent you built to that API so you can like, if you have if you wanna send out simultaneous RCS and SMS campaigns, you could do that with the with the API.
+
+Speaker A 23:55:
+Yep. And what's an app in this context?
+
+Speaker B 24:02:
+Would it be the application of, like, the, like, the actual we're already so I'm a little yeah. That was, like, the one thing. Is this is this more so showing how the setup works through Engage, or is this how the setup works?
+
+Speaker A 24:19:
+So this is our, like, API layer. So there's, customers are supposed to integrate to our APIs and send the messages from their systems. So there's no UI to schedule messages or anything. It just they need to figure out that part.
+
+Speaker B 24:40:
+Interesting. Okay.
+
+Speaker A 24:44:
+So but how does this, feel like asking you to pick an app? Because that's maybe something you are more familiar with if you are, like, a more of a developer person. Yeah.
+
+Speaker B 24:57:
+Yeah. Yeah. When it says go to so let's disconnect. Connect a conversation API app. Why would why would this not be automatic?
+
+Speaker A 25:15:
+Mhmm.
+
+Speaker B 25:16:
+Like, why would the why would the RCS, like, agent not automatically be connected to common API? Or or is this, like, can we connect to another platform that sends out message? Like like, I'm I'm
+
+Speaker A 25:30:
+trying to yeah. Yeah. Yeah. That so that could be possible, but that's not what we have today here in the UI. So there could be other integrations made to send messages, but for the app, it's not just only the conversation API, but, everything is organized around the app. So, you need to have an app, and it's on the app level that you can set set, like, fallbacks and configure your channels. Mhmm. So in in the build, you can have multiple applications, and they can be for different use cases.
+
+Speaker B 26:05:
+I see.
+
+Speaker A 26:06:
+So one app can have SMS and or Sys configured. So that's why you need to, for for our developer, you need to, like, configure this.
+
+Speaker B 26:17:
+Mhmm. So you could have multiple apps on one build account?
+
+Speaker A 26:24:
+Yeah. In one project. We also have project concept. Yeah.
+
+Speaker B 26:29:
+So it'd be, like, a project for marketing messages, and then you have another project for verification, like, one time passcodes. Is that is that kind of like
+
+Speaker A 26:40:
+Yeah. Or it could have two different apps, one for marketing and one for OTP.
+
+Speaker B 26:45:
+Okay.
+
+Speaker A 26:47:
+It depends, okay, how the developers want to build this, on their end.
+
+Speaker B 26:52:
+My question is more so, like okay. So, like, let's say we we got the test numbers, all this. We've done the go live. Right? The only way for us to send the message from, like, the agent we just created is to connect it to the conversation API app. Right?
+
+Speaker A 27:13:
+Yep.
+
+Speaker B 27:14:
+So then why would that not be automatic?
+
+Speaker A 27:19:
+Yeah. That's a, like, huge discussion we are having today.
+
+Speaker B 27:23:
+Oh, okay.
+
+Speaker A 27:24:
+The with the development team who who is working with this because it's, it was for a developer. You might want to have control. Like, it's also weird that something is just connected automatically because you maybe already have an app that you are planning to use. And since you can have multiple, we can't just pick an app.
+
+Speaker B 27:45:
+So right now, like, after so, basically, you've done all the stuff. You've you have your overview of your agent, your countries, your test numbers. So now it's just kind of, like, your RCS agent is just sitting in, like, limbo until you connect it. Right?
+
+Speaker A 28:03:
+Yeah. Yeah. Like, it's
+
+Speaker B 28:04:
+just sitting there. It's already made and just, like
+
+Speaker A 28:06:
+Yeah. And you can't test it.
+
+Speaker B 28:08:
+Okay. Okay. So it's in testing. Okay. That's fine. That makes sense. For, like, a deaf person for a deaf person, they would understand.
+
+Speaker A 28:20:
+Yeah.
+
+Speaker B 28:21:
+But, like, if somebody else was using this build platform, like a marketing person, I do see, like, a hiccup of, like, hey. I made the I made all like, I made the RCS agent. I've sent the test message. I've done everything I need to do. This, like, this would be maybe a little bit confusing because I wasn't even like, I'm not a dev person. And so for me, it's like, why am I having to connect to the app when it's like, isn't that what I made the agent for kind of thing? But I see from your I see what you're saying too about what the how the devs, like, may just not wanna connect it automatically. They may wanna leave it in testing until they get, you know, further guidance. They might wanna, like, get the get the agent reviewed, make sure everything is good before they connected to the to the app. So I do see, I do see that being useful.
+
+Speaker A 29:20:
+The problem is now when you when it's not connected to anything, you can't send test messages either. Like, the test messages requires an app because it's the app who actually sends the messages even
+
+Speaker B 29:31:
+Exactly.
+
+Speaker A 29:31:
+In test mode. So that's, I think that would also be a problem for a marketing persona. Like, if they wouldn't just connect it to an app, but I guess that would feel a bit too scary, maybe.
+
+Speaker B 29:43:
+Yeah. Yeah. Fair.
+
+Speaker A 29:45:
+Fair. So
+
+Speaker B 29:47:
+When we were doing the steps at the beginning of, like,
+
+Speaker A 29:58:
+You mean just sending the test messages?
+
+Speaker B 30:00:
+Send a text, send a card message.
+
+Speaker A 30:03:
+Yep.
+
+Speaker B 30:04:
+What it's like sending your first message or, I don't know. I would, like, include somewhere in the steps that, like, at the end that there is an integration process to get your agent to go live. Like Yeah. To be go live, you need to integrate into some form of, to yeah. You have to integrate it with the your combo API app. Yeah. Because, again, like this like like what you said, like a dev person maybe they'll figure this out because they probably set this up before with another company or they've they've done something similar along those lines. But for someone else, integrate sounds like optional.
+
+Speaker A 30:45:
+Yep. You know what I'm saying?
+
+Speaker B 30:46:
+Yeah. Like, I think it maybe, like, just a little like, make it a little bit more clear that you need to integrate for your agent, like, to be able to send messages. Like, there's no other way to, like yeah.
+
+Speaker A 31:04:
+Yep. So here in the top, it says, send RCS messages in the gray background, okay, below there.
+
+Speaker B 31:12:
+Yeah.
+
+Speaker A 31:13:
+So the second one here, if you click on it, this one is, like, informing you about what you need to do to send the the test message. Because before you can't really do it, but maybe these two gray boxes are too like, invisible, or they may be not see look as interactive.
+
+Speaker B 31:37:
+Yeah. Perhaps. There is an arrow. So, I mean, it could just be me. But yeah. Yeah. Yeah.
+
+Speaker A 31:52:
+Because this is what we want them to do. Like, connect it and then add a test number and then
+
+Speaker B 31:56:
+they can send that. Okay. So send the message. It's your test number. Yeah. I'm assuming that the test number gets it and there's, like, a confirmation. Yeah. Okay.
+
+Speaker A 32:17:
+Yeah.
+
+Speaker B 32:17:
+And then they'll go to integrate. Okay.
+
+Speaker A 32:26:
+Yeah. So this is other requirements that they need to complete to
+
+Speaker B 32:31:
+Yeah.
+
+Speaker A 32:31:
+Yeah. But this is to have to make it go live. I think you just need to in input something in, like, in the fields here. Just kinda think.
+
+Speaker B 32:49:
+Oh, I had to fill it up completely. I was I was just trying to clear it. I want, like, I was just trying to see what it looks like when it
+
+Speaker A 32:55:
+But if you click on add the contact information and then just in phone number, just type anything. Or you can remove because you only need one, so I think there's some validation going on here. So if you just delete some of the contact types.
+
+Speaker B 33:11:
+All this stuff?
+
+Speaker A 33:13:
+Or yeah. You can hear just in phone number or email. Just input anything, and also the label. It can just be one letter, and then you can delete the second one that you have here.
+
+Speaker B 33:32:
+Oh, okay.
+
+Speaker A 33:33:
+Yeah. And the third, and then save. I think that would be enough.
+
+Speaker B 33:37:
+Yes. Yeah. Okay. Cool.
+
+Speaker A 33:39:
+So now you did everything required by Google and the local carriers.
+
+Speaker B 33:45:
+Uh-huh.
+
+Speaker A 33:45:
+So now you can submit it for approval, and that's also a process that would take, yeah, some time.
+
+Speaker B 33:52:
+Yeah. Okay.
+
+Speaker A 33:57:
+But
+
+Speaker B 34:04:
+it was me. Just to report message message status updates that was k.
+
+Speaker A 34:13:
+So this is, a developer site.
+
+Speaker B 34:19:
+Yeah.
+
+Speaker A 34:35:
+That's the more difficult part for us because we are building this like, it is a development platform, like, for developers, but we also know that marketing persona wants to create RCS agents. So we need to balance those different needs kind of yeah. I don't think this will work, fully. But, yeah, this is just, connecting all of the channels together so they will use this app to send messages.
+
+Speaker B 35:14:
+It's good that over here like, this is good. Like, this would have been very nice and from what they integrate, this would have been cool. Yeah. Because then it's like, oh, okay. That that's what that's what we're doing. And I like the links to, like, further context. I like this a lot because a lot of the times, like, people who are setting this up on their own can go to a link off to the side. Yeah. Like, even the same thing, like, learn about webhooks. Mhmm. Obviously, it would require but, like, it's beneficial for somebody to be able to go in and, like, quickly learn because then they'll understand, like, if this is what they're actually trying to do or if they wanna Yeah. Accomplish something else. So let's do WhatsApp.
+
+Speaker A 36:05:
+I don't think this part of the
+
+Speaker B 36:06:
+Okay. That's fine.
+
+Speaker A 36:07:
+Flow works. But, yeah, that that would be the configuration Yeah.
+
+Speaker B 36:10:
+Yeah. Yeah.
+
+Speaker A 36:11:
+Other channels.
+
+Speaker B 36:13:
+Uh-huh.
+
+Speaker A 36:15:
+But I think we covered most parts of our CS and the process of also submitting. But I understand your feedback about the the app concept that it's weird that you're required to attach it to an app.
+
+Speaker B 36:33:
+And then the only other thing is do you remember at the very beginning, I brought up, like, the one way or two way thing? Yeah. This, like, app settings, the processing mode, and it's, like, conversational and dispatch, I think it should be the same language both times.
+
+Speaker A 36:52:
+Mhmm. Does that
+
+Speaker B 36:52:
+make any sense?
+
+Speaker A 36:54:
+Yeah.
+
+Speaker B 36:55:
+Like, in this one, they're using dispatch. In the other one, they use the term nonconversational Mhmm. And conversational. So I think, like, if you kept it all, like, conversational, nonconversational, and then or the first one could have been conversational, and dispatch or one way or two way. Like, you just keep it the same because, like yeah. Like, I mean, the the explanation under it makes sense. So, like, you'll be able to figure it out. But, again
+
+Speaker A 37:22:
+Yep. Yeah. It's better that it's just something you recognize. Uniform.
+
+Speaker B 37:26:
+Yeah. Just because you don't you really don't know who's gonna jump on and try to make this and
+
+Speaker A 37:31:
+Mhmm.
+
+Speaker B 37:31:
+They may not, you know the some of these terms might be new to them. Some of them.
+
+Speaker A 37:37:
+Yep. So I got it.
+
+Speaker B 37:38:
+Yeah. Other than that, this is pretty yeah. This is this is pretty simple, for, like, app settings. Like, it it makes sense. You're trying to see yeah. Okay. Cool.
+
+Speaker A 37:55:
+Yep.
+
+Speaker B 37:57:
+Should make sure I could turn it on.
+
+Speaker A 38:00:
+Yeah.
+
+Speaker B 38:01:
+Okay.
+
+Speaker A 38:03:
+But I I think I got a lot of great feedback from you. So thank you so much for taking the time.
+
+Speaker B 38:10:
+Thank you for yeah. Thank you for allowing me to do that. I had a lot of fun. I I love doing stuff like this, by the way. So if you or anyone on your team has other things you guys wanna test in the future, definitely.
+
+Speaker A 38:20:
+Yeah. I think we could have something for ten d l c maybe because that's also difficult to to do on the build portal too.
+
+Speaker B 38:27:
+Definitely let me know. Yeah. I'd be I I would be down for that. Yeah. Mhmm. Alright.
+
+Speaker A 38:33:
+Yeah. But thank you so much for your time, and have a What
+
+Speaker B 38:36:
+time is it in the softphone? It's,
+
+Speaker A 38:39:
+five. So I'm just quit quitting, after this meeting, taking the my evening.
+
+Speaker B 38:47:
+Okay. Have fun. Alright. Thank you.
+
+Speaker A 38:50:
+Yep. Thank you so much. Enjoy.
+
+Speaker B 38:53:
+You too.
+
+Speaker A 38:53:
+Take care. Bye.
+
+Speaker B 38:55:
+Bye.

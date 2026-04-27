@@ -1,0 +1,309 @@
+Speaker A 00:02:
+Vill du då att jag delar inte
+
+Speaker B 00:04:
+ens? Du får jättegärna dela din skärm så vi kollar på det tillsammans och så får du tänka dig in I den här situationen och testa. Det är två stycken prototyper och båda är verkligen prototyper så allt du kommer vilja göra kommer kanske inte gå. Det kommer vara små problem, men vi får det som det kommer. Du har då sajnat upp och sagt: Är du intresserad av messaging och så hamnar du här. Vad tänker du om det?
+
+Onboarding app 
+
+Speaker A 00:47:
+Du har hamnat under messaging.
+
+Speaker B 00:50:
+Du har sagt att jag är intresserad av messaging och du vet ju att du är intresserad av RCF, för det är en ny kanal som ni på IKEA är intresserade av att börja använda.
+
+Speaker A 01:21:
+Men det är ett väldigt vagt begrepp för mig som bara kanske är intresserad av SD-BÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖNÖ Jag ser lite här att här skickas det meddelande på något sätt. Så det ger ju ändå någon beskrivning på att jag har möjlighet att skicka saker och ting. Då hade jag initialt velat gå in I gateted för att få reda på vilka messaging-kanalen har jag möjlighet till.
+
+Speaker B 02:13:
+Inte, du kommer tyvärr inte kunna klicka på den där knappen, men vad hade du förväntat dig skulle hända om du klickade?
+
+Speaker A 02:23:
+En förväntning hade väl varit I och med att det står I plural här, att jag möts på någon sida som beskriver vilken personalmöjlighet jag har. Och där hade jag velat bli mest specifikt, gå ner granulärt och okej, RCS kanske bör finnas där som ett alternativ om det nu är det vi utforskar. Och sen hade jag väl då förväntat mig en beskrivning på hur jag kan använda RCS och vilka möjligheter det ger mig att utveckla. Här I detta läge vet jag inte riktigt vad vad den är gjord för. Och vad den har för connection till det här Conversation API om jag nu glömmer lite grejer.
+
+Speaker B 04:26:
+Vad är det här? Det
+
+Speaker A 04:29:
+här är väl kanske en vy som jag hade hunnit vara van vid. Det känns familjärt. Jag förstår att det här är ett testverktyg. Jag har en resultatbild på vad jag skulle se ut. Jag kan till och med ändra lite olika typer av meddelande. Här idag vill jag skriva in mitt nummer. Spinna hela tiden. Jag vet inte om det är sådana detaljer då och VR utan mer konceptuellt?
+
+Speaker B 05:27:
+Mer konceptuellt, men du kan ju notera sådana saker som du tycker är skumma bara för att få med det också.
+
+Speaker A 05:37:
+Precis, okej. Verific, tydligt, vilket medlemsländer tydligt, access Jag har ganska skumläsa, för då hade jag egentligen velat få en beskrivning på varför jag behöver en axel key här, inte bara att jag skulle vilja skapa en ny, utan vilken nytta har den för mig eller bara möjliggör den? Vad tror du? Jag gissar initialt att det handlar om att få accesser till AP:et. Men från ett säkerhetsperspektiv hade jag nog velat veta var nyckeln påverkar. Bara så här snabbt. Denna autentiserade för att kunna använda något form av API. Vad är det
+
+Speaker B 06:51:
+för typ av API eller framgår det?
+
+Speaker A 07:00:
+Nej, det gör det inte. Jag kände mest det här som ett Kanske inte ett integrationstest, utan snarare Easee access test. Jag ska inte kanske behöva kunna så mycket utan jag vill mest snabbt kunna skicka ett meddelande och där förhindrar det sig lite med accesske. Varför behöver det? Jag trodde detta skulle vara ett snabbtest. Varför behöver vi då en nyckel? Där har vi den sen knappen också.
+
+Speaker B 07:46:
+Kunde du trycka meddelande då?
+
+Speaker A 07:52:
+Jag kunde. Det är en bra fråga. Det är ingenting som påvisar
+
+Speaker B 08:01:
+det. Vad tror du då? Nej,
+
+Speaker A 08:06:
+så är det väl då. Jag tror I detta läge att sändning Jag tror att ett meddelande skulle kunna gå I och med att det inte är någonting som säljer till mig att något annat
+
+Speaker B 08:19:
+har
+
+Speaker A 08:22:
+skett. Lite mer respons till denna här.
+
+Speaker B 08:32:
+Men du har inte skapat en access-team, men du tror att du kan skicka med dig land den ändå?
+
+Speaker A 08:40:
+Jag vill inte säga någonting annat till mig, så hade jag trott att någonting sker bakom kulisserna, men jag vet inte vad. Då kan jag väl ändå uttrycka. Här hade jag blivit fundersam som utvecklare. Jag hade kanske blivit snart skeptisk till systemet, okej, men det tar ett testverktyg och sen ber den mig att aldrig spara ner de här nycklarna och då hade jag blivit ifrågasatt, okej, är dessa nycklar aktiva för alltid? Och Varför behöver jag nycklar som är aktiva för alltid I ett testverktyg? Då reagerade man ändå en säkerhetstänk till att okej, vi kan inte hamra på detta API:et hur mycket som helst, utan det finns ändå en begränsning I själva tankesättet för systemet, man sen kunde göra allt för mycket hur som helst.
+
+Speaker B 10:27:
+Hade du då bara velat få en nyckel redan före I Filip och att det stod att de här funkar bara I tre timmar eller hade du velat generera de nycklar som du fick information om? Ja, jag
+
+Speaker A 10:42:
+hade velat generera på begäran för att det är en säkerhetstänk I bakgrunden. Det är inte bara I bakgrunden som inte används till saker och ting. Jag kan stänga en fönsterrutan här och strunta I det här testet och då är det kanske onödigt att den här nyckeln har skapats Jag hade nog inte velat Jag Det ger kanske en så bra beskrivning på vad en Key-id är för någonting och en Key-ecret heller. Det blev otydligt I och med att jag promtade någonting som är framför mig och det förväntas att jag ska fylla I det här I bakgrunden också. Oj, de skriver där.
+
+Speaker B 12:38:
+Du får kanske uppdatera sidan, det är lite buggigt varje. Vad tänker du om det här? Eller vad händer nu?
+
+Speaker A 13:11:
+Det är så att det händer någonting I det genererade requestet egentligen. Det tycker jag är bra. Det påvisar egentligen Det är två olika tester. Jag tror att användarupplevelsen, nu tänker jag som utvecklare och det ska jag fortsätta tänka mig. Då är det faktiskt bra. Jag får ställa mig frågorna om jag vill se detta eller om att jag aktivt vill välja att kunna se ett cur request? Jag tror inte det. Integration? Då kanske man hade velat det språkvis, plattformsvis.
+
+Speaker B 16:05:
+Så du vill kunna välja olika språk, typ JavaScript eller? Om vi nog inte kunde köra er kan jag ändå visa hur du hade gjort.
+
+Speaker A 16:27:
+Och sen har jag gjort så jag har importerat, pasteat. Nu vet jag inte om det är en inkorrekt form. Är detta nu? Jag tycker att det står code så funderar jag på att det borde finnas andra stater och här före bara att den är köd. Jag vet inte om det var tanken att denna skulle uppdateras I realtid eller om det liksom särkas olika statusar ovanpå varandra. Jag är nog kanske inte jätteintresserad av Men om det handlar om att man vill se en Message-förslag så hade jag nu velat se, nu kör jag detta och det kommer I form av en lista. Nu är det code, nu är det sänt
+
+Speaker B 18:00:
+svaret som du får av API:et när du har faktiskt skickat ett meddelande? Jag vet inte om det är exakt det som står I respons, men det är väl det som är tanken? Är det någonting som är intressant för dig att se här?
+
+Speaker A 18:18:
+Det tycker jag. Vi hade Bo som utvecklare velat få En API-beskrivning, detta är ju en form av API-beskrivning men det är från faktiskt respons. Jag hade kanske velat få förklarat för mig vad är Message ID? Vad är status? Vilka olika status finns det? Det här hade inte behövt finnas på den delen. Det hade alltid kunnat bli Jag känner mig ändå klar här.
+
+Speaker B 19:22:
+Jag tror inte vi behöver ta bort den svarta bönen som är längst ner från Fakma.
+
+Speaker A 20:11:
+Detta förstör inte just nu. Vad är det som är outgoing? Directional Jag förstår att det är förmodligen vad som har hänt utifrån steg ett. Eller samtliga events från det här requestet som genomfördes I steg ett. Vad är detta för sida överhuvudtaget? Vad gör det här? Det här är jag nu velat Men jag tycker att jag förknippar att jag förknippar detta med steg ett. Det här tycker jag är bra information.
+
+Speaker B 22:14:
+Vad är det som du tycker är bra med den här?
+
+Speaker A 22:20:
+Jag tycker det är bra att jag som utvecklare vet att jag kan tillhandahålla livscykeln för ett meddelande. Det skulle jag vilja, men det hade jag velat tydligare beskrivet kanske I toppen. Men jag tycker det här är bra, att det finns en lista på meddelandet. Jag vet inte om det är tanken att man får göra flera testmeddelanden och att de hade I så fall listats.
+
+Speaker B 22:56:
+Vad hade du föredragit?
+
+Speaker A 23:07:
+Jag hade nog föredragit att samtliga skickade testmeddelarna. Om jag nu har skickat flera stycken. Jag hade bara störst mig att jag kan gå dit och läsa mer.
+
+Speaker B 24:24:
+Är du typ intresserad av att förstå den här pailooden här ändå? Alltså förstå mer I detalj vad alla fälten är för något? Eller vill du inte se det alls?
+
+Speaker A 24:41:
+Nej, jag tänker snarare Jag börjar märka den här menyn. Den ser tung ut. Alltså jäklar vad det här var grejer. Och navigeringen kring detta kanske oj, jag ska göra sexton steg? Nej, det har jag inte tid innan jag tänkt. Jag kanske hade velat, och Emma är jag tvungen att göra allting gång. Den här hade jag nog ifrågasatt lite, det här hade nog ökat min, Då tänker man att jag kanske hade velat en beskrivning av vad gör detta verktyget innan jag ens hamnade här? Eller just det, att jag är på att flyta nu. I detta steget är det tydligt, men jag hade nog velat ett steg innan så att förklara vad det är vi faktiskt gör, vad gör det där? Started with Arzies hette den så där? Get started?
+
+Speaker B 27:22:
+Vad tror du att den syftar till?
+
+Speaker A 27:39:
+Det är en bra fråga. Man vet vilken underliggande uppgift som ligger I bakgrunden, vilken Netflix som är bakom allt detta, att det handlar om Bara att vi bara att det är så många steg att det är sexton steg för att. Vi behöver göra sexton steg för att vara geting started. Geting ready for production.
+
+Speaker B 29:28:
+Vad tänker du om det här?
+
+Speaker A 29:37:
+Jag förstår att de andra stegen har varit fromas to jul och detta är från jul-house eller för Tomi blir det Det här har det nog också gjort att jag börjar fundera på, oj vad det här, ni ser jättemycket information på just vår egen Nu ska vi För syftet med att jag vill gå in här är ju förmodligen att jag vill skicka meddelanden. Och det är väl troligtvis det som den största majoriteten av utvecklare är ute efter. Och hur
+
+Speaker B 30:51:
+känns den här sidan då?
+
+Speaker A 30:57:
+Jag tycker själva beskrivningen I vad en inbound eller Message inbound är för någonting är bra. Det tycker jag. Men det är nog utanför min gräns att vara geting Stary I det. Vi försöker ge en beskrivning på vad sändningar är för någonting. Det fick jag också en introduktion I steg ett. Jag märkte ju I den början, det är inte här förrän här jag förstår att den här skapades automatiskt redan för start. Det kommer I steg fem. Det
+
+Speaker B 33:31:
+är kanske en liten typ bugg. Det ska vara information om API:s nycklar här.
+
+Speaker A 34:19:
+Lite överflödig information här. Överflödig information. Jag vill bara bli klar, det känns det som. Sen blir jag matad av Information som jag kanske inte har så mycket nytta av just nu. Jag vill ju egentligen bara säga så att. Med Sinch kan jag åstadkomma det jag vill. Det kanske inte var tydligt egentligen vad jag hade för ursprungsuppgift. Men det är Post and pricing kanske är en onödig del här också. Det brukar vara en slags acceleration som ligger längst ner på en sida. Ungefär skär som en fotter där man alltid hittar kontaktuppgifter och churns and agreement. Cost and pricing, skulle jag påstå. En sån information. Min licens till någonting. Det är kanske inte det jag vill göra som utvecklare, jag kanske inte äger detta kontot egentligen. Min insikt är att jag ska uppgradera, men sen ser jag att jag kan gå vidare. Här har det nog också blivit too much. Jag vet inte vad tanken, är det allt som skulle skyddas med här eller är det någonting? Är detta själva stegen som görs I detta? Så de här punktformerna. Hade jag definerat defining are agreption of brandning?
+
+Speaker B 36:49:
+Hade du velat göra det här?
+
+Speaker A 36:51:
+Nej, det hade jag inte velat göra. Varför? Det här blev för mycket för en geting started, jag försökte inte behöva känna mig typ bara för att gå igenom det, förmodligen hade jag nog suttit på bygg och bara tryckt vidare bara för att bli klar.
+
+Speaker B 37:28:
+Jag får känslan av att du tänker att du ska göra klart den här ganska så snabbt. Alla steg.
+
+Speaker A 37:42:
+Precis. Själva konceptet med geting Stary från utvecklare är väldigt generaliserat och Det är en maxuppgift på typ två minuter, sen tappar en utvecklare intresset. Det här hade bara varit så här, och vad är det här för komplext? Det är väldigt tydligt I vad man gör. Det behöver göras, men frågan är om den informationen hade kunnat komma I ettan, för detta är inte geting start, detta är gå live. Jag hade väl kanske bildat, istället för Jag hade väl velat göra kanske det steget. Detta hade jag väl också kunnat vilja göra, men resterande ett meddelande och sedan hade jag avslutat.
+
+Speaker B 40:15:
+När har du velat se dokumentationen?
+
+Speaker A 40:48:
+Det vet jag inte riktigt. Det hade kunnat vara mindre också.
+
+Speaker B 40:53:
+Men om du tänker alla saker som du skulle göra, när har det varit passande att se dokumentationen? Innan du skickar testmeddelande eller efter? Har det någon betydelse?
+
+Speaker A 41:08:
+Ja, alltså på den här. Den spelar ingen roll. Om den ligger längre ner på startsidan så finns ju de alltid tillgängliga. Där kan jag ju välja när som helst att läsa med.
+
+Speaker B 41:23:
+Men vanligtvis, hur tidigt eller sent brukar du kolla på det? Det?
+
+Speaker A 41:28:
+Det blir ju ett duggstart, det blir det, för det är alltid det man brukar bli tentad med först liksom.
+
+Speaker B 41:39:
+Typ det interaktiva, att testa någonting först.
+
+Speaker A 41:48:
+Precis. Jag hade nog ställt mig också frågan till, okej, Explorer as beskrivningen finns här, men hur måste jag gå in I denna vyn till nästa gång för att hitta den informationen? Och dessa kollapsade till en början. Då måste jag komma ihåg vilken IT eller vilken sektion låg den informationen I? Ja.
+
+Speaker B 42:19:
+Jag tänker att vi ska gå vidare och kolla lite grann på den andra prototypen så får vi jämföra lite grann. Jag skickade länken I Teams-chatten här. Samma scenario, du har tjänat upp dig och du hamnar här för att du har sagt att du är intresserad av just messaging.
+
+Speaker A 43:09:
+Det här har det blivit mer imponerad över att om jag väljer att Sinch så förstår jag vilken kapacitet det kan ge mig.
+
+Speaker B 43:23:
+Hur menar du då?
+
+Sandbox
+
+Speaker A 43:26:
+Använder jag Sinch så förstår jag här. Förmodligen har möjligheten att använda alla dessa kanaler för att nå ut till mina kunder. Så det är ju betryggande på ett sätt, eller det är imponerande att det finns valmöjligheter. Det är ju bra för att de vill ju till RCC. Recommended kanske är otydligt vad det betyder. Det är no en word and grej. Bra. Sånt här är jag som utvecklare. Det här är tydligt också vad jag kan uppnå, vad ger detta mig? Svart och enkelt. Någonting som kanske också är vanligt, företag bräggar ju också vilka kunder som använder deras produkt, oftast går man in så här, ja, Microsoft använder våra grejer, Facebook, ja det.
+
+Speaker B 46:10:
+Men är det ett vanligt koncept när man jobbar med API:s app eller hur mycket behöver vi beskriva det?
+
+Speaker A 46:21:
+Nej, det är det egentligen inte, utan det är ett systembarn som sin fin har valt att det ska finnas en app. En integration kan egentligen bara ring mig på denna endpointen med din information. Så löser vi allting till dig. En app I vår kontext tolkar jag det som eller så som jag förstått det är ju för att all din trafik som du genererar knyts till en knutpunkt I form av ett annat. Det är egentligen bara en knutpunkt.
+
+Speaker B 46:56:
+Men är det konstigt för dig som utvecklare skulle du säga? Eller hur ovant är det eller hur mycket behöver vi förklara det?
+
+Speaker A 47:13:
+Nej, det är inte ovant. Men jag hade nog vetat vad det är innan. När jag väl använde API:erna så hade jag vetat vad det är, de här introducerades det typ innan jag ens vet vad API:et är. Det här hade jag velat besttiderna: Using commversation Man ska kanske vara lite försiktig med den här informationen. Det kan heta Establys connecttion to Conversation ABR. Det finns Tydligt. Här har vi kanske också velat I ISO-format, så det beror på hur stort objektet är som man skickar som pejlod. Det här är bara till vilken slutpunkt skickas med den, men vad innehåller meddelandet jag skickar? Alltså inte I form av SMS utan datameddelande. Superbra. Då vet jag som utvecklare, OAS tjugo senaste protokollet säkerhet finns. Ett Det är en fråga till dig, Rebecka. Du vet att detta är möjligt, tjejerna?
+
+Speaker B 51:01:
+Jag är inte säker. Jag har bara bett law och boll, eller jag har försökt att skapa en mer straightforward dokumentation, baserad på dokumentationen som vi har idag, liksom på Sinch, fast mer just för ArssiaS. Så det här är lite mer working progress, men som jag tänker mig att en dokumentation borde organiseras mer straight forward. Så här skickar du ett meddelande, förklarar lite parametrarna och visar exempel på vilka meddelandetyper kan skicka.
+
+Speaker A 51:35:
+Jag förstår. I och med att jag blir introducerad till olika typer här, det hade inte gjort mig någonting om att de finns I Okej, du kanske ändå vill sälja någonting. För den här Radden av text och den raden av text tillsammans också med den raden av text. De hade man kunnat skriva ihop och ge tre olika exempel. Ja I en och samma ruta alltså simple media
+
+Speaker B 53:03:
+Har du lite mer tid att vår mötestid är slut snart?
+
+Speaker A 53:08:
+Slut.
+
+Speaker B 53:09:
+Kanske fem minuter? Vad hade du varit intresserad av här?
+
+Speaker A 54:16:
+Jag tror du måste klicka.
+
+Speaker B 54:17:
+Det är lite konstigt att den laddar fortfarande.
+
+Speaker A 54:53:
+Vem har den defaultbad till en bön?
+
+Speaker B 54:58:
+Vilken då?
+
+Speaker A 55:00:
+Den din Johan kanske. Det här kräver ändå lite mer Det beror på hur kunniga jag utvecklar det är. Hur många hade känt att detta kanske är ett projekt att sätta upp Ahm och civilingenjör, den ska vara körbar och hit-lite. Det är ju alltid bättre att visa det enklare alternativet till en början med. Jimsing kanske är lite onödig. Finns där en sänd knapp någonstans så kan ju den heta Den kan vara Den kan vara Den kan vara utkod, kanske genom beskrivning att man måste generera accesscases.
+
+Speaker B 56:19:
+Hade du velat se kodsnittet än ändå fast du inte har en accesscase?
+
+Speaker A 56:25:
+Ja, det hade jag roligt att göra. Jag förstår att poängen är att man vill detta förefyllt. Det blåser lite på hur man väljer att systemet fungerar. Hade jag personligen bara velat att detta skulle vara testgrejer, den är väl I x antal minuter, timmar, sen glöms det liksom. Så slipper jag tänka på det här. Superbra. Jättebra, eller bättre att den tostar närmare min action. I vanliga systemet hade den tostar till högersidan, där hade det varit svårt att säga att det verkligen är någonting som händer. Jag är själv lite allergisk som är toast och vill att det ska framgå I anslutning till min hackshed. Happps. Jag hade blivit nedskållad till det här, kanske med någonting kvar av det som vi hade, men att jag ser ändå någonting.
+
+Speaker B 58:37:
+Det var
+
+Speaker A 58:38:
+också en sak som är request. Bit bra.
+
+Speaker B 58:44:
+Hur tycker du att testupplevelsen här och om ni jämför med den andra versionen? Vilken tycker du funkar bäst? Här har du mer sälj slogs under din action när du skickar och förra året var det på en egen sida. Har du någon åsikt kring det?
+
+Speaker A 59:03:
+Ja, enda jag tyckte är väl att det här känns väl mer Arbetsbelastningen är lättare ändå. För jag vet, jag ser inte till att jag har flera steg att gå igenom. Och denna kommer ju med en efterföljd av det trycket, inte att jag trycker på nästa steg ner till hönan. Så de har en starkare band sinsemellan.
+
+Speaker B 00:07:
+Är det nåt som du saknar när det kommer till webhooks Message slogs?
+
+Speaker A 00:23:
+Det är något annat än just det.
+
+Speaker B 00:25:
+När vill du veta mer om det?
+
+Speaker A 00:36:
+Det är också en bra fråga. Det svåra är här, när ska man introducera detta för användandet att detta finns? Livet. Det jag sitter och tänker på är att jag ser att det är ju långs. På något sätt hade man kunnat beskriva för användaren att det är fullt möjligt att på något sätt pracka meddelandets livscykel och det kan det göras via. Men jag tycker inte det behöver vara en del av just det här, utan bara information. Direkt. Jag hade ju I och med att alla steg har en titel, en description, och även detta steget har bara en titel. Här hade man kunnat ge en description på vad är detta? Har jag möjlighet till att kunna använda mig detta på något sätt? Kanske en länk.
+
+Speaker B 02:08:
+Ja, till vad?
+
+Speaker A 02:17:
+Jag hade inte sett kanske initialt behövt ett testverktyg för det, alltså testat vad Hedvig funkar eller hur det funkar, utan hur jag kanske sätter upp det och en förklaring för vad det är för någonting.
+
+Speaker B 02:34:
+Typ dokumentation då
+
+Speaker A 02:39:
+eller? Ja, och nu har jag ju redan sett lite här. Det är inte gjort att det ska heta Webhoux eller om det ska heta unuststaning the response Tract de liberan read events. Jag tycker det är bra att det finns här, och jag tycker det är en daff. Här hade jag velat Go to setup för att konfigurera det här. Var den ska finnas om det är din sida. Fördelen med föregående är ju att allting görs på en och samma gång, om man nu tycker det är en fördel, det är väl kanske någon vinning I det. För vinning är ju att när du är klar med det så är allting uppsatt. Men nackdelen blir ju samtidigt att det blir för tungt att göra allting på en och samma gång. Vill jag utifrån ett upplevelseperspektiv säga? Ja. Den här är ju också, Om det är vintat vet jag inte riktigt hur mycket.
+
+Speaker B 04:58:
+När det kommer till vilka saker som du föreslår att du ska göra I de båda Vilken tycker du då funkar bäst och varför?
+
+Speaker A 05:15:
+Vilka scenarier du tänker på?
+
+Speaker B 05:22:
+Om du får den här uppgiften, du ska testa RCS, du ska utvärdera det, funkar det att använda för oss på IKEA? Är det någonting som är en bra kanal för oss och särskilt kan vi använda Sinch för det. Vilken tycker du? Vad ska en bra getingstad upplevelse vara för en utvecklare?
+
+Speaker A 05:55:
+Framförallt som utvecklare så handlar det om, och det säger jag faktiskt första ordet, build trust. Det är oftast känslig information det här som skickas. Det kan ju vara inloggningsuppgifter eller vad det nu skulle kunna vara. Då blir det känsligt. Det viktigaste för mig är att själv bygga någon form av trust. Det gör man inte genom detta ordet, men det är bra att det finns med. Jag är generellt väldigt säkerhetsmässigt. Det behöver bara vara en feature som säger security type.
+
+Speaker B 06:47:
+Vad är
+
+Speaker A 06:47:
+det som gör att det är security? Men self-slut är det så klart egentligen lite här Det här är utmanande, det brukar. Det är ju såklart viktigt att jag får svaren på att kan jag faktiskt utföra min uppgift genom att använda Sinch. Det ger ju det här. I alla fall utifrån den beskrivningen jag fick. Generellt är det att den andra var väldigt tung I den. Den här känns betydligt mer lättillgänglig, den ger mig den informationen om jag vill I ett kanske mer induktivt flöde. Jag blir konttad med den informationen jag vill direkt, istället för I en djup hierarki av sexton steg.
+
+Speaker B 08:20:
+Yes. Det låter lite som att du menar att du hellre vill upptäcka den informationen när det passar dig som får anses I den här 16-omstegs
+
+Speaker A 08:34:
+Precis. Det hade varit det jag är van vid som utvecklare, att söka upp den informationen det jag är ute efter. Det görs oftast via eller att man listar funktioner som ingår I AS. Det finns ju här och det kanske till och med hade kunnat vara en länk mot mer tydlighet. Det är nog ingen ovanlighet för mig att bli kontad med allt på en och samma gång utan det kan jag successivt leta mig igenom. Ja. Jag
+
+Speaker B 09:22:
+förstår. Har du något annat du vill tillägga?
+
+Speaker A 09:29:
+Avslutande ord? Jag behöver gå upp semester. Nej, men det ska vi fortfarande vara lite seriös. Jag är inte Jag gillar positiv två. Det säljer ju ingenting till dig, märker jag också när jag säljer.
+
+Speaker B 10:06:
+Du har ju pratat lite om vad du gillar och det är det jag vill komma åt också. Den skiljer sig lite från vad vi har idag också.
+
+Speaker A 10:18:
+Precis. Det är när jag har men som jag kan tillägga faktiskt.
+
+Speaker B 10:26:
+Tack så jättemycket, du har gett mig jättebra.

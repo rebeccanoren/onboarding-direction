@@ -1,0 +1,444 @@
+Onboarding app
+
+Speaker A 00:02:
+I just start with some basic questions, and then I also want to share two different concepts with you so you can just give your initial thoughts about both of them. But, if you would, imagine, like, this scenario that, you have a manager, like, you're working somewhere else and your manager asks you to explore or test RCS to see if it's relevant for your product. And you are, tasked, like, with the, yeah, testing RCS to see if it's a good fit. And you, yeah, you would start with or you would look at the cinch for, RCS. So when you think about like testing, what do you expect the first steps to be? Or what would you do when you get a task like this?
+
+Speaker B 01:06:
+Yeah. I try to and go to I find the service. See how I can set it up. I mean, I I I usually like to, yeah, try it hands on as soon as possible. So being able to send a message, to my phone or something, is usually the first thing I try to achieve, whether I can do that through the web app directly or have to do some additional setup. I mean, that's that's the end goal either way. But, obviously, it's better if I can just do it out of the out of the application itself
+
+Speaker A 01:56:
+Okay.
+
+Speaker B 01:57:
+While I'm setting it up. Right? Yeah. So, yeah, that that's the thing I'll, usually I want to achieve. And once I've done that, then I can kind of relax and know that, okay, this thing works, then I can just, yeah, use the API and the keys to actually integrate it into, any system.
+
+Speaker A 02:20:
+Mhmm.
+
+Speaker B 02:22:
+So that would be my expectation, I would say, with these kinds of things.
+
+Speaker A 02:27:
+Yep. Is it something else you would expect? To learn about or, like,
+
+Speaker B 02:36:
+anything. Yeah. I mean, if if if I'm researching it, if I'm like, yeah, I need to send RCS, messages, and I don't know even know where to start. Yeah. Usually, I would start with an LLM. Ask there, how can I send them? Where can I send them? Blah blah blah. And he usually gets a few suggestions. Whether you like the suggestions or not depends. Maybe you can then continue googling, something or not. But, yeah, usually, you would get the suggestions. You would get the suggestions from there. But I always expect to go and then sign up somewhere and then go through their app. Obviously, it would be even easier if I can do everything there. But, yeah, usually, you need a a user too. You create a user to to actually use the services.
+
+Speaker A 03:42:
+Yep. Got it. Alright. So I will share the first, prototype with you if you open it and then share your screen. Mhmm. So for this scenario, you have been signing up to Cinch, and you've been doing, like, a short onboarding, but this is the first view you're seeing after, saying, like, you're interested in messaging. If you check, I sent it here in the chat.
+
+Speaker B 04:36:
+What's going
+
+Speaker A 04:38:
+on? It's a bit slow. Is your computer usually this slow?
+
+Speaker B 05:00:
+Not usually. No.
+
+Speaker A 05:21:
+For me, it loads, but I'm not sure why you are having issues.
+
+Speaker B 05:47:
+I mean, it stops loading, so I should be seeing
+
+Speaker A 05:51:
+something. Weird. Can you try another browser? Maybe it's, oh.
+
+Speaker B 05:56:
+Wait on.
+
+Speaker A 05:57:
+There you go. Okay. Good. So you're here because you signed up and you said I want to try messaging. I'm interested in messaging.
+
+Speaker B 06:05:
+Mhmm.
+
+Speaker A 06:06:
+And so if you just take a moment and review this page, and you can tell me about your first impressions. Like, where are you?
+
+Speaker B 06:20:
+I'm not sure how to answer that question. Where am I? Yeah. I'm in the portal where where I can set up different channels. I can obviously see that. What comes to what I see first is, this that I have available, which, yeah, immediately makes me think that this is what I would use to actually use the API.
+
+Speaker A 06:56:
+So what is an app, do you believe?
+
+Speaker B 07:01:
+Well, yeah, I I would have concept of an app. Yeah. An app, kind of a just a concept of when I would okay. So when you usually use APIs, I would have an app per integration that I do. So perhaps I I want to use the same account in in CinchBuilt too and and the same API, but I want to integrate it in multiple, softwares, multiple back ends maybe. And this is a way for me to kinda separate the integrations. And, I would say, perhaps for, billing reasons or other things. So, yeah, I would expect to find the kind of keys and and API when I go into the app. I don't know. What else? Okay. Get started. Should I go through this?
+
+Speaker A 08:33:
+You're interested in RCS and not SMS?
+
+Speaker B 08:37:
+Yeah. That's true. You did tell me. Okay. Yeah. I wanna go to RCS. So I set this up. I'm guessing I set this up previously.
+
+Speaker A 08:54:
+And so this is the first time you're here.
+
+Speaker B 08:59:
+It's the first time I'm here. Mhmm. Okay. Then, yeah, I guess it's a bit weird if if SMS is is set up by default without me being interested in it. Mhmm. Yeah, I wouldn't expect that. Yeah. Conversation API. Get started. I guess if I go here, all available channels. I want our CS, so I go try to get started with our CS. Let's see. Enter your phone number to go server receiving text messages. So what is this? Sure. So I I would add my own phone number. Blah blah blah. Great. Please accept the invitation from Google. Okay. I confirm. Yeah. I know this works only in the US now. So I I tried to put in my phone number, and then, yeah, I probably wanna test out. Since it's RCS, I def I definitely wanna test out rich, messaging to see if that all works. Create new access key. Yeah. That's a bit of a it's normal to know to create an access key. This is actually good. It's it's more convenient. Yeah. Whatever. Best key. Yeah. This sucks having to copy two things here. I don't know if I will need them or usually, I would want to maybe be able to download it instead
+
+Speaker A 10:57:
+Mhmm.
+
+Speaker B 10:58:
+To have both. But now I need to to use a external tool and copy them. And okay.
+
+Speaker A 11:11:
+Modes.
+
+Speaker B 11:12:
+This one to shit.
+
+Speaker A 11:15:
+Maybe if you're explode.
+
+Speaker B 11:28:
+Mhmm. Alright. Get started. Add the number. Blah blah blah. Okay. So then oh, there's a default key. That's weird. I'm gonna just gonna create my own. And then
+
+Speaker A 11:55:
+You don't need to copy because it's just a prototype, so I don't need them. But this is how you would do it normally.
+
+Speaker B 12:04:
+Exactly. So, yeah, I guess, I select the test one. Okay. Key secret was the second one. And okay. Trying to send a message. I suspect I received it. Welcome to IRCS with this picture.
+
+Speaker A 12:30:
+What is this entire page that you are on right now? What is happening here?
+
+Speaker B 12:39:
+Well, yeah, I it's a combination of me testing and setting up a new key. So while I am testing to send it to my mobile, which is really nice because it gives me a bit more confidence that this whole thing will work, I'm also getting a I'm also getting a request, a ready made request. And this, I'm supposed to just be able to copy and do the same thing, but in the terminal.
+
+Speaker A 13:23:
+It it wouldn't work for you. Yeah. Yeah. It wouldn't. But I understand. Yeah.
+
+Speaker B 13:28:
+So that's that's all good for me. I would probably wanna try it in the terminal as well. Okay. It works. Well, this wouldn't work because it it's, oh, yeah. Yeah. Good. So it's setting the environment variables and then using them to to send the message. So it would technically just work if I copy paste the in the terminal, considering it would be a real one. Yeah. For for me, that's that's all I need at this point, in order to to test it out. The next step, I think, would be, that I want to actually try and integrate it in the code. Yeah. Okay. So I want to learn more definition. Maybe if you scroll
+
+Speaker A 14:11:
+up here sorry. I'm not sure why it's This is where you should learn.
+
+Speaker B 14:16:
+Okay. So let me see. Delivered. Oh, that's all good. K. Let's try and understand this. The delivery has access through webhooks callbacks. Yeah. I know what webhooks are. That's good. You'll be able to configure all webhook in a conversation API app. So webhooks are great. I'm trying to figure out what it's telling me here. Is it trying to do anything special with the webhooks? Am I registering? Because so when registering a webhook, it would usually be a link that I create that I have available to get the webhooks in. Usually, that's a bit of pain, because you would have your code running locally, which it means it's not accessible through the Internet. And then you would have to kind of set up some sort of pass through so it makes it so you make it available in the Internet so you can test this out. That's all fine, but I don't understand what this particular thing is, onboarding webhooks. So event yeah. This gets is is this the link that I set up? Yeah. It's what what do I do with this link? I have no idea. Want to learn more webhooks and API? Yeah. I guess again. Yeah. This is explaining what I I said. When try tray trialing, it comes in your resolution.
+
+Speaker A 16:21:
+What do you feel like, or how is it learning about webhooks right now? Is that interesting to you?
+
+Speaker B 16:32:
+No. I mean, I immediately identified that it's just suggesting some, tools that I can use to set up the the webhook, without yeah. To test it locally without deploying anything, which is helpful. This seems to be a paid solution, which I would kinda be pissed about.
+
+Speaker A 16:58:
+Yeah.
+
+Speaker B 17:00:
+But, yeah, other than that, yeah. This also seems like a paid solution. Not very good suggestions, I would say. You can yeah. There's a lot of free solutions as well. Mhmm. Web hook managements. Yeah. I, yeah, I don't really need any education on webhooks at this point, but
+
+Speaker A 17:31:
+Why do you feel like that?
+
+Speaker B 17:34:
+Webhooks are are a pretty standard way of communicating. Yep. If you've been developing, you already know what what the concept is. But, yeah, you would be interested in these maybe because these are specific to how this particular, API works.
+
+Speaker A 17:53:
+Mhmm.
+
+Speaker B 17:59:
+Not sure completely how, this would work, but, yeah, this payload is just telling me, the webhook that I set up because this basically means that I have to create an API that this that Cinch is going to call, and provide this data to me. So I I would have to create an API to to accept this, this data. Yep. So what do
+
+Speaker A 18:28:
+you think about us talking about webhooks as, like, this step two here? Do you think it makes sense, or would you prefer to learn about or think about it later?
+
+Speaker B 18:46:
+It it's I think it's standard practice to to set up the webhook to talk about it. I would like to get through it maybe a bit quicker in the sense that I really would wanna test it, definitely. But, usually, it's a bit hard to test, and I don't quite understand how I'm adding these access through Webex. Nope. URL. That's a bit weird to me. Don't completely understand what is being set up here. I do understand the point of, yeah, they want to send this, information to whatever endpoint that I provide, but not sure what these what books were, where did these come from, or why they're here.
+
+Speaker A 20:10:
+Mhmm.
+
+Speaker B 20:11:
+One helpful thing usually would be that, well, yeah, I, I could like see this, these, callbacks in the system itself and since the system itself, that's also helpful. Like sometimes you need these in the software, but not completely I mean, it's it's for me at this, I would say it can also be helpful just knowing that the webhook is available, but instead me just being able to check-in some, in in a cinch system whether the message was delivered successful or not and have this information available. Like, we had, I think, previously in the check delivery report here. Right? This this this would be enough for me to test. So not sure if I would want in this step to go through the whole web, to go through the whole webhook setup as well. Because those yeah. Sometimes it takes a bit too long, and and these widgets feel like you wanna you wanna finish them in a reasonable time, like in an hour or something. I feel like setting up a a webhook and a pass through and creating that endpoint and testing it out may take longer than that. Yep. Get insights into your RCS messaging performance with our compass. You know, like, dashboard blah blah blah.
+
+Speaker A 22:02:
+I'm not sure if that works. I'm sorry.
+
+Speaker B 22:04:
+Yeah. Go back here. Let's okay. Sending.
+
+Speaker A 22:09:
+But before you, look at this, what do you what is this thing here to the left, the one that you're clicking on right now?
+
+Speaker B 22:17:
+Here? I left. Yeah. It's, step by step, I guess. What is it?
+
+Speaker A 22:29:
+What steps? Alright. What is this about?
+
+Speaker B 22:35:
+Yeah. Give steps to get started with with sending RCS messages. Yeah. I I feel like that that's what I would expect now that I read through it. It's it's supposed to do more than that and actually help me integrate it, further, which, yeah, which might be nice. I I'm if if I if I can come back to this later on and and be at a certain step, I think that's that's really helpful. Especially initially when when you sign up and and come back to a certain app, it can be overwhelming with options of what you need to do for the specific things you thing you are are trying to set up. And in that sense, in that sense, this is very helpful. Yeah. So sending, yeah, some good information, I guess. I would probably try to, like, skip it as fast as possible. He was the same API keys as SMS. Conversation API keyedances work across all messaging channels. Yeah. So that that's a bit weird considering I haven't set up anything for SMS. It expects me to know what SMS like, it expects me to have a bit more context about SMS and how the system works. And if I'm here for the first time and I was just searching for a I want to just send some RCS messages. I don't really know a lot about this this whole world industry, then I think this is a bit ambiguous. Otherwise, yeah, a link maybe to wherever I can get this would be helpful. RCS agent and receipts. Yeah. Test RCS. Right. You can also verify verify numbers during trial. That's cool. I believe you. Explore, comprehensive API documentation and SDKs. Yeah. Seems cool. I would expect links here, but maybe these aren't done.
+
+Speaker A 25:49:
+Would it be just fine with links here to different resources, you think?
+
+Speaker B 25:57:
+Yeah. Yeah. I think that would be fine, if I can get, redirected to some resources, but I would definitely expect at least that. It doesn't seem like there's, a lot of yeah. I would like to be redirected to some sort of documentation where I can, find these as the case Okay. Or the documentation on the APIs. Explore docs and support. Access to the documentation guy. Yeah. Sure. Explore our CS agents. Okay. Guess. Yeah. This is not really custom pricing information. But, yeah, I I guess that
+
+Speaker A 27:02:
+What would you like to have here? Like, if you can decide.
+
+Speaker B 27:08:
+No. I I I would like to have some sort of pricing table. I I think, actually, pricing should probably be, a lot higher, up the list. It's it's one of the first things that I would want to know is the use case that I'm trying to work with, how much that will cost me, have some kind of cost calculator. Yeah. It it can be more simple. Like, it doesn't have to it it probably doesn't have to have all of the details because cost can be cost can become complicated, But more in terms of okay. Like, my main use case is sending SMS or or RCS US within US or US to some other country, and I send about, yeah, five thousand maybe a month, what would that roughly cost me? Also probably cost per agent, because I would imagine agents have a a cost associated to them as well. Yep. And and I will see that here. And I think I would, I would want to have some sort of idea at least. But, yeah, maybe pricing is available through the website or some other means as well. Mhmm. So if I'm very interested, I would probably go search it somewhere. But it's it's definitely something that I want I would want to compare. So so probably yeah. First thing is, yeah, does this thing work? Can I set it up? Or, but also yeah. What's what's the pricing for for the things that I wanna use? Okay. Upgrade account. Alrighty. Yeah. There's no information here that an agent needs to be created beforehand. I feel like agents take a longer time because I have used similar products before. Again, agents, especially when you have your agent, for your business. So upload business logo or maybe you have to have some kind of business ID. It's not completely clear from the beginning. And, like, yeah, I could be a part of a business. I could also just be a developer, like, trying to create some sort of product for myself and not have any registered business. It would be a bummer if after if after all of these steps, I find out that I can't really create an agent at all, because I there's some kind of vetting process, and I need to provide a business ID and and stuff like that. So, yeah, although testing is possible, it is very limited. I mean, but that's that's a limitation on how SMS is sending and there are yes. So that's I don't believe there's a new way around that.
+
+Speaker A 30:44:
+I know.
+
+Speaker B 30:45:
+But maybe it's it's just, good to, clarify that.
+
+Speaker A 30:53:
+So when would you like to create an RCS agent? Like, here inside this view?
+
+Speaker B 31:01:
+Sales agent. Not I mean, why not? It could be available here. I know there's, yeah, waiting involved. So it can also be a link. I don't I wouldn't mind if it's just a link to somewhere to just tell me where I can create one. But, Yeah. Configure. Yeah. By by this time, I'm I'm probably quite quite deep into this, so links at this point would be fine. Launch your first campaign. Yee hoo. I'm not sure where I created my campaign previously. Did I miss that? Because I feel like you need to have a campaign created when you want. Okay. Fill out. I want to campaign. Campaign. No campaign.
+
+Speaker A 32:27:
+I just think it's alright. Maybe if you move over to the next concept, which is similar but not exactly the same, and we can compare them. Okay. I will send you another link. So now if you again sign up to Cinch, and you said you're interested in messaging. Oh, no. Let me just check my
+
+Speaker B 33:19:
+Why is lovable?
+
+Speaker A 33:22:
+And then
+
+Speaker B 33:24:
+Is it a lovable?
+
+Speaker A 33:26:
+It's lovable. Yep.
+
+Speaker B 33:29:
+Well, I'm logged in as a
+
+Speaker A 33:30:
+Then maybe I need to publish. Okay. Then you don't need to sign in. I think I published it now, but it takes some time.
+
+Speaker B 33:52:
+Maybe a little link changes as well? Yeah.
+
+Speaker A 33:55:
+I will see. It says it's building right now.
+
+Speaker B 33:59:
+Okay.
+
+Speaker A 34:12:
+And, okay. Let me find the link again for you. Okay. It's the same. But, yeah, I didn't try that second now.
+
+Speaker B 34:40:
+It also says preview.
+
+Speaker A 34:46:
+Okay. Wait.
+
+Speaker B 34:54:
+Yeah. Still previewing.
+
+Speaker A 34:55:
+Okay. No. The latest. Sorry. I think I shared the wrong one.
+
+Speaker B 35:04:
+Alright.
+
+Sandbox
+
+Speaker A 35:05:
+Okay. So now if you go to messaging, that's yeah. So you signed up and you said I wanted to, get started with messaging, and now you're here.
+
+Speaker B 35:18:
+Okay. Recommended
+
+Speaker C 35:21:
+for first. Yes. That's good.
+
+Speaker A 35:26:
+Mhmm.
+
+Speaker C 35:33:
+The star c s agent. Cool.
+
+Speaker B 35:37:
+So test agent has already been set up for me.
+
+Speaker A 36:08:
+What, the thing you clicked on? Like, what is this? Like, where
+
+Speaker B 36:17:
+Okay. Yeah. Now I read it that it's prepared to go live. I thought I could use it for testing
+
+Speaker A 36:26:
+Mhmm.
+
+Speaker B 36:26:
+Initially. So it seems to be something else. Send test message. Okay. So this was just not working. That's better. Send test message. Use existing app. My first app. Yeah. I'm guessing that's a just a rich card. Yeah. Good enough for me.
+
+Speaker A 37:03:
+Yeah.
+
+Speaker B 37:06:
+Sure. Sure. Generate access key. Awesome. Yeah. I like that it's a node as well. If I have a file on hand, I can, use that instead of, yeah, terminal. Sometimes prefer that. I like that the keys are here, not in the model. I don't have any, any anxiety to save them to some sort of notepad.
+
+Speaker A 37:42:
+I'm not sure if that link works.
+
+Speaker B 37:44:
+Yeah. So, yeah, gonna simulate sending something. Cool. And, yeah, I have the payload. This is what I would get in webhooks, I guess. Message delivered, message queued, message read. Now this is this is pretty nice. I get an overview
+
+Speaker A 38:09:
+of
+
+Speaker B 38:09:
+how it would look like, how the different delivery statuses look like and what is available. I think for for testing purposes, this is great. Yeah. So in this case, I've already sent something to my phone number. However, yeah, it is harder to know. It's a bit mixed, the sending and the actual setting up. Like, I'm I'm not completely sure what is in test mode right now and what is me trying to prepare a real app. So now yeah. But I think I once I settle in to reading this, it seems fine. K. So submit for approval. Approval. At least here, I figure out early on that I can that I need some sort of approval after I I've finished this. It's not super clear, though, what any of it or why I'm doing any of this. Yeah. Let's see. At agent appearance. This is doesn't show any good connection, a strong connection to what's happening down here. So I'm not sure if there's this is broken or this is how it's supposed to be.
+
+Speaker A 39:54:
+What what is this page?
+
+Speaker B 39:57:
+It seems like I'm I'm building the the agent view page. It's not really telling me much what it's about. I I kind of know because I've I've seen this type of thing before. And that there is some sort of business card that that it generates for you, when you know, this is what people are going to see in their phone apps, perhaps, when they get messages or a phone call from from, this agent. But, yeah, I would definitely prefer some sort of description of why or what, the hell am I doing? And the the other other problem is, for example, when I go to add country, nothing really changes here. So it's very loosely coupled, the this item that I have clicked and, at this point where I am and and this form at the bottom aren't aren't very related, it feels like. I would want them to be a bit more related. Yeah. I guess I could edit the appearance here, blah blah blah. Finish that. Add country. Messaging details and contact person. Yeah. Now now I'm going into, like, actually setting up, I would assume, a campaign even though it doesn't really say campaign and group anywhere. But this is made. Web URL. Is this my company's URL? What what type of web URL is it asking for here? No idea. Opt out confirmation message. Yeah. That's that seems fine. What is this web URL for? What am I missing? Explain how users opt in and manage their messaging preferences. Uh-huh. Okay. So web URL where you manage your subscription to this message. Uh-huh. But okay. So you have to have some sort of page to manage that, I guess. Cool.
+
+Speaker A 42:30:
+What if you are more interested on, like, in the, integration part? Like, how you can actually use this to send messages?
+
+Speaker B 42:43:
+Yeah. I would be much more interested in that as a developer definitely. This this
+
+Speaker A 42:50:
+But where would you go to find that information?
+
+Speaker B 42:57:
+I mean, yeah, I tried it out here, I guess. And I had the Node. Js stuff here, and I don't know. Visit RCS documentation. Yeah. This, basically. I could maybe go from there if if if this was a complete, documentation site would be fine if I can just follow this.
+
+Speaker A 43:28:
+Yeah.
+
+Speaker B 43:33:
+I mean, I I felt like it was it was pretty good in the beginning in, in in setting or setting up, this test to send the message This is the thing. Yeah.
+
+Speaker A 43:52:
+I think everything resets when you
+
+Speaker B 43:54:
+Oh, yeah.
+
+Speaker A 43:55:
+I don't know. So
+
+Speaker B 43:58:
+Yeah. If you go Paris Yeah. I think this looked cleaner in the sense of of sending I got quicker to sending a message. It was less a bit less convoluted. Like, finding this documentation might be a bit hard if I don't go to this test. I mean, I would like, I would like some more, some more information, on where I can find well, yeah, documentation is here again. So I guess I was inside of the agent. And if I already have this is this is confusing to me now because, it looks like I have a test agent. But then when I go into the test agent, I'm kind of trying to set it up, which is weird. I mean, I think it's good to have a test agent available so that I can work on the documentation directly.
+
+Speaker A 45:12:
+Yeah.
+
+Speaker B 45:12:
+Like, it's it's good to go in and be able to test it out, to, like, send a message with a number, test it out, just see if it works. And then I would just want to be in the documentation and actually start looking into how to how to implement it. And that's all fine with me. But, yeah, having a test agent would help with that. But if I go to the test agent, I wouldn't expect to set up the test agent. If I want to set up an agent, I would want to set up a new one.
+
+Speaker A 45:48:
+So Go and Yeah. Then. Do I understand it correctly? You don't think it's weird to have a test agent, but you don't want to use you don't want to you just want that for testing.
+
+Speaker B 46:00:
+Yeah. Yeah. I don't think it's it's weird to have a test agent. I think somewhere, you will somewhere in here, this it is explained what an, agent is. And, I kind of know a bit from experience that, creating an agent. Yeah. You it it does require a business, number or something or some sort of, vetting process, verification process. So I know that if I'm going in here to try and and set something up software wise to test, I know that I'm not gonna probably finish that whole process of getting a real agent. So having a test agent here is very helpful. But, when going into setting it up, I would imagine it could have some sort of settings of, oh, where do you wanna send messages from and which numbers do you wanna verify to be able to send to, like like earlier, that that you would verify it. Yeah. Because, obviously, test agents will will only allow you to send to verified numbers to numbers that you've already kind of signed up. Mhmm. And that's obvious because it it it, it, is the same way that most softwares work. Right? When you're still in test mode, you can, when you're implementing a login, for example, only, accounts that have been verified, have been signed up, can log in through that kind of test login that you've created. Same thing here.
+
+Speaker A 47:43:
+Yeah. So So I'm sorry. Go on.
+
+Speaker B 47:48:
+No. Yeah. Go ahead.
+
+Speaker A 47:50:
+So if you compare just the test experience, like sending a test message in both prototypes, if you press here, if you yeah. Go to RCS get started. And this one and the one in the other, prototype. Which one?
+
+Speaker B 48:22:
+Just just If you go if you
+
+Speaker A 48:24:
+go, yeah, this one.
+
+Speaker B 48:31:
+They're not vastly different, but I do prefer this one. Just because I have everything in one page, I get this extra some extra information if I want to use it through, different, languages. K. And, additionally, I like this, message log, table much better. It had much more information on, what the status will be. I mean, examples of of what I can expect to get. I think the documentation some documentation somewhere had, like, all of the statuses. But in in this Figma one, it was a bit more confusing, especially with the webhooks part. So yeah. So why do you prefer the other one when
+
+Speaker A 49:35:
+it comes to the message delivery part?
+
+Speaker B 49:40:
+Message delivery. This process of generating the key, I liked better. Yeah. The simulation. I mean, the wording, it's sent test message would be not simulate to message, but I think that's a mistake when when building it. Because, yeah, you are sending a message for real. Right. So this is great. Like, message, you're fake now. I just like this this part because I understand this a lot better of how the webhooks are working and what kind of, delivery information I get. Then when I went to here, yeah, I have some delivery information here. Yeah. These different events, you get all fine and dandy, but it separated the information. This part about, adding your own webhooks is not very clear what it means. I code. Yeah. It tries to explain webhooks, but it doesn't really show me how I register my links here. It it doesn't show me where to actually register, the the hooks that I've created. Here, it doesn't show me, as well. But at least, yeah, I'm not at least I'm not confused trying to, look for it.
+
+Speaker A 51:32:
+So when would it be a good, like, place to explain to you about where you can set your webhooks?
+
+Speaker B 51:48:
+Yes. Since this is, test agent, I I would, yeah, I would say somewhere around here where I'm setting it up. Again, this this is a bit weird because I'm I'm, like, setting up the test agent with which I would expect to already be set up. But I would would think there would be some kind of configuration in the agent itself where I can configure the delivered, non delivered statuses. It can also be outside of an agent, so I'm not sure what this particular tool, how they want to handle webhooks. It could also be, just general. Like I could, I could register my, my, webhooks or like endpoints Mhmm. Generally, in RCS, like, for for everything, but I I feel it it should be either specific to app or agent.
+
+Speaker A 52:52:
+Yep.
+
+Speaker B 52:55:
+So because you want some sort of encapsulation of it, I do think because now I just realized that there's no app concept here. And now I'm a bit confused of how I would have that sort of separation. Because for for example, here, I don't I have no idea how I would separate a a staging, like a testing environment from a production environment. I would assume the agent maybe would allow you to do that somehow themselves, but, I have to keep in mind that when I'm designing a system, I will have a a testing environment and a production environment and both, they might have the same keys. They might not, but they have to be distinguished in some way. The webhooks should be different. Yeah. The I I wouldn't wanna create two agents because creating one seems like a big enough pain. So, I would wanna kind of reuse the same agent and just be able to use it in staging. So, yeah. No. I can I can still this is, at least yeah? This is at least a bit, more coherent, kind of puts you on a path if I'm lost. I feel like here I can get lost a lot easier. Again, I just like the kind of page where I test a bit better here. Yeah. This this seemed a bit nicer than, than here probably because this is a bit more crammed. I didn't quite enjoy, this, yeah, having it in a pop up, but it's yeah. If I if I look at it from from the perspective of everything else, yeah, it's still a better experience to just, go through this. It's definitely a better experience to go through this.
+
+Speaker A 55:24:
+Mhmm.
+
+Speaker B 55:25:
+But go live, I would imagine, means go live into production in into staging. Yeah. It's, yeah, production. I don't think this is supposed to be production ready at this point. And then you would start to get used to the tool itself by then.
+
+Speaker A 55:43:
+If you would have a guide like this one that gets started with RCS, What should it, like, do for you, would you say?
+
+Speaker B 55:55:
+What should it do for me? What should it do for me?
+
+Speaker A 55:56:
+What should it do for me? Yeah. Like, you how far should it stretch and how much detail are you expecting from from that one?
+
+Speaker B 56:08:
+Yeah. I would say set up the basics, basically. I mean, I I would be able at an end, at the end of of of a guide like this, I would want to be able to send a message whether it's, like, fully set up or not can be can go either way. I would wanna test sending a message. I would want to get, yeah, delivery reports and all that because that's, yeah, kind of kind of one of the most important parts, or at least have everything set up so that I can I can test those? So I can go through it. I can, I I know where the documentation is to integrate that stuff and test that stuff? By the end of it, I, yeah, I expect to have have done most of that and probably get information on how I can actually use it in a production setting. It doesn't have to be done to be in a production setting, but I at least have to get started for the the production, kind of use case of it as well. Mhmm. So I think that's that's basically where where it can end. Right? Yeah. Sending yeah. Send a test message and get started for production. Yep. So yeah.
+
+Speaker A 57:37:
+And how do
+
+Speaker B 57:37:
+you think this should be different from what
+
+Speaker A 57:39:
+you can read about in documentation?
+
+Speaker B 57:45:
+This would be different? I mean, it's it's, to me, it's nice because it provides, it provides a checklist of what what I can go or what I should go through, step by step, really easy to get back to. You get yeah. Oftentimes, you get lost when like, I can just imagine getting back to this page. I'm not sure where I left off. What I'm what am I supposed to do next? What did I create already? So it's definitely nice if I can, like, just refresh, maybe go into RCS again, but then get be met with this. Like, okay. I'm I'm still exploring the RCS agent. Oh, I still have to create an RCS agent. Mhmm. That's cool.
+
+Speaker A 58:43:
+Yep.
+
+Speaker B 58:45:
+Yeah. Otherwise, it's it's a bit, I mean, it could also be just a page that calls, like, has a a top thing here that calls, oh, you need to do this thing next or this thing next. But, I mean, whether it's it's a widget or or something that calls you out here, I think it's not not here. I mean, but when you're in the in the context of the RCS, I think whether you have this or the widget, it's similar. Yeah. Both both are helpful. I don't know if I'm helpful, but yeah.
+
+Speaker A 59:32:
+Yeah. You are. But it to sum up, so when it comes to, like, the testing experience, you are fine with having it in one page or you prefer to have it in one page so you can see the message delivery, like, events closer to where you're sending. Or
+
+Speaker B 59:52:
+Yeah. Yeah. I think that's that's that's nice.
+
+Speaker A 59:58:
+Yep. Alright. I think I got everything I needed, so it was great feedback.
+
+Speaker B 00:09:
+Cool. Hopefully, that helps. I can I was all over the place at
+
+Speaker A 00:16:
+Yeah? But it's a really great feedback. So thank you so much. We will see where it ends, where we will have the onboarding.
+
+Speaker B 00:25:
+Yeah. I'll look into it when it's done. Thanks.
+
+Speaker A 00:29:
+Perfect. Thank you. Bye.
+
+Speaker B 00:30:
+Have a nice weekend.
+
+Speaker A 00:31:
+Bye bye. You too. Bye.

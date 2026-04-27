@@ -1,0 +1,419 @@
+Speaker A 00:04:
+K. So just to give you the scenario, you signed up to CinchBuilt and, you're not working for Cinch right now, but another company, like, let's say, IKEA. And, you've been asked by your manager to explore RCS, which is a new kind of SMS and how you can use that. So you are just exploring to understand better, like, what is RCS and how can I use it? Okay. Like, how can I use the the API then? Okay. So you signed up and now you are, here.
+
+Speaker B 00:45:
+In the homepage. Okay. Let me see. Okay. I want to use RCS though. Mhmm. Okay. So create I think you
+
+Speaker A 00:57:
+have to scroll up here. This is like a lovable prototype so it's, working as expected.
+
+Speaker B 01:06:
+Yeah, yeah. Okay. So this is the this. What do what do we what do you say?
+
+Speaker A 01:15:
+You can just share your, I mean, what you understand from seeing these pages and, what you'd like and dislike. There's no wrong and right answers.
+
+Speaker B 01:26:
+I just want to hear your initial thoughts. If it's possible, I just wanted to do one more time so I I Mhmm. I can, get what we were going to. Okay. So if I when I'm registered, then this is the first page that I'm gonna see. Right? Mhmm. And then, because I know that I'm looking for some messaging, system, I will click on this and then, we have either this one, select messaging channel to start, or or I can say these are the channels that we already have. So if I click on this one, anyway, I'm coming here. So that's good. Okay. Then I'm gonna choose RCS and, create a test RCS.
+
+Speaker A 02:19:
+I think you just need to scroll up here because this page is a bit Ah, okay. Okay. So this is the top of the page.
+
+Speaker B 02:26:
+Okay. So try RCS now. Okay. That was most so far. Send test message. No phone number to deliver to. Add a phone number. The message from RCS then using the conversation API, inspect the payload, and follow the full message lifecycle in the logs. Visit the RCIS documentation for more detail. Go ahead and verify your phone number to receive test message on your device. Should I test it?
+
+Speaker A 02:58:
+You can just press continue here. It's, let's say that's your number.
+
+Speaker B 03:03:
+Yeah. And then I'm gonna It's a bit special,
+
+Speaker A 03:09:
+on RCS, you need to you would be prompted on your device, so you need to say I want to become a tester before you can actually start sending messages. So this is just a Okay.
+
+Speaker B 03:21:
+Technical limitation. So the phone I added, and then I'm gonna just, add a rich card. This is what I'm gonna send. I already sent it and view the message log. So it should be this is the message that, this is the number. And can I see the content here? Is it this one or okay.
+
+Speaker A 03:56:
+So what is going on here, you think?
+
+Speaker B 03:59:
+I was expecting when I when I press this one, I can see that this has delivered to this number, which is I'm assuming that's right. And then, these are some of the same what I was thinking I could like, I know that we have the content here, but I could see, like, an image or something here that, oh, the message sent has been sent like that. Mhmm. But when I open this one, then we have the some more information here. The description that, the description is message accepted and queued for delivery. This is, mostly for developers, which is good. Delivered to receive Delivered to recipient device, accepted by seat handed to RCS. Okay. So these are two different steps. That's good. Like, from a developer perspective, this is good that you can get this kind of information. But, I was just thinking, like, that would be good to see them. Like, if you want not if if you don't want to go up and you can just see a banner here that the message looks like that, for example. And I think,
+
+Speaker A 05:42:
+So So would you like to see the actual
+
+Speaker B 05:44:
+Oh, here. We have it here, actually. I did yeah. I was looking, for something like this, actually. Mhmm. But I didn't see it in the first, place. So Okay. What I was looking for is was something like this here instead. But, this was there. Okay. Good. So if, that's available, maybe just somehow highlight this. Somehow that I didn't got the attention in the beginning to this one. It's a bit like it seemed like that it's one layer over the back but you don't have to later. Yeah. I I I had that feeling. Okay. Do you have any question, that I haven't answered?
+
+Speaker A 06:34:
+So would you also be interested in seeing exactly what has been sent, like the title and the content within the payload, like, in the message logs? So this is,
+
+Speaker B 06:48:
+what I'm seeing here, this is the, title and this is the payload. And I would say, just seeing this, it's enough. I can we can, like, realize what's happening or
+
+Speaker A 07:02:
+Yeah.
+
+Speaker B 07:04:
+Yeah. It's not like it shouldn't be we don't need that information, I think. It's just that we know that this is, something that we were looking forward to see in our form. So we can just double check. Okay. This is what it was supposed to be, and this is what we are getting, actually, if you wanted to do some test on our side, for example. Or if you're only making some changes here, we wanted to be sure that the the things that we are expecting here is exactly same as the thing that we are getting in our phone, for example.
+
+Speaker A 07:36:
+Yep. And how do you like the templates here, if you scroll up a bit?
+
+Speaker B 07:41:
+Mhmm.
+
+Speaker A 07:42:
+You had different types. Mhmm.
+
+Speaker B 07:47:
+Text plus media. I think the templates looks good, but what if we just wanted to have a text? Is it possible? Mhmm.
+
+Speaker A 07:59:
+Yeah. Is it
+
+Speaker B 07:59:
+possible with For me, when I look at this because I still don't know if it's, requirements or not. But when I look at this, I I think that, oh, like, none of them possible to just have a text. Mhmm. Like, this one, it's a rich card. Like, I have to have some images and some text, some mix of things together. This is just media and this one is text plus media which I think, oh, like maybe I have to have a media as well. So I cannot just send a text. So, it can be like either we can have one more, to have just a text or, like, somehow modify the text plus media, to somehow show that it's not mandatory to have both together. Yeah.
+
+Speaker A 09:04:
+So, there is also an option here to send in the UI and send with code. There are two different tabs. So what do you think? Okay. These
+
+Speaker B 09:20:
+two. Sending UI. Okay. Generate. Okay.
+
+Speaker A 09:31:
+It's a bit harsh.
+
+Speaker B 09:32:
+So we can we can so this means that we can, paste our code here. Right?
+
+Speaker A 09:41:
+It means that you can get, like, a code snippet to run yourself to see to get the message delivered on your own device but not from you will, like, send the message from your, like, terminal.
+
+Speaker B 09:56:
+Ah, okay. I don't know. I didn't get that, that's gonna happen because I I didn't have that experience before to see something like that. But, this was I think for me, this was making much more sense from my perspective. Yep. Maybe someone is more, like, comfortable with this one. But Mhmm. Yeah. Mhmm. Like, just I wanted to know that, like, if we change something here, this, this should be changed. Right?
+
+Speaker A 10:42:
+Yeah. Maybe it will be, but now it's just, funky.
+
+Speaker B 10:45:
+Yeah. No. Just yeah. Yeah.
+
+Speaker A 10:47:
+But it's
+
+Speaker B 10:48:
+What I'm asking is that just you can see your changes live here, of a click.
+
+Speaker A 10:54:
+Cool. That's the idea at least. Yeah. So how do you like this, experience so far?
+
+Speaker B 11:03:
+It was easy to work. Even though that I haven't worked with RCS or, like, doing this thing before at all, I could get it, what's going on, and the steps was really organized and, like, you could follow them easily. It was we were not looking for things for us, like, hours to find what you have to do. Yep.
+
+Speaker A 11:33:
+That's great. So what if you would do this in real life? What do you think would be your next steps?
+
+Speaker B 11:47:
+I think after this, I was going to check the message on my phone. And then after that, when the test is done, then I have to, like, maybe pay some money to have a real account, not just a test message or send the message to real customers. But let me see, if we have some options here. Explore conversation and receive, and we'll be there and read set up a webhook to track when the message are delivered and opened. Build conversation threads and they'll okay. Okay. Now I really don't know what which option is best for me. Like or where should I go to? Because, this wasn't, like, sent test message. But we can go back as well, but this was just the test one. Set up a new RCS agent. Add your brand details. The countries at details on something. Google. Okay. Okay. Let me just RC is for business. So try now, but then I was assuming that I have to find something here that I can try the test message or a real message. Okay. Documentation, price detail, country availability.
+
+Speaker A 13:54:
+Are you looking for something, since
+
+Speaker B 13:57:
+Yeah. I'm I'm I'm looking, for, like, a place that what if I don't want to have a test, agent now and I want just to use the, like, a real agent? Mhmm. Is this because I don't because I was assuming that even if you, as a customer, apply, you can have a test agent or test you can do some testing first and then start your, like, real message, or then start sending your real messages to the customer. Mhmm. So I was looking for where I can start the real one then.
+
+Speaker A 14:45:
+Oh, so what do you mean by real messages?
+
+Speaker B 14:48:
+Like, I as the I as IKEA for example. Mhmm. I'm, I I I went through this and I did this to see okay. Like, the message was look like this before. Like when I wanted to send, now I'm okay with it.
+
+Speaker A 15:06:
+Oh, okay.
+
+Speaker B 15:07:
+So I want to send, this, like, this exact message to, like, hundred thousand of customers now.
+
+Speaker A 15:21:
+So you want to create your own, profile kind of?
+
+Speaker B 15:25:
+Yeah. But now I couldn't find that.
+
+Speaker A 15:34:
+And, so if you close this,
+
+Speaker B 15:37:
+I
+
+Speaker A 15:37:
+can show you where that's
+
+Speaker B 15:39:
+This one? The whole page?
+
+Speaker A 15:41:
+No. It just this is test message thingy.
+
+Speaker B 15:45:
+So if you just
+
+Speaker A 15:46:
+go back where it says try RCS, you can
+
+Speaker B 15:50:
+Mhmm.
+
+Speaker A 15:51:
+And you can set up a new RCS agent to the right here.
+
+Speaker B 15:56:
+Ah, okay.
+
+Speaker A 15:58:
+So this you did the you opened this before but then you Yeah.
+
+Speaker B 16:02:
+And close it. Yeah. Go live with RCS in three steps. Okay. Maybe yeah. Maybe the new, actually, it caused me to have some misunderstanding because I thought that this is gonna make a new test agent. Yep. But okay. Now let's continue on this one. Start RCS agent setup. Okay. How will your bra how will your brand appear in RCS? This is the yeah. This agent makes tell me. I don't need to Tell me. Okay. This is good. Good. Good. And choose I don't think you
+
+Speaker A 17:01:
+can click on that right now, but you can Yeah. Continue.
+
+Speaker B 17:05:
+Yeah. Yeah. Yeah. Okay. But then it doesn't I cannot continue. Right? Yeah.
+
+Speaker A 17:14:
+You can. It's the button to the right here in the bottom. I don't know if, maybe Teams
+
+Speaker B 17:20:
+here. Yeah. Yeah. The Teams was there. I couldn't see that. Yeah. So good. Continue. How will your agent be used? Trade details can be changed later. Here, how will your agent be used? Okay. But then, shouldn't be some kind of things here because this is the agent hosting region first. So these are the reason or, no. So these detail can't be changed later. Okay. Sorry. Sorry. Sorry. I I got it now. Cool, OTP, for example, conversational, continue. Okay. Just For a mix of message type. Okay. And Next, you will add countries, then test messages and add more detail about your message sending. Okay. Continue and created successfully. Okay. Now we have this agent and we need to try this agent. Connect app and continue. Oh, but why it came here? Okay. Now I got it. So the agent has been changed, and this is one of the message that we made it ready before. So we can we can send this message by this agent now. Mhmm. And if I check the payload, I just wanted to see. I'm looking for the IKEA. No.
+
+Speaker A 19:47:
+Then
+
+Speaker B 19:56:
+And I was I was expecting that, because the agent that we made was for IKEA. Right? Mhmm. We we did test two. And I was thinking that I have to see this in the details here. But Mhmm. No. Or maybe I got it wrong.
+
+Speaker A 20:30:
+So you were expecting to say the name of the agent in the payload? Yeah. Yep. I understand. But there's, we don't show the agent names in the payloads for some reason. But it's, I'm not sure why we don't do that.
+
+Speaker B 20:55:
+For me, it was just, like, easier to, like, see. Okay. Like, I'm looking at something right here. And Yeah. That was the reason. But, I think, it can be, like, some I know that there are some technical difficulties sometimes. Yeah. They didn't think about this before and it is hard to get it now. So maybe that would be the reason.
+
+Speaker A 21:16:
+Mhmm. But I think, also, this experience would be different if you're actually getting a new message from a new agent that you created yourself, like, on your phone because
+
+Speaker B 21:28:
+now it's just a, prototype. Yeah. Okay. Should I
+
+Speaker A 21:37:
+do something new? So if you go back again, like, close to try r c s, then just, this view. Oh,
+
+Speaker B 21:46:
+Oh, data. Just
+
+Speaker A 21:51:
+to go back again, maybe. Yeah.
+
+Speaker B 21:54:
+Okay.
+
+Speaker A 21:56:
+Just your thinking around, like, this page, like, where are you now?
+
+Speaker B 22:03:
+Okay. So I'm, I think I'm seeing my agent name. And there are some information about like, I can see the information about my agent, like the brand that I'm using, the brand color, phone. I don't know if I added this, but
+
+Speaker A 22:33:
+Yeah. You didn't. I don't it's a bug. It should not be there.
+
+Speaker B 22:37:
+Okay. Good. So this is good. These are nothing. What am I having here is you can call your agent or I don't know if it's in this info because
+
+Speaker A 23:04:
+So the the sign is not, great here, but it it should be like a preview of your RCS agent. So that is what an RCS agent
+
+Speaker B 23:13:
+Uh-huh. Looks like.
+
+Speaker A 23:14:
+But it should not look exactly like that. It needs to be more clear that this is the Mhmm. Preview of your agent.
+
+Speaker B 23:23:
+That makes sense because I'm seeing information here and that's gonna be the preview. That would make sense. Mhmm. Here we have your RCS agent needs a conversation API app to send messages. So I am gonna go because I cannot send any messages now. I have to go and connect that connect app and continue.
+
+Speaker A 23:50:
+What do you think this connection part is all about, the conversation API app?
+
+Speaker B 24:00:
+I I think the conversation, if you you know, I have some background on this, but I I'm just talking I'm biased on this one. Mhmm. But usually, conversation API is the one who is responsible for for delivering this message. Mhmm. So what conversation API is doing, it can be that, for example, it's, making some layers in between to check the content of this message. So Mhmm. So it would be sure that there is not phishing, there is nothing else, or, like, they are trustworthy enough to to be able to let them to do something. This is what we are working right now to, like, give them some scores so they would know that, okay. Like, the messages that they are sending are are good. They're not, like, fraud or anything. Yeah. So now this is biased a bit on my mind. Maybe it's not right.
+
+Speaker A 25:06:
+So you have some, knowledge from before about what is conversation API? But do you have any, how to say, opinions of how much we should expose the conversation API app. Because I've been doing some I've been talking to developers before, and this is something that can be, like, a a bit shocking to them. Like, what is conversation API app and why do I need it? Because they believe the RCS agent just sends the message. Yeah.
+
+Speaker B 25:37:
+I think that's, for me, I really didn't think that's gonna happen. Like, if I was not doing this right now, I I could understand it could be a shock for them. Mhmm. So maybe, like, some kind of information that, like, there is another layer, or another step even for you to make this happen. Mhmm. So they would really know what's going on because, I can see it. This is not easy to get. Yep.
+
+Speaker A 26:13:
+And,
+
+Speaker B 26:16:
+yeah. I think just in maybe here when, we were, oh, now it's gone. Maybe here when it was, like, a warning that you need to connect that, maybe, like, there could be some inform some small information or a link to what is, like, conversation API or what's the responsibility. So we could go and check that. Mhmm.
+
+Speaker A 26:49:
+So what are these tabs, that you see on this page?
+
+Speaker B 26:56:
+I think, these can be the countries that agent hosting region, I think this can be the countries that you can send your message to. Mhmm. Because you have an agent, but then the country that you want to have your message sent can be here, and these are the test numbers. It can be I I can get two different things from this. It can be, like, the test numbers from different countries so you would be sure that you are getting, like, a correct, content. Mhmm. Or, you as, like, agent, you have different test numbers to send that. So I can get, two two different things. Either it's the Test number. Test numbers as a customer who would get the message or test number as a agent who can send the message to them. Mhmm. I don't know which of them is. And integrate, maybe there are some more apps, I would say, that, you can integrate. Like, for example, you can integrate it with I don't know. What else do we have? I don't know. There should be something. Some more features or some more app that you can Mhmm. Maybe buy from us.
+
+Speaker A 28:39:
+So what do you think it's, like, below integrate here? What what is on this, tab page? I think it should be,
+
+Speaker B 28:53:
+because it's integrate it should be list of or list of the things that you can integrate your, like, current app with some other app. For example, if there is, if there is any app that it's gonna do some kind of validation on your message, for example. You can integrate it here. Or or also it can show the the one that the your integrations as well. Like, the one that you already have the integration with them. And if you wanted to add more, if you want to get more benefits from them. Mhmm. Yeah.
+
+Speaker A 29:48:
+Mhmm.
+
+Speaker B 29:57:
+Receive delivery and read events. Setup webhook to track. I think these are these are what I mean. Like, these are some app or some some kind of premium features that you can use.
+
+Speaker A 30:13:
+If you click on that, what do you expect to see?
+
+Speaker B 30:17:
+I think, the the documentation of how I can, do the integration, actually. What are the webhooks? How deliver events works? Message and conversation ID. Message delivery event example. Hit event, failed event, using event best practice. I think a bit more on how you could use it as well. Mhmm. These are good. Like, you know that you need these kind of IDs to make the connection, but there is nothing about, like, how should I like, is there an API, URL that I have to make a call? Or I have to, like, talk with some customer service to, enable that for me or what? Yep.
+
+Speaker A 31:23:
+More like step one, step two. Yeah. Yeah. Okay. Okay. I think we are done with this Okay. Prototype. So thank you so much for giving me, your thoughts around this. Sure. No worries. So I have a second, one for you. We will just, it's the same scenario here. Mhmm. You you're also new to our CSM on to understand how it works and to get started. So you just signed up to Cinch, build.
+
+Speaker B 32:02:
+Mhmm.
+
+Speaker A 32:08:
+It takes some time to load.
+
+Speaker B 32:10:
+Okay.
+
+Speaker A 32:11:
+Yep. You can just close that yellow banner
+
+Speaker B 32:14:
+on the right side if you just Okay.
+
+Speaker A 32:24:
+It's very slow.
+
+Speaker B 32:26:
+Yeah. Oh, now it's there.
+
+Speaker A 32:29:
+So now Okay. Yeah. You are here and you want to learn about RCS or to get started with RCS. Okay.
+
+Speaker B 32:41:
+Okay. I want to do RCS. Okay. Try out RCS. Send a test message. Check delivery reports, recipient, and a bound message. Explore analytics. Okay. Add a phone number to test. Okay. Continue. Confirm. Then I'm gonna have a text. But,
+
+Speaker A 33:09:
+so what is, going on on this page in general?
+
+Speaker B 33:13:
+I think I think in in it's same, as what we had before. It's like trying to set up a test message to send it, and check it, to, like, some test a test customer maybe. But Mhmm. For previous one no. I think that's it. It's, for me. But just, before I didn't need to add this. And because I'm new, I really don't know what would be the access key or the key secrets here. And so, like, really sending this message without this, is it gonna work? I don't know. And, also, what I don't understand is that I was expecting that I would have some box to write my message here. But, seems like this one is just, like, sending, like, fake message. It's not what I made because I don't have the possibility to edit that or I do. No. No.
+
+Speaker A 34:49:
+So you would prefer if you could actually change the content of the message here.
+
+Speaker B 34:55:
+Yeah. Yeah. Because because for from my perspective as a developer, sometimes when your text is longer, when you look at it, how it really looks, how it really be when you send to the message when when, when you send it to the customer, you you would change your mind and you wanted to change some of the text or some of the icons that you're using because it doesn't look good when text is in smaller box or something. So I would I would rather that. Yep. Okay. Now then we sent the message. This is the request and response that we got to this channel. Okay. And check delivery reports. Ongoing stats delivered. How it works? The deliver events are succeed through webhooks. Webhooks are callback to registered URL triggered by events in the conversation API. You will be able to configure your own webhooks in the conversation API app. So this is that. Check delivery reports. Okay.
+
+Speaker A 36:29:
+So what was this previous page, about?
+
+Speaker B 36:37:
+I think this one, The delivery events are exited through webhooks. Webhooks are called back to a registered URL to get. Is it like like this? Maybe it's like, no. I don't know, actually. Yep.
+
+Speaker A 37:14:
+That's fine too.
+
+Speaker B 37:17:
+Okay. If I go to the next page,
+
+Speaker A 37:23:
+You you might need to scroll up this page. I think it's it didn't
+
+Speaker B 37:27:
+yeah. Here. Receive an inbound message. To receive an inbound Aarsys message, reply to the test message or send a message to your Aarsys agent. And the message inbound event will push to the registered network. So I think my problem here is that I don't know about this inbound, outbound. Like, is it like because I thought that, like, the message like, we can just send message to the customer. Customer cannot send message or answer that. But it's saying that reply to the test message or send a message to your RCS agent. Reply to the to the test message. I thought that it's not possible, actually. Mhmm. But, the messaging bond event will push to the registered webhook. You can act on the webhook in your integration as we've done below to present the message. So this one has, made some reply to this one and, I can't see, the message events delivery, message inbound. So so this one should be this one, but I can see that the the text or is this this one? I think, I don't get it, what's gone on.
+
+Speaker A 39:30:
+Yep.
+
+Speaker B 39:33:
+And if I go to the next, explore analytics, get the insight in you into your RCS messaging performance with our comprehensive analytics dashboard. The RCS analytics page provides detailed insight into your messaging performance, including key metrics, message volume trends, delivery, and read the status direction. Okay. And then we will come here.
+
+Speaker A 40:02:
+So it, that link didn't work. Sorry. I didn't find it. Document. If you go back to the, get started with RCS here in the, okay, bottom of page, you will go back to the same view. So what did you expect would happen if you would click new RCS analytics?
+
+Speaker B 40:22:
+I think, maybe to see, like, how many messages has been delivered to the customers, how many of them have taken an action on those. Some some analytics actually that would help me to understand what has happened with this, messages that I was trying to send. Mhmm.
+
+Speaker A 40:47:
+So what is going on here to the left? Yeah. Like, where you are clicking, what is this thing?
+
+Speaker B 40:56:
+Okay. I think there are few steps that I need to do before going live. Sending how it works, sending. RCS messages are sent through your RCS agent also called RCS business messaging or b RBM agent. And, RCS agent, your verified business identity on RCS network agent verification required for production sending shows your brand logo and verified badge. So I think these are some information that you need to understand that these are the thing like, the changes that you made in the first, four steps are meaning this. The API key that that that I didn't know, use the same API key as SMS. Your conversation API credential works across all mess. Now, like, this is, making more sense. Mhmm. And, here is the more, thing to understand what is while in trial, we provide a test RCS agent for your message. We have the recipient number and trial limitation. Number of send messages limited by free test credit assigned. We didn't have this information on previous one, which are good information. Mhmm. But for me is that because these were the first steps, I can't get stuck without going to this one because I thought that I didn't get what's happening here. Maybe it would be better to have this one first. But Yep. Build your solution, explore API and SDK, explore our comprehensive API documentation and SDK for integration or Sysmas into your application?
+
+Speaker A 43:05:
+There should be a meeting here in the documentation,
+
+Speaker B 43:09:
+of course. Yeah. I was looking for the documentation. Yeah. Yeah. Yeah. Explore docs and sub words. I would assume that there should be some more yeah. Good. And plan your release. I think this is the this is much more better, in case of giving more information to the customer. So they would know more like cross, cost and pricing or like upgrading account if you want to have more feature, for example. But, I think somehow, maybe you need to get this information, altogether in one step here and then, like, start the test, process, with, like then you can start the testing, I would say. Then, like, it is possible for them if they are already familiar with it, They would just skip that one and then they would go to the test one. Mhmm. Just give me a second. Yep. Sorry. No worries. Okay. And then it's go live, which I think it would in this part, we will make a real now, RCS agent, and then we will make some configuration. And we will test it, and then we will send the, the, like, the messages, like, the real message to the customer. Mhmm. But, what I would assume on this part, I will assume that, like, I will see the that box or the phone that it was showing this the message is gonna be like this. You're sending that. Are we done? Everything looks good. Yeah. Now let's go and send the first campaign.
+
+Speaker A 45:21:
+Yep. So would you expect going through all of these steps in one session, like, in one day, or would you expect to go back to this?
+
+Speaker B 45:33:
+I think if I can get a brief information, like, we can I can for me is that if I want, let's let's assume that I want to just test your platform? I'm not really familiar with anything in your platform. If I can get a brief information, what is what and what should I do, I would I would, I would prefer that one to just test and get a bit of information what's going on. And then having the possibility to go to the information in details later if I want to really use the system. So, I can make an example. Like, in, in my job, whenever I'm using a new API, for example, we have a brief documentation and, like, big documentation. Yep. So I was assuming that if that was the case for me, I could just use it in one day, like, maybe in an hour. Just go test it, understand what's going on, and then, oh, this is good. Now let's go to the detail and see what is what, what is that.
+
+Speaker A 46:57:
+So do you think this is more, like, documentation then? Or
+
+Speaker B 47:00:
+Yeah. Yeah. I think, like, if I would say if I want to choose, like, for action, the previous one was much more easier to work with because it was a bit better to guess what is what. But Mhmm. In this one, it is easier to get to find the information here.
+
+Speaker A 47:33:
+Yeah. So what do you like, in this version?
+
+Speaker B 47:38:
+In this version, I think, it shows the steps. And, you know, like, what you have to do first. Next. Next. Yep. And, the order of the information that you need to get. Yep.
+
+Speaker A 47:55:
+And what did you like with the previous one?
+
+Speaker B 47:59:
+I think, the how do you say in English? But, I could see, like, every other every single changes that I was making, I could see it. So, it was a better, like, UI experience if I want to like, it was easier to find my way to test, actually. So I I I like that one. But, this one was good to get, like, real information.
+
+Speaker A 48:42:
+Yep. Mhmm. So what do you think are some, possible improvements or what you dislike with this
+
+Speaker B 48:55:
+version? This version. Yeah. I think, I I would I don't like this part because if I'm a new customer, I really don't know how to find my these keys. Mhmm. And it's hard to get that. Either it should not need the, access key and key secrets for the test. So I can just see, okay. This is the test phone number, which country I wanna send in. This is the text. Now let's send it. Mhmm. This is the, like, in it should be in the other steps. Okay. Now if you wanted to have a real agent, now you need to access this, key. And, let's explain what you did, how can you find it, and then, you can try it. Yep. Yeah.
+
+Speaker A 49:54:
+Got it. And in the previous version, was it something that was confusing or that you didn't like, if you remember?
+
+Speaker B 50:06:
+I think, just in the first look, this was, and, like, the part that we were seeing this, it was two, arrow that we needed to open those. I was I was a bit, confused just in the beginning. Oh, like, I have to see this, like, this is what like, I was expecting something like this, but I was seeing something else. So it was a bit I was a bit confused in just a few second, but then I got what I'm expecting. So this is the more natural to the developer to see. Yep. Understand.
+
+Speaker A 50:56:
+Good. But I think I got a lot of, great, feedbacks and good input from you. So thank you so much for Yeah. Taking the time to go through everything with me. Thank you so much.
+
+Speaker B 51:10:
+It was nice talking with you.
+
+Speaker A 51:11:
+Yeah. So have a nice, rest of your day.
+
+Speaker B 51:15:
+You too. Bye bye. Bye.

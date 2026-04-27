@@ -1,0 +1,458 @@
+Speaker A 00:02:
+So just if you have any questions, you can also just ask while we're testing.
+
+Speaker B 00:08:
+So we start with I'm trying to send, to set up RCS. Correct?
+
+Speaker A 00:14:
+Yep. Yep. And I'm I'm sure how familiar you are with RCS from before.
+
+Speaker B 00:20:
+Well, a lot of people in the Paris office, they so as I'm more sales or account manager, so I know they used to send, to sell a lot of, RCS, which is mainly what, sales, selling with also, messaging and things like that. So I know what is RCS. Yep. Don't really know, everything, how it works, behind the scene. What I know is also that you need to go to with kind of associate with the different type of, provider who supports that, I think. So Google, I guess, there is all sorts of different channels. So if it's on WhatsApp, you need some tokens from different channel. But exactly how all of that, is working, not really sure. So yeah.
+
+Speaker A 01:09:
+It's But what is this, page like? Where where are you here?
+
+Speaker B 01:15:
+Yeah. So it's more like, the onboard, parts. I know that on my side, when I try to integrate some, API or things like that, I go a bit on getting started just to have kind of an overview of that. But what I'm really looking for just after that is really, like, the list of all the API call and the resources, what they are used for, and, like, the description of all of all the parameter, what are the viable you expect, thing like that. By the way, I've also opened, next to me, the developer documentation for Meljet and the developer documentation for Melgen. I think Melgen is quite recent. The one from Melgen, is already doing it. So it's quite old, old design and probably Yeah. A bit of things that we can do for interaction. But, yeah. And also what I'm looking for when I'm a developer, when I want to start playing also with, APIs, it also having the possibility to download somewhere like a Postman collection. So I don't know if you know Postman, but it's Mhmm. Basically just to to do HTTP requests. And often, like, a lot of time, some old developer APIs propose this kind of collections that you could just download, put inside your Postman, interface, and start playing with the code with all the parameters that you just need to fill. So Mhmm. This is also something that me as a developer, I'm looking forward. I'm working with, external APIs. Yep. Yeah. So if I'm landing here, basically, I want to do LCS. I will quickly click here. It's quite intuitive. Nothing more. Yeah. English. Price tip links. So if we try to send this message, basically, here, you just need you will just need to add, your phone number. I guess this is not working. Correct? This is just
+
+Speaker A 03:28:
+Yeah. You can press the bat button, but you can't add your phone number. It will just be a phone number there.
+
+Speaker B 03:35:
+Yeah. Of course.
+
+Speaker A 03:36:
+And you can confirm. So RCS will send you a notification to your phone. So you need to accept becoming an RCS tester that's, special to RCS.
+
+Speaker B 03:52:
+Oh, okay.
+
+Speaker A 03:54:
+But once you did that, the process is now you're you're verified.
+
+Speaker B 04:01:
+Okay. So here it's more for testing purpose just to see how it looks and how the future is looking. So this is right. Okay. So when you come back, you have all those steps. Try to onboard you. Let's see if I don't want to test this. Yes. Okay. So, yeah, when you click on that just to be sure, when I'm on the platform, do I already have a synced checkout at this time, or it's really like the public documentation that
+
+Speaker A 04:43:
+No. No. You are, you signed up previously, so you have your own account. You're inside the platform.
+
+Speaker B 04:49:
+So if here I click on this type of button, it's really my credential. It's not Yeah. Test credential. No. So it's really provide me, all of that. Okay. It provide you based on that cool project, your project ID. Okay. Yeah. Just to be sure. So this is not the correct URL or the correct URL? No. Yeah. Okay.
+
+Speaker A 05:26:
+I guess that's that's just an example.
+
+Speaker B 05:30:
+Again, here is idea to really fill all this information with the exact information that you have, like your project ID or, credentials so that the developer just have to copy and, run it locally or just click on run request and everything would work as expected. Like, this is the idea. Like, they don't need to try to, decrypt what they should put, well.
+
+Speaker A 06:03:
+What do you think from looking at this?
+
+Speaker B 06:06:
+So what I'm looking at this, like, here, it seems that, we need to copy that and to put ourselves, like, our credential to go somewhere to check our project ID and put it Mhmm. When I'm looking to that. But as you said, like, it's not the exact, URLs and things like that. So I don't know if is the idea behind the scenes to actually pick and to fill your, project ID and so all the information. So when you are in a public documentation, you need to guess all of that because, nothing is associated to your account. Here, as you are in the context of your own, account and you are already signed in, it means that this platform already have all your information, for that. So they could prefill everything for you to simplify, your experience at least. Yeah.
+
+Speaker A 07:00:
+Would you prefer that if everything was just prefilled?
+
+Speaker B 07:03:
+I think yes. When I'm, if I'm logging inside the platform and I can do that, then yes. Maybe also, being able to I don't know, to see because I guess when you are on the platform, you could have multiple project ID, multiple, API keys, secrets, and things like that. If you have all of that, maybe having the in here when you want to test to, select which one of the project and which one of the, API, key you want to use for, your test, could be, maybe a good idea. But because here, when you are okay. So you you still have okay. If I do the ID, your project ID, your sandbox. Okay. Okay. So in fact, you still see all of that and you could put them here. So this is also fine, as we can see, all the the IDs that are prefilled here that you could, put inside this. The only thing is that, here, for example, your project ID, this is not really clear as a developer that this is, parameters that you need to fill. So in general, when you want to fill a parameter, like, you have this kind of notation, for example, with the little, Chevron. You know, say, is that in English? Or there's also possibility that you use, two dots, before the the the viable. So Mhmm. If you just look at the the the URL like that, if you don't read it very directly, you may not think that your project ID is a viable that you need to replace, and so it's not really clear. So just show from all something like that will be good. I guess it's, yeah, exactly the same for this app ID.
+
+Speaker A 09:27:
+But would you prefer that this was just already prefilled so you can just copy it and run it directly, or would you prefer that you have to input the parameters yourself?
+
+Speaker B 09:44:
+I think if we want to let's put after it's it's really an onboarding. So it's the first time you land on the platform. So you only have one project, one API key. So leaving the choice is not really clear because you don't really have multiple, project. You don't really have multiple API keys yet. So I think having something to select to let the customer select that is not really useful. What they want here would just be to be able to test and to see exactly what they need to see. Displaying their projects, conversation, things like that here is, really useful, in my opinion. Same with this, hide option or thing like that. Especially for the secrets, would be good to to have a hide option, I would say. And, here, maybe what could be good is to keep it like that with, things that you need to replace. If you click on run a test, it prefilled everything for you and will send the request prefilled because I guess this is what is it is expected because if you send it without prefilling, secrets, etcetera, it will not work. But if you want to display it like that, it's kind of good, in fact, to keep displaying places where you have those variables that you need to replace with the exact same names that you have here. So same I guess that would be good to have e in the names. Kind of the same at least an idea of the same naming that, you could have here. Mhmm. And you can see the values, here to really see what, you need to pre fill. So the run request will be kind of your easy way to just do it. If you want to copy and run it locally, then you copy the request and you replace everything as you wish with that. Why not a pre fill option if really they want to simplify everything? But it's good here in the payload, I think, to see all the different places where you have those variables that needs, to be inserted. So for secrets, for project IDs, for the sandbox, IDs, I think it's pretty all we have here. We have the RCS agent. Why is this one used? Same here, like, you seems to display, like, an RCS RCS agent, which seems to be kind of a secret. So you would expect here at least, I would expect here to see where I need to put it. And it's not very clear, especially because you don't have to indicate or also in the payload where are those variables. I when I look at that pretty fast, where I think there is variables is we just yeah. Here there is kind of clear developer indication that this is something that needs to be placed with the the user from here and ERTN. Now this is kind of a a basic visual indicator for developers. For example, here, your product ID, as I said, not clear. Here's inbox. Our ID, it's not clear, too. And so you have this SES agent, ID that you don't really know what it is used for. Yeah? Yep. Yes. So let's switch in. Okay. The same ones delivered to your work production. Callback. So is it expected that you have some banners to appease and to disabuse or not?
+
+Speaker A 14:00:
+Yeah. For now, it's, how it is. You don't like it?
+
+Speaker B 14:05:
+Well, having, like, a, a text that is supposed here to explain you, like, the different, steps and that disappears quite fast and is replaced, and you have the UI that's kind of, blinking.
+
+Speaker A 14:21:
+Mhmm.
+
+Speaker B 14:22:
+For me, I don't really like it, personally. Yep. I would prefer to decide not to be able to click, someone to see what because I guess, I didn't have time to with all of them because I was also in the rest of the UI, but I guess there was there were kind of informing about the different steps here that happened. Mhmm. K. Okay. And I it seems that there were some good information because I had the time quickly to read, did you know that something? Yeah. And I don't know what, it was because I didn't read it. And I don't know how to retrieve this information exactly. Maybe this is what we have here about to receive the settings device. Okay.
+
+Speaker A 16:04:
+What is this?
+
+Speaker B 16:06:
+Okay. So here, it's just, like, all the the logs and so the Webex payloads that will be sent, I guess, to your Webex system so you know when you are here and of which notification you will receive on your webhooks with which information. Seems like the only thing that's changed, but this is how it is working is more the status in the description. Could have, I guess, also some codes and things that could change. But I guess this is what you are trying to, display here. Correct?
+
+Speaker A 16:47:
+Yeah. What do you mean?
+
+Speaker B 16:49:
+Like, here, like the payloads. Because here we see some payloads. You are talking here about message log that are delivered to your webhook in production, so your kind of notification center. And, here you have some payload. So I guess boost payload is just to see that for every message queued, an event is sent, with this type of, payload to your webhook, endpoint that you configured, somewhere else. At least this is how I understand it.
+
+Speaker A 17:25:
+Mhmm.
+
+Speaker B 17:28:
+But outgoing session message. Message. Okay. So I think that's good.
+
+Speaker A 17:47:
+I'm sorry. Not all. You need to go back. Not all links are working. So if you play yeah. Go back to test.
+
+Speaker B 17:59:
+So I'll direct you. Here you go. K. Where is it expected that it doesn't behave the same than before?
+
+Speaker A 18:17:
+No. It should be the same. I don't know why it's not. Maybe you can try to run another request, and there will be another message.
+
+Speaker B 18:27:
+Okay. Yeah. I guess,
+
+Speaker A 18:30:
+Usually, in in reality, this takes a few seconds because that would really be if you would read read the message that was delivered on your device.
+
+Speaker B 18:41:
+Okay.
+
+Speaker A 18:42:
+That's when you will see that event, popping up here.
+
+Speaker B 19:14:
+Okay. Okay. I think it's good to like, Webex information are kind of important, for developers. So I think it's good to display, a bit quickly how, I have those Webex and the type of events that, you could receive here. This is a good thing. After, maybe it's missing kind of more information about Webex, like, how to set up them.
+
+Speaker A 19:45:
+Mhmm.
+
+Speaker B 19:46:
+Was I used, maybe, I don't know, link with more information about that?
+
+Speaker A 19:54:
+Mhmm.
+
+Speaker B 19:55:
+For message types. That's it. It's in three steps.
+
+Speaker A 20:19:
+So some of these, you could go to the documentation. That link actually works here. And not that one, but the one in the top here. So this is not exactly correct everything, but it's just,
+
+Speaker B 20:37:
+This is very useful. Like, this was something that, in my opinion, was very missing, in the previous version. Like, not knowing where you need to go to get your information in the dashboard Yeah. Was very it's been a single definitely like RCS and, all the messaging platform. Like, there is a lot of, dependencies with, third parties, things like that, also services like Google, things like that. And there is a lot of IDs everywhere. So it's not like a an easy, API where you just need your API key, your script key, and then this is only your credential and you can do everything. To this something where you have a lot of ideas and and secrets everywhere. And we were really struggling on our side, you know, where to go, especially because sometimes there was different naming here. Yeah. Like, when I go here and the first thing we see is when I will do reference to all of that product ID, app ID, access, token, this is where you will find them. I think it's really useful, personally. Here, this is what I was talking about, in the onboarding. Here, this is also a pattern that we where we'll really identify that there is a viable to put when it was not really the case in the also one, the same here. Yeah. You see exactly everything that you have. So this is cute. All of that is also part of, your lovable. Correct? Of your
+
+Speaker A 22:24:
+Yes. Yeah. All of that. Yeah. It's it's this is also a prototype.
+
+Speaker B 22:28:
+Okay. Yeah. Maybe ear. Missing a bit of, same. These type of things. Message. Message. Thank you. So here it's you are in the get started part, and you want to kind of follow, what is here. So you will we will both copy your payload, replace with your credential based on what you have seen. And it tells you when everything is working correctly, this is what will happen. But in case something is not working as you, expect, since there is no link to, like okay. Well, if something went wrong, like, go here and you will see all the different reasons maybe, for that, like, all the error Mhmm. States that, you could have and why you could have them with some, interactions. Yeah. What is this? Okay. Sorry. I'm not reading everything details. Is that
+
+Speaker A 24:06:
+the Yeah. Yeah. Yeah. Yeah. I don't know. You can you can just go around and look what you're interested in.
+
+Speaker B 24:14:
+Yeah. Okay. So this is kind of what, we saw in the platform when we did these two things. K. Yep. Oh, next things. Audio brain appears. K. I guess that's
+
+Speaker A 25:18:
+What is this?
+
+Speaker B 25:20:
+Okay. You could
+
+Speaker A 25:25:
+You don't need to select their logo and brand. You can just continue here also. Yeah.
+
+Speaker B 25:36:
+This is where data for the agent will be hosted by Google. Okay? Okay. She's not working?
+
+Speaker A 25:58:
+Yeah. No. I'm sorry. Okay. They are not.
+
+Speaker B 26:02:
+We've been users reply. No reply bill per message. Let's see. No additional requirement. Okay. So I guess, yeah, depending on the country where you want to send, you will have some more steps to do, but this is kind of the process for something else. Yes.
+
+Speaker A 27:08:
+Yeah. So if you pick France, for example, here, you can search, but the scroll doesn't work. But, yeah, there are some, like, special requirements.
+
+Speaker B 27:25:
+Okay. And how do we know what we need to do here? When you have special requirement, like, even, like, the the pop up just before, I can go back on it, it seems. But, yeah, on the pop up, I was, before, like, we saw that there is some special requirement for this. Yep. But I have no idea what I need to do if I should contact someone, kind of lost on I know there is some action required. Don't really know, what. I don't know if the plan is to send email or thing like that, but at least telling something that informs customers that, what they need to do in this, use case could be a good idea. Explain how users opt in messaging preference.
+
+Speaker A 28:42:
+What is this about?
+
+Speaker B 28:45:
+Just to seems to, one contact wants to opt in to receive some communication from us or from me as a a customer, I guess, by subscribing to a loyalty program. Yeah.
+
+Speaker A 29:04:
+Okay. You don't need to fill everything out. You can also Yeah. Continue if you want to. I'm
+
+Speaker B 29:17:
+just curious about so here we select some stuff. Is it just we're adding, like, a purely information for us since to know why that we use for which purpose that we'll use that? Or by selecting that, there will be, some actual things that will really make some contact opt in.
+
+Speaker A 29:48:
+So this is just for registering, like, the information, like, how you will It's
+
+Speaker B 29:53:
+more, like, for tracking on our side, like, to do analytics on our customers and why they want to use our platform?
+
+Speaker A 30:01:
+No. Not really. It's, it's actually, like, a requirement from, Google.
+
+Speaker B 30:07:
+Okay. Yeah. Well But
+
+Speaker A 30:09:
+maybe that should be more clear.
+
+Speaker B 30:12:
+But it's really, like, just information. Like, nothing really happened for that behind the scene. It just that Yeah.
+
+Speaker A 30:18:
+You are
+
+Speaker B 30:19:
+not information to you.
+
+Speaker A 30:21:
+Yeah. It's not, like, configuring anything. It's just giving the information for Google to review.
+
+Speaker B 30:26:
+Yeah. Okay. Link to page. All of those should work on some to receive message is made. Okay. So it seems that here we need to prove or or you have a web URL. But same, like, this is some kind of information that we send to, Google, I guess, to show that we have a policy regarding, consent and subscribe preferences from our customers, our contacts, I guess. But
+
+Speaker A 31:12:
+Yeah. It's
+
+Speaker B 31:13:
+missing. Yep. Maybe it's missing kind of why. Because here's you add a link to a page or upload a screenshot where consent to receive messages is made.
+
+Speaker A 31:24:
+Yep.
+
+Speaker B 31:27:
+Well, as a service, like, I don't really have any idea. Maybe a link to, legal dig legal documentation or something like that. Like, why this is I can learn more about this and why it's required and why what you need to put in your consent could be good. When you are a sales service customer like me, I have no idea of what, I should put here. Maybe I don't have a web URL. Maybe I don't have anything like that. So as a sales service customer, when I just want to send messages, I have really no idea of what I should put here. And, in fact, I probably don't have this information, so I don't really know how this could work. In this case, when you are a social customer, we without really, like, all those messaging information in mind and, legal, stuff, extra. Mhmm. You are kind of lost on what you need to to put here. And Yeah. I guess one of the two option is required. And if one of the two option is required, I want you don't really know Yep. What you did you, exactly? But when you when you receive message. Okay. So this is while I know what it is, just see if there is k. Nothing.
+
+Speaker A 32:53:
+That that doesn't work.
+
+Speaker B 32:57:
+Explain how user interact with our sales agents. Okay. Business triggers, user action. Or will user interact with your business? Okay. It's gonna drag and drop.
+
+Speaker A 33:17:
+Yeah. It doesn't work on hard either.
+
+Speaker B 33:27:
+Okay. I did tell you from the file to verify to verify you had. K. If I just come back here okay. We go back. And when you see add verification details Yep. I guess it's not really clear why you need that. I nothing really tells you that Google's, as RCS is managed by Google behind the scene and that's, Google want to protect also, itself and is managing, I guess, traffic and things like that. So this is no real information that what you are doing and why this information are useful. Kind of seems that what I say here. Why you need to send that. And seems that inside this, you also information like this, which are, like, purely, like, just for statistics and, thing like that. And here, you have, like, some really mandatory information that requires you to not put, anything, weird. Like, it's really an important part, I guess, where you need to then put somewhere where you have terms of service, usage, user consent, and all legal policy that, we're here. When here, it's really, like, just statistics, I think, not important. You could put anything you want, like, there will be no impact, behind this thing for you. Here, it's the same. So here, no impact reading what you will put here. You can put anything you want, unless, Google will do a strong check on that. But, like, you don't need to really spend time on this. Like, it's not an important information. Here, this is kind of an important information. I guess this is should be more clear in the user consent part that you have, the the legal information and the upload or the website channels that is really important and what it is useful Yeah. When it's not really clear, that this is something really important that you need to respect. Okay. Add contact information. How customer can reach you. Please include a phone number or email address for users to contact you. Also, recommended website is optional. Okay. So here it's when our customer want to answer us. They have the possibility, I guess, in RCS to have a contact us link or something like that. I don't know the contact details. Okay. Email. K. Website. Okay.
+
+Speaker A 37:21:
+I don't know if everything is
+
+Speaker B 37:22:
+working here. Also, I think demo service and price pricing are kind classic. But it's true that we are talking about self-service here. This is what you told me.
+
+Speaker A 37:35:
+Mhmm.
+
+Speaker B 37:36:
+But it's really self-service company. Like, it still should be a strategic to exactly company. So I guess it's still the target. I mean, company and not really like self-service people like me. Oh, I don't know. I'm playing with integrating, an application on my personal side and want to integrate messaging. If I'm in this case, like, all this information, privacy policy, term of service, I don't have them. Yeah. But I guess, like, our target business is more for companies, so I guess it's fine.
+
+Speaker A 38:08:
+Yeah. So it's not for, like, if you have around a personal project, I think maybe creating RCS would be, like, too expensive for you as well.
+
+Speaker B 38:17:
+Yeah. Is that
+
+Speaker A 38:17:
+But, it's more for, like, self serve,
+
+Speaker B 38:21:
+Company. Yeah.
+
+Speaker A 38:23:
+Yeah. Developers that they are working for a company wants to use RCS.
+
+Speaker B 38:30:
+Okay. Okay. I was here. Okay. Jason, to okay. Choose which app we send and receive messages? Okay. So yeah. In case I have all my app.
+
+Speaker A 38:53:
+So what is the app, you think?
+
+Speaker B 38:58:
+As app so which is also maybe because, I I play with the platform before, but, I think it was kind of the channel that, we saw. You create an LCS app when you want to send to, I think, country or, something like that. This create an independent app, and this is your app ID that you will use to send messages on this part. Mhmm. Am I correct?
+
+Speaker A 39:37:
+And you it's like, let's say, your it's a container for different channels. So you can have an app where you have SMS and RSIS enabled. So as you saw in the API request, you need the app ID
+
+Speaker B 39:51:
+Yeah.
+
+Speaker A 39:52:
+When sending messages. So mhmm. Yeah.
+
+Speaker B 39:59:
+Yeah. To be honest, there is also that this is how the project is made. So, you can't really change that. Like, seems that there is a lot of layer of, hierarchy, inside it. So you have a project. Seems like in the project, you have apps, but you have also agents. I mean, like that. There is a lot of things everywhere, which make things, a bit complicated. What is good here, even if everything is complicated, that you have a step by step that seems pretty clear and that simplifies you a lot, what you need to do, especially because all the things are prefilled. As I said, there is some parts where there is some missing information or some stuff that are not really clear. And some stuff that seems to talk about legal things, and this is kind of, sensible subject, so you need to really be aware as a a customer as that works. Because if you are a self-service, as you say, it's not like today where you will have someone from Synget to add you to onboard and to explain you all those things and all the important things you need to respect in order to be able to use the product. So these are the things that you need to be aware. But what is good, at least from what I see, is that, like, everything was pretty clear for me as a developer for not to just go and set up things compared to before where I didn't know where to to go when I used to play with, but also I think this is a good things. But I would like to see after once I finish onboarding, like, what happened. Okay. So here I have fees. Okay. Still not working. Yeah.
+
+Speaker A 41:51:
+It doesn't work, unfortunately.
+
+Speaker B 41:53:
+Okay.
+
+Speaker A 41:54:
+I thought it
+
+Speaker B 41:56:
+Yeah. So here's same. I guess there is, more information that are kind of required just to understand what you need to do here.
+
+Speaker A 42:04:
+Yeah. So some countries, they have these requirements, from the mobile operators, so you need to input more information there.
+
+Speaker B 42:14:
+Thank you. Alright. So here I have my app. Test number. Okay. Ready to introduce and assess message for the free conversation API. K. So here we are on the web part. This is good. Okay. Okay. So this is kind of what we have seen before. I don't know if this is what we wanted, but this is kind of weird, like, previously in the onboarding, seems I always add this kind of payload, for us information of events. Yeah. It seems it's really different after you told me that all the content of the course was not, really, production, ready. So Yeah. I guess this is just few inconsistencies.
+
+Speaker A 43:45:
+Yeah. I'm not so sure exactly what will be the exact payload of all events. Yeah.
+
+Speaker B 43:53:
+But we'll set up
+
+Speaker A 43:54:
+But, of course, they should match.
+
+Speaker B 43:57:
+Webhook in your conversion API. App settings. K. Maybe some links here are useful in the documentation because say, well, you need to to do that, but you don't really know where. But I guess I could find it pretty easily here. Not really. I guess I will go on app. Now, here I have my app. Okay. Keys. App details. Okay. It will book. Okay. K. I can just sit here also.
+
+Speaker A 45:12:
+So so what is this page or how does these two relate, I think?
+
+Speaker B 45:19:
+So, yeah, this is kind of what I wanted to see after I've set up, and followed the boarding guide was kind of okay. I know I created a app. I know I have something to send RCS and anything, but when I'm going back on, I don't really know where I was. I guess it was agent or something like that. I don't really know, once I finish that, like, where to retrieve all those information, but there is this apps, which is pretty clear, like, what we have. It's nice. You have, say, of your app, you know, which are configured. You have your app idea that is pretty simple to get.
+
+Speaker A 46:11:
+I don't think in this part, works here.
+
+Speaker B 46:16:
+Yeah. And it's kind of weird because I guess it needs API keys. API keys are the public Yeah. API key and secret. Yes. There is only one formation. So I don't know if it's just, same because it's, not production ready, but I guess this could be confusing when I land here. When I know with all the call and the payload I've seen before that there is an API key and a script key, and I came here, something with just one key. I could generate a new key, and I would have thought that we this is, what I've seen before. It seems maybe a bit different, so I don't know if this is expected here.
+
+Speaker A 46:58:
+Yeah. No. It's I mean, I don't think you should even have the API key visible from there. But, yeah, this is just a prototype as of now, so it's not, perfect yet.
+
+Speaker B 47:10:
+Yeah. Of course.
+
+Speaker A 47:11:
+But just to, wrap up because I see our time is then Oh, yeah. So what do you think about this so far just if you summarize the full experience from your perspective?
+
+Speaker B 47:24:
+So I think especially the onboarding part, because this is mainly on what I have focused, for now, I think it's, really great, at least a lot compared to to what I have experienced, a few months ago, when I just tried to discover the platform. I is there is a lot of things that facilitate the integration and you finish onboarding, which is pretty straightforward. Like, you just need to follow step. Nothing really complicated. A lot of, details that could maybe some missing links to more information, like to learn more links. I think as it's a pretty complex subject, I think we should have more links to, larger documentation with all details, because that opens on all the pages. But, yeah, at least you finish all the process and you have your first app that seems production ready. You have, your, API key. You have some channel configured, and you can kind of start, integrating that. After I know that well, I don't know how to come back on it. But
+
+Speaker A 48:44:
+Yeah. Sorry. It's, gone. I don't know. It should be. Sorry.
+
+Speaker B 48:49:
+Yeah. Well, it said it was also links, after I finish, the setup. So it was a user consent and things like that. There was, start integration. So I clicked on the tab. You know? You know? Was kind of, intuitive. I saw integrate. I said, okay. Well, I will go here because now that I have something set up, I will try to integrate it to my application. And here there was multiple items, so I checked only one. I didn't know what was behind the others. But, yeah, I think it's pretty good. Here, this integrate thing with your apps is pretty nice. It's pretty intuitive that you want to see app details, and you have more things you can do here. So this is good. Manage access keys. Okay. And so here you have your channel, manage channel. Okay. Marketing SMS. SMS preview. Okay.
+
+Speaker A 49:53:
+Yeah. So this assumes that you have, set up SMS as well in this scenario.
+
+Speaker B 49:59:
+I guess, from from what I see, like, even the navigation inside the thing is, a lot, better than what I used to to experience when so it was a lot of things everywhere. And when you click on something, you don't know where to go and, like, great. It was very complicated here. What really interest you after is your app. Your app is Yeah. Where you are channel and what you want to to send. You go there. It's pretty clear that you have app here. You could, add details. After a year, you have your channel. It's pretty clear. You know, you could go directly on your channel. You have all the IDs that are displayed on this page of the channel, which is kind of everything that you need. I see that you have your project ID, your app ID. Like, every secret that you need seems to be on the same page, which is, a really game changer in my opinion. After the result of setting, so I don't know about all of them, but having this page of app, which seems to be kind of your starting point for you, as a customer, He's, really good with all this information. And from there, you could go everywhere and Yeah. Very specific. So yeah.
+
+Speaker A 51:15:
+When you tried the Cinci Build, what product were you trying out then? If you remember.
+
+Speaker B 51:20:
+We tried RCS and SMS, I think.
+
+Speaker A 51:25:
+Okay. That's all.
+
+Speaker B 51:26:
+Yep. And and I remember also we we had we needed some support team a lot. Seemed to validate some
+
+Speaker A 51:36:
+Yeah.
+
+Speaker B 51:38:
+Some SMS number, things like that. Like, it it was not, really clear from what I remember. Yeah. It seems that as a service customer, you could really start after as I said, I didn't do all the process. So I don't know if there is still some stuff like number of provisioning, anything like that that will come after or not. But, yeah, a lot better than before. Really. Nice.
+
+Speaker A 52:11:
+So if you In particular. Quickly, if you go to RCS, the
+
+Speaker B 52:15:
+Yeah.
+
+Speaker A 52:16:
+Back. Yeah. And then go to send test message here, the blue button in the top. And then, scroll down here, and then go to this open API playground, the first box here in the bottom.
+
+Speaker B 52:29:
+This one?
+
+Speaker A 52:30:
+Because, yeah, you you were here spending some time here before, but how do you think like, what do you like or how what are your opinions on this page?
+
+Speaker B 52:41:
+Well, well, it seems it's different than before.
+
+Speaker A 52:46:
+Yeah. I think it's just because you need to, it's just to highlight that you need to add the phone number and and access key.
+
+Speaker B 52:54:
+And this is good, because this is what I see just before that, some stuff happens. I really tell
+
+Speaker A 53:01:
+you where I
+
+Speaker B 53:01:
+need to put your eyeballs. So But
+
+Speaker A 53:04:
+what do you think about this page in general, like, when, when it comes to just presenting the information like this? Like, here are your variables, and this is what the request looks like. Do you find it useful, or would you rather just go to documentation?
+
+Speaker B 53:21:
+No. I I think it's like after in general, when you start just playing it depend also on the context when I think you really want to start to integrate all of that. Like, you you spend a lot of time to really look more in details of everything that is proposed. But as developer, what you are looking for is this kind of information. Like, what you want to see, the request, payload expected, the variables, where to find those variables, and what this call is doing. So here, we know that we are to in a context to send a first message. So it's pretty clear. You have here all the information, all the credential, and the variables that you did, plus a possibility to well, when you need to add phone number, generate keys, something like that. And here you have clearly, a test, a sample message that you said you will receive it. You will see and you will say, okay. Well, I see what it is. I have this request, copied somewhere, and this is pretty good. Again, what I've told you just before would be quite good, pretty fast, I think, in the process to propose a a download of postman collection, just to have, just they could download it. At least they will save it for later, and that's good because here, it's really likes kind of onboarding. But if you are pretty fast in the process, just download our postman collection, so you could see everything that we have, quite fast in the morning process. And after they finish the process, they set up all the channel extra. But at least they will have all the endpoint available, pretty fast so they Yep. Could play with it, all soft. Mhmm. See, I think this part is, quite good.
+
+Speaker A 55:12:
+Mhmm. Okay. Nice. So I don't have any other questions. Is it something else that you would like to, share or add?
+
+Speaker B 55:27:
+No. Not really. I think it's a really huge improvement, so congratulations for that.
+
+Speaker A 55:34:
+No. Thank you.
+
+Speaker B 55:36:
+And can't wait to see the the result of all of it. We're like I really see, like, a huge difference compared to when I try to use it, before. So Yeah. Very, very
+
+Speaker A 55:47:
+I'm happy to hear. It's been a long journey to make these improvements.
+
+Speaker B 55:53:
+But I say I gave few feedbacks, and maybe when you go more in details in the thing, you we could see a lot of, all the small parts that could be, improved to Yeah. To to improve this user experience. But here, we already see a really game changer compared to what, is, is before. So really good thing, in my opinion.
+
+Speaker A 56:22:
+Great. But thank you so much for taking your time and sharing your thoughts with me. It has been really useful for me to just, yeah, understand your perspectives and get your feedback. So Welcome. Thanks a lot.
+
+Speaker B 56:35:
+I will keep you updated if there is, some of the member in my team or
+
+Speaker A 56:40:
+Yeah. Yeah. Please do, really looking to get some more perspective from other developers that are not part of Build.
+
+Speaker B 56:49:
+Yeah. My manager, life is kind of exercise, so maybe you would be interested. We'll
+
+Speaker A 56:54:
+let you know.
+
+Speaker B 56:55:
+And maybe she was in my team could be interested or maybe also the the other people that kind of used to have the previous, SimsBuild experience kind like me Mhmm. Play with it a bit just to discover the thing and, who really struggle with it. Maybe they could be interested in this.
+
+Speaker A 57:14:
+Yeah. Yeah. That would be really great.
+
+Speaker B 57:17:
+I will share that with them, and we'll let you know if some of them are interested.
+
+Speaker A 57:21:
+Mhmm. Perfect. Yep. Thank you so much, and, enjoy the rest of your day.
+
+Speaker B 57:25:
+Yeah. Same to you. Bye.
+
+Speaker A 57:27:
+Bye.

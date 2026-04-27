@@ -1,0 +1,336 @@
+Speaker A 00:02:
+Nej, jag antar att jag ska bara prata högt och berätta om vad jag
+
+Speaker B 00:07:
+ser. Exakt. Vi behöver passa på vad som helst, allt du tänker på. För att ge dig ett scenario så är det så att din chef, du jobbar inte på Sinch utan din chef har sagt till dig: Vi vill börja använda RCS och vi har hört att Sinch har RCS. Vi vill att du går in som utvecklare och ser vilka möjligheter som finns
+
+Speaker A 00:33:
+med just RCS. Och föredrar du att jag kommenterar på svenska eller engelska?
+
+Speaker B 00:39:
+Vi kan köra på svenska.
+
+Speaker A 00:44:
+Okej, då är det mer skärm.
+
+Onboarding app
+
+Speaker B 00:50:
+Så, okej. Nu har du också signat upp på Flinch Builds portal och du har sagt att du är intresserad av messaging och då hamnar
+
+Speaker A 01:00:
+du här. Så det
+
+Speaker B 01:02:
+här är den första skärmen du ser efter du har sagt.
+
+Speaker A 01:05:
+Jag har klickat på messaging. Okej, det första jag tänker på är att det kanske inte är jättemånga saker som jag tänker på. Nu förstår jag exakt vad Conversation API är. Om jag varit intresserad av messaging så hade jag kanske börjat leta efter något som heter Rich messaging. Men jag antar att jag hade kollat runt lite på kanalerna och här ser jag något som heter RCS. Nu vet jag vad det förkortat för. Annars hade jag nog letat efter RichMessers som är det jag är intresserad av.
+
+Speaker B 01:50:
+Vad tänker du, alltså nu bara innan du har kommit så långt här. Vad tänker du att du skulle vilja göra eller har du några förväntningar på vad ska en bra första upplevelse av en kanal som typ Brich messaging Det
+
+Speaker A 02:09:
+första jag tänker på är att det är ganska mycket text att ta sig igenom för att orientera sig. Jag tänker att jag hade fått som en sån här Det här är nån slags Get started-meny. Men jag hade nog förväntat mig att det hade varit så välkommen till Westeging. Eller kanske var vill du börja? Typ eardige messaging eller sms eller adurs challenge. Så jag hade behövt ändå vara tyst och läsa lite här för att förstå var jag är nu. Ja. Så det här förklarar väl lite. Jag förstår inte riktigt varför det är två olika gate-skalet-knappar. En för den och en för den, men jag antar att det ska vara samma typ. Men om jag hade gått RCS vet jag inte om det är nåt känt Det kanske är ett känt begrepp.
+
+Speaker B 03:29:
+Nej, det är det väl inte riktigt, men typ de som vet, de vet. Det är väl nya generationens sms. Så du kan tänka I IAS så vet du lite kring RSSM. Innan du klickar där, vad tänker du kommer hända nu när du klickar på den?
+
+Speaker A 03:47:
+Att jag ska kunna börja skicka meddelanden med RCS. Jag tänker att nu borde jag komma till Skicka ditt första RCS. Här skickar du ditt nummer och vad vill du skicka? Typ. Hur kan du komma på den? Ja, vad bra. Det här tycker jag ser najs ut. Jag gillar overlucken. Jag tycker om att den här är större. Det förstår I mitt ansikte att det här är nåt slags work stream. Det här är ordningen på vad jag kommer att göra och vad jag kommer att få göra I den här. Och att det är ändå en del steg att ta sig igenom. Det tycker jag är trevligt. Och att det är väldigt clean, att det är andra distraktioner för det är ändå information känns som att jag kan orientera mig här. Okej, ja. Jag testar att klicka på den här att for nummer to test. Ja, testa med den här. Okej.
+
+Speaker B 05:02:
+Du måste klicka på confirn, det är lite konsensus till att den landar.
+
+Speaker A 05:06:
+Ja, just det. Men det var bra att jag förstår att jag ska göra nån action. Det här tyckte jag var snyggt, så nu förstår jag att det är klart. Okej. Jaha. Vad är det här? Massiage. Ta inte beauty the messing pejload. Om the take eller om the Riche card. Det tycker jag känns rimligt. Att den visar här vad det är man skickar. Och en access key. Okej, då ska jag create new access key. Jag hade inte läst det här om jag inte hade gjort en demoyste kan jag säga. Ef you Lous the key Secret you lete, Generate New access Key. Eftersom det är mer så info, typ inte så. Måste läsa det här. Okej, det här är bra. Det här hade jag läst.
+
+Speaker B 06:21:
+Om ni backar så tror jag att det borde uppdatera sidan kanske?
+
+Speaker A 06:32:
+Figma mak Just det, prototyper
+
+Speaker B 06:35:
+Man vet inte vad som händer.
+
+Speaker A 06:39:
+Tyvärr måste du klicka dig tillbaka. Då var jag här tror jag. Nej, det är på den där sidan. Du var värt.
+
+Speaker B 06:48:
+Du måste kanske lägga till ett nytt telefonnummer.
+
+Speaker A 06:53:
+AcceS Kid, då var den Aite closed. Och sen Då är den vald. Det var nice. Jag tyckte om att det blev grönt när jag var klar med det steget. Så här var jag lite förvånad att det inte var samma sak. Selected Key. Jag förstår inte riktigt vad de vill Access Key, så är det okej. Key Secret är det typ som ett lösenord, kanske? Jag vet inte riktigt vad det betyder. Okej, det är inom access case säkerhet. Ja, det ser ut som ett lösenord. Jag hade tyckt att det var, eftersom jag inte förstår det här, så velat typ en inforuta. Vad betyder en Key Secret? För att förstå vad jag håller på med. Okej, nu skickar jag nånting. Jag har inte skrivit in nån text tror jag. Utan jag antar att det här var som ett exempel. Det var det jag valde här. Sened message. Okej, det var innehållet. Okej. Dom här kände jag var typ olika. Det här var kanske lite mer sänd content och att dom här var typ mer för att jag skulle kunna skicka det. Jag förstod inte riktigt här att det var där jag valde innehållet. Det hade varit kul också att få välja vad jag själv ville skicka för text tycker jag I ett test. Men jag går vidare tänker jag. Eller AIn Response kan jag också klicka på. Kul. Cud, status cud. Okej. Då går vi vidare till The Liverary reports. Just det, check deliverit points. "In Med puux Ja. Det tyckte jag var bra.
+
+Speaker B 09:32:
+Nice. Vad tänker du? Vad handlar den här sidan?
+
+Speaker A 09:37:
+Det här handlar om hur jag får min delivery report. Om jag skickar ett meddelande så vill jag få tillbaka Det här skrev jag min fysiskt på lite om webshux och jag känner igen begreppet men jag tycker det var ett bra formulerat. Att det var ett exempel på en URL. För då antar jag att jag kan lägga in min egen webHub och det är dit som Liver report kommer att skickas när ett meddelande har levererats. Okej. Jag tyckte det var bra här, för antagligen hade man börjat lära sig lite mer. Och ett exempel på en pilot. Tryck the Liber Report. Kanske att jag läser in lite själv, att jag förstår att det här har Eller alltså, check delivery reports och sen att de med access true web huxs. Jag hade kunnat tänka mig att det kanske stod någonting om att Dilivery on vad du har skickat, men det antar jag att man förstår då vad annars skulle man få det på. Bra att man direkt kunde läsa mer. Jag hade antagligen, om jag inte visste vad det var, bara direkt klickat in på vad det betyder.
+
+Speaker B 11:11:
+Ja, men den översta Förlåt.
+
+Speaker A 11:15:
+Jag tycker att texten med boxen tyckte jag var bra. Den här kanske jag inte tittat jättemycket på.
+
+Speaker B 11:27:
+Vad är den här översta, tänker du?
+
+Speaker A 11:30:
+Jag antar att det här är en scranshot for noll från nån slags dashboard. Det är så här jag ser vilket meddelande att den har levererats. Dock så för mig så tänkte jag, eller jag tror inte att jag såg den när jag först skulle skrolla för jag gick direkt till texten för att just den här bilden utan någon förklaring var kanske lite svår att placera vad det var för nånting jag kollade på. Så det hade kanske varit nice, men typ så här ser det ut I dashboarden eller nånting på så jag levererade mig den I dashboarden. Annars blev det att jag direkt hoppade hit till den texten där.
+
+Speaker B 12:19:
+Jag skickade ju ett meddelande, tänker du att du skulle kunna se den?
+
+Speaker A 12:27:
+Är det det här? Eller? Vart? Ja, Jag antar att det här är på dashboarden där jag var innan kanske. Men eftersom den här också är Det här ska vara Okej Jag trodde att det här var som en screenshot, men det här kanske är att det är det här meddelandet jag har skickat precis. Som visats här. Check delivery reports. Annars hade jag haft lite svårt att placera vart om den här är tillfällig nu för den här guiden eller om det är en screenshot från en annan dashboard jag hade kunnat kolla på igen. Kanske också för att den inte har någon annan bakgrund utan det ser lite ut som en tabell. Så tänkte jag att Jag fattar. Det var ett exempel. Som den här. Men det är ju sant att de här är olika saker. Det är bra feedback. Jag antar att det här är meddelanden som jag skickat eftersom det är samma nummer.
+
+Speaker B 13:53:
+Ja, det är tanken.
+
+Speaker A 13:59:
+Jag går vidare tror jag. Kör på. Nu är jag på whereve and inbound message. Okej, Okej, How it work. Testing med webhok field. Recive in about. Okej. Också genom en webhok. Jag tyckte det var najs nu. Nu förstod jag inte riktigt vad vi höll på med. Då tyckte det var trevligt att jag kunde kolla här till vänster och kolla: Ja, jag är på steget ett, recevern in-bound message. Det verkar inte riktigt som att jag kan göra någonting här utan mer att det är information igen. Det är så här som jag får den. Nu vet jag inte riktigt, jag har inte skrivit in någon webhoug någonstans eller testat det. Lite oklart kanske jag tyckte på den här sidan att det står check delivery reports. Då är det nån slags att jag kan checka den här. Men jag vet inte riktigt hur jag hade kommit tillbaka till den här då annars. Men det tror jag att jag sa innan. Det här tyckte jag var bra. Inbound RCS message. Jag tyckte det var enklare att förstå när man sa den här texten att den sa inbound reply. Just att det var reply, att jag försökte göra med att det skulle komma tillbaka. Tänker
+
+Speaker B 16:21:
+du att den förutsätter att du ska göra nånting här?
+
+Speaker A 16:25:
+Nej, här tänker jag bara att det är information. Jag kanske hade kunnat göra något med det här, men jag vet inte riktigt vad jag skulle göra. Så det känns mer Jaha, här kan man klicka på något. Det hade jag nog inte tänkt på annars. Jag såg inte att det här var knappar alls.
+
+Speaker B 16:55:
+Okej. Vad tänker du är syftet med hela steget? Resiven in bound message?
+
+Speaker A 17:03:
+Det här känns som att jag ska förstå att om jag vill kunna få inbound messages så ska jag registrera en webhook, att det är det viktigaste. Och att det är act on the webhook in your integration. A swubd un belo. Det man har gjort här är väl det jag hade behövt göra Jag har inte gjort någon webshoo så jag vet inte riktigt vad man gör med det, men jag antar att det är någon URL här någonstans. Här ser det ut som att man har lagt till webhuxs på olika triggers. Jag tänker att det här var mer för information att det är något jag kan göra sen då. Att jag inte måste en webhuck om jag inte vill vad det är för replyes. Vi tar och går vidare. Explor necess, insidezdes. Okej, det var också bra att veta att det är nåt jag kan lägga till senare, om jag vill.
+
+Speaker B 18:32:
+Okej. Jag tror inte den funkar, tyvärr. Okej. Men jag får bara gå till RCS istället. Du klickade på den Övre som man får sms. Om du skulle ner på den här högra sidan. Länken ner bara där tyvärr. Det är
+
+Speaker A 19:03:
+det här. Och så RCS, det var den exit. Okej, nu råkade jag göra det här.
+
+Speaker B 19:19:
+Tänker du att du måste skapa en access Key för att skicka meddelande här?
+
+Speaker A 19:24:
+Det tänker jag. Eftersom jag, om jag klickar på den så står det no access key. Då känns det som att jag borde göra nånting. Måste man inte det?
+
+Speaker B 19:44:
+Nej, det finns ju två olika sätt att skicka
+
+Speaker A 19:49:
+antingen via Ubit, då är det bara
+
+Speaker B 19:51:
+att klicka på den knappen, men om man vill använda kodexemplet så är det det.
+
+Speaker A 19:56:
+Okej. Då trycker jag här på sänding då. Här kändes det mer naturligt för mig att klicka på den här knappen än att gå hit. Så om ni inte gjorde det, annars hade jag Yes! There ses Agent. Okej, det lät bra att jag tyckte om att den bekräftar att du redan har det här. Och att du har det här. Det låter som att det är bara information om jag skickar Potenties. Copy kanske inte
+
+Speaker B 21:07:
+är helt on point Vad sa du? Copy är kanske inte helt on point här på alla stegen. Nej, jag måste inte gå igenom alla I detalj. Det är ju lite olika faser här du ser till vänster.
+
+Speaker A 21:27:
+Du bara
+
+Speaker B 21:27:
+tänker om den här guiden. Du har ju testat lite grann I andra steg.
+
+Speaker A 21:36:
+Vad tycker du om det här? Jag tycker att det är bra att texterna är korta och för det mesta och bra beskrivande. Jag tycker det är väldigt trevligt med att de här småstegsuppdelningarna. Den här titeln kanske kändes lite allmän. Man har redan lite gjort det här och sen Anders Dansawutworks efter. Annars tycker jag att det är ett trevligt sätt att få lite text I taget. Jag tycker det är bra att om man gjort stegen så blir den grön och om man trycker här så blir den grön. Om man bara klickar runt så markeras den här. Men annars att den inte markeras typ så man mer kan kolla först vad det finns för steg. Lite först och sen kan man välja vad man vill göra. Också skönt att se att det är lite information på varje dag istället för ett block eller att det är saker att göra hela tiden. Jag tycker det är väldigt trevligt att kolla på. Det känns Det kanske är en liten text för mig som ser dåligt, eftersom det är så stort här, så man hade kunnat Men annars tycker jag det är bra.
+
+Speaker B 23:14:
+Vad tänker du är syftet med alla stegen?
+
+Speaker A 23:19:
+Jag tänker att man enkelt ska satt upp liksom Att jag ska bara kunna skicka efter det här. Alltså att det ska vara enkelt, att jag ska informationen jag behöver för att kanske senare gå in och lägga till saker som jag vill men att jag ska bara kunna skicka nåt SM eller förstå kanske lite vad de här webhux och API-cases och vad allting är. Hur jag ska hinna skicka upp dashboards och project. Vara lite mer bekväm med terminologin I RCS. Så det när jag är inne på dashboarden ska jag känna igen lite vad som minns tidigare. Ja.
+
+Speaker B 24:17:
+Hur är den här om du jämför med andra utvecklare tutorials som du har testat när du
+
+Speaker A 24:25:
+följer guider? Jag tycker att den är bra. Det jag tänkte på var att man inte ska skriva in sin egen text. Det tänker jag är en klassisk grej, att du väljer vilken text du vill skriva. Oftast blir det att man skriver in nån hej, hej, hej och sen letar man på vad man har skickat. Då kan jag se det där lilla ordet jag skrev. Annars tycker jag den är bra. Ibland har man ju att typ kanske lite olika fonds och sånt för att bara göra det enklare att läsa. Alltså enklare att läsa om det är keywords eller om det är fet stealts för lite svårare termer. Jag förstår att det här är inte Det har inte alla, men jag tycker själv att det är lite trevligt att läsa på det sättet. Alltså Ja Jag skulle säga att interaktionen är liksom bra. Det känns som att man kan leka lite med färg och former kanske lite för att göra den mer Hålla attention spanet av en utvecklare. Men det är inte så mycket, det är mer text än vad det är, att jag kan göra saker.
+
+Speaker B 26:14:
+Vad tänker du om det?
+
+Speaker A 26:17:
+Det är ju alltid trevligt att man vet att man får göra nånting då och då eller klicka på nånting. Annars blir det lätt att man Okej, här är text, text, text. Man börjar med att göra lite saker och sen blir det mer text och då kanske man skumläser. Men om man då och då kan göra nånting eller skapa nånting så känner man att guiden är värd att läsa och att man kommer ihåg mer av vad man har gjort.
+
+Speaker B 26:52:
+Tänker du att du skulle, om du skulle börja med ACS, komma tillbaka till den här eller att du skulle göra klart allt I en sektion?
+
+Speaker A 27:02:
+Jag skulle nog göra klart den, Allt igen. Ja, det beror på. Jag hade inte gjort dashboards liksom. För Get Stared låter som en introduktionsguide för mig. Jag är inte säker på att jag hade gått in på den igen och sen gjort steg tio. Eller då hade jag velat kanske nåt annat sätt att komma in på den. Att jag inte hade velat göra de första tre stegen, det hade varit störigt typ. Varje gång jag vill kolla på de här stegen måste jag skriva in ett nummer och verifiera det. Det hade jag bara velat hoppa in senare.
+
+Speaker B 27:51:
+Ja. Hur menar du med att
+
+Speaker A 27:53:
+det är Get Star, det låter som introduktionsguide? Ja, men Get Star, då har man gjort det man kan men det låter inte så mycket som att det låter inte som RCS-guide. Det tänker jag är nånting som man återkommer till. Man har I bokmärkesflik. Man går dit. Vilket starder känns som att när man har gjort det en gång och man är förstås lite bricy-koncept då har man liksom Då är man inte stared, då är man liksom working. Så att det känns mer som nånting som man gör liksom. Mer än eller en gång. För att komma igång. När man väl är igång, då går man in på nån guide.
+
+Speaker B 28:48:
+Jag tänkte vi skulle kolla på den andra Du behöver inte stränga ner
+
+Speaker A 28:54:
+den, så vi kan återkomma om vi vill jämföra lite. Jag skickade en ny länk till dig. Jag ska bara dubbelkolla och se att den funkar.
+
+Sandbox
+
+Speaker B 29:05:
+Så det är samma sak här egentligen, samma typ av scenario. Du har signat upp till Sinchbild och du är intresserad av messaging och så hamnar du här. Jag tycker
+
+Speaker A 29:22:
+att direkt känns mycket enklare att förstå vad jag ska göra. Dels att jag ser direkt RCS här, jag ser RCS här, jag ser också Geting Stardi här och select messaging chäns. Start hade jag klickat på sen så kom man hit. Okej nu ska jag läsa det här. Jag tycker om att man ser direkt här väldigt tydliga exempel. Det tyckte jag var jättetrevligt. När man ser RCS bredvid sms så förstår jag kanske lite bättre vad RCS betyder. Okej, och sen så får vi lite beskrivning. Det tyckte jag var najs. Det här är också najs tycker jag, om man inte vet vad det är så skriver man en klass jämförelse. Det tycker jag är bra. Då hade jag tyckt här. Tri RCS Now. Jag tycker om den andra layouten mer när det gäller just guiden här. När jag kommit hit. Just för att det var trevligt att förstå. Det är ändå lite gamification med de gröna böckerna. Att se att det är tre out of the four. Tycker jag var ännu bättre. För det blev ganska brett. Men å andra sidan förstår jag nu att jag ska testa något. Det andra kändes mer som en guide, det här känns som ett test. Jag tycker att de här är alldeles för långt ute för att jag ska förstå vad jag gör för skillnad. Men ja, igen. Det här är inte riktigt jag känner att jag väljer Jo, jag väljer väl någon slags message, men typ mer message style. För jag får ju faktiskt inte välja meddelande som jag hade velat göra. Eller ja, här kan jag ju till och med kanske ändra texten. Request body. Fabellen skriva welcome to Jo, okej. Kan jag ändra I den här? Nej, det kan jag inte. Här hade jag velat. Key Secret, det här var skönt att han valde något åt mig. Att den bara att det här är en Key och en secret. Men jag slapp göra den själv för där blev jag lite förvirrad innan. Eftersom jag hade gjort någon innan och hade undrat, spelade det någon roll? Hur kom den dit då? Alltså, key och Secret? Jag vet inte, den verkar vara där från början. Jag antar att det är nåt som är här, key och Secret. Men de var där från början. Olika språk också, det var ju trevligt. Det var bra tyckte jag att man kan byta här mellan vilket språk. Det känns som att det är ganska bra att få det. Och en liten, att jag kan manage accesscase.
+
+Speaker B 33:01:
+Klicka på den, tyvärr. Nej, nej. Precis.
+
+Speaker A 33:08:
+Den här var nästan inte att jag såg den här lilla knappen Sime elit. Om de barkade innan. Nu körde jag den. Okej, view missage loux. Missage sents. Ja, det var kul. Det tyckte jag var roligt. Här blev det väldigt tydligt att jag skickade den och pang. Nu har den skickats. I och med att jag inte förstod det på den andra så förstod jag det bättre här. Nu känner jag inte riktigt att jag vet var jag ska gå för att det finns Ja, det är här uppe. Jag letade lite här nere nånstans efter.
+
+Speaker B 33:56:
+Innan du klickar någon annanstans nu, jag tänkte I den andra versionen så var ju Message logs på en annan sida och här bar de under där att skicka
+
+Speaker A 34:07:
+Hur tänker du kring det? Jag tyckte det här var mycket trevligare. Teästen kom upp när jag klickade att nånting hände då. Annars skulle jag behöva kolla. Öljan kanske inte ens hade kopplat till att jag borde kolla på min telefon. Jag tycker också att den här layouten med stegen som hände var också mycket tydligare. Det här är en logke på vad precis hände. Jag tror också att om man navigerar till nästa sida så förstår man inte att det kommer upp av att jag klickade utan mer att koppla in till lika mycket, att det var nånting som jag triggade.
+
+Speaker B 34:48:
+Här finns inte så mycket information om vad message Looksen är eller webhoux eller nånting sånt. Är det nånting du tycker saknas här?
+
+Speaker A 35:02:
+Nej, jag tycker att det var skönt. Speciellt om jag inte har tänkt sätta upp en webhok direkt utan bara testa att skicka ett meddelande här och där. Då tyckte jag att det var skönt att bara så här: Här är du skickat ett meddelande. Nu har jag skickat ett meddelande. Perfekt. Jag är inte vid det här stadiet superintresserad av att jag ska kunna läsa svaren och svara på det. För jag kanske testar nån testmobil som jag inte ens kan svara från. Så jag tyckte det var skönt. Jag tänkte bara. Sen Sen är jag på det än. Så I guiden blev jag att det kanske nästa. Nu när du har skickat, om man skulle vilja ett svar då kan man sätta upp en webpunkt. Nu tyckte jag inte det behövdes. Jag klickar vidare då kanske. Okej, den här såg Oj, okej. Jag var förvånad att den här såg så annorlunda ut från den innan. Här är det nån slags Jag förstår att jag går igenom lite olika steg. Men det är lite blandat att jag är I nån slags guidenavvering här och sen är jag nån slags guide-stegs stegmodell här. Okej. Brynäs. Kul att man kan designa sitt brand här direkt. Det tycker jag om. Det känns kul. Det känns kul att man direkt känner att det här är annorlunda från sms. Jag har bara skickat meddelande och nu ska jag redan designa mitt brand. Då känner jag att man får en smak ganska snabbt på RCS. Men det kanske är Jag vet inte ur vilket perspektiv det är. Men om man vill börja skicka RCS så vill man inte se hur man hade sett ut. De borde uppdatera previewen här. Exakt, det vore ju bra. Det var väldigt roligt. Den gjorde ju det här? Jaha.
+
+Speaker B 37:41:
+Så inte på den här.
+
+Speaker A 37:44:
+Vad är skillnaden på brand name och RCS? Description Det här var trevligt att man ser det direkt. Då blir det som en kontakt ser det ut som här. Det här är en kontakt. Om man hade full meddelande hade kontakten sett ut så här. Det här var kul att man kan sätta upp det direkt. Nu vet jag inte vart jag ska klicka dock, men jag kanske måste göra allt det här först.
+
+Speaker B 38:23:
+Du kan nog kanske gå vidare utan det borde gå om du inte orkar.
+
+Speaker A 38:34:
+Fint. Jag verkar inte kunna klicka någonstans.
+
+Speaker B 38:36:
+Nej, det finns en kommentar. Okej,
+
+Speaker A 38:41:
+för då tänker jag på att det var först här uppe och sen nu, en nere. Det hade varit najs att teckna och sen How you your bli ljust. Okej. Okej. Vilken as of the first so. Okej. Build per message. Det här var väldigt intresserad också. Det är väldigt street forward att jag håller verkligen på att designa min scender. Det här tycker jag också om, en sammery på vad jag har skapat precis. Genom att man ser den här och också Det har varit lätt och jag ser direkt vad jag har klickat I. Okej. Kul. Så nu har jag skapat en agentt. Då kan jag skicka testmessage. Med namn. Är det Ur Tural Nim of the app? Jag kommer inte ihåg att jag skapade en app, jag kommer ihåg att jag skapade en bys brand information. Jag vet inte riktigt vad mitt appnamn skulle vara, om jag hade klickat igen. Det är kul att man ser den här och att man känner igen färjan att jag valde den. Jag vet fortfarande inte vad mitt Okej. Repered to go live. Fineed is steps to submit your Agent. Jag förstår inte riktigt varför jag kan fortfarande klicka här om jag måste göra klart de här stegen. Det är bra med att det står draft här, att jag inte är klar än. Det kanske inte sparas. Och att man direkt kan se building och Om jag tar nånting här. The country. Nu är det här tillbaka, det tycker jag är bra. Kanske lite förvirrande att det inte fanns här förut. Nu vet jag inte riktigt var jag är för jag klickade på nånting på de de olika sidorna och nu är det en sån här Jag hade kanske förväntat mig att jag hade varit på den här från början för att förstå. Okej. Message in contents. Okej, och så får man rangordna.
+
+Speaker B 41:43:
+Jag tror inte att det har fungerat.
+
+Speaker A 41:45:
+Men det var trevligt tycker jag. Så kan man lägga till Jag tänker att man Det är svårt att säga, Svårt att veta om man vet de här sakerna när man ska börja testa lite. Förhoppningsvis vet man vad det är. Då är det bra att det kommer snabbt. Okej. Och sen sista steget ett. Så kan man äta. Jag kanske inte tyckte det var bra. Fotnummer Nej, jag kanske inte kan lägga det. Plus. Här hade man kanske också Det är någonting som händer här borta.
+
+Speaker B 42:28:
+Den är lite bookig den där.
+
+Speaker A 42:32:
+Elable for phot numure.
+
+Speaker B 42:36:
+Jag tycker att jag tycker att jag sparar den och se om det
+
+Speaker A 42:41:
+funkar. Privacy policy, det var kul att man kunde lägga till det direkt. Bra att seitpris om det tänker jag. Direkt, komppletet, det står I Traft fortfarande. Submit for approvele. Alltså jag hade bara velat testa kanske här. Men då förstår jag inte vad den här knappen gör. Om jag ändå måste skicka för proofel. Google a local. Så måste jag betala one time Fee tvåhundra.
+
+Speaker B 43:16:
+Hade du velat testa innan du
+
+Speaker A 43:18:
+smitta den här? Har jag testat?
+
+Speaker B 43:24:
+Nu är det så här tvåhundra dollar att betala. Ja,
+
+Speaker A 43:29:
+det är ganska mycket. Det Det är kanske lite mycket. Välj summa du vill kunna testskicka för. Och så kanske jag vill testskicka fem dollar. Så skulle ni välja det och sen skicka för det. Men jag hade inte velat testa för tvåhundra dollar.
+
+Speaker B 44:00:
+Nej. Om du klickar på den här test message igen och så kan du skriva in ett namn här. Det är inte så tydligt här I detta UIT, men det du måste göra är att koppla den till en konversationstions API-app. Det är inget som vi gör automatiskt åt dig I bakgrunden. Det är någonting som vi försöker lösa. Då skulle du kunna testa din egen agent som du precis har skapat. Då ska ju den vara I När?
+
+Speaker A 44:36:
+Nu är jag tillbaka hit. Det var den här Generate access ki, det var det jag klickade på. Simulat No for nummer to deliver to. Jag trodde jag gjorde det här. Jag förstår inte riktigt hur jag kommer hit. Jag kan inte riktigt göra någonting nu. Jag tyckte på Sound-test-masage. Jag försöker inte riktigt vad det är så att koppla.
+
+Speaker B 45:47:
+Det räcker liksom inte att bara en agent för att skicka meddelanden via Sinch utan man måste typ en konversationstions API-app I bakgrunden och det är det som är lite
+
+Speaker A 46:00:
+lurigt att
+
+Speaker B 46:05:
+tydliggöra, men det är det vi också försöker hålla på och lösa, alltså hur man förstår att man behöver en app.
+
+Speaker A 46:14:
+Men är det att jag har gjort den här eller har jag gjort den här nu? Jag tar med er från den.
+
+Speaker B 46:19:
+Du får backa tillbaka här. Det här är bara för att testa. Det här blir lite rörigt för att du är ju mer I testmode och det här är en riktig agent som du har skapat som du också kan börja använda för att skicka livemeddelanden med. Men hela den här hur man använder agenten och det tekniska har du inte riktigt upptäckt än, om
+
+Speaker A 46:49:
+jag säger så? Nja, jag förstod nog inte riktigt Jag förstod att jag hade ad Agent aperarence, ad country, ad conctinformation. Jag förstod bara riktigt vad jag ska göra nu. Jag kan ju ut och betala tvåhundra men det här du sa med hur jag kom tillbaka hit att skicka ett testmeddelande för
+
+Speaker B 47:20:
+det har jag redan I det här scenariot, då har du klickat på sen Test, det är ju inte så bra prototypat nu, men du hade testat med din legenagent. Det hade varit som den stora skillnaden
+
+Speaker A 47:35:
+att vi hade kunnat se hur det funkar. Men det
+
+Speaker B 47:38:
+är inte så mycket tekniska detaljer kring typ webhooox, ingenting sånt. Nej. Det finns ju här. Nej. Jag vet
+
+Speaker A 47:47:
+inte vad du tänker om det. Jag kan ändå uppskatta att göra nåt som känns enkelt först. Okej, det här kommer vara, Det är så här liksom Det beror på om man är ett företag som håller på jättemycket. Om man är ett företag och man ska precis introduceras till det. Då tycker jag att det känns ganska trevligt att inte behöva lära mig en massa saker först utan först lär jag mig att man sätter runt ditt random. Du kommer välja lite olika saker, klick ditt brand. Skicka ett meddelande. Det var nog lite tekniskt I början när man såg vad det var som skickades curle meddelandet. Men för mig var det ingen nackdel att gå mer på brandet än att det var mycket teknisk information. Sedan hade jag velat en separat guide. Den här tyckte jag var roligare att börja med och sedan kanske jag hade velat den andra guiden mer när jag ska lära mig. Å andra sidan förstod jag att alla de här sakerna finns att hämta, du kommer att kunna göra den. Det var bra att veta att jag kommer samla data eller visa datan eller bara Insights eller vad det nu stod. För det kommer jag kunna lära mig och Webhoux kommer jag sätta upp. Så det hade varit kanske kunnat finnas fler guider här. Det här var nån slags testguide och så finns det en annan guide på de andra stegen.
+
+Speaker B 49:45:
+Så om du jämför med så tyckte du att det var roligare när du fick göra grejer själv. Men det kändes som
+
+Speaker A 49:52:
+att de
+
+Speaker B 49:52:
+tyckte att den här var lite rörig, den andra.
+
+Speaker A 49:57:
+Alltså, den andra tyckte jag var bra. Jag tyckte om layouten mer på den andra, tror jag. Men sen fick jag den här och det var kanske det som var rörigt, att den började inte så här, men sen slutade den så här. Att det tog till andra sidor. Jag tycker det är väldigt trevligt med sidovyn. Det är alltid najs att veta vart jag är I guiden. Vilka steg kommer jag att gå igenom? Men innehållet I guiderna tyckte jag var bättre på den
+
+Speaker B 50:28:
+här. Varför det?
+
+Speaker A 50:33:
+För att det var interaktivt, jag skrev in saker, jag såg dem. Det var det jag hade förväntat mig mer av. Jag började sätta upp RCS hade jag förväntat mer. Okej, du kommer liksom Att det är kopplat till att du har ett brand och att du skickar ut ett annat typ av innehåll än sms. Så att CD Direkt tyckte jag om. Men sen så hade kompletterats med innehållet på den andra guiden. För nu är det lite så jag om inte betalat tvåhundra Det är ju alltid trevligare att guide tycker jag. Här är information som du kanske vill veta än att jag inte skulle börja klicka runt mig här. Jag hade varit lite lost
+
+Speaker B 51:29:
+nu. Du vet inte var du skulle ta vägen
+
+Speaker A 51:32:
+efter det här? Vad bra.
+
+Speaker B 51:44:
+Har du några andra
+
+Speaker A 51:47:
+tankar? Nej. De var ju väldigt olika, liksom. Men jag tyckte det var bra delar I båda. Men det är lite svårt att veta Ja, det är lite svårt att veta vad bakgrunden är, vad man vet att man börjar skicka. Men jag tycker bara allmänt är alltid najs att veta var man är på sidan för att veta att det är en guide man håller på och följer och att det är genomgående mellan alla sidor, inte olika navigeringar på olika ställen eller så. Och alltid tycker jag är väldigt najs att bryta ner information I mindre bitar delar. För då håller man sig också, man fortsätter med guiden inte. Jag gör det här sen. Toppen.
+
+Speaker B 52:56:
+Jag har fått jättebra feedback från dig. Det är jätteintressant att se hur du testar från första utan att nån förförståelse och vad du fattar. Det har varit jättevärdefullt verkligen. Tack så jättemycket för att du tog dig tiden.
+
+Speaker A 53:12:
+Ja, men inga problem. Jag gick också lite användardarbarhet. Det är så bra.
+
+Speaker B 53:21:
+Det är bra. Det var bra än
+
+Speaker A 53:23:
+Vi kan väl få se. Två olika också.
+
+Speaker B 53:29:
+Vi experimenterar ju ganska mycket just nu för att hitta något koncept eller vi behöver smälta ihop kanske båda för att det ska bli en bra upplevelse. Både interaktivt men också att man förstår vad det är jag I förhållande till allt annat.
+
+Speaker A 53:45:
+Det tycker jag har varit jättebra. Då på en trevlig kväll. Tack detsamma.

@@ -1,0 +1,284 @@
+Speaker A 00:02:
+No. No. We can
+
+Speaker B 00:03:
+we can restart. Yeah. Yeah. So, yeah. Please, do whatever you want to, hear.
+
+Speaker A 00:11:
+Okay. So it's regarding, I'm not seeing if it's recording or not. So yeah. So currently, I land on the main page. There's kind of the list of all the channels. Few of them are highlighted, so the three first one. And there's couple of information. But as I'm interesting into LCS, I will click on get started. So, yeah, what I see here is the fact that, I can create an LCS agent or send a test message. I don't really know what an RCS agent is, in detail, just briefly. But, yeah, first, I will click on send
+
+Speaker B 00:58:
+test message. An RCS agent is? Sorry? What do you think it is? Like, just,
+
+Speaker A 01:06:
+that's, an agent for a country, if I'm not wrong, or per country, that is able to send a message? No?
+
+Speaker B 01:19:
+Yep. There it is. Yeah.
+
+Speaker A 01:22:
+I messed up a little. I was too let's go back up because the cover disappeared here. So I don't know what I did with the the Figma file, but, let's say I clicked on the on set a test message. So, here I will follow the steps. I am curious about that. Okay. So an agent is a phone number probably and every info that is referring a company probably. So, the first step is to add a phone number, so I can do it. Here I can
+
+Speaker B 02:02:
+You can just add that Yeah. The phone number. It is it's just a prototype. So
+
+Speaker A 02:07:
+Yeah.
+
+Speaker B 02:07:
+Yeah. So it wouldn't
+
+Speaker A 02:10:
+follow the normal process. I will, yeah. I will add, I will add my phone number with yeah. I will click continue. This is confirming that I can send an LCS. So let's say confirm because I did the manual things. Continue as well. So the step one is set up. So I can create, directly within the UI or using a code. So this is a post, call. Is there any preference for your test? I would Yeah. You
+
+Speaker B 02:48:
+can what do you prefer?
+
+Speaker A 02:52:
+I mean, both are are quite equivalent. I would say that for a marketer, that's easier that way. So I can I can create something here? Let's say this is the title. Up. This is reflecting in the on the right side, and this is great. You can see directly, what you are typing. So I I like that we have the same on on Mailjet, and I I do think this is really a difference, a differentiator of LCS, test. So this is a link of an image, I can upload, but I will let this one for the test, because for I don't really need to change that. This is the the same for the button. I can add more. I thought we can add only two with RCS but we can add more in fact. And, yeah. I can then, send the test to my phone so I will receive the I assume I will receive the the the message. Mhmm. So I had the notification. And, here, I have everything that happened, if I'm not wrong. I would go in yep. So this is all the step that happened to the message. So if if first was queued and then it was delivered. So I can see the payload of what happened. So that's the the feedback from synch synch API. And I can download if I need it. But for now, I don't need I don't need it because I just wanna test. Mhmm. So now I can create the LCS agent or, play with the API directly. I use the UI, so I can test with the API as well that is working. So here I have the API documentation. I need to generate API keys, so secret and, public keys. It was generated, but I didn't pay attention where is it. Oh, yeah. Yeah. They are. Okay. So then I just oh, I can run the request directly from there. That's cool. Everything is set up. So yeah. No. I can change the project ID, which is here. So I just need to copy paste this here, this the second one here, and, the test number will be my phone number. And that's it. I can change whatever I want. There's still the title here. I changed it, late before. Same for the description, the buttons, etcetera. And this is really cool because I can run the test directly from there. Same. Here, the logs happen, so we can see that it's queued, same for delivered. I assume we have exactly the same payload, than before except for the dates. And I did the two first step that I had in mind. So now I can create an LCS agent to do real, test. So production one.
+
+Speaker B 06:46:
+Before you you do that, how was this experience? Like testing using these two different ways?
+
+Speaker A 06:56:
+I I like both because that's quite easy. Everything is shown. What I thought weird at the beginning is finding the ideas. I didn't see that to to to enable that, but that's the only thing that was weird in my opinion. But, yeah, for the rest, it was really easy easy peasy to do. I like the fact that we can run the request directly from there, because usually you have, you know, the the code displayed and you need to copy pass directly on on your terminal. But here, everything is set up and you can do it on on your own. So this this is really cool. I didn't pay attention to that, but, yeah, that just a different message you can you can select. But, yeah, I think it's quite easy and clear. I like also to have the logs right after the test. This is showing the different oh, I received a reply. You can see the different status. So this is interesting for for developer to see what's going on and have everything in one page. For the UI section, I would say that I don't care if, the content creation is at the same step as the rest. I don't know if I'm clear, but, it's okay if we switch from a page to design the content, validate, and go back to the first page. But having both at the same time is quite cool, because you can see directly what's happening. So so yeah. No. I think it's really useful. And for dev, it everything is at one place and easy to find.
+
+Speaker B 08:43:
+Yep. And the payloads here, are you interested in seeing the details? I know that you expanded them here in the message logs Oh.
+
+Speaker A 08:51:
+The sections. I'm to be honest, no. I won't be interesting at the first step. So I expand just to see what's, what's in it. But, that was mainly because there's a button, so I clicked. But I like the fact that it is not it's not expanded, before because if you have something like that, it's too many information. So I like the fact that you can, you hide them at first thing and you can expand them if needed.
+
+Speaker B 09:23:
+Mhmm. Yep. But, do you understand how everything, like, works together, like, with RCS here from, like, trying this? Or how do you understand RCS from what you've seen so far?
+
+Speaker A 09:40:
+How do I understand RCS?
+
+Speaker B 09:43:
+Yeah. How it works?
+
+Speaker A 09:48:
+For me, seeing that it's working like SMS. So you are configuring everything. So the the recipient, the the message, except that you are you have more capabilities, than SMS, because you can add button and interact with URLs and, and launching pages and stuff like that. So this is more powerful, I would say. But in my opinion, currently, looking at those testing, it looks the same like sending an SMS, but with more capabilities.
+
+Speaker B 10:22:
+But how does it feel like to do does it feel like it's, simple or complicated
+
+Speaker A 10:27:
+Oh, yeah. No.
+
+Speaker B 10:28:
+To send in production?
+
+Speaker A 10:30:
+Maybe, in fact, I knew some stuff about RCS, but I think it's quite simple, to use it. Currently, for my test, I just set up my number and that's it. After that, everything was already there and I I can modify what I want, the text, etcetera, but it's quite clear in the payload. And, and this is sent. So no. This is quite simple, clear, and easy to use. I didn't pay attention to Node and and Python, but most of the time when you when you test, you use curl. So that's great that, the curl is the the one related here. So so yeah. Mhmm. Great. Yep. Thank you.
+
+Speaker B 11:14:
+You can, continue if you want.
+
+Speaker A 11:16:
+So it seems that I'm ready to go live. I like the fact that I can send, easier CS. So I need to create my, my own agent. So let's click on, on that. Okay. So the RCS agent is the bond detail in fact. I need to select the countries. Okay. K. Let's I like this, this logo. I don't know what it is for, but, the best company. So, yeah, here I can change everything. That's cool. Let's is it working? I don't know if it's
+
+Speaker B 12:20:
+maybe yeah. It is. Seems like this.
+
+Speaker A 12:22:
+Oh, wow. This is a beautiful color. Let's put it. I'm not a designer. Oh, I can upload an image as well. About that, I'm a little bit lost between this one. Oh, no. Okay. I got it. Okay. I was like, what is the difference between the brand color and the selected color at the first thing? But, yeah, select is just you enter another color. And if you select your bond color, you don't select anything else. So I would say these two are a bit confusing at the beginning, but I easy I easily figure it out. Upload an image. I don't I don't think it's working, but, yeah, this is cool as well. And, yeah, let's say this is okay. So it looks okay. It will be my agent, so I can click on continue. And here, I need to select my region to send, SES, I assume. So I'm based in Europe, and I need to select the agent, what is it for. I assume this is mandatory for SES. I don't really know why, but, okay. So it's you need to specify to to be compliance. Okay. So let's say I will use both, the the three options. Alright. And I need to I didn't know that. I didn't know that we can send without, replying or we can reply. I always receive the marketing message, so I wasn't able to to have a conversation. I don't know what's the best for the demo. I will let conversation. That's okay?
+
+Speaker B 14:27:
+It it doesn't matter. Yeah.
+
+Speaker A 14:29:
+Okay. So let's say conversational. Okay. Everything looks good. So I can move on.
+
+Speaker B 14:44:
+How was the process of creating this?
+
+Speaker A 14:47:
+Super easy. And once again, I like the fact that you have the preview here, because you can directly see, the what will happen on the on the phone screen. So that's super useful. But when I land on that, this is weird because I land on this page, but the first thing I see is one on four. And, yeah, this is not expanded. So in my mind, I will assume that the other ones are not, mandatory, but I assume it is. So having this page is quite weird because the first thing I will take a look is a button. And here, the button is, here. But I assume I need to set up that before, the countries. So let's make if I didn't pay attention to this one. There are several time several tabs. Sorry. But the first thing I will do is, click on those two buttons starting with the first one, because I need I need to add verification details. So I'll do this. Okay. So here I need to be precise about what I, what my how my user consent, to the messages. So let's say they subscribe to a newsletter, and they create an account on my website. Okay. So here, I need to drag an example. Yep. So
+
+Speaker B 16:40:
+For the prototype, you don't need to input all of these details, but you can just
+
+Speaker A 16:46:
+tell me
+
+Speaker B 16:47:
+what you understand from.
+
+Speaker A 16:48:
+Yeah. So currently, I need to provide proof to Google that what I selected here is true. So I can drag a screen a screenshot there or I can enter a new URL of a website, where the consent, is happening. So this way, Google will be able to test and validate the fact that the consent is provided, for the users. Opt out is pro oh, it's not working. So, yeah, I assume that, I need also to provide this is what that is not a screenshot, but this is the way you can stay you can say stop to any, discussion. So this is the way to unsubscribe to a newsletter or to remove your your consent. So I don't really understand why, this is just a string here. I would assume it will be the same than here, the way that you can up upload, but maybe I'm wrong. And as I don't click I can't click on the description, I don't really know. So, I, think I'm a little bit lost for this, here.
+
+Speaker B 18:09:
+Yeah. Yeah. So maybe it needs more explanation, and, sorry, the link doesn't work. But it would explain you that you need to, type exactly what their agent will respond when a user Oh. Writes stop to the agent.
+
+Speaker A 18:24:
+Okay.
+
+Speaker B 18:25:
+Because then, yeah, they need to see that exact message.
+
+Speaker A 18:30:
+So they don't need proof? So you you can't you you are not allowed to enter a screen to add a screenshot?
+
+Speaker B 18:38:
+Not for this. This Okay. This is more for compliance, just for Okay. Google to see what you're ex what they can expect you to reply. So it's not what you actually will reply. Okay.
+
+Speaker A 18:52:
+Yeah. Yeah. No. Makes sense. So yeah. If this is describing what you you told me, then that's that's clear. So I will copy past, the exact, the exact thing. We, took we will take care of it. It's not really legal, but, yeah. This is a Yeah. Let's say this is the the example. Okay. So here you need to describe, your strategy about the sending. So yeah. Let's say that's a marketing and promotional campaign, And we have, like, an anniversary promotion or whatever. So those two. Okay. And here, I need to I can order.
+
+Speaker B 19:55:
+I don't think though those will work. I'm sorry.
+
+Speaker A 19:59:
+So, yeah, here I need to, kind of organize the priority of my message, kind of. So what's the most important for my business and for the agenda to send, messages? So I need to organize that, and I can create more, if I if I want to. So, yeah, I would say with my two selected here, the first thing will be, seasonal promotion, then promotional offers. And after that, I don't think I need the two of us. So yeah. This is how I see this. So I can click on continue. And here, I need to provide the detail about someone within my company that will be the point of contact for Cinch. If I'm not wrong, provide the detail of number here. Yeah. So this is the main point of contact, so it could be me. Up. Here he is. Here it is. And then I can click on save and now the button disappeared, but we've got all the details here, and I can edit whenever I want. So this is cool. We set it up, and I can move on with the contact information. Okay. So here is what's displayed here, on your on your, agent. So I can set that. I don't know what's the most, important, but let's say a phone number. Let's add one. I don't know how many. Okay. Let's say this is a a good number. And let's say, support team.
+
+Speaker B 22:17:
+And the phone number should be displayed here as well in the preview, but
+
+Speaker A 22:21:
+Yeah. Yes.
+
+Speaker B 22:21:
+I'm working.
+
+Speaker A 22:23:
+Sure. I can add few more and, I need to enter the privacy and the term and condition URLs, to to make sure that we have everything mentioned related to those, regulations. I won't add another one, but I can click on send. Wow. It's already done. Meme. So here, I would say that in my mind, everything is set up. But in fact, something is missing, and that's probably in the other tabs. So let's click on countries. So here, I need to define all the, countries where, I wanna send. So let's say United States. And this is more complicated. I don't know.
+
+Speaker B 23:31:
+You could also add France if you would like. But, US have more complicated, regulations.
+
+Speaker A 23:41:
+Yeah. Because I was like, I don't know what it is, and I don't have any information. I didn't pay attention to view. But, okay. So to be honest, I don't know what's the difference between those two. So probably for developers, it will be the same. But yeah. For for this one, there's only one choice. And, yeah. So let's click on that. So here, I need to enter the business information. So the the is the the ID of the of the company. I don't know them. I don't know how they are provided, but let's say, oh, nine digit. We need to make sure it's, here we go. Then we do that. I like it. I don't care. This is my entire building. Let's say oh, there's no room. Shit. Yeah. Let's say Paris.
+
+Speaker B 24:55:
+It's not fully working.
+
+Speaker A 24:56:
+No. No. I know. I know. I'm joking. And obviously, if my postcode is Paris, the city will be Paris. And I can click on save And this is ready. So I don't think I have something else to do. Currently, it's waiting for approval. So I'm waiting currently. Here, I don't really know how it will be approved by the by the operators. So I assume I will this will trigger a few not notification here and there here and there. About test number, okay. So this is for test account, I would say. So you can under you can add several numbers. We added a number for, the agent, the main the main one. No. This is for contact information. I was supposed to have a number. No? We we added one? For support team. Where is oh, yeah. This one. Sorry. So yeah. I will have the test account, number as well. So let's say the test one will be, forty two, ending with forty two. K. So it was verified. I can manage as many test number as I want. So I assume, those test number have less restriction to send or more depending on the point of view. And integrate. Okay. So this is how I can integrate directly my, my agent and the SS sending, into my application. I can click on connect to conversation. So this is a way to link to the conversation API, so the other synch product. Let's say I have a production.
+
+Speaker B 27:43:
+Do you know anything about conversation API from before?
+
+Speaker A 27:47:
+Sorry? Do you
+
+Speaker B 27:49:
+Do you know anything about the conversation API?
+
+Speaker A 27:51:
+Yeah. Yeah. This is, this is the this is the, I would say, the messaging API. For now, there was only only thing dedicated to messaging. And this is the the API to send message, so you can, bulk bulk send. You can, manage your contacts, etcetera. But, yeah, I re I remember seeing so few stuff here. So yeah. I just, I don't remember exactly, but, yeah, there's a there's you can set up a channel, depending on where you wanna send. So here, we are sending a LCS. And there's few things you need to set up to be able to to send, correctly, message depending on channels.
+
+Speaker B 28:43:
+Mhmm.
+
+Speaker A 28:44:
+So here I have an account. So it's active. Oh, this is weird. I I can go to the to the app. So it will redirect, to my app. And, yeah, this is a webhook, so this is a way to, receive the message from, from someone. So here, this is the the setup. Yeah. So let's say I have a an h t t p s dot slash dot dot com. I have a secret one. I don't know what it is. So the inbound messages, I can enable or not. I wanna enable for now because I wanna test.
+
+Speaker B 29:54:
+So this page isn't really fully in
+
+Speaker A 29:56:
+Okay. Works on. I assume this will you will have only issues. And I can create as many webhook as I want depending on the trigger.
+
+Speaker B 30:07:
+But, like, where are you now and what what is going on and how did you end up here?
+
+Speaker A 30:17:
+Say it again.
+
+Speaker B 30:19:
+So what is going on on this page, and how did you end up here? Like, does it make sense to you, or how does this feel?
+
+Speaker A 30:27:
+Oh, it's be just currently, just because I wanna test, for you. But first, as a developer, when I wanna test, I don't want to integrate right now, from with an an app. So Yep. This will be later in my discovery of Synge build.
+
+Speaker B 30:50:
+Yep. What would you do before doing this then?
+
+Speaker A 30:54:
+Can I go back? I assume I can. Yeah. Up. Here, now I set up everything here. I tested on on those two. So I would submit for approval. But same here, there's two of three. And I don't know how I can send a text message everywhere else without clicking here. Okay. So I needed a test adjunct a test number. Sorry. So I set it up one. So maybe from this page, you can have this button to continue and complete, this step. But let's see. So, yeah, this is the last one I created with forty two. So this is the message to test or I can use a template.
+
+Speaker B 32:02:
+Yeah. So, yeah, it's not released. That's working
+
+Speaker A 32:04:
+yet, but, yeah, I assume you can, you can select a a template you created before earlier or something prebuilt, and you can send an NRCS test. I assume I received it. It's working. Cool. So as everything was set up correctly and now I was able to complete all the steps, I'm satisfied with that. So I will submit for approval my, my agent. This is, showing the credits. Okay. That's good to know. Okay. So let's say this is not too expensive. I can pay for it. I approved. And now we can see the life cycle of my agent, the approval process, etcetera. And I think I have nothing else to do to set up the agent. So I can continue to test, which is cool, but let's see what is happening if I'm doing something like that. Is the process supposed to stop here?
+
+Speaker B 33:37:
+No. So there are two different, like, paths you could take here. So one is to get the agent approved, and that means that Google and carriers say that, your agent is, able to send messages to any number. But before it has the status of being approved, it can only send to your test phone numbers. But we also have a second path So let which is more about the
+
+Speaker A 34:05:
+Oh, sorry.
+
+Speaker B 34:06:
+API integration. Sorry. Yeah.
+
+Speaker A 34:07:
+Because let let's say, for example, I forget or something new happen. I wanna set up I don't know. Something for Australia. Can I submit again even if the LCS agent is under review?
+
+Speaker B 34:22:
+Yes. Because, yeah, like, technically, we have one status for the agent, but then the different countries also have their own process of, being reviewed.
+
+Speaker A 34:32:
+Okay. This is what's complicated.
+
+Speaker B 34:34:
+Yeah. That's make it a bit more complicated.
+
+Speaker A 34:37:
+Yeah.
+
+Speaker B 34:38:
+But most customers will only have, like, one country in most cases because as you saw, the contact information, everything is, country specific. Mhmm. But, of course, they could have, multiple.
+
+Speaker A 34:54:
+Yeah. I would say maybe this is I I mean, as I'm quite a newbie in in messaging, this is maybe here some something that is not clear Is here this is the review for the agent specifically. So this here. Yep. But the country are not really highlighted somewhere. So Yeah. Except if you go under country and click on here to view who accept, who reject, or or whatever. You don't know what's happening for the for the country itself. So Yeah. Maybe something else need to be displayed. Mhmm. Or this is not relevant. I I don't know. Maybe it's not relevant and and user that are used to, send messages, know that, they need to check also the countries the countries status oh, sorry. The country status. Mhmm. But for me specifically, I don't think it's really clear.
+
+Speaker B 35:49:
+Yep. Yeah. It makes a lot of sense like it's a valid inputs that you would like to see the status of the country. Because they can be separated from the agents.
+
+Speaker A 36:01:
+Yep. And I don't know if, if this is possible as well, but I can continue to edit the agent even if it's under review. And I don't know if Google allowed that. Oh, I can't use call.
+
+Speaker B 36:16:
+Yeah. It's not very well defined here in the prototype. But it's it shouldn't be possible to edit Okay. Why it would be
+
+Speaker A 36:22:
+if it will be grayed out or or something like that. Okay. Yeah. So it makes sense then. So you will have only the read only informations, during the process. So yeah.
+
+Speaker B 36:37:
+Could you just go quickly to the integrate tab here?
+
+Speaker A 36:40:
+Yeah. Sure.
+
+Speaker B 36:43:
+And, like, how how do you understand the this section? Like, does it make sense? Or what do you think?
+
+Speaker A 36:52:
+This is an integration, so I would say it's quite easy to understand, I think. So that's how you integrate to another app. So you need credentials, to to be able to connect to apps, together. So here we have them. This is even easier because the this product. So it was really fast to to integrate. I don't see any other way to integrate. So screws up here or any third parties. So So it seems only you can only integrate with the conversation API. So, yeah, I would say it's quite easy because everything was smooth. I mean, you can connect to your conversation API. You can create a new app. Say, Toto. This is in Europe because this is the region that I selected. And when I click on create and connect, I have the the ID directly that I can move put into, no. This is the app ID of, conversation API. So those those two are linked through this ID. Mhmm. And then you can Yep. Send using the secret key and public key. Mhmm. So yeah. I would say it's quite easy. I have also see also here to I don't know if it's working, but, yeah, it is. So I can have more information if I'm a little bit lost. So Yep. Yeah. I would say So it's quite simple.
+
+Speaker B 38:46:
+Yep. So if you would, like, summarize everything you tried so far, how was this experience like?
+
+Speaker A 38:56:
+Great. Except, yeah, few few comments that I that I push for the countries, and, before. But that was mainly few comment. But I think it's quite fast, easy to understand, especially if you are, under this market, because this is the you know how, things are working. But even myself who is not part of the messaging world, it was quite easy to to access directly. Because the first thing the developer wanna do is test. Is doing test. So here, that's the first thing you can do, and it's quite fast, to do it. So you can have result really really quickly. And once you were able to test, then you set up for real, all the information about your brand. So I think this is the good way to do it. Yeah. I don't know what to say more. I don't know if you need something else, from from
+
+Speaker B 40:03:
+me. No. I think it has been really interesting, seeing you try this out, and I got a lot of, great feedback from you. So, yeah, I'm very grateful.
+
+Speaker A 40:14:
+If you have everything you need, that's the most important. No. And that's cool. That's cool because, we try to integrate, conversation API within Mailjet, as a POC. It was a year ago. And we struggled a lot, to define all of that, on the conversation API, because there were lots of manual steps, where we needed, someone at Cinch to validate, to create something for us, etcetera. And we lost we yeah. We lost a lot of time, waiting. And as the POC was time frame, it was complicated to finish that. But for example, you see with this process, I'm quite confident that we will go faster especially because that's that's purposes. We wanted to do POC. So it will help a lot, I think.
+
+Speaker B 41:11:
+Yeah. Yeah. I'm happy to hear. Yep. Thank you so much for taking your time, giving your feedback.
+
+Speaker A 41:19:
+You you're welcome. And yeah. If you need, anything about, about this, this, let me know. And, I hope, this will go live soon.
+
+Speaker B 41:30:
+Yes. Yeah. I hope so too. Thank you so much, and enjoy the rest of your day in this
+
+Speaker A 41:35:
+Thank you. You too. Bye. Thank you. Bye.
