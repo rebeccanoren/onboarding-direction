@@ -15,7 +15,8 @@ import {
   Clock,
   Download,
   ExternalLink,
-  Quote as QuoteIcon,
+  Info,
+  Sparkles,
   X,
 } from "lucide-react";
 import {
@@ -167,6 +168,19 @@ type JourneyWhyGroup =
       conclusion?: string;
     };
 
+/** A single numbered insight inside the new structured "Why this step matters"
+ *  layout. Each insight has a bold sub-headline, a short description, and
+ *  either supporting quotes (referenced into `step.whyQuotes`) or a small
+ *  bullet list (used for things like the "system map alongside the calls"). */
+interface JourneyWhyInsight {
+  title: string;
+  description: string;
+  /** Indices into the step's `whyQuotes` array. */
+  quoteIndices?: number[];
+  /** Used for insights that need a bulleted list instead of (or alongside) quotes. */
+  bullets?: { text: string; meta?: string }[];
+}
+
 interface JourneyDesignPrinciples {
   items: string[];
   goal?: string;
@@ -202,6 +216,13 @@ interface JourneyStep {
   whyQuotes: JourneyQuote[];
   /** When present, the Why section renders quotes grouped under intro lines. */
   whyGroups?: JourneyWhyGroup[];
+  /** New structured layout for "Why this step matters". When `whyHeadline`
+   *  + `whyInsights` are present they take precedence over `whyGroups`. */
+  whyHeadline?: string;
+  whyLead?: string;
+  whyInsights?: JourneyWhyInsight[];
+  /** Closing observation rendered as a callout under the insights. */
+  whyClosing?: string;
   /** When present, a Value section appears at the bottom of the step card. */
   valueProps?: JourneyValueProp[];
   paths?: { label: string; description: string }[];
@@ -287,44 +308,52 @@ const JOURNEY: JourneyTheme[] = [
               "I just want to quickly be able to send a message and there it gets blocked by access key\u2026 why do I need that? I thought this would be a quick test.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "Users open the product to send a message — not to set up an account.",
+        whyLead:
+          "From the very first interaction, developers and non-developers reach for the same thing: a working message. They are not trying to configure the system; they are trying to validate that it works.",
+        whyInsights: [
           {
-            intro:
-              "Users consistently try to send a message as their first action.",
+            title: "They reach for Send first",
+            description:
+              "Sending a message is consistently the first action attempted across sessions, regardless of role.",
             quoteIndices: [0, 1],
           },
           {
-            kind: "commentary",
-            text:
-              "They are not trying to configure the system. They are trying to validate that it works.",
+            title: "The intent is to validate, not configure",
+            description:
+              "Users are not trying to learn the architecture. They are trying to prove the system is real.",
           },
           {
-            kind: "commentary",
-            text: "This applies to both developers and non-developers.",
-            subItems: [
+            title: "Both personas converge on the same first action",
+            description:
+              "The motivation differs by role, but the first move on the page is identical.",
+            bullets: [
               {
-                label: "Developers",
-                text: "want to quickly validate behaviour before writing code.",
+                text: "Developers",
+                meta: "want to validate behaviour before writing code.",
               },
               {
-                label: "Non-developers",
-                text:
-                  "want to understand the product without technical setup.",
+                text: "Non-developers",
+                meta: "want to understand the product without technical setup.",
               },
             ],
-            conclusion:
-              "In both cases, users want to confirm value before investing time in APIs or setup.",
           },
           {
-            intro: "They also expect real, immediate feedback:",
+            title: "They expect a tangible result on a real device",
+            description:
+              "A message landing on their own phone is what makes the product feel real — not a confirmation in the UI.",
             quoteIndices: [2],
           },
           {
-            intro:
-              "When this is blocked by setup, it creates friction at the very first interaction:",
+            title: "Setup at the very first step turns this against them",
+            description:
+              "When the system asks for credentials before showing value, friction starts before trust does.",
             quoteIndices: [3],
           },
         ],
+        whyClosing:
+          "In both cases, users want to confirm value before investing time in APIs or setup. If the first interaction lands behind setup, the product loses people before it has shown what it can do.",
         valueProps: [
           {
             title: "Immediate value perception",
@@ -398,35 +427,38 @@ const JOURNEY: JourneyTheme[] = [
               "I think this is really nice that they could see the message that they send and what\u2019s the status of the message. And if they have any incoming message here \u2014 it\u2019s super nice, I would say.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "Sending isn’t proof — seeing what happened is.",
+        whyLead:
+          "After a message is sent, users immediately look for confirmation and insight into what the system actually did. Status, payloads, events, and replies are how they decide whether to trust what they just saw.",
+        whyInsights: [
           {
-            intro:
-              "After sending a message, users immediately look for confirmation and insight into what happened.",
-            quoteIndices: [],
-          },
-          {
-            intro: "They inspect message logs and details:",
+            title: "They inspect message logs and details",
+            description:
+              "Logs are the first thing users look for after sending — message ID, channel, recipient, queued and delivered timestamps.",
             quoteIndices: [0],
           },
           {
-            intro:
-              "They explore deeper technical details when available:",
+            title: "They explore deeper technical details when available",
+            description:
+              "Once basics are confirmed, developers dig into payload to understand the wire format and what the API actually sent.",
             quoteIndices: [1],
           },
           {
-            intro: "They interpret system behaviour through events:",
+            title: "They interpret system behaviour through events",
+            description:
+              "Queued, delivered, replied — the lifecycle is the story of what the system did, not just whether it worked.",
             quoteIndices: [2],
           },
           {
-            intro: "They also expect to understand incoming behaviour:",
+            title: "They expect to understand incoming behaviour too",
+            description:
+              "Sending isn’t enough. Replies and incoming events tell users the channel is real, not one-way.",
             quoteIndices: [3],
           },
-          {
-            kind: "commentary",
-            text:
-              "This step is not passive. Users are actively trying to understand how the system behaves.",
-          },
         ],
+        whyClosing:
+          "This step is not passive. Users are actively trying to understand how the system behaves — and feedback is what turns a single test into trust.",
         valueProps: [
           {
             title: "Confirms the product works",
@@ -526,42 +558,48 @@ const JOURNEY: JourneyTheme[] = [
               "When you are in a public documentation, you need to guess all of that because nothing is associated to your account. Here, as you are in the context of your own account and you are already signed in, it means that this platform already has all your information. So they could prefill everything for you to simplify your experience.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "Developers want to try it themselves — but with the friction taken out",
+        whyLead:
+          "After validating that messaging works, they shift from “does this work?” to “how does this work, and how do I drive it?” — and they want to find out by running the API, not reading about it.",
+        whyInsights: [
           {
-            intro:
-              "After validating that messaging works, developers naturally move toward understanding how it works technically.",
+            title: "They reach for cURL first",
+            description:
+              "A terminal is the fastest path to “is this real?” — faster than reading docs, faster than building anything.",
             quoteIndices: [0],
           },
           {
-            intro: "They inspect the request and response structure:",
+            title: "They want to run requests in place",
+            description:
+              "Sending the request from inside the dashboard collapses the loop — no copy-paste, no context switch.",
             quoteIndices: [1],
           },
           {
-            intro:
-              "They look for clear API reference and parameter descriptions:",
+            title: "They want a complete API map, not a tutorial",
+            description:
+              "A list of every endpoint, what it does, and what every parameter means. Reference, not narrative.",
             quoteIndices: [2],
           },
           {
-            intro:
-              "They expect ready-to-run tooling — Postman collections, prefilled requests:",
+            title: "They expect prefilled, ready-to-run tooling",
+            description:
+              "Postman collections, prefilled cURL, drop-in SDKs. The bar isn’t “documented” — it’s “downloadable and working in 30 seconds.”",
             quoteIndices: [3, 4],
           },
           {
-            kind: "commentary",
-            text:
-              "They expect to understand system relationships and flows:",
+            title: "They want the system map alongside the calls",
+            description:
+              "Knowing the endpoint isn’t enough — they need the relationships between the moving parts.",
             bullets: [
-              "How messages are sent (Conversation API)",
-              "What represents the sender (RCS agent)",
-              "How incoming messages are received (webhooks)",
+              { text: "How messages are sent", meta: "(Conversation API)" },
+              { text: "What represents the sender", meta: "(RCS agent)" },
+              { text: "How incoming messages are received", meta: "(webhooks)" },
             ],
           },
-          {
-            kind: "commentary",
-            text:
-              "At this stage, developers are motivated to try things themselves — but still expect a low-effort, low-risk environment.",
-          },
         ],
+        whyClosing:
+          "At this stage, developers are motivated to try things themselves — but still expect a low-effort, low-risk environment. Friction here is what makes them bounce.",
         valueProps: [
           {
             title: "Enables hands-on API testing",
@@ -689,37 +727,41 @@ const JOURNEY: JourneyTheme[] = [
               "Like, I as IKEA for example. I went through this and I did this to see okay. Like, the message was look like this before. Like when I wanted to send, now I\u2019m okay with it. So I want to send, this, like, this exact message to, like, hundred thousand of customers now.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "Users stop exploring and start wanting a channel of their own.",
+        whyLead:
+          "Once the test message proves the product is real, users move past the demo. They want a channel under their brand, with their credentials, that they can actually send from \u2014 and they want it before integrating anything deeper.",
+        whyInsights: [
           {
-            intro:
-              "After validating that messaging works, users want to move beyond test:",
-            quoteIndices: [0, 1],
+            title: "They want to graduate from test to real",
+            description:
+              "Test agents stop being useful once users believe the platform works. They start looking for the path to a real one.",
+            quoteIndices: [0],
           },
           {
-            kind: "commentary",
-            text:
-              "They are no longer exploring. They want something they own and can use for real.",
+            title: "Their target is real customers, not their own phone",
+            description:
+              "They picture sending the same message to thousands of customers \u2014 not running another test.",
+            quoteIndices: [1],
           },
           {
-            kind: "commentary",
-            text:
-              "The intent behind \u201ctheir own channel\u201d differs by persona, and the product needs to support both.",
-            subItems: [
+            title: "Both personas converge on the same need",
+            description:
+              "What \u201ctheir own channel\u201d means depends on the role, but the underlying ask is identical.",
+            bullets: [
               {
-                label: "Developers want",
-                text:
-                  "their own credentials, their own agent, control over integration.",
+                text: "Developers want",
+                meta: "their own credentials, their own agent, control over integration.",
               },
               {
-                label: "Business users want",
-                text:
-                  "their brand (name, logo, content), control over how they appear to customers.",
+                text: "Business users want",
+                meta: "their brand (name, logo, content), control over how they appear to customers.",
               },
             ],
-            conclusion:
-              "\ud83d\udc49 Both converge on the same need: a channel they own, configured for their business.",
           },
         ],
+        whyClosing:
+          "Both converge on the same outcome: a channel they own, configured for their business. This is the first moment where setup is welcomed instead of resisted \u2014 because now it serves the user\u2019s intent.",
         valueProps: [
           {
             title: "Bridges test to real",
@@ -800,90 +842,53 @@ const JOURNEY: JourneyTheme[] = [
               "I think I would want to try and send a test message. And, ideally, I would want to send it with my, company name to my own phone. I think that’s what I would like to see immediately because I don’t really care about webhooks until — if I send to my own phone, then I don’t really need confirmation elsewhere. Then I might try webhooks.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "After setup, the question changes from “does it work?” to “does mine work?”",
+        whyLead:
+          "Once users have created a channel, they’ve invested something — and they need to confirm it works before doing anything else. The natural next question is “does my setup actually work?” and it needs an answer immediately, not after another setup step.",
+        whyInsights: [
           {
-            kind: "commentary",
-            title: "The problem",
-            text:
-              "After creating a channel, users reach a critical moment: they’ve set something up, but can’t easily confirm it works. At this point, the natural question becomes: “Does my setup actually work?”",
+            title: "Confirmation unlocks confidence",
+            description:
+              "Once users see their setup work, they relax and move on. Until then, the flow stalls right after creation.",
           },
           {
-            intro: "Research signals:",
-            quoteIndices: [0, 1],
+            title: "They want to test from their own setup, not a generic one",
+            description:
+              "Sending with their own brand to their own number is what makes the agent feel like theirs.",
+            quoteIndices: [1],
           },
           {
-            kind: "commentary",
-            title: "What users try to do",
-            text:
-              "Users instinctively reach for Send test message. But the intent has shifted:",
+            title: "The intent has shifted",
+            description:
+              "What looks like the same action — Send test message — is now answering a different question.",
             bullets: [
-              "Before → Does the product work?",
-              "Now → Does my setup work?",
-            ],
-            conclusion: "This marks the transition from trying → owning.",
-          },
-          {
-            kind: "commentary",
-            title: "What happens without validation",
-            text: "If users cannot immediately confirm their setup:",
-            bullets: [
-              "Validation is delayed or blocked.",
-              "The flow breaks right after creation.",
-              "Confidence drops instead of building.",
-            ],
-            conclusion:
-              "Result: friction, confusion, and increased drop-off risk.",
-          },
-          {
-            kind: "commentary",
-            title: "The solution direction",
-            text:
-              "Enable a way to validate the setup immediately after creation.",
-          },
-          {
-            kind: "commentary",
-            title: "What this enables",
-            text: "Users can:",
-            bullets: [
-              "Send messages using their agent.",
-              "See delivery status and message logs.",
-              "Inspect payloads and behaviour.",
-              "Continue testing without interruption.",
+              { text: "Before", meta: "→ Does the product work?" },
+              { text: "Now", meta: "→ Does my setup work?" },
             ],
           },
           {
-            kind: "commentary",
-            title: "Constraints (by design)",
-            text: "Validation is real, but intentionally limited:",
+            title: "Without immediate validation, the flow breaks",
+            description:
+              "If users cannot confirm their setup right after creation, momentum collapses.",
             bullets: [
-              "Restricted to test scenarios (own number, test devices).",
-              "Cannot reach real customers.",
-              "Not production-ready.",
+              { text: "Validation is delayed or blocked." },
+              { text: "The flow breaks right after creation." },
+              { text: "Confidence drops instead of building." },
             ],
-            conclusion:
-              "It should feel real, while remaining safe and low-risk.",
           },
           {
-            kind: "commentary",
-            title: "Why this step is critical",
-            text: "This is the second value moment:",
+            title: "This is the second value moment",
+            description:
+              "It validates, in one action: sender identity, message appearance, and delivery behaviour.",
             bullets: [
-              "First → “Messaging works.”",
-              "Second → “My setup works.”",
-            ],
-            conclusion:
-              "It validates, in one action: sender identity, message appearance, delivery behaviour.",
-          },
-          {
-            kind: "commentary",
-            title: "If this isn’t supported",
-            text: "Users are pushed forward without confidence.",
-            bullets: [
-              "Instead of: confidence → momentum → progress",
-              "we get: friction → uncertainty → drop-off",
+              { text: "First", meta: "→ “Messaging works.”" },
+              { text: "Second", meta: "→ “My setup works.”" },
             ],
           },
         ],
+        whyClosing:
+          "Without this moment, users are pushed forward without confidence. Instead of confidence → momentum → progress, we get friction → uncertainty → drop-off. Enabling validation here is what turns setup into trust.",
         valueProps: [
           {
             title: "Builds confidence immediately",
@@ -979,61 +984,42 @@ const JOURNEY: JourneyTheme[] = [
               "I would not like the app to be created for this is just me. I don’t want you to create the app for me just and have me drop into this UI. You started calling it, like, test app. I should be determining, like, what the name is from the very start and know that I’m in the test app creation flow or app creation flow. So maybe, like, add a little banner explaining, now you need to create your app.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "Developers stop exploring and start integrating.",
+        whyLead:
+          "After validating their setup, developers want to use their own credentials, understand how components connect, and bring messaging into their stack on their terms. The goal is no longer “does this work?” but “how do I make this part of my system?”",
+        whyInsights: [
           {
-            intro:
-              "After validating their setup, developers move from testing to integration and control. Their goal is no longer to explore — it is to use their own credentials, understand how components connect, and integrate messaging into their system.",
-            quoteIndices: [0, 1, 2],
+            title: "An app per integration, with keys and API access inside it",
+            description:
+              "Developers expect an app to represent their system — distinct, owned, and the way they separate integrations.",
+            quoteIndices: [0],
           },
           {
-            kind: "commentary",
-            text: "These reflect a clear shift in behaviour:",
+            title: "Once it works, they integrate it into any system",
+            description:
+              "After they trust the platform, the API becomes the obvious next step.",
+            quoteIndices: [1],
+          },
+          {
+            title: "They expect to choose the name, not be dropped into one",
+            description:
+              "Auto-creation without context breaks ownership before integration even starts.",
+            quoteIndices: [2],
+          },
+          {
+            title: "They look for system relationships, not features",
+            description:
+              "The shift in behaviour is consistent across sessions — developers work outwards from the app, not inwards from a button.",
             bullets: [
-              "Developers try to understand how the app connects to the agent.",
-              "They look for API structure and resources.",
-              "They expect to configure webhooks and integrations themselves.",
+              { text: "How the app connects to the agent" },
+              { text: "API structure and resources" },
+              { text: "Webhook configuration and integrations they own" },
             ],
-          },
-          {
-            kind: "commentary",
-            title: "What happens in this step",
-            text: "The developer now takes ownership of the setup:",
-            subItems: [
-              {
-                label: "Create or choose app",
-                text:
-                  "Represents their system in the platform. Defines how messages are sent and received.",
-              },
-              {
-                label: "Connect app to agent",
-                text: "Links identity (agent) with sending layer (app).",
-              },
-              {
-                label: "Get API credentials",
-                text:
-                  "Used in backend requests. Enables programmatic messaging.",
-              },
-              {
-                label: "Set up webhooks",
-                text:
-                  "Receive incoming messages. Handle delivery, read, and reply events.",
-              },
-            ],
-          },
-          {
-            kind: "commentary",
-            title: "Why this step must be explicit",
-            text:
-              "When the app is introduced here, it aligns with developer expectations:",
-            bullets: [
-              "They understand why it exists.",
-              "They need it for their use case.",
-              "They want to control it.",
-            ],
-            conclusion:
-              "If the app is already auto-created and connected, this breaks ownership, clarity, and understanding of system relationships.",
           },
         ],
+        whyClosing:
+          "If the app is auto-created and connected silently, this breaks ownership, clarity, and the developer’s understanding of how the system fits together. The app must be introduced when developers are ready to own it.",
         valueProps: [
           {
             title: "Enables real integration",
@@ -1089,20 +1075,9 @@ const JOURNEY: JourneyTheme[] = [
       {
         id: "s9",
         number: 7,
-        title: "Get compliant (prepare for approval)",
+        title: "Get compliant",
         description: [
-          {
-            kind: "check",
-            text: "User completes required business and messaging details",
-          },
-          {
-            kind: "check",
-            text: "Selects countries and understands market-specific requirements",
-          },
-          {
-            kind: "check",
-            text: "Submits the agent for review by Google and mobile operators",
-          },
+          "User completes the required business and messaging details, selects countries, and submits the agent for approval.",
         ],
         keyAction: "Submit for approval",
         whyQuotes: [
@@ -1134,102 +1109,50 @@ const JOURNEY: JourneyTheme[] = [
               "Okay. And how do we know what we need to do here? When you have special requirement — I have no idea what I need to do if I should contact someone, kind of lost. I know there is some action required. Don’t really know what.",
           },
         ],
-        whyGroups: [
+        whyHeadline:
+          "Compliance was not a research focus — but when users reached it, the need for guidance was clear.",
+        whyLead:
+          "This step was not the main focus of the research, but when users reached it, it was clear that compliance needs guidance. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission.",
+        whyInsights: [
           {
-            intro:
-              "After integrating their system, users move to: “What do I need to fill in to go live?” At this point, the agent is technically ready — but not yet approved to message real users.",
-            quoteIndices: [0, 1, 2],
+            title: "Forms feel tedious",
+            description:
+              "Even when users know the answers, the length and tone of the compliance form erode momentum.",
+            quoteIndices: [1],
           },
           {
-            kind: "commentary",
-            text: "These reflect a clear pattern:",
-            bullets: [
-              "Users are unsure what to enter.",
-              "They don’t understand what is required vs optional.",
-              "They feel pressure to get the information right.",
-            ],
-          },
-          {
-            kind: "commentary",
-            title: "What happens in this step",
-            text: "The user prepares their agent for approval:",
-            subItems: [
-              {
-                label: "Business verification",
-                text: "Company details, contact person, and legal identifiers.",
-              },
-              {
-                label: "Messaging use case",
-                text:
-                  "What messages will be sent, how users opt in, and how users opt out.",
-              },
-              {
-                label: "Country selection",
-                text:
-                  "Choose where the agent will operate and understand country-specific requirements.",
-              },
-              {
-                label: "Review and submit",
-                text:
-                  "Submit to Google and review by mobile operators per country.",
-              },
-            ],
-          },
-          {
-            kind: "commentary",
-            title: "Why this step matters",
-            text:
-              "Without approval, the agent cannot send messages to real users — messages remain limited to test scenarios.",
-            conclusion:
-              "This is the gate between testing and integration → and real-world messaging.",
+            title: "Required actions are unclear",
+            description:
+              "Users see “action required” but don’t know what they’re supposed to do — or who to ask.",
+            quoteIndices: [2],
           },
         ],
         valueProps: [
           {
             title: "Enables production usage",
             description:
-              "Approval is required to send messages to customers.",
+              "Approval is required before messages can be sent to real users.",
           },
           {
-            title: "Builds trust with carriers and users",
-            description: "Ensures:",
-            bullets: [
-              "Compliant messaging.",
-              "Clear opt-in / opt-out flows.",
-              "Verified business identity.",
-            ],
-          },
-          {
-            title: "Prevents delays and rejection",
-            description: "Getting this right avoids:",
-            bullets: [
-              "Failed submissions.",
-              "Back-and-forth with operators.",
-            ],
-          },
-          {
-            title: "Supports business users",
+            title: "Clarifies what is needed",
             description:
-              "This step aligns with non-technical needs:",
-            bullets: [
-              "Legal responsibility.",
-              "Brand trust.",
-              "Communication clarity.",
-            ],
+              "Users need to understand what to fill in, what is required, and what happens next.",
+          },
+          {
+            title: "Supports go-live confidence",
+            description:
+              "Clear guidance reduces uncertainty and helps users move from setup to real-world use.",
           },
         ],
         keyInsight: {
           headline:
-            "This step shifts from exploration → to form completion, and from speed → to accuracy.",
-          bullets: [
-            "Users slow down because the inputs are unfamiliar.",
-            "And because the consequences feel higher.",
-          ],
+            "Compliance is a necessary gate, but it should not dominate onboarding. It needs to be clearly separated from testing and introduced when users are ready to go live.",
         },
         keyTakeaway: {
           headline:
             "This is where the agent becomes eligible for real-world use.",
-          subtext: "Not just technically ready — but approved to operate.",
+          subtext:
+            "The experience should make the approval step feel clear, guided, and manageable.",
         },
       },
     ],
@@ -1237,133 +1160,108 @@ const JOURNEY: JourneyTheme[] = [
 ];
 
 
-const RESOURCE_STAGES: { stage: string; rule: string }[] = [
-  {
-    stage: "Early stage",
-    rule: "Resources can be hidden or managed.",
-  },
-  {
-    stage: "Integration",
-    rule: "Resources should be explicit.",
-  },
-  {
-    stage: "Production",
-    rule: "Resources should be guided.",
-  },
-];
 
 
 
 interface Principle {
   id: string;
   title: string;
-  whyItMatters: string;
-  whatItMeans: string;
-  exampleQuoteId: string;
+  /** The principle's lead \u2014 a statement of what the principle says. */
+  lead: string;
+  /** How to apply the principle in design. */
+  implication: string;
+  /** A short, attributed observation from the research. */
+  evidence: string;
 }
 
 const PRINCIPLES: Principle[] = [
   {
     id: "pr1",
-    title: "Test before setup",
-    whyItMatters:
-      "Users decide whether a product works by trying it, not by reading documentation. If the first interaction is configuration, we lose them before they see that the system works.",
-    whatItMeans:
-      "Let users confirm the system works before asking them to configure anything. For messaging, that means sending a message.",
-    exampleQuoteId: "q001",
+    title: "Lead with proof, not setup",
+    lead:
+      "Users do not start by trying to understand the architecture. They start by trying to prove that messaging works.",
+    implication:
+      "Let users send a message before requiring apps, keys, webhooks, or production setup.",
+    evidence:
+      "P1 said sending a message to their phone is \u201cusually the first thing I try to achieve,\u201d and that doing it from the application is preferable.",
   },
   {
     id: "pr2",
-    title: "Confidence before commitment",
-    whyItMatters:
-      "Long-lived decisions (accounts, billing, resources) need evidence behind them. Users will not commit to setup on faith.",
-    whatItMeans:
-      "Build trust through a small, reversible action before asking for long-lived decisions.",
-    exampleQuoteId: "q002",
+    title: "Make the first value moment immediate",
+    lead:
+      "The first successful message is the moment users decide the product is real.",
+    implication:
+      "The first test should feel fast, safe, and low effort. It should not require long-lived decisions.",
+    evidence:
+      "P1 said that once they have sent a message, they can \u201crelax\u201d and move on to API keys and integration.",
   },
   {
     id: "pr3",
-    title: "Reveal complexity progressively",
-    whyItMatters:
-      "Exposing unfamiliar concepts before users have context turns those concepts into obstacles.",
-    whatItMeans:
-      "Expose apps, keys, agents, webhooks, and compliance only when users are ready to act on them.",
-    exampleQuoteId: "q015",
+    title: "Show the result, not just the action",
+    lead:
+      "A sent message is not enough. Users need to see what happened.",
+    implication:
+      "After sending, show delivery status, preview, logs, payload, and events close to the action.",
+    evidence:
+      "P12 reacted positively to queued, delivered, and payload feedback, then naturally moved toward testing the API next.",
   },
   {
     id: "pr4",
-    title: "One screen, one primary intention",
-    whyItMatters:
-      "Screens with multiple competing actions force users to guess which one matters. A clear primary action keeps people moving.",
-    whatItMeans:
-      "Each step should have one clear action. Everything else should support that action.",
-    exampleQuoteId: "q042",
+    title: "Let users learn by doing",
+    lead:
+      "Users understand messaging through interaction, not explanation.",
+    implication:
+      "Use editable examples, live previews, runnable requests, and message logs to teach concepts through use.",
+    evidence:
+      "P14 said the visual preview helped answer what the different message types meant and educated them before they started building.",
   },
   {
     id: "pr5",
-    title: "Support UI-first and code-first users",
-    whyItMatters:
-      "Developers, non-developers, and PMs all evaluate the platform. A single path serves some and excludes others.",
-    whatItMeans:
-      "Let non-developers complete a visual test and let developers jump into code.",
-    exampleQuoteId: "q034",
+    title: "Separate simple testing from developer exploration",
+    lead:
+      "The same journey must support both non-technical validation and developer depth.",
+    implication:
+      "Start with a simple UI test. Then offer code, API playground, payloads, Postman, and webhooks as the developer path.",
+    evidence:
+      "P12 said the simple visual page prevents non-API users from being overloaded, while developers can still go directly to code.",
   },
   {
     id: "pr6",
-    title: "Make system feedback visible",
-    whyItMatters:
-      "Without feedback, users cannot tell if their action worked. Silence erodes the trust a successful action should have built.",
-    whatItMeans:
-      "Show delivery status, logs, payloads, and previews immediately after action.",
-    exampleQuoteId: "q006",
+    title: "Introduce resources when users have intent",
+    lead:
+      "Apps, agents, keys, and webhooks are meaningful when users are ready to integrate or go live. Before that, they create confusion.",
+    implication:
+      "Do not make user-owned app creation a prerequisite for validation. Introduce it when users move from testing to integration.",
+    evidence:
+      "P12 said they did not want an app created for them without context, but once they created it themselves, webhooks and setup made sense.",
   },
   {
     id: "pr7",
-    title: "Introduce resources when meaningful",
-    whyItMatters:
-      "Apps, channels, keys, and agents are infrastructure. Users accept infrastructure when it supports their goal, not before.",
-    whatItMeans:
-      "Apps, channels, keys, and agents should appear when the user\u2019s intent justifies them.",
-    exampleQuoteId: "q036",
+    title: "Keep ownership explicit at integration",
+    lead:
+      "Developers want control over the resources that represent their system.",
+    implication:
+      "When users create or connect an app, make the purpose clear: app equals sending layer, agent equals sender identity.",
+    evidence:
+      "P1 described an app as something they expect to use per integration, with keys and API access inside it.",
   },
   {
     id: "pr8",
-    title: "Let users move from test \u2192 API \u2192 production",
-    whyItMatters:
-      "Across sessions, participants followed this sequence when the tool allowed it. Blocking the sequence cost trust and progress.",
-    whatItMeans:
-      "Each step should earn the next: test proves value, API enables integration, production setup enables launch.",
-    exampleQuoteId: "q002",
+    title: "Guide production, do not mix it with testing",
+    lead:
+      "Compliance and approval are necessary, but they belong after users have validated value.",
+    implication:
+      "Separate test mode from go-live. Make submit for approval explicit, explain what is required, and clarify what users can do before approval.",
+    evidence:
+      "P14 completed go-live steps but initially missed that they still needed to submit for approval, creating confusion about whether the setup was ready.",
   },
 ];
 
-const DIRECTION_RECS: { title: string; detail: string }[] = [
-  {
-    title: "Start with a working test.",
-    detail:
-      "Let users send a message without requiring setup. Sandbox or managed test resources support the first value moment.",
-  },
-  {
-    title: "Move to API after proof.",
-    detail:
-      "Expose code and integration once users know the system works. Share credentials between UI test and code sample so copy-paste reproduces the result.",
-  },
-  {
-    title: "Introduce resources at integration.",
-    detail:
-      "Apps, keys, and agents become relevant when users are connecting to their own system. Explain how the pieces relate and show what is created.",
-  },
-  {
-    title: "Use guided onboarding for production.",
-    detail:
-      "Use structure for compliance, countries, approvals, and go-live — after users have validated value, not before.",
-  },
-];
 
 const DATA_BULLETS: string[] = [
-  "13 usability sessions",
+  "14 sessions",
   "Developers and non-developers",
-  "Sandbox 2.0 and onboarding app testing",
+  "Sandbox 1.0, Sandbox 2.0 and onboarding app testing",
   "Think-aloud tasks",
   "Quotes used as supporting evidence",
   "Swedish sessions translated to English with original transcripts preserved",
@@ -1477,7 +1375,7 @@ const GlowOrb = ({
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute rounded-full blur-[120px] ${colorClass} ${sizeClass} ${anim} ${className}`}
+      className={`pointer-events-none absolute hidden rounded-full blur-[120px] sm:block ${colorClass} ${sizeClass} ${anim} ${className}`}
     />
   );
 };
@@ -1533,25 +1431,25 @@ const SectionHeader = ({
   return (
     <header className="mb-12">
       <div className="flex items-baseline gap-4">
-        <span className="font-serif text-3xl font-light text-indigo-400 tabular-nums">
+        <span className="font-serif text-base font-light text-indigo-400 tabular-nums">
           {number}
         </span>
-        <span className="text-[13.5px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+        <span className="text-[12.5px] font-semibold uppercase tracking-[0.12em] text-slate-400">
           {eyebrow}
         </span>
       </div>
-      <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-slate-50 sm:text-[34px]">
+      <h2 className="mt-3 max-w-3xl text-base font-semibold tracking-tight text-slate-50 sm:text-[30px]">
         {title}
       </h2>
       {introParagraphs.length > 0 && (
-        <div className="mt-4 max-w-3xl space-y-3 text-lg leading-relaxed text-slate-400">
+        <div className="mt-4 max-w-3xl space-y-3 text-base leading-relaxed text-slate-400">
           {introParagraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
       )}
       {introBullets && introBullets.length > 0 && (
-        <ul className="mt-3 max-w-3xl space-y-1.5 text-lg leading-relaxed text-slate-300">
+        <ul className="mt-3 max-w-3xl space-y-1.5 text-base leading-relaxed text-slate-300">
           {introBullets.map((b, i) => (
             <li key={i} className="flex items-start gap-2.5">
               <span className="mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
@@ -1566,11 +1464,11 @@ const SectionHeader = ({
 
 const PersonaLabel = ({ persona }: { persona?: Persona }) =>
   persona ? (
-    <span className="text-[13.5px] text-slate-400">{persona}</span>
+    <span className="text-[12.5px] text-slate-400">{persona}</span>
   ) : null;
 
 const ConceptTag = ({ concept }: { concept: string }) => (
-  <span className="rounded-md bg-indigo-500/15 px-2 py-0.5 text-[13px] font-medium text-indigo-300 ring-1 ring-inset ring-indigo-500/40">
+  <span className="rounded-md bg-indigo-500/15 px-2 py-0.5 text-[12.5px] font-medium text-indigo-300 ring-1 ring-inset ring-indigo-500/40">
     {concept}
   </span>
 );
@@ -1589,7 +1487,7 @@ const AudienceTag = ({
       ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
       : "border-cyan-500/30 bg-cyan-500/10 text-cyan-300";
   const padding = size === "md" ? "px-2.5 py-0.5" : "px-2 py-0.5";
-  const text = size === "md" ? "text-[12px]" : "text-[11px]";
+  const text = size === "md" ? "text-[11.5px]" : "text-[11px]";
   return (
     <span
       className={`inline-flex items-center rounded-full border font-semibold uppercase tracking-[0.14em] ${tone} ${padding} ${text}`}
@@ -1617,7 +1515,7 @@ const QuoteCard = ({
       className={`group rounded-2xl border border-slate-800 bg-slate-900/70 ${compact ? "p-4" : "p-5"} shadow-[0_6px_20px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm transition-colors hover:border-indigo-500/40`}
     >
       <blockquote
-        className={`text-slate-50 ${compact ? "text-[16.5px]" : "text-[17.5px]"} font-medium italic leading-relaxed`}
+        className={`text-slate-50 ${compact ? "text-[15.5px]" : "text-[16.5px]"} font-medium italic leading-relaxed`}
       >
         <span className="mr-1 font-serif text-indigo-500">&ldquo;</span>
         {q.quote}
@@ -1629,7 +1527,7 @@ const QuoteCard = ({
           <button
             type="button"
             onClick={() => setShowOriginal((v) => !v)}
-            className="inline-flex items-center gap-1 text-[13px] font-medium uppercase tracking-wide text-slate-400 hover:text-indigo-300"
+            className="inline-flex items-center gap-1 text-[12.5px] font-medium uppercase tracking-wide text-slate-400 hover:text-indigo-300"
           >
             Translated from {q.originalLanguage ?? "original"}
             <ChevronDown
@@ -1637,7 +1535,7 @@ const QuoteCard = ({
             />
           </button>
           {showOriginal && (
-            <p className="mt-2 rounded-lg bg-slate-950 p-3 text-[14.5px] italic leading-relaxed text-slate-400">
+            <p className="mt-2 rounded-lg bg-slate-950 p-3 text-[13.5px] italic leading-relaxed text-slate-400">
               {q.originalQuote}
             </p>
           )}
@@ -1645,14 +1543,14 @@ const QuoteCard = ({
       )}
 
       <figcaption
-        className={`mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 ${compact ? "text-[13.5px]" : "text-[15.5px]"}`}
+        className={`mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 ${compact ? "text-[12.5px]" : "text-[14.5px]"}`}
       >
         <span className="font-semibold text-slate-50">{q.participant}</span>
         <PersonaLabel persona={q.persona} />
         {t?.audience && <AudienceTag audience={t.audience} />}
         <ConceptTag concept={q.concept} />
         {q.timestamp && (
-          <span className="font-mono text-[13px] text-slate-400">
+          <span className="font-mono text-[12.5px] text-slate-400">
             {q.timestamp}
           </span>
         )}
@@ -1660,7 +1558,7 @@ const QuoteCard = ({
           <button
             type="button"
             onClick={() => onViewSource(t)}
-            className="ml-auto inline-flex items-center gap-1 text-[13.5px] font-medium text-slate-400 hover:text-indigo-300"
+            className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-slate-400 hover:text-indigo-300"
           >
             <ExternalLink className="h-3 w-3" />
             View session
@@ -1676,681 +1574,18 @@ const QuoteCard = ({
 // Synthesised from all 14 session transcripts.
 // =================================================================
 
-interface AnalysisInsight {
-  headline: string;
-  evidence: { participant: string; persona: string; quote: string }[];
-}
 
-interface AnalysisPattern {
-  title: string;
-  goal: string;
-  behaviours: string[];
-  focus: string[];
-  ignored: string[];
-}
 
-interface AnalysisFriction {
-  title: string;
-  detail: string;
-  quote?: { participant: string; persona: string; text: string };
-}
 
-interface AnalysisOpportunity {
-  title: string;
-  detail: string;
-}
 
-interface AnalysisFlowStep {
-  step: string;
-  why: string;
-}
 
-interface ResearchAnalysisData {
-  insights: AnalysisInsight[];
-  patterns: AnalysisPattern[];
-  friction: AnalysisFriction[];
-  opportunities: AnalysisOpportunity[];
-  principles: string[];
-  flow: AnalysisFlowStep[];
-}
 
-const RESEARCH_ANALYSIS: ResearchAnalysisData = {
-  insights: [
-    {
-      headline:
-        "Users open the product expecting to send a message — not to set up.",
-      evidence: [
-        {
-          participant: "P1",
-          persona: "Developer · internal",
-          quote:
-            "Being able to send a message, to my phone or something, is usually the first thing I try to achieve.",
-        },
-        {
-          participant: "P12",
-          persona: "Developer · external",
-          quote:
-            "I think the first thing that I would do is click on send test message.",
-        },
-        {
-          participant: "P6",
-          persona: "Developer · internal",
-          quote:
-            "I would say it’s to just try to send one test message to see how it is working.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Visible feedback (logs, status, preview) is what proves the system works.",
-      evidence: [
-        {
-          participant: "P7",
-          persona: "Developer · internal",
-          quote:
-            "I can see all the message information here. The test messages, I can see the IDs, the channel, recipient, correlation ID, and then I can see when it was delivered and when it was queued.",
-        },
-        {
-          participant: "P11",
-          persona: "Developer · external",
-          quote:
-            "It shows you the message got queued on the RCSN, and it got delivered. And reply received from the recipient.",
-        },
-        {
-          participant: "P1",
-          persona: "Developer · internal",
-          quote:
-            "Once I’ve done that, then I can kind of relax and know that this thing works.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Access keys and resource setup demanded before the first test read as obstacles.",
-      evidence: [
-        {
-          participant: "P3",
-          persona: "Developer · internal",
-          quote:
-            "I just want to quickly be able to send a message and there it gets blocked by access key… why do I need that? I thought this would be a quick test.",
-        },
-        {
-          participant: "P1",
-          persona: "Developer · internal",
-          quote:
-            "This sucks having to copy two things here. I don’t know if I will need them.",
-        },
-        {
-          participant: "P8",
-          persona: "Developer · internal",
-          quote:
-            "I think as a first time user, I would just want to say, like, okay, give me RCS. And then this app business is sort of a detail that I don’t need to know about.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Developers transition from UI test to API exploration immediately after a successful send.",
-      evidence: [
-        {
-          participant: "P12",
-          persona: "Developer · external",
-          quote:
-            "Since I’m a developer, my instinct could be just to open up a terminal and run this command in curl because that would be the simplest way.",
-        },
-        {
-          participant: "P13",
-          persona: "Developer · external",
-          quote:
-            "I like the fact that we can run the request directly from there, because usually you have the code displayed and you need to copy paste directly on your terminal.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Developers expect prefilled, runnable, downloadable tooling — not raw documentation.",
-      evidence: [
-        {
-          participant: "P10",
-          persona: "Developer · external",
-          quote:
-            "Often, like, a lot of time, some old developer APIs propose this kind of collections that you could just download, put inside your Postman interface, and start playing with the code with all the parameters that you just need to fill.",
-        },
-        {
-          participant: "P10",
-          persona: "Developer · external",
-          quote:
-            "As you are in the context of your own account and you are already signed in, it means that this platform already has all your information. So they could prefill everything for you to simplify your experience.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Compliance and go-live steps feel heavy and unguided once users leave the test surface.",
-      evidence: [
-        {
-          participant: "P14",
-          persona: "Developer · external",
-          quote:
-            "It was definitely the freedom of a text box with a requirement that I wasn’t aware of… would that potentially hurt me later in the flow?",
-        },
-        {
-          participant: "P10",
-          persona: "Developer · external",
-          quote:
-            "When you are a sales service customer, when you just want to send messages, I have really no idea of what I should put here.",
-        },
-        {
-          participant: "P14",
-          persona: "Developer · external",
-          quote:
-            "I have not submitted for approval… I broke the prototype and created my own confusion.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Non-developers complete the test path with little help but stall on architectural concepts.",
-      evidence: [
-        {
-          participant: "P9",
-          persona: "Non-developer · external",
-          quote:
-            "The option to have the logo ready immediately, kind of like instantly have how you want the message to come across — it’s pretty pretty simple.",
-        },
-        {
-          participant: "P9",
-          persona: "Non-developer · external",
-          quote:
-            "One way or two way is also some people may find that confusing. But that just, like, I know at least in the US, that’s the language we’re told to use.",
-        },
-      ],
-    },
-    {
-      headline:
-        "Users want the system to know what it knows — they expect prefill, not repeated input.",
-      evidence: [
-        {
-          participant: "P10",
-          persona: "Developer · external",
-          quote:
-            "When you are in a public documentation, you need to guess all of that because nothing is associated to your account. Here, as you are in the context of your own account and you are already signed in, it means that this platform already has all your information.",
-        },
-        {
-          participant: "P12",
-          persona: "Developer · external",
-          quote:
-            "So let me generate a key first. There we go… oh, it’s already there, which is beautiful.",
-        },
-      ],
-    },
-  ],
-  patterns: [
-    {
-      title: "Test-first behaviour (all personas)",
-      goal: "Validate that messaging actually works before investing time.",
-      behaviours: [
-        "Locate a Send / Send-test entry point",
-        "Add their own phone number",
-        "Send and watch for the message to arrive",
-      ],
-      focus: [
-        "The send button",
-        "Message arriving on phone",
-        "Delivery status feedback",
-      ],
-      ignored: [
-        "Marketing copy",
-        "Side-bar resources",
-        "Long onboarding text blocks",
-      ],
-    },
-    {
-      title: "Log inspection (developers and non-developers)",
-      goal: "Confirm the action had an effect and understand what happened.",
-      behaviours: [
-        "Scroll to message log immediately after sending",
-        "Click into the payload",
-        "Read event sequence (queued / delivered / read)",
-      ],
-      focus: [
-        "IDs, channel, recipient, correlation ID",
-        "Status transitions",
-        "Reply / incoming events",
-      ],
-      ignored: [
-        "Documentation links elsewhere on the page",
-        "Marketing CTAs after send",
-      ],
-    },
-    {
-      title: "API / code transition (developers only)",
-      goal: "Reproduce the test in their own code and start integrating.",
-      behaviours: [
-        "Open the code or curl tab",
-        "Look for credentials and ask if they’re shared with the UI",
-        "Mention Postman, mention copy-paste into terminal",
-      ],
-      focus: [
-        "Request structure and payload",
-        "Whether credentials match UI test",
-        "Per-language samples",
-      ],
-      ignored: [
-        "Visual previewers",
-        "UI-only flows",
-      ],
-    },
-    {
-      title: "Resource / production transition (when intent shifts)",
-      goal: "Move from sandbox to a real, named, owned setup.",
-      behaviours: [
-        "Look for ‘create RCS agent’ / ‘create app’ CTAs",
-        "Ask how the app, agent, channel, and Conversation API relate",
-        "Engage with country, compliance, and approval steps",
-      ],
-      focus: [
-        "Object relationships (app ↔ agent ↔ channel)",
-        "Required compliance fields",
-        "Submit-for-approval CTA",
-      ],
-      ignored: [
-        "Sandbox controls (now outgrown)",
-      ],
-    },
-  ],
-  friction: [
-    {
-      title: "Access-key prompt appears before the first test",
-      detail:
-        "Users hit a credential wall while trying to send a quick test, before any product value has been demonstrated.",
-      quote: {
-        participant: "P3",
-        persona: "Developer · internal",
-        text:
-          "I just want to quickly be able to send a message and there it gets blocked by access key… why do I need that? I thought this would be a quick test.",
-      },
-    },
-    {
-      title: "Conversation API ‘app’ concept is a leaky abstraction",
-      detail:
-        "First-time users do not understand why an app object exists; they expect ‘give me RCS’.",
-      quote: {
-        participant: "P8",
-        persona: "Developer · internal",
-        text:
-          "I think as a first time user, I would just want to say, like, okay, give me RCS. And then this app business is sort of a detail that I don’t need to know about.",
-      },
-    },
-    {
-      title: "Webhook setup surfaced before its purpose is clear",
-      detail:
-        "Webhook configuration tools appear during the testing phase, even when nothing has been sent yet.",
-      quote: {
-        participant: "P1",
-        persona: "Developer · internal",
-        text:
-          "I immediately identified that it’s just suggesting some tools that I can use to set up the webhook, without yeah. To test it locally without deploying anything, which is helpful. This seems to be a paid solution, which I would kinda be pissed about.",
-      },
-    },
-    {
-      title: "Compliance fields lack context",
-      detail:
-        "Required consent / opt-in / legal fields have no inline explanation; non-legal users are forced to guess.",
-      quote: {
-        participant: "P10",
-        persona: "Developer · external",
-        text:
-          "When you are a sales service customer, when you just want to send messages, I have really no idea of what I should put here.",
-      },
-    },
-    {
-      title: "Two parallel checklists confuse sequencing",
-      detail:
-        "‘Send test’ and ‘Prepare to go live’ run side-by-side without clarifying which comes first.",
-      quote: {
-        participant: "P14",
-        persona: "Developer · external",
-        text:
-          "Is it fair to say that these two are kind of like, you’ve done the first part, you’ve created your agent, now you must do step one, step two to actually start using the agent, as the prepare to go live.",
-      },
-    },
-    {
-      title: "Country variants and regional rules are unclear",
-      detail:
-        "Country-specific compliance variants are presented without describing the difference.",
-      quote: {
-        participant: "P13",
-        persona: "Developer · external",
-        text:
-          "Because I was like, I don’t know what it is, and I don’t have any information. I didn’t pay attention to view. But, okay. So to be honest, I don’t know what’s the difference between those two.",
-      },
-    },
-    {
-      title: "Conversation API ↔ RCS agent connection feels manual",
-      detail:
-        "Users expect agent creation to wire to the Conversation API automatically; the manual link is unintuitive.",
-      quote: {
-        participant: "P11",
-        persona: "Developer · external",
-        text:
-          "Why would the RCS agent not automatically be connected to common API?",
-      },
-    },
-    {
-      title: "Submit-for-approval CTA is missing or hidden",
-      detail:
-        "Users finish the prototype steps and don’t know whether they’ve actually submitted.",
-      quote: {
-        participant: "P14",
-        persona: "Developer · external",
-        text:
-          "I have not submitted for approval… I broke the prototype and created my own confusion.",
-      },
-    },
-  ],
-  opportunities: [
-    {
-      title: "Send-first sandbox entry",
-      detail:
-        "Make a working send-test the first screen — no account, no key, no app required.",
-    },
-    {
-      title: "Prefilled, in-browser API runner",
-      detail:
-        "Reuse the same temporary credentials for UI test and code sample. Let users copy, run, and modify.",
-    },
-    {
-      title: "Downloadable Postman collection",
-      detail:
-        "Offer a one-click Postman download at the integration step — explicitly requested by P10 (developer).",
-    },
-    {
-      title: "Auto-link Conversation API app + RCS agent",
-      detail:
-        "Remove the manual handoff that confused P11; if both must exist, create them together by default.",
-    },
-    {
-      title: "Compliance field guidance",
-      detail:
-        "Inline ‘what this is for’ tooltips, persona presets (transactional / marketing / support) for non-legal users.",
-    },
-    {
-      title: "Visible Submit-for-approval CTA",
-      detail:
-        "Close the prototype-to-production loop with an obvious, labelled action so users know they’re done.",
-    },
-    {
-      title: "Clear test-vs-live mode indicator",
-      detail:
-        "Persist a banner / status pill so users always know whether they’re in sandbox or live.",
-    },
-    {
-      title: "Country / regional rules explained inline",
-      detail:
-        "Country variants need a one-line explainer. Avoid cold dropdowns where ‘you just have to know.’",
-    },
-  ],
-  principles: [
-    "Proof before setup — let users send a message before configuring resources.",
-    "Reveal complexity progressively — apps, keys, agents, webhooks appear when intent justifies them.",
-    "Prefill what the system already knows — don’t ask users to repeat what their account context provides.",
-    "Feedback is the proof — logs, payloads, and previews must be one click away from the action.",
-    "One path, two branches — share the first value moment across personas, then diverge by intent.",
-  ],
-  flow: [
-    {
-      step: "Send your first message",
-      why: "Across all 14 sessions, the first action users reach for is sending a message — not setup.",
-    },
-    {
-      step: "See it work",
-      why: "Logs, status, and preview prove the system worked. This is where trust forms.",
-    },
-    {
-      step: "Try the API (developers)",
-      why: "Once the UI test succeeds, developers immediately want curl, payload, and copy-paste-ready code.",
-    },
-    {
-      step: "Create persistent resources",
-      why: "Apps, keys, and agents make sense once users are moving toward integration — not before.",
-    },
-    {
-      step: "Validate again from real setup",
-      why: "After creating their own agent, users want to confirm it still works — second value moment.",
-    },
-    {
-      step: "Branch by intent (integrate / go live)",
-      why: "Developers go to API + webhooks; business users go to compliance + countries + approvals.",
-    },
-    {
-      step: "Submit for approval and go live",
-      why: "Users tolerate compliance once value is proven. An explicit submit CTA closes the loop.",
-    },
-  ],
-};
 
-const ResearchAnalysisSection = () => (
-  <section className="space-y-6 rounded-2xl border border-slate-800 bg-slate-950/60 p-5 sm:p-6">
-    <div className="flex items-baseline gap-2">
-      <p className="text-[13.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
-        Research analysis
-      </p>
-      <p className="text-[12.5px] text-slate-500">across all 14 sessions</p>
-    </div>
-
-    {/* Key insights */}
-    <div>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-        Key insights
-      </p>
-      <ol className="mt-3 space-y-4">
-        {RESEARCH_ANALYSIS.insights.map((ins, i) => (
-          <li
-            key={i}
-            className="rounded-xl border border-slate-800 bg-slate-900/60 p-4"
-          >
-            <div className="flex items-baseline gap-3">
-              <span className="font-mono text-[12px] text-slate-500">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-[15.5px] font-semibold leading-snug text-slate-50">
-                {ins.headline}
-              </p>
-            </div>
-            <ul className="mt-3 space-y-2">
-              {ins.evidence.map((ev, ei) => (
-                <li
-                  key={ei}
-                  className="border-l-2 border-indigo-500/40 pl-3 text-[14px] italic leading-relaxed text-slate-300"
-                >
-                  &ldquo;{ev.quote}&rdquo;
-                  <span className="not-italic"> — </span>
-                  <span className="not-italic font-medium text-slate-400">
-                    {ev.participant}
-                  </span>
-                  <span className="not-italic text-slate-500">
-                    {" · "}
-                    {ev.persona}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ol>
-    </div>
-
-    {/* Behavioural patterns */}
-    <div>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-        Behavioural patterns
-      </p>
-      <div className="mt-3 grid gap-3">
-        {RESEARCH_ANALYSIS.patterns.map((p, i) => (
-          <article
-            key={i}
-            className="rounded-xl border border-slate-800 bg-slate-900/60 p-4"
-          >
-            <p className="text-[15.5px] font-semibold text-slate-50">
-              {p.title}
-            </p>
-            <p className="mt-1 text-[13.5px] leading-relaxed text-slate-400">
-              <span className="font-semibold text-slate-300">Goal:</span>{" "}
-              {p.goal}
-            </p>
-            <div className="mt-3 grid gap-2 sm:grid-cols-3">
-              {[
-                { label: "Behaviours", items: p.behaviours, tone: "indigo" },
-                { label: "Focus on", items: p.focus, tone: "emerald" },
-                { label: "Ignored", items: p.ignored, tone: "slate" },
-              ].map((col) => (
-                <div key={col.label}>
-                  <p
-                    className={`text-[11.5px] font-semibold uppercase tracking-[0.12em] ${
-                      col.tone === "indigo"
-                        ? "text-indigo-300"
-                        : col.tone === "emerald"
-                          ? "text-emerald-300"
-                          : "text-slate-400"
-                    }`}
-                  >
-                    {col.label}
-                  </p>
-                  <ul className="mt-1.5 space-y-1">
-                    {col.items.map((it, ii) => (
-                      <li
-                        key={ii}
-                        className="flex gap-1.5 text-[13.5px] leading-relaxed text-slate-300"
-                      >
-                        <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-slate-500" />
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-
-    {/* Friction points */}
-    <div>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-        Friction points
-      </p>
-      <ul className="mt-3 space-y-3">
-        {RESEARCH_ANALYSIS.friction.map((f, i) => (
-          <li
-            key={i}
-            className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4"
-          >
-            <p className="text-[14.5px] font-semibold text-slate-50">
-              {f.title}
-            </p>
-            <p className="mt-1 text-[13.5px] leading-relaxed text-slate-300">
-              {f.detail}
-            </p>
-            {f.quote && (
-              <p className="mt-2 border-l-2 border-amber-500/40 pl-3 text-[13.5px] italic leading-relaxed text-slate-300">
-                &ldquo;{f.quote.text}&rdquo;
-                <span className="not-italic"> — </span>
-                <span className="not-italic font-medium text-slate-400">
-                  {f.quote.participant}
-                </span>
-                <span className="not-italic text-slate-500">
-                  {" · "}
-                  {f.quote.persona}
-                </span>
-              </p>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* Opportunities */}
-    <div>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-        Opportunity areas
-      </p>
-      <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-        {RESEARCH_ANALYSIS.opportunities.map((o, i) => (
-          <li
-            key={i}
-            className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3"
-          >
-            <p className="text-[14.5px] font-semibold text-slate-50">
-              {o.title}
-            </p>
-            <p className="mt-0.5 text-[13.5px] leading-relaxed text-slate-400">
-              {o.detail}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* Principles */}
-    <div>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-        Suggested product principles
-      </p>
-      <ul className="mt-3 space-y-2">
-        {RESEARCH_ANALYSIS.principles.map((p, i) => (
-          <li
-            key={i}
-            className="flex gap-3 rounded-xl border border-indigo-500/20 bg-indigo-500/5 px-4 py-3 text-[14.5px] leading-relaxed text-slate-200"
-          >
-            <span className="font-mono text-[12px] text-indigo-300">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <span>{p}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* Natural onboarding flow */}
-    <div>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-        Natural onboarding flow
-      </p>
-      <p className="mt-1 text-[13.5px] leading-relaxed text-slate-400">
-        Reflects how users actually behaved across the corpus, not what we
-        designed for.
-      </p>
-      <ol className="mt-3 space-y-2">
-        {RESEARCH_ANALYSIS.flow.map((s, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3"
-          >
-            <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 to-violet-500 text-[12px] font-semibold text-white">
-              {i + 1}
-            </span>
-            <div>
-              <p className="text-[14.5px] font-semibold text-slate-50">
-                {s.step}
-              </p>
-              <p className="mt-0.5 text-[13.5px] leading-relaxed text-slate-400">
-                <span className="font-semibold text-slate-300">Why:</span>{" "}
-                {s.why}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-);
 
 // --- Transcript drawer ---------------------------------------------
 
 const ConceptBadge = ({ concept }: { concept: string }) => (
-  <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 text-[12.5px] font-semibold uppercase tracking-[0.12em] text-indigo-200">
+  <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 text-[12px] font-semibold uppercase tracking-[0.12em] text-indigo-200">
     <span className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.7)]" />
     {concept}
   </span>
@@ -2375,7 +1610,7 @@ const AnalysisBullet = ({
   return (
     <li className="flex items-start gap-3">
       <span className={`mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${dotClass}`} />
-      <span className={`text-[17px] leading-relaxed ${textClass}`}>{text}</span>
+      <span className={`text-[16px] leading-relaxed ${textClass}`}>{text}</span>
     </li>
   );
 };
@@ -2388,16 +1623,16 @@ const TranscriptAnalysisView = ({
   <div className="space-y-12">
     {/* User goal */}
     <section>
-      <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
         User goal
       </p>
-      <p className="mt-3 text-[19px] leading-relaxed text-slate-100">
+      <p className="mt-3 text-[18px] leading-relaxed text-slate-100">
         {analysis.userGoal}
       </p>
       {analysis.userGoalContext && (
         <div className="mt-5 space-y-4 rounded-xl border border-slate-800 bg-slate-950/40 p-5 sm:p-6">
           {analysis.userGoalContext.intro && (
-            <p className="text-[17px] leading-relaxed text-slate-300">
+            <p className="text-[16px] leading-relaxed text-slate-300">
               {analysis.userGoalContext.intro}
             </p>
           )}
@@ -2410,12 +1645,12 @@ const TranscriptAnalysisView = ({
               </ul>
             )}
           {analysis.userGoalContext.closing && (
-            <p className="text-[17px] leading-relaxed text-slate-300">
+            <p className="text-[16px] leading-relaxed text-slate-300">
               {analysis.userGoalContext.closing}
             </p>
           )}
           {analysis.userGoalContext.quote && (
-            <blockquote className="border-l-2 border-indigo-400/60 pl-4 text-[17.5px] italic leading-relaxed text-slate-200">
+            <blockquote className="border-l-2 border-indigo-400/60 pl-4 text-[16.5px] italic leading-relaxed text-slate-200">
               <span className="mr-1 font-serif text-indigo-400">&ldquo;</span>
               {analysis.userGoalContext.quote}
               <span className="ml-0.5 font-serif text-indigo-400">&rdquo;</span>
@@ -2427,7 +1662,7 @@ const TranscriptAnalysisView = ({
 
     {/* Observations by concept */}
     <section>
-      <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
         Observations by concept
       </p>
       <div className="mt-4 space-y-8">
@@ -2439,20 +1674,20 @@ const TranscriptAnalysisView = ({
             <header className="mb-4">
               <ConceptBadge concept={c.concept} />
               {c.conceptSubtitle && (
-                <p className="mt-2 text-[16px] italic leading-relaxed text-slate-400">
+                <p className="mt-2 text-[15px] italic leading-relaxed text-slate-400">
                   {c.conceptSubtitle}
                 </p>
               )}
               {c.mainReaction && (
                 <div className="mt-3 rounded-lg border border-slate-700/70 bg-slate-900/60 px-4 py-3">
-                  <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                     Main reaction
                   </p>
-                  <p className="mt-1 text-[17px] leading-relaxed text-slate-200">
+                  <p className="mt-1 text-[16px] leading-relaxed text-slate-200">
                     {c.mainReaction}
                   </p>
                   {c.mainReactionQuote && (
-                    <blockquote className="mt-3 border-l-2 border-indigo-400/60 pl-4 text-[16.5px] italic leading-relaxed text-slate-300">
+                    <blockquote className="mt-3 border-l-2 border-indigo-400/60 pl-4 text-[15.5px] italic leading-relaxed text-slate-300">
                       <span className="mr-1 font-serif text-indigo-400">
                         &ldquo;
                       </span>
@@ -2468,7 +1703,7 @@ const TranscriptAnalysisView = ({
 
             {c.whatHappened.length > 0 && (
               <div>
-                <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                   What happened
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -2481,7 +1716,7 @@ const TranscriptAnalysisView = ({
 
             {c.whatWorked && c.whatWorked.length > 0 && (
               <div className="mt-5 rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-5">
-                <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
                   What worked
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -2494,7 +1729,7 @@ const TranscriptAnalysisView = ({
 
             {c.keyStrengths && c.keyStrengths.length > 0 && (
               <div className="mt-6">
-                <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
                   Key strengths
                 </p>
                 <ol className="mt-3 space-y-4">
@@ -2504,10 +1739,10 @@ const TranscriptAnalysisView = ({
                       className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5"
                     >
                       <div className="flex items-baseline gap-3">
-                        <span className="font-serif text-[20px] tabular-nums text-emerald-300">
+                        <span className="font-serif text-[19px] tabular-nums text-emerald-300">
                           {si + 1}.
                         </span>
-                        <h4 className="text-[18.5px] font-semibold leading-snug text-slate-50">
+                        <h4 className="text-[17.5px] font-semibold leading-snug text-slate-50">
                           {s.title}
                         </h4>
                       </div>
@@ -2537,7 +1772,7 @@ const TranscriptAnalysisView = ({
 
             {c.issues.length > 0 && (
               <div className="mt-6">
-                <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-amber-300">
+                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-amber-300">
                   Main issues
                 </p>
                 <ol className="mt-3 space-y-5">
@@ -2547,10 +1782,10 @@ const TranscriptAnalysisView = ({
                       className="rounded-xl border border-amber-500/20 bg-amber-500/[0.04] p-5"
                     >
                       <div className="flex items-baseline gap-3">
-                        <span className="font-serif text-[20px] tabular-nums text-amber-300">
+                        <span className="font-serif text-[19px] tabular-nums text-amber-300">
                           {ii + 1}.
                         </span>
-                        <h4 className="text-[18.5px] font-semibold leading-snug text-slate-50">
+                        <h4 className="text-[17.5px] font-semibold leading-snug text-slate-50">
                           {iss.title}
                         </h4>
                       </div>
@@ -2580,7 +1815,7 @@ const TranscriptAnalysisView = ({
 
             {c.expected && c.expected.length > 0 && (
               <div className="mt-5 rounded-xl border border-cyan-500/25 bg-cyan-500/5 p-5">
-                <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
+                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
                   The user explicitly expected
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -2599,7 +1834,7 @@ const TranscriptAnalysisView = ({
     {analysis.crossCuttingInsights &&
       analysis.crossCuttingInsights.length > 0 && (
         <section>
-          <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-violet-300">
             Cross-cutting insights
           </p>
           <ol className="mt-4 space-y-4">
@@ -2609,22 +1844,22 @@ const TranscriptAnalysisView = ({
                 className="rounded-2xl border border-violet-500/20 bg-violet-500/[0.04] p-6"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-serif text-[20px] tabular-nums text-violet-300">
+                  <span className="font-serif text-[19px] tabular-nums text-violet-300">
                     {ii + 1}.
                   </span>
-                  <h4 className="text-[18.5px] font-semibold leading-snug text-slate-50">
+                  <h4 className="text-[17.5px] font-semibold leading-snug text-slate-50">
                     {ins.title}
                   </h4>
                 </div>
                 {ins.body && (
-                  <p className="mt-3 ml-7 text-[17px] italic leading-relaxed text-slate-300">
+                  <p className="mt-3 ml-7 text-[16px] italic leading-relaxed text-slate-300">
                     {ins.body}
                   </p>
                 )}
                 {ins.bullets && ins.bullets.length > 0 && (
                   <div className="mt-3 ml-7">
                     {ins.bulletsIntro && (
-                      <p className="mb-2 text-[16px] leading-relaxed text-slate-400">
+                      <p className="mb-2 text-[15px] leading-relaxed text-slate-400">
                         {ins.bulletsIntro}
                       </p>
                     )}
@@ -2657,14 +1892,14 @@ const TranscriptAnalysisView = ({
     {/* Cross-cutting confusion */}
     {analysis.crossCutting && (
       <section className="rounded-2xl border border-violet-500/25 bg-gradient-to-br from-violet-500/10 via-indigo-500/5 to-transparent p-6 sm:p-8">
-        <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+        <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-violet-300">
           Cross-cutting confusion
         </p>
-        <h3 className="mt-2 text-[22px] font-semibold leading-snug text-slate-50 sm:text-[24px]">
+        <h3 className="mt-2 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[20px]">
           {analysis.crossCutting.title}
         </h3>
         {analysis.crossCutting.intro && (
-          <p className="mt-4 text-[17px] leading-relaxed text-slate-300">
+          <p className="mt-4 text-[16px] leading-relaxed text-slate-300">
             {analysis.crossCutting.intro}
           </p>
         )}
@@ -2676,7 +1911,7 @@ const TranscriptAnalysisView = ({
         {analysis.crossCutting.consequences &&
           analysis.crossCutting.consequences.length > 0 && (
             <div className="mt-5">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 This led to
               </p>
               <ul className="mt-2.5 space-y-2">
@@ -2691,10 +1926,10 @@ const TranscriptAnalysisView = ({
 
     {/* Behavioral pattern */}
     <section>
-      <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
         Behavioural pattern
       </p>
-      <p className="mt-2 text-[17px] leading-relaxed text-slate-400">
+      <p className="mt-2 text-[16px] leading-relaxed text-slate-400">
         The user consistently followed this flow:
       </p>
       <ol className="mt-3 space-y-2">
@@ -2703,10 +1938,10 @@ const TranscriptAnalysisView = ({
             key={si}
             className="flex items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-3"
           >
-            <span className="font-serif text-[18px] tabular-nums text-indigo-300">
+            <span className="font-serif text-[17px] tabular-nums text-indigo-300">
               {String(si + 1).padStart(2, "0")}
             </span>
-            <span className="text-[17px] leading-relaxed text-slate-200">
+            <span className="text-[16px] leading-relaxed text-slate-200">
               {step}
             </span>
           </li>
@@ -2714,11 +1949,11 @@ const TranscriptAnalysisView = ({
       </ol>
       {analysis.behavioralPatternNote && (
         <div className="mt-4 rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-5">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+          <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
             {analysis.behavioralPatternNote.title ??
               "Key difference vs previous users"}
           </p>
-          <p className="mt-1.5 text-[17px] leading-relaxed text-slate-200">
+          <p className="mt-1.5 text-[16px] leading-relaxed text-slate-200">
             {analysis.behavioralPatternNote.text}
           </p>
         </div>
@@ -2727,10 +1962,10 @@ const TranscriptAnalysisView = ({
 
     {/* Key takeaway */}
     <section className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-6 sm:p-8">
-      <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
         Key takeaway
       </p>
-      <h3 className="mt-2 text-[22px] font-semibold leading-snug text-slate-50 sm:text-[26px]">
+      <h3 className="mt-2 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[22px]">
         {analysis.keyTakeaway.headline}
       </h3>
       {analysis.keyTakeaway.body && analysis.keyTakeaway.body.length > 0 && (
@@ -2742,7 +1977,7 @@ const TranscriptAnalysisView = ({
       )}
       {analysis.keyTakeaway.missingPiece && (
         <div className="mt-5 rounded-xl border border-cyan-500/25 bg-slate-950/40 p-5">
-          <p className="text-[15px] font-semibold leading-snug text-cyan-200">
+          <p className="text-[14px] font-semibold leading-snug text-cyan-200">
             {analysis.keyTakeaway.missingPiece.title}
           </p>
           <ul className="mt-2.5 space-y-2">
@@ -2755,7 +1990,7 @@ const TranscriptAnalysisView = ({
       {analysis.keyTakeaway.consequences &&
         analysis.keyTakeaway.consequences.length > 0 && (
           <div className="mt-5">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
               Without that distinction, users don’t know
             </p>
             <ul className="mt-2.5 space-y-2">
@@ -2773,7 +2008,7 @@ const TranscriptAnalysisView = ({
                 key={si}
                 className="rounded-xl border border-indigo-500/20 bg-slate-950/40 p-5"
               >
-                <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
+                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
                   {s.title}
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -2786,7 +2021,7 @@ const TranscriptAnalysisView = ({
           </div>
         )}
       {analysis.keyTakeaway.closing && (
-        <p className="mt-6 border-l-2 border-indigo-400/60 pl-5 text-[18px] italic leading-relaxed text-slate-200">
+        <p className="mt-6 border-l-2 border-indigo-400/60 pl-5 text-[17px] italic leading-relaxed text-slate-200">
           {analysis.keyTakeaway.closing}
         </p>
       )}
@@ -2821,7 +2056,7 @@ const CollapsibleQuotes = ({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="group inline-flex items-center gap-2 rounded-md text-[13.5px] font-semibold uppercase tracking-[0.14em] text-slate-400 transition hover:text-indigo-300"
+        className="group inline-flex items-center gap-2 rounded-md text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400 transition hover:text-indigo-300"
       >
         <ChevronDown
           className={`h-4 w-4 transition-transform duration-200 ${
@@ -2977,7 +2212,7 @@ const TranscriptDialogContent = ({
               className="h-9 w-px shrink-0 bg-slate-800"
             />
             <div className="min-w-0">
-              <h2 className="flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-50 sm:text-2xl">
+              <h2 className="flex flex-wrap items-center gap-2 text-base font-semibold text-slate-50 sm:text-base">
                 <span>
                   {transcript.participant}
                   <span className="ml-1.5 text-slate-400">
@@ -2997,7 +2232,7 @@ const TranscriptDialogContent = ({
             <a
               href={`/transcripts/${encodeURIComponent(transcript.sourceFile)}`}
               download={transcript.sourceFile}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[13.5px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[12.5px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
             >
               <Download className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Download transcript</span>
@@ -3020,10 +2255,10 @@ const TranscriptDialogContent = ({
             <TranscriptAnalysisView analysis={analysis} />
           ) : (
             <section>
-              <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                 Session summary
               </p>
-              <p className="mt-3 text-[18px] leading-relaxed text-slate-200">
+              <p className="mt-3 text-[17px] leading-relaxed text-slate-200">
                 {transcript.summary}
               </p>
             </section>
@@ -3057,10 +2292,10 @@ const TranscriptDialogContent = ({
           >
             <ChevronLeft className="h-4 w-4 shrink-0 text-slate-400 transition group-enabled:group-hover:text-indigo-300" />
             <div className="min-w-0">
-              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Previous
               </p>
-              <p className="truncate text-[13.5px] font-medium text-slate-200">
+              <p className="truncate text-[12.5px] font-medium text-slate-200">
                 {prev
                   ? `${prev.participant} (${prev.persona})`
                   : "—"}
@@ -3068,7 +2303,7 @@ const TranscriptDialogContent = ({
             </div>
           </button>
 
-          <p className="hidden shrink-0 text-[12.5px] font-medium uppercase tracking-[0.14em] text-slate-500 sm:block">
+          <p className="hidden shrink-0 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500 sm:block">
             Session {idx + 1} of {totalCount}
           </p>
 
@@ -3079,10 +2314,10 @@ const TranscriptDialogContent = ({
             className="group flex min-w-0 max-w-[45%] items-center gap-3 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2.5 text-right transition enabled:hover:border-indigo-400/70 disabled:opacity-40"
           >
             <div className="min-w-0 flex-1">
-              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Next
               </p>
-              <p className="truncate text-[13.5px] font-medium text-slate-200">
+              <p className="truncate text-[12.5px] font-medium text-slate-200">
                 {next
                   ? `${next.participant} (${next.persona})`
                   : "—"}
@@ -3103,7 +2338,7 @@ const TranscriptDialogContent = ({
 // =================================================================
 
 const DiscussionH3 = ({ children }: { children: ReactNode }) => (
-  <h3 className="text-[20px] font-semibold leading-snug text-slate-50 sm:text-[22px]">
+  <h3 className="text-[19px] font-semibold leading-snug text-slate-50 sm:text-[19px]">
     {children}
   </h3>
 );
@@ -3124,7 +2359,7 @@ const DiscussionEyebrow = ({
   }[color];
   return (
     <p
-      className={`text-[12.5px] font-semibold uppercase tracking-[0.16em] ${cls}`}
+      className={`text-[12px] font-semibold uppercase tracking-[0.16em] ${cls}`}
     >
       {children}
     </p>
@@ -3148,7 +2383,7 @@ const DiscussionBullet = ({
       <span
         className={`mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${dotClass}`}
       />
-      <span className={`text-[17px] leading-relaxed ${textClass}`}>
+      <span className={`text-[16px] leading-relaxed ${textClass}`}>
         {children}
       </span>
     </li>
@@ -3165,13 +2400,13 @@ const DiscussionPullQuote = ({
   persona?: string;
 }) => (
   <blockquote className="my-2 rounded-xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4">
-    <p className="text-[18px] italic leading-relaxed text-slate-100">
+    <p className="text-[17px] italic leading-relaxed text-slate-100">
       <span className="mr-1 font-serif text-indigo-400">&ldquo;</span>
       {text}
       <span className="ml-0.5 font-serif text-indigo-400">&rdquo;</span>
     </p>
     {(participant || persona) && (
-      <p className="mt-2 text-[13px] font-medium text-slate-400">
+      <p className="mt-2 text-[12.5px] font-medium text-slate-400">
         {participant}
         {persona ? <span className="text-slate-500"> · {persona}</span> : null}
       </p>
@@ -3197,13 +2432,13 @@ const ResourceOverviewPane = () => (
   <div className="space-y-12">
     {/* Title */}
     <header>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
         Overview
       </p>
-      <h1 className="mt-3 text-[32px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[40px]">
+      <h1 className="mt-3 text-[24px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[26px] md:text-[36px]">
         Resource creation: timing and ownership
       </h1>
-      <p className="mt-4 max-w-3xl text-[17.5px] leading-relaxed text-slate-400">
+      <p className="mt-4 max-w-3xl text-[16.5px] leading-relaxed text-slate-400">
         A focused discussion on what blocks users from validating their setup,
         and how Conversation API app creation should support the journey from
         testing to integration.
@@ -3213,7 +2448,7 @@ const ResourceOverviewPane = () => (
     {/* Why this page exists */}
     <section className="space-y-4">
       <DiscussionEyebrow color="violet">Why this page exists</DiscussionEyebrow>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         There are different opinions on whether Conversation API apps should be:
       </p>
       <ul className="space-y-2">
@@ -3221,16 +2456,16 @@ const ResourceOverviewPane = () => (
         <DiscussionBullet>Explicitly created or selected later.</DiscussionBullet>
         <DiscussionBullet>Managed by the platform during testing.</DiscussionBullet>
       </ul>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         The research suggests that the real question is not simply:
       </p>
-      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[17px] italic leading-relaxed text-amber-100">
+      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[16px] italic leading-relaxed text-amber-100">
         Should apps be auto-created or manual?
       </p>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         The better question is:
       </p>
-      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[17px] font-semibold leading-relaxed text-emerald-100">
+      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[16px] font-semibold leading-relaxed text-emerald-100">
         When should the app become a user responsibility?
       </p>
     </section>
@@ -3238,16 +2473,16 @@ const ResourceOverviewPane = () => (
     {/* What research shows */}
     <section className="space-y-4">
       <DiscussionEyebrow>What research shows</DiscussionEyebrow>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         After creating a channel, users expect to validate it. Their intent is
         simple:
       </p>
       <DiscussionPullQuote text="I just want to see if it works." />
-      <p className="text-[17.5px] leading-relaxed text-slate-300">They expect:</p>
-      <p className="rounded-lg border border-slate-800 bg-slate-900/50 px-5 py-4 font-mono text-[15.5px] leading-relaxed text-slate-200">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">They expect:</p>
+      <p className="rounded-lg border border-slate-800 bg-slate-900/50 px-5 py-4 font-mono text-[14.5px] leading-relaxed text-slate-200">
         Create agent → send test message → see confirmation
       </p>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         They want to confirm:
       </p>
       <ul className="space-y-2">
@@ -3261,7 +2496,7 @@ const ResourceOverviewPane = () => (
     {/* What gets in the way */}
     <section className="space-y-4">
       <DiscussionEyebrow color="amber">What gets in the way</DiscussionEyebrow>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         Today, validation can require users to:
       </p>
       <ul className="space-y-2">
@@ -3269,23 +2504,23 @@ const ResourceOverviewPane = () => (
         <DiscussionBullet>Manage credentials.</DiscussionBullet>
         <DiscussionBullet>Start thinking about integration.</DiscussionBullet>
       </ul>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         This creates a mismatch:
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
             User intention
           </p>
-          <p className="mt-2 text-[20px] font-semibold leading-snug text-slate-50">
+          <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50">
             Test
           </p>
         </div>
         <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] p-5">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-amber-300">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-amber-300">
             Current reality
           </p>
-          <p className="mt-2 text-[20px] font-semibold leading-snug text-slate-50">
+          <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50">
             Setup
           </p>
         </div>
@@ -3297,58 +2532,58 @@ const ResourceOverviewPane = () => (
 const ResourceAutoPane = () => (
   <div className="space-y-10">
     <header>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
         Technical reality
       </p>
-      <h2 className="mt-3 text-[28px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[34px]">
+      <h2 className="mt-3 text-[22px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[30px]">
         What the API actually requires
       </h2>
     </header>
 
     {/* Agent vs App */}
     <section className="space-y-4">
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         An RCS Agent cannot send messages on its own.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/[0.05] p-5">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
             The agent
           </p>
-          <p className="mt-2 text-[18px] font-semibold leading-snug text-slate-50">
+          <p className="mt-2 text-[17px] font-semibold leading-snug text-slate-50">
             Sender identity
           </p>
-          <p className="mt-2 text-[16px] leading-relaxed text-slate-300">
+          <p className="mt-2 text-[15px] leading-relaxed text-slate-300">
             Brand, name, logo, profile, and approved use case.
           </p>
         </div>
         <div className="rounded-xl border border-violet-500/25 bg-violet-500/[0.05] p-5">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-violet-300">
             The Conversation API app
           </p>
-          <p className="mt-2 text-[18px] font-semibold leading-snug text-slate-50">
+          <p className="mt-2 text-[17px] font-semibold leading-snug text-slate-50">
             Sending mechanism
           </p>
-          <p className="mt-2 text-[16px] leading-relaxed text-slate-300">
+          <p className="mt-2 text-[15px] leading-relaxed text-slate-300">
             Authentication, routing, delivery, retries, events, and webhooks.
           </p>
         </div>
       </div>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         So the question is not:
       </p>
-      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[17px] italic leading-relaxed text-amber-100">
+      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[16px] italic leading-relaxed text-amber-100">
         Can we send without an app?{" "}
         <span className="text-amber-300/80">No.</span>
       </p>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         The real question is:
       </p>
-      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[17px] font-semibold leading-relaxed text-emerald-100">
+      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[16px] font-semibold leading-relaxed text-emerald-100">
         Does the app need to be user-owned and user-managed at the validation
         stage?
       </p>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         Based on the API model, it does not.
       </p>
     </section>
@@ -3363,7 +2598,7 @@ const ResourceAutoPane = () => (
         <DiscussionBullet>In-product logs and event timelines.</DiscussionBullet>
         <DiscussionBullet>Reassignment to a user-owned app when the user moves into integration.</DiscussionBullet>
       </ul>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         This means validation can be enabled without making app setup a user
         responsibility too early.
       </p>
@@ -3372,11 +2607,11 @@ const ResourceAutoPane = () => (
     {/* Core principle */}
     <section className="rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-cyan-500/5 to-transparent p-6 sm:p-8">
       <DiscussionEyebrow color="cyan">Core principle</DiscussionEyebrow>
-      <p className="mt-3 text-[20px] leading-snug text-slate-100 sm:text-[22px]">
+      <p className="mt-3 text-[19px] leading-snug text-slate-100 sm:text-[19px]">
         Validation requires infrastructure, but not user ownership of that
         infrastructure.
       </p>
-      <p className="mt-3 text-[17px] leading-relaxed text-slate-300">
+      <p className="mt-3 text-[16px] leading-relaxed text-slate-300">
         The app may still exist technically. But the user should not have to
         create, connect, or understand it before they know why it matters.
       </p>
@@ -3385,25 +2620,25 @@ const ResourceAutoPane = () => (
     {/* Core tension */}
     <section className="space-y-4">
       <DiscussionEyebrow color="violet">The core tension</DiscussionEyebrow>
-      <p className="text-[17.5px] leading-relaxed text-slate-300">
+      <p className="text-[16.5px] leading-relaxed text-slate-300">
         There are two valid needs.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] p-5">
           <DiscussionH3>Reduce friction early</DiscussionH3>
-          <p className="mt-2.5 text-[16.5px] leading-relaxed text-slate-300">
+          <p className="mt-2.5 text-[15.5px] leading-relaxed text-slate-300">
             Users need to validate quickly without being blocked by setup.
           </p>
         </div>
         <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/[0.04] p-5">
           <DiscussionH3>Preserve clarity and control</DiscussionH3>
-          <p className="mt-2.5 text-[16.5px] leading-relaxed text-slate-300">
+          <p className="mt-2.5 text-[15.5px] leading-relaxed text-slate-300">
             Developers need visibility and ownership of the resources they use
             for real integration.
           </p>
         </div>
       </div>
-      <p className="text-[17.5px] italic leading-relaxed text-slate-200">
+      <p className="text-[16.5px] italic leading-relaxed text-slate-200">
         The challenge is to support both.
       </p>
     </section>
@@ -3413,18 +2648,18 @@ const ResourceAutoPane = () => (
 const ResourceOptionsPane = () => (
   <div className="space-y-10">
     <header>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
         Alternative approaches to enable validation
       </p>
-      <h2 className="mt-3 text-[28px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[34px]">
+      <h2 className="mt-3 text-[22px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[30px]">
         Four options compared
       </h2>
-      <p className="mt-4 max-w-3xl text-[17.5px] leading-relaxed text-slate-300">
+      <p className="mt-4 max-w-3xl text-[16.5px] leading-relaxed text-slate-300">
         There are multiple ways to enable validation after channel creation.
         All approaches support sending messages, but they differ in when
         users are required to deal with infrastructure.
       </p>
-      <p className="mt-4 max-w-3xl rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[17px] font-semibold leading-relaxed text-emerald-100">
+      <p className="mt-4 max-w-3xl rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[16px] font-semibold leading-relaxed text-emerald-100">
         The core tradeoff is not technical feasibility, but timing of
         responsibility.
       </p>
@@ -3434,7 +2669,7 @@ const ResourceOptionsPane = () => (
     <section className="space-y-4">
       <DiscussionEyebrow>Comparison of approaches</DiscussionEyebrow>
       <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full border-collapse text-left text-[14px]">
+        <table className="w-full border-collapse text-left text-[13px]">
           <thead className="bg-slate-950/70">
             <tr>
               {[
@@ -3449,7 +2684,7 @@ const ResourceOptionsPane = () => (
               ].map((h) => (
                 <th
                   key={h}
-                  className="border-b border-slate-800 px-3 py-3 align-top text-[12px] font-semibold uppercase tracking-[0.12em] text-slate-400"
+                  className="border-b border-slate-800 px-3 py-3 align-top text-[11.5px] font-semibold uppercase tracking-[0.12em] text-slate-400"
                 >
                   {h}
                 </th>
@@ -3525,7 +2760,7 @@ const ResourceOptionsPane = () => (
               };
               const Score = ({ v }: { v: number | string }) => (
                 <span
-                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[13px] font-semibold tabular-nums ${scoreClass(v)}`}
+                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[12.5px] font-semibold tabular-nums ${scoreClass(v)}`}
                 >
                   {v}
                 </span>
@@ -3567,7 +2802,7 @@ const ResourceOptionsPane = () => (
                   </td>
                   <td className="px-3 py-3 align-middle">
                     <span
-                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[13.5px] font-bold tabular-nums ${totalClass(row.total)}`}
+                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[12.5px] font-bold tabular-nums ${totalClass(row.total)}`}
                     >
                       {row.total}
                     </span>
@@ -3578,7 +2813,7 @@ const ResourceOptionsPane = () => (
           </tbody>
         </table>
       </div>
-      <p className="text-[13px] leading-relaxed text-slate-500">
+      <p className="text-[12.5px] leading-relaxed text-slate-500">
         Scored 1 (worst) to 5 (best) on each dimension.{" "}
         <span className="font-mono text-slate-400">5*</span> — control granted
         at the integration stage, not during testing.
@@ -3804,15 +3039,15 @@ const ResourceOptionsPane = () => (
           className={`rounded-2xl border p-6 sm:p-7 ${cardOuterClass}`}
         >
           <header className="flex flex-wrap items-baseline gap-3">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+            <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-slate-500">
               Option {opt.n}
             </p>
-            <h3 className="text-[22px] font-semibold leading-snug text-slate-50 sm:text-[24px]">
+            <h3 className="text-[20px] font-semibold leading-snug text-slate-50 sm:text-[20px]">
               {opt.title}
             </h3>
             {opt.tag && (
               <span
-                className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[12px] font-semibold uppercase tracking-[0.12em] ${tagBgClass}`}
+                className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11.5px] font-semibold uppercase tracking-[0.12em] ${tagBgClass}`}
               >
                 {opt.tag}
               </span>
@@ -3820,19 +3055,19 @@ const ResourceOptionsPane = () => (
           </header>
           <div className="mt-4 space-y-5">
             <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Flow
               </p>
-              <p className="mt-1.5 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 font-mono text-[14.5px] leading-relaxed text-slate-200">
+              <p className="mt-1.5 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 font-mono text-[13.5px] leading-relaxed text-slate-200">
                 {opt.flow}
               </p>
             </div>
             <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 What this means
               </p>
               {opt.meaningIntro && (
-                <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-200">
+                <p className="mt-1.5 text-[15.5px] leading-relaxed text-slate-200">
                   {opt.meaningIntro}
                 </p>
               )}
@@ -3844,17 +3079,17 @@ const ResourceOptionsPane = () => (
                 </ul>
               )}
               {opt.meaningClosing && (
-                <p className="mt-3 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-4 py-3 text-[15.5px] leading-relaxed text-amber-100">
+                <p className="mt-3 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-4 py-3 text-[14.5px] leading-relaxed text-amber-100">
                   {opt.meaningClosing}
                 </p>
               )}
             </div>
             {opt.practice && (
               <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
-                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-amber-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-amber-300">
                   {opt.practice.title}
                 </p>
-                <p className="mt-2 text-[16px] leading-relaxed text-slate-200">
+                <p className="mt-2 text-[15px] leading-relaxed text-slate-200">
                   {opt.practice.intro}
                 </p>
                 <ul className="mt-3 space-y-1.5">
@@ -3865,7 +3100,7 @@ const ResourceOptionsPane = () => (
                   ))}
                 </ul>
                 {opt.practice.mixIntro && (
-                  <p className="mt-4 text-[15.5px] font-medium leading-relaxed text-slate-300">
+                  <p className="mt-4 text-[14.5px] font-medium leading-relaxed text-slate-300">
                     {opt.practice.mixIntro}
                   </p>
                 )}
@@ -3874,7 +3109,7 @@ const ResourceOptionsPane = () => (
                     {opt.practice.mix.map((m, i) => (
                       <li
                         key={i}
-                        className="flex flex-wrap items-baseline gap-x-2 text-[15.5px] leading-relaxed"
+                        className="flex flex-wrap items-baseline gap-x-2 text-[14.5px] leading-relaxed"
                       >
                         <span className="font-semibold text-slate-100">
                           {m.label}
@@ -3891,13 +3126,13 @@ const ResourceOptionsPane = () => (
             )}
             {opt.coreProblem && (
               <div className="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-5">
-                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-rose-300">
                   {opt.coreProblem.title ?? "Core problem"}
                 </p>
-                <p className="mt-2 text-[17px] font-semibold leading-snug text-slate-50">
+                <p className="mt-2 text-[16px] font-semibold leading-snug text-slate-50">
                   {opt.coreProblem.headline}
                 </p>
-                <p className="mt-3 text-[15.5px] leading-relaxed text-slate-300">
+                <p className="mt-3 text-[14.5px] leading-relaxed text-slate-300">
                   {opt.coreProblem.intro}
                 </p>
                 <ul className="mt-2 space-y-1.5">
@@ -3911,7 +3146,7 @@ const ResourceOptionsPane = () => (
             )}
             {opt.how && (
               <div>
-                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                   {opt.howLabel ?? "How it works"}
                 </p>
                 <div className="mt-2 space-y-3">
@@ -3939,7 +3174,7 @@ const ResourceOptionsPane = () => (
                         flushRun(i);
                         blocks.push(
                           <div key={`grp-${i}`}>
-                            <p className="text-[15.5px] font-medium leading-relaxed text-slate-200">
+                            <p className="text-[14.5px] font-medium leading-relaxed text-slate-200">
                               {h.heading}
                             </p>
                             <ul className="mt-2 space-y-1.5">
@@ -3958,7 +3193,7 @@ const ResourceOptionsPane = () => (
                 </div>
                 {opt.howFollowUp && (
                   <div className="mt-4">
-                    <p className="text-[15.5px] font-medium leading-relaxed text-slate-200">
+                    <p className="text-[14.5px] font-medium leading-relaxed text-slate-200">
                       {opt.howFollowUp.title}
                     </p>
                     <ul className="mt-2 space-y-1.5">
@@ -3975,14 +3210,14 @@ const ResourceOptionsPane = () => (
             >
               {opt.pros.length > 0 && (
                 <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-4">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
                     Pros
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {opt.pros.map((p, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-slate-200"
+                        className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-slate-200"
                       >
                         <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
                         <span>{p}</span>
@@ -3992,14 +3227,14 @@ const ResourceOptionsPane = () => (
                 </div>
               )}
               <div className="rounded-xl border border-rose-500/20 bg-rose-500/[0.04] p-4">
-                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-rose-300">
                   {opt.consLabel ?? "Cons"}
                 </p>
                 <ul className="mt-2 space-y-1.5">
                   {opt.cons.map((c, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-slate-200"
+                      className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-slate-200"
                     >
                       <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
                       <span>{c}</span>
@@ -4010,25 +3245,25 @@ const ResourceOptionsPane = () => (
             </div>
             <div className={`rounded-lg border px-4 py-3 ${keyToneClass}`}>
               <p
-                className={`text-[12px] font-semibold uppercase tracking-[0.14em] ${keyLabelClass}`}
+                className={`text-[11.5px] font-semibold uppercase tracking-[0.14em] ${keyLabelClass}`}
               >
                 {opt.keyLabel}
               </p>
-              <p className="mt-1 text-[16px] font-medium leading-relaxed">
+              <p className="mt-1 text-[15px] font-medium leading-relaxed">
                 {opt.keyText}
               </p>
               {opt.keyDetail && (
                 <div className="mt-4 space-y-2.5">
-                  <p className="text-[14.5px] leading-relaxed text-amber-100/85">
+                  <p className="text-[13.5px] leading-relaxed text-amber-100/85">
                     {opt.keyDetail.insteadIntro}
                   </p>
-                  <p className="rounded-md border border-emerald-500/25 bg-slate-950/60 px-3 py-2 font-mono text-[14px] leading-relaxed text-emerald-200">
+                  <p className="rounded-md border border-emerald-500/25 bg-slate-950/60 px-3 py-2 font-mono text-[13px] leading-relaxed text-emerald-200">
                     {opt.keyDetail.instead}
                   </p>
-                  <p className="text-[14.5px] leading-relaxed text-amber-100/85">
+                  <p className="text-[13.5px] leading-relaxed text-amber-100/85">
                     {opt.keyDetail.forceIntro}
                   </p>
-                  <p className="rounded-md border border-rose-500/30 bg-slate-950/60 px-3 py-2 font-mono text-[14px] leading-relaxed text-rose-200">
+                  <p className="rounded-md border border-rose-500/30 bg-slate-950/60 px-3 py-2 font-mono text-[13px] leading-relaxed text-rose-200">
                     {opt.keyDetail.force}
                   </p>
                 </div>
@@ -4037,10 +3272,10 @@ const ResourceOptionsPane = () => (
             <div
               className={`flex items-center gap-3 rounded-lg border px-4 py-3 ${fitToneClass}`}
             >
-              <span className="text-[18px]" aria-hidden="true">
+              <span className="text-[17px]" aria-hidden="true">
                 {opt.fitIcon}
               </span>
-              <p className="text-[14.5px] font-semibold leading-snug">
+              <p className="text-[13.5px] font-semibold leading-snug">
                 <span className="opacity-70">Fit with research — </span>
                 {opt.fitText}
               </p>
@@ -4055,10 +3290,10 @@ const ResourceOptionsPane = () => (
 const ResourceDirectionPane = () => (
   <div className="space-y-10">
     <header>
-      <p className="text-[12.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
         Recommended direction
       </p>
-      <h2 className="mt-3 text-[28px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[34px]">
+      <h2 className="mt-3 text-[22px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[30px]">
         Separate testing from integration
       </h2>
     </header>
@@ -4068,10 +3303,10 @@ const ResourceDirectionPane = () => (
       <DiscussionEyebrow color="emerald">
         Use managed test infrastructure for validation
       </DiscussionEyebrow>
-      <p className="text-[17.5px] leading-relaxed text-slate-200">
+      <p className="text-[16.5px] leading-relaxed text-slate-200">
         Testing should use platform-owned infrastructure.
       </p>
-      <p className="text-[17px] leading-relaxed text-slate-300">
+      <p className="text-[16px] leading-relaxed text-slate-300">
         Users should be able to:
       </p>
       <ul className="space-y-2">
@@ -4080,7 +3315,7 @@ const ResourceDirectionPane = () => (
         <DiscussionBullet>Confirm behaviour.</DiscussionBullet>
         <DiscussionBullet>Understand what happened.</DiscussionBullet>
       </ul>
-      <p className="text-[17px] italic leading-relaxed text-slate-200">
+      <p className="text-[16px] italic leading-relaxed text-slate-200">
         Without first creating or connecting their own app.
       </p>
     </section>
@@ -4088,7 +3323,7 @@ const ResourceDirectionPane = () => (
     {/* Use user-owned apps for integration */}
     <section className="space-y-4 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.04] p-6 sm:p-7">
       <DiscussionEyebrow>Use user-owned apps for integration</DiscussionEyebrow>
-      <p className="text-[17.5px] leading-relaxed text-slate-200">
+      <p className="text-[16.5px] leading-relaxed text-slate-200">
         When users move toward integration:
       </p>
       <ul className="space-y-2">
@@ -4102,11 +3337,11 @@ const ResourceDirectionPane = () => (
     {/* Design principle */}
     <section className="rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-cyan-500/5 to-transparent p-6 sm:p-8">
       <DiscussionEyebrow color="cyan">Design principle</DiscussionEyebrow>
-      <p className="mt-3 text-[20px] leading-snug text-slate-100 sm:text-[22px]">
+      <p className="mt-3 text-[19px] leading-snug text-slate-100 sm:text-[19px]">
         Users should not be required to create or connect an app before they
         understand why it exists.
       </p>
-      <p className="mt-3 text-[17px] leading-relaxed text-slate-300">
+      <p className="mt-3 text-[16px] leading-relaxed text-slate-300">
         But when they move into integration, they should remain in control of
         it.
       </p>
@@ -4144,10 +3379,10 @@ const ResourceDirectionPane = () => (
             key={i}
             className="flex items-start gap-4 rounded-xl border border-amber-500/20 bg-amber-500/[0.03] px-5 py-4"
           >
-            <span className="font-serif text-[20px] tabular-nums text-amber-300">
+            <span className="font-serif text-[19px] tabular-nums text-amber-300">
               {i + 1}
             </span>
-            <span className="text-[17px] leading-relaxed text-slate-200">
+            <span className="text-[16px] leading-relaxed text-slate-200">
               {q}
             </span>
           </li>
@@ -4158,17 +3393,17 @@ const ResourceDirectionPane = () => (
     {/* Key takeaway */}
     <section className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-6 sm:p-8">
       <DiscussionEyebrow>Key takeaway</DiscussionEyebrow>
-      <p className="mt-3 text-[22px] leading-snug text-slate-100 sm:text-[26px]">
+      <p className="mt-3 text-[20px] leading-snug text-slate-100 sm:text-[22px]">
         The goal is not to remove the app.
       </p>
-      <p className="mt-1 text-[22px] font-semibold leading-snug text-slate-50 sm:text-[26px]">
+      <p className="mt-1 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[22px]">
         The goal is to introduce it when it becomes meaningful.
       </p>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-4 py-3 text-[16px] font-medium leading-relaxed text-emerald-100">
+        <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-4 py-3 text-[15px] font-medium leading-relaxed text-emerald-100">
           Use managed infrastructure for validation.
         </p>
-        <p className="rounded-lg border border-indigo-500/25 bg-indigo-500/[0.06] px-4 py-3 text-[16px] font-medium leading-relaxed text-indigo-100">
+        <p className="rounded-lg border border-indigo-500/25 bg-indigo-500/[0.06] px-4 py-3 text-[15px] font-medium leading-relaxed text-indigo-100">
           Use user-owned resources for integration.
         </p>
       </div>
@@ -4182,39 +3417,6 @@ const ResourceDirectionPane = () => (
  * between the Journey and Principles sections so the content is visible
  * directly on the page in addition to the dialog launched from Step 5.
  */
-const ResourceCreationSection = () => (
-  <section className="relative overflow-hidden border-b border-slate-800/60 bg-slate-950">
-    <GlowOrb
-      color="violet"
-      size="lg"
-      className="left-[-10%] top-[20%]"
-      delay
-    />
-    <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
-      <SectionReveal>
-        <SectionHeader
-          number="03"
-          eyebrow="Discussion · Linked from Step 5"
-          title="Resource creation: timing and ownership"
-          intro={[
-            "A focused discussion on what blocks users from validating their setup, and how Conversation API app creation should support that journey.",
-            "Shown in full on the page so the team can read straight through. The same content is also available as a dialog from Step 5 of the Journey.",
-          ]}
-        />
-      </SectionReveal>
-      <div className="mx-auto w-full max-w-5xl space-y-16">
-        <ResourceOverviewPane />
-        <div className="border-t border-slate-800/60" aria-hidden="true" />
-        <ResourceAutoPane />
-        <div className="border-t border-slate-800/60" aria-hidden="true" />
-        <ResourceOptionsPane />
-        <div className="border-t border-slate-800/60" aria-hidden="true" />
-        <ResourceDirectionPane />
-      </div>
-    </div>
-  </section>
-);
-
 const ResourceCreationDialog = ({
   open,
   onClose,
@@ -4287,10 +3489,10 @@ const ResourceCreationDialog = ({
                   className="h-9 w-px shrink-0 bg-slate-800"
                 />
                 <div className="min-w-0">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-violet-300">
                     Discussion · Linked from Step 5
                   </p>
-                  <h2 className="mt-0.5 truncate text-lg font-semibold text-slate-50 sm:text-xl">
+                  <h2 className="mt-0.5 truncate text-base font-semibold text-slate-50 sm:text-base">
                     Resource creation: timing and ownership
                   </h2>
                 </div>
@@ -4307,7 +3509,7 @@ const ResourceCreationDialog = ({
                       type="button"
                       onClick={() => setActiveTab(t.id)}
                       aria-current={isActive ? "page" : undefined}
-                      className={`relative shrink-0 px-4 py-3 text-[14px] font-medium transition ${
+                      className={`relative shrink-0 px-4 py-3 text-[13px] font-medium transition ${
                         isActive
                           ? "text-slate-50"
                           : "text-slate-400 hover:text-slate-200"
@@ -4397,7 +3599,7 @@ const ResourceCreationDialog = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5 text-[14px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
+                  className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5 text-[13px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Back to Step 5
@@ -4432,7 +3634,7 @@ const Hero = () => (
       delay
     />
 
-    <div className="relative mx-auto max-w-7xl px-6 pb-28 pt-24 sm:pt-36">
+    <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-24 sm:pt-36">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -4440,7 +3642,7 @@ const Hero = () => (
       >
         <motion.p
           variants={fadeInUp}
-          className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-[13.5px] font-medium tracking-[0.14em] text-slate-300 backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-[12.5px] font-medium tracking-[0.14em] text-slate-300 backdrop-blur"
         >
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.8)]" />
           RESEARCH FINDINGS · 2026
@@ -4448,7 +3650,7 @@ const Hero = () => (
 
         <motion.h1
           variants={fadeInUp}
-          className="mt-8 max-w-5xl text-[44px] font-semibold tracking-tight leading-[1.04] text-slate-50 sm:text-6xl sm:leading-[1.02] md:text-[72px]"
+          className="mt-8 max-w-5xl text-[40px] font-semibold tracking-tight leading-[1.04] text-slate-50 sm:text-6xl sm:leading-[1.02] md:text-[64px]"
         >
           Messaging Onboarding
           <span className="block bg-gradient-to-r from-indigo-200 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -4458,7 +3660,7 @@ const Hero = () => (
 
         <motion.div
           variants={fadeInUp}
-          className="mt-8 max-w-3xl space-y-4 text-lg leading-relaxed text-slate-400 sm:text-xl"
+          className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-slate-400 sm:text-base"
         >
           {HERO.supporting.map((p, i) => (
             <p key={i}>{p}</p>
@@ -4483,10 +3685,10 @@ const Hero = () => (
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-indigo-500/0 to-indigo-500/0 opacity-0 transition group-hover:from-indigo-500/10 group-hover:opacity-100"
               />
-              <dt className="relative text-[13.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              <dt className="relative text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                 {s.label}
               </dt>
-              <dd className="relative mt-2 text-xl font-semibold tracking-tight text-slate-50">
+              <dd className="relative mt-2 text-base font-semibold tracking-tight text-slate-50">
                 {s.value}
               </dd>
             </motion.div>
@@ -4505,30 +3707,29 @@ const ExecutiveSummary = () => (
       className="right-[-15%] top-[20%]"
       delay
     />
-    <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
+    <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24 lg:py-28">
       <SectionReveal>
         <SectionHeader
           number="01"
           eyebrow="Executive summary"
           title="What the research shows, in seven lines."
-          intro="Read top to bottom. The rest of this report is evidence, comparison, and the product decision that follows from these seven findings."
         />
       </SectionReveal>
       <StaggerGroup className="divide-y divide-slate-800 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm">
         {EXEC_SUMMARY.map((t, i) => (
           <StaggerItem key={i}>
             <div className="group flex items-start gap-6 px-6 py-6 transition-colors hover:bg-slate-800/30 sm:px-8">
-              <span className="mt-1 font-serif text-2xl font-light tabular-nums text-indigo-400 transition group-hover:text-indigo-300">
+              <span className="mt-1 font-serif text-base font-light tabular-nums text-indigo-400 transition group-hover:text-indigo-300">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="space-y-2">
-                <p className="text-lg font-semibold text-slate-50">
+                <p className="text-base font-semibold text-slate-50">
                   {t.headline}
                 </p>
                 {t.body.map((p, pi) => (
                   <p
                     key={pi}
-                    className="text-[16.5px] leading-relaxed text-slate-400"
+                    className="text-[15.5px] leading-relaxed text-slate-400"
                   >
                     {p}
                   </p>
@@ -4538,7 +3739,7 @@ const ExecutiveSummary = () => (
                     {t.bullets.map((b, bi) => (
                       <li
                         key={bi}
-                        className="flex items-start gap-2.5 text-[16.5px] leading-relaxed text-slate-300"
+                        className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-slate-300"
                       >
                         <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
                         <span>{b}</span>
@@ -4560,11 +3761,18 @@ const ExecutiveSummary = () => (
 // All quotes visible as short preview cards. Hovering any one expands that
 // card's text to the full quote in place. Only one expanded at a time; the
 // short and long versions never show together.
-// Single quote row: short excerpt is always visible. On hover, an absolute
-// popover appears below the card with the full quote and its title. Because
-// the popover lives inside the same wrapper, moving the mouse from card to
-// popover keeps it open.
-const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
+// Reusable wrapper that adds the hover/focus -> portal popover behaviour
+// around any inline trigger (a card, a blockquote, etc.). The popover lives
+// in a portal on document.body so it escapes any `overflow-hidden` ancestor
+// (collapsibles, dialogs). It anchors to the trigger and prefers placement
+// above; flips below if the trigger is too close to the viewport top.
+const JourneyQuoteHover = ({
+  q,
+  children,
+}: {
+  q: JourneyQuote;
+  children: ReactNode;
+}) => {
   const [open, setOpen] = useState(false);
   const hasLong = !!q.long;
   const activate = () => hasLong && setOpen(true);
@@ -4578,10 +3786,6 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
     placeAbove: boolean;
   } | null>(null);
 
-  // Measure the trigger's window-relative position so the portal-rendered
-  // popover can sit directly above it (preferred), escaping any
-  // `overflow-hidden` ancestors. If there isn't enough room above the trigger
-  // in the viewport, flip the popover below the trigger instead.
   useLayoutEffect(() => {
     if (!open || !wrapperRef.current) {
       setPopoverRect(null);
@@ -4590,8 +3794,6 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
     const update = () => {
       if (!wrapperRef.current) return;
       const r = wrapperRef.current.getBoundingClientRect();
-      // Heuristic: prefer above. Flip below only if the space above the
-      // trigger (in the viewport) is clearly insufficient for a popover.
       const ESTIMATED_HEIGHT = 220;
       const placeAbove = r.top >= ESTIMATED_HEIGHT;
       setPopoverRect({
@@ -4619,46 +3821,10 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
       onMouseLeave={deactivate}
       onFocus={activate}
       onBlur={deactivate}
+      tabIndex={hasLong ? 0 : undefined}
+      aria-expanded={hasLong ? open : undefined}
     >
-      <article
-        tabIndex={hasLong ? 0 : undefined}
-        aria-expanded={hasLong ? open : undefined}
-        className={`rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3.5 outline-none ${
-          hasLong ? "cursor-default" : ""
-        }`}
-      >
-        <div className="flex items-center gap-2">
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md bg-indigo-500/15 text-indigo-300 ring-1 ring-indigo-500/30">
-            <QuoteIcon className="h-3 w-3" />
-          </span>
-          <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-            Research quote
-          </p>
-          {q.participant && (
-            <>
-              <span className="text-slate-700">·</span>
-              <p className="text-[13px] font-medium text-slate-300">
-                {q.participant}
-                {q.persona ? (
-                  <span className="text-slate-500"> · {q.persona}</span>
-                ) : null}
-              </p>
-              {(() => {
-                const aud = audienceForParticipant(q.participant);
-                return aud ? <AudienceTag audience={aud} /> : null;
-              })()}
-            </>
-          )}
-        </div>
-        <p className="mt-2.5 text-[16px] font-medium leading-relaxed text-slate-100">
-          &ldquo;{q.short}&rdquo;
-        </p>
-      </article>
-
-      {/* Popover lives in a portal on document.body so it can escape any
-          ancestor `overflow-hidden` (collapsible section wrappers, etc.).
-          Positioned absolutely at the trigger's measured rect, then translated
-          up by 100% of its own height to sit above the card. */}
+      {children}
       {typeof document !== "undefined" &&
         createPortal(
           <AnimatePresence>
@@ -4672,12 +3838,10 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
                 style={{
                   position: "absolute",
                   left: popoverRect.left,
-                  // Anchor at the trigger's top (above) or bottom (below).
                   top: popoverRect.placeAbove
                     ? popoverRect.top
                     : popoverRect.bottom,
                   width: popoverRect.width,
-                  // Translate up by 100% + 8px when above, or just 8px gap below.
                   transform: popoverRect.placeAbove
                     ? "translateY(calc(-100% - 8px))"
                     : "translateY(8px)",
@@ -4687,11 +3851,11 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
                 }`}
               >
                 {q.title && (
-                  <p className="text-[17px] font-semibold leading-snug text-slate-50">
+                  <p className="text-[16px] font-semibold leading-snug text-slate-50">
                     {q.title}
                   </p>
                 )}
-                <p className="mt-2 text-[17px] italic leading-relaxed text-slate-300">
+                <p className="mt-2 text-[16px] italic leading-relaxed text-slate-300">
                   &ldquo;{q.long}&rdquo;
                 </p>
                 {(q.participant || q.persona) && (
@@ -4701,22 +3865,20 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
                         ? q.participant.replace(/^P/i, "")
                         : "·"}
                     </span>
-                    <span className="text-[13px] font-medium text-slate-300">
+                    <span className="text-[12.5px] font-medium text-slate-300">
                       {q.participant ?? "Participant"}
                     </span>
                     {q.persona && (
                       <>
                         <span className="text-slate-600">·</span>
-                        <span className="text-[13px] text-slate-400">
+                        <span className="text-[12.5px] text-slate-400">
                           {q.persona}
                         </span>
                       </>
                     )}
                     {(() => {
                       const aud = audienceForParticipant(q.participant);
-                      return aud ? (
-                        <AudienceTag audience={aud} />
-                      ) : null;
+                      return aud ? <AudienceTag audience={aud} /> : null;
                     })()}
                   </div>
                 )}
@@ -4729,19 +3891,9 @@ const JourneyQuoteCard = ({ q }: { q: JourneyQuote }) => {
   );
 };
 
-const JourneyQuotes = ({ quotes }: { quotes: JourneyQuote[] }) => (
-  <JourneyCollapsibleSection
-    title="Why this step matters"
-    titleColorClass="text-slate-400"
-    className="mt-6 border-t border-slate-800/60 pt-5"
-  >
-    <div className="space-y-2.5">
-      {quotes.map((q, i) => (
-        <JourneyQuoteCard key={i} q={q} />
-      ))}
-    </div>
-  </JourneyCollapsibleSection>
-);
+// Original card-style quote row used by `whyGroups` and `JourneyQuotes`.
+// On hover, the same popover from `JourneyQuoteHover` reveals `q.long`.
+
 
 // --- Mock/wireframe illustrations for selected journey steps ---------------
 
@@ -4751,12 +3903,12 @@ const JourneyQuotes = ({ quotes }: { quotes: JourneyQuote[] }) => (
 const SendMessageMock = () => (
   <div className="mx-auto mb-5 max-w-md overflow-hidden rounded-xl border border-dashed border-slate-700 bg-slate-950/70 p-4 sm:p-5">
     {/* Template selector */}
-    <p className="text-[12.5px] font-medium text-slate-400">
+    <p className="text-[12px] font-medium text-slate-400">
       Message template
     </p>
     <div className="mt-1.5 inline-flex items-center gap-2.5 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2">
       <span className="h-5 w-5 rounded-sm bg-gradient-to-br from-indigo-400/50 to-violet-500/50 ring-1 ring-slate-700" />
-      <span className="text-[14.5px] font-medium text-slate-100">
+      <span className="text-[13.5px] font-medium text-slate-100">
         Text message
       </span>
       <ChevronDown className="h-4 w-4 text-slate-400" />
@@ -4764,9 +3916,9 @@ const SendMessageMock = () => (
 
     {/* Message field */}
     <div className="mt-4">
-      <p className="text-[12.5px] font-medium text-slate-400">Message</p>
+      <p className="text-[12px] font-medium text-slate-400">Message</p>
       <div className="mt-1.5 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2.5">
-        <p className="text-[14.5px] text-slate-100">
+        <p className="text-[13.5px] text-slate-100">
           Check out our latest collection
         </p>
       </div>
@@ -4776,7 +3928,7 @@ const SendMessageMock = () => (
     <button
       type="button"
       disabled
-      className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-[13.5px] font-medium text-slate-200"
+      className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-[12.5px] font-medium text-slate-200"
     >
       Send test message
       <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
@@ -4840,7 +3992,7 @@ const AnalyticsRowMock = () => {
               ))}
             </div>
             <span
-              className={`shrink-0 font-mono text-[12px] uppercase tracking-[0.12em] ${labelColor}`}
+              className={`shrink-0 font-mono text-[11.5px] uppercase tracking-[0.12em] ${labelColor}`}
             >
               {r.label}
             </span>
@@ -4859,17 +4011,17 @@ const ApiPlaygroundMock = () => (
     {/* Tab strip */}
     <div className="flex items-center justify-between border-b border-slate-800 px-3 py-2">
       <div className="flex items-center gap-1">
-        <span className="rounded-md bg-slate-800 px-2.5 py-1 text-[12.5px] font-medium text-slate-100">
+        <span className="rounded-md bg-slate-800 px-2.5 py-1 text-[12px] font-medium text-slate-100">
           cURL
         </span>
-        <span className="px-2.5 py-1 text-[12.5px] font-medium text-slate-500">
+        <span className="px-2.5 py-1 text-[12px] font-medium text-slate-500">
           Node.js
         </span>
-        <span className="px-2.5 py-1 text-[12.5px] font-medium text-slate-500">
+        <span className="px-2.5 py-1 text-[12px] font-medium text-slate-500">
           Python
         </span>
       </div>
-      <div className="flex items-center gap-3 text-[12px] text-slate-500">
+      <div className="flex items-center gap-3 text-[11.5px] text-slate-500">
         <span>Copy</span>
         <span>Edit</span>
       </div>
@@ -4877,7 +4029,7 @@ const ApiPlaygroundMock = () => (
 
     {/* Code body with bottom fade */}
     <div className="relative">
-      <pre className="overflow-x-auto whitespace-pre px-4 py-2.5 font-mono text-[12.5px] leading-relaxed text-slate-300">
+      <pre className="overflow-x-auto whitespace-pre px-4 py-2.5 font-mono text-[12px] leading-relaxed text-slate-300">
         <span>curl -X POST </span>
         <span className="text-emerald-300">
           &quot;https://api.sinch.com/conversations/v1/projects/
@@ -4918,7 +4070,7 @@ const ApiPlaygroundMock = () => (
 
     {/* Footer */}
     <div className="flex items-center justify-end gap-3 border-t border-slate-800 px-3 py-2.5">
-      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-[12.5px] font-medium text-slate-200">
+      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-[12px] font-medium text-slate-200">
         <span className="text-slate-500">▷</span>
         Run request
       </span>
@@ -4953,24 +4105,24 @@ const DeliveredMessageMock = () => (
       {/* Bubble */}
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-1.5">
-          <p className="text-[13.5px] font-semibold text-slate-100">Lumen</p>
+          <p className="text-[12.5px] font-semibold text-slate-100">Lumen</p>
         </div>
 
         {/* Rich card — text + buttons only */}
         <div className="mt-1.5 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
           <div className="px-3 py-2.5">
-            <p className="text-[13.5px] font-semibold text-slate-50">
+            <p className="text-[12.5px] font-semibold text-slate-50">
               Your order is on the way
             </p>
-            <p className="mt-0.5 text-[12.5px] leading-snug text-slate-400">
+            <p className="mt-0.5 text-[12px] leading-snug text-slate-400">
               Track your delivery and update your preferences from the link
               below.
             </p>
             <div className="mt-2.5 flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 rounded-md border border-indigo-400/40 bg-indigo-500/10 px-2 py-1 text-[12px] font-medium text-indigo-200">
+              <span className="inline-flex items-center gap-1 rounded-md border border-indigo-400/40 bg-indigo-500/10 px-2 py-1 text-[11.5px] font-medium text-indigo-200">
                 Track order
               </span>
-              <span className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[12px] font-medium text-slate-300">
+              <span className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[11.5px] font-medium text-slate-300">
                 Manage preferences
               </span>
             </div>
@@ -4978,7 +4130,7 @@ const DeliveredMessageMock = () => (
         </div>
 
         {/* Delivery metadata */}
-        <div className="mt-2 flex items-center gap-1.5 text-[11.5px] text-slate-500">
+        <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-500">
           <span>2:14 PM</span>
           <span className="text-slate-700">·</span>
           <span className="inline-flex items-center gap-1 text-emerald-400">
@@ -5009,12 +4161,20 @@ const StepIllustration = ({ kind }: { kind: JourneyIllustration }) => {
 const JourneyCollapsibleSection = ({
   title,
   titleColorClass,
+  titleIcon,
+  alwaysVisible,
   defaultOpen = true,
   className = "mt-8 border-t border-slate-800/60 pt-6",
   children,
 }: {
   title: string;
   titleColorClass: string;
+  /** Optional icon shown to the left of the title (e.g. ★ for "Why this step matters"). */
+  titleIcon?: ReactNode;
+  /** Optional content rendered between the toggle and the collapsible body —
+   *  stays visible whether the section is open or collapsed. Useful for a
+   *  short summary the team should always see. */
+  alwaysVisible?: ReactNode;
   defaultOpen?: boolean;
   className?: string;
   children: ReactNode;
@@ -5026,15 +4186,19 @@ const JourneyCollapsibleSection = ({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className={`group mb-4 flex w-full items-center justify-between gap-3 text-[14px] font-semibold uppercase tracking-[0.16em] ${titleColorClass} transition hover:opacity-80`}
+        className={`group mb-4 flex w-full items-center justify-between gap-3 text-[13px] font-semibold uppercase tracking-[0.16em] ${titleColorClass} transition hover:opacity-80`}
       >
-        <span>{title}</span>
+        <span className="flex items-center gap-2">
+          {titleIcon}
+          {title}
+        </span>
         <ChevronDown
           className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
             open ? "rotate-0" : "-rotate-90"
           }`}
         />
       </button>
+      {alwaysVisible}
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
@@ -5053,38 +4217,254 @@ const JourneyCollapsibleSection = ({
   );
 };
 
+// "Why this step matters" — bespoke collapsible used only by journey steps.
+// Layout differs from the chevron-toggled `JourneyCollapsibleSection`:
+// * Eyebrow + Sparkles, no chevron
+// * Headline and lead always visible
+// * Insights + closing always rendered, but faded behind a gradient mask
+//   when collapsed so the team can see there is more content available
+// * "Learn more" / "Show less" button toggles full-opacity reveal
+const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
+  const [open, setOpen] = useState(false);
+  if (!step.whyInsights || step.whyInsights.length === 0) return null;
+  return (
+    <div className="mt-8 border-t border-slate-800/60 pt-6">
+      <p className="mb-4 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+        <Sparkles className="h-3.5 w-3.5 text-violet-300" strokeWidth={2.25} />
+        Why this step matters
+      </p>
+
+      {(step.whyHeadline || step.whyLead) && (
+        <div className="space-y-3">
+          {step.whyHeadline && (
+            <h5 className="text-[19px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[22px]">
+              {step.whyHeadline}
+            </h5>
+          )}
+          {step.whyLead && (
+            <p className="text-[15.5px] leading-relaxed text-slate-300 sm:text-[16.5px]">
+              {step.whyLead}
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* Body — full content always rendered. When collapsed, height is
+          clamped and a fade mask + reduced opacity make it look like a
+          preview. When expanded, mask + clamp lift and content is full. */}
+      <motion.div
+        animate={{
+          maxHeight: open ? 4000 : 180,
+          opacity: open ? 1 : 0.4,
+        }}
+        initial={false}
+        transition={{ duration: 0.35, ease: PREMIUM_EASE }}
+        className="relative mt-6 overflow-hidden"
+        style={{
+          maskImage: open
+            ? "none"
+            : "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+          WebkitMaskImage: open
+            ? "none"
+            : "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+        }}
+        aria-hidden={!open}
+      >
+        <ol className="divide-y divide-slate-800/70 border-y border-slate-800/70">
+          {step.whyInsights.map((ins, ii) => (
+            <li
+              key={ii}
+              className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-5 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5"
+            >
+              <span className="pt-0.5 font-mono text-[12.5px] tabular-nums text-slate-500 sm:text-[13px]">
+                {String(ii + 1).padStart(2, "0")}
+              </span>
+              <div className="min-w-0">
+                <p className="text-[16px] font-semibold text-slate-50 sm:text-[17px]">
+                  {ins.title}
+                </p>
+                <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-300 sm:text-[15.5px]">
+                  {ins.description}
+                </p>
+                {ins.quoteIndices && ins.quoteIndices.length > 0 && (
+                  <div className="mt-3 space-y-2.5">
+                    {ins.quoteIndices.map((qi) => {
+                      const q = step.whyQuotes[qi];
+                      if (!q) return null;
+                      return (
+                        <JourneyQuoteHover key={qi} q={q}>
+                          <blockquote
+                            className={`border-l-2 border-slate-700 pl-3.5 transition-colors ${
+                              q.long
+                                ? "cursor-default hover:border-indigo-400/70"
+                                : ""
+                            }`}
+                          >
+                            <p className="text-[14.5px] italic leading-relaxed text-slate-300 sm:text-[15.5px]">
+                              “{q.short.replace(/^[“"]|[”"]$/g, "")}”
+                              {q.participant && (
+                                <>
+                                  {" "}
+                                  <span className="not-italic text-slate-500">
+                                    —
+                                  </span>{" "}
+                                  <span className="not-italic font-mono text-[13px] text-slate-400">
+                                    {q.participant}
+                                  </span>
+                                </>
+                              )}
+                            </p>
+                          </blockquote>
+                        </JourneyQuoteHover>
+                      );
+                    })}
+                  </div>
+                )}
+                {ins.bullets && ins.bullets.length > 0 && (
+                  <ul className="mt-3 space-y-1.5 pl-1">
+                    {ins.bullets.map((b, bi) => (
+                      <li
+                        key={bi}
+                        className="flex items-baseline gap-2 text-[14.5px] leading-relaxed text-slate-300 sm:text-[15.5px]"
+                      >
+                        <span aria-hidden="true" className="text-slate-500">
+                          ·
+                        </span>
+                        <span>
+                          <span className="text-slate-200">{b.text}</span>
+                          {b.meta && (
+                            <span className="text-slate-500"> {b.meta}</span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+        {step.whyClosing && (
+          <div className="mt-6 flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/50 px-4 py-3.5 sm:px-5 sm:py-4">
+            <Info
+              className="mt-0.5 h-4 w-4 shrink-0 text-slate-500"
+              strokeWidth={2}
+            />
+            <p className="text-[14.5px] leading-relaxed text-slate-300 sm:text-[15.5px]">
+              {step.whyClosing}
+            </p>
+          </div>
+        )}
+      </motion.div>
+
+      {/* Toggle — replaces the previous chevron */}
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="group mt-4 inline-flex items-center gap-1.5 rounded-md border border-slate-800 bg-slate-950/60 px-3 py-1.5 text-[12.5px] font-semibold tracking-[0.04em] text-slate-200 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-100"
+      >
+        {open ? "Show less" : "Learn more"}
+        <ChevronDown
+          className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
+        />
+      </button>
+    </div>
+  );
+};
+
 const JourneyStepCard = ({
   step,
   isActive,
   onOpenDiscussion,
+  isFirstTheme,
+  themeLabel,
 }: {
   step: JourneyStep;
   isActive: boolean;
   onOpenDiscussion?: () => void;
-}) => (
+  isFirstTheme: boolean;
+  themeLabel: string;
+}) => {
+  const themeNumber = isFirstTheme ? 1 : 2;
+  const themeChipText = isFirstTheme ? "text-indigo-300" : "text-violet-300";
+  const themeDot = isFirstTheme ? "bg-indigo-400" : "bg-violet-400";
+  const stepBadgeBg = isFirstTheme
+    ? "border-indigo-500/40 bg-indigo-500/10 text-indigo-200"
+    : "border-violet-500/40 bg-violet-500/10 text-violet-200";
+  // Strip the leading "Theme N · " from the label so we can render the parts
+  // separately and color them deliberately.
+  const themeLabelTitle = themeLabel.replace(/^Theme\s+\d+\s*[·•]\s*/i, "");
+  return (
   <motion.article
     animate={{
       // Toned-down active state: subtle border tint, no large indigo shadow.
       borderColor: isActive
-        ? "rgba(99, 102, 241, 0.18)"
+        ? isFirstTheme
+          ? "rgba(99, 102, 241, 0.22)"
+          : "rgba(167, 139, 250, 0.22)"
         : "rgba(30, 41, 59, 1)",
       boxShadow: isActive
         ? "0 12px 32px -22px rgba(0,0,0,0.6)"
         : "0 8px 24px -22px rgba(0,0,0,0.55)",
     }}
     transition={{ duration: 0.5, ease: PREMIUM_EASE }}
-    className="rounded-2xl border bg-slate-900/70 p-7 backdrop-blur-sm sm:p-9"
+    className="rounded-2xl border bg-slate-900/70 p-5 backdrop-blur-sm sm:p-7 lg:p-9"
   >
     {step.illustration && <StepIllustration kind={step.illustration} />}
-    {step.tag && (
-      <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-cyan-500/25 bg-cyan-500/[0.06] px-2.5 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
-        <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400/80" />
-        {step.tag}
+
+    {/* Step header strip — surfaces step number, theme, and persona tag in
+        one compact row so the step's place in the larger journey is always
+        obvious without scanning the side rail. */}
+    <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 sm:mb-5">
+      <span
+        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${stepBadgeBg}`}
+      >
+        <span className={`h-1.5 w-1.5 rounded-full ${themeDot}`} />
+        Step {step.number}
       </span>
-    )}
-    <h4 className="text-[28px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[32px] lg:text-[34px]">
+      <span
+        className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${themeChipText}`}
+      >
+        Theme {themeNumber} · {themeLabelTitle}
+      </span>
+      {step.tag && (
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-cyan-500/25 bg-cyan-500/[0.06] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400/80" />
+          {step.tag}
+        </span>
+      )}
+    </div>
+
+    <h4 className="text-[20px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[26px] lg:text-[30px]">
       {step.title}
     </h4>
+
+    {/* Key action subtitle — turns the abstract heading into a concrete verb
+        so the user immediately sees what they would actually do here. */}
+    {step.keyAction && (
+      <div
+        className={`mt-4 inline-flex items-center gap-2.5 rounded-lg border bg-slate-950/60 px-3.5 py-2 text-[13px] sm:text-[12.5px] ${
+          isFirstTheme
+            ? "border-indigo-500/25"
+            : "border-violet-500/25"
+        }`}
+      >
+        <span
+          className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${
+            isFirstTheme ? "text-indigo-300" : "text-violet-300"
+          }`}
+        >
+          Key action
+        </span>
+        <span aria-hidden="true" className="text-slate-600">
+          ›
+        </span>
+        <span className="font-medium text-slate-100">{step.keyAction}</span>
+      </div>
+    )}
 
     {/* Discussion trigger — surfaced prominently on Step 5 (s6) and pinned
         to the top of the viewport while the user scrolls through the step. */}
@@ -5092,20 +4472,20 @@ const JourneyStepCard = ({
       <button
         type="button"
         onClick={onOpenDiscussion}
-        className="group sticky top-[60px] z-20 mt-5 flex w-full items-start gap-4 rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/20 via-indigo-500/15 to-cyan-500/10 p-5 text-left backdrop-blur-md transition hover:border-violet-400/60 hover:from-violet-500/25 hover:via-indigo-500/20 sm:p-6 lg:top-2"
+        className="group sticky top-[58px] z-20 mt-5 flex w-full items-start gap-3 rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/20 via-indigo-500/15 to-cyan-500/10 p-3.5 text-left backdrop-blur-md transition hover:border-violet-400/60 hover:from-violet-500/25 hover:via-indigo-500/20 sm:gap-4 sm:p-5 lg:top-2 lg:p-6"
       >
-        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-500/25 text-violet-200 ring-1 ring-violet-400/40">
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-violet-500/25 text-violet-200 ring-1 ring-violet-400/40 sm:h-10 sm:w-10">
           <ExternalLink className="h-4 w-4" />
         </span>
         <div className="flex-1 min-w-0">
-          <p className="text-[19px] font-semibold leading-snug text-slate-50 sm:text-[21px]">
+          <p className="text-[14.5px] font-semibold leading-snug text-slate-50 sm:text-[17px] lg:text-[18px]">
             Resource creation: timing and ownership
           </p>
-          <p className="mt-1.5 text-[15px] leading-relaxed text-slate-300">
+          <p className="mt-1.5 hidden text-[14px] leading-relaxed text-slate-300 sm:block">
             Why this step exists, the auto-create-vs-explicit-setup tradeoff,
             and the design principle the rest of the journey follows.
           </p>
-          <p className="mt-3 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-violet-200 transition group-hover:text-violet-100">
+          <p className="mt-1.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-violet-200 transition group-hover:text-violet-100 sm:mt-3 sm:text-[12px]">
             Open the discussion
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </p>
@@ -5114,35 +4494,60 @@ const JourneyStepCard = ({
     )}
 
     {step.description.length > 0 && (
-      <ul className="mt-5 space-y-2.5">
-        {step.description.map((d, i) => {
-          const isString = typeof d === "string";
-          const text = isString ? d : d.text;
-          const kind = isString ? "string" : d.kind;
-          return (
-            <li key={i} className="flex items-start gap-3">
-              {kind === "check" ? (
-                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/30">
-                  <Check className="h-3 w-3" strokeWidth={3} />
+      <section
+        className="relative mt-6 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/40 p-5 sm:p-6"
+        aria-label="What happens in this step"
+      >
+        {/* Subtle accent stripe on the left edge — color-codes the snapshot
+            to the step's theme without shouting. */}
+        <span
+          aria-hidden="true"
+          className={`absolute inset-y-0 left-0 w-0.5 ${
+            isFirstTheme
+              ? "bg-gradient-to-b from-indigo-400/70 via-indigo-500/40 to-transparent"
+              : "bg-gradient-to-b from-violet-400/70 via-violet-500/40 to-transparent"
+          }`}
+        />
+        <div className="flex items-center gap-2">
+          <span
+            className={`h-1.5 w-1.5 rounded-full ${
+              isFirstTheme ? "bg-indigo-400" : "bg-violet-400"
+            }`}
+          />
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+            What happens in this step
+          </p>
+        </div>
+        <ul className="mt-3.5 space-y-2.5">
+          {step.description.map((d, i) => {
+            const isString = typeof d === "string";
+            const text = isString ? d : d.text;
+            const kind = isString ? "string" : d.kind;
+            return (
+              <li key={i} className="flex items-start gap-3">
+                {kind === "check" ? (
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/30">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                ) : kind === "cross" ? (
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-slate-800 text-slate-500 ring-1 ring-slate-700">
+                    <X className="h-3 w-3" strokeWidth={3} />
+                  </span>
+                ) : (
+                  <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500" />
+                )}
+                <span
+                  className={`text-[15px] leading-relaxed sm:text-[16px] ${
+                    kind === "cross" ? "text-slate-400" : "text-slate-200"
+                  }`}
+                >
+                  {text}
                 </span>
-              ) : kind === "cross" ? (
-                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-slate-800 text-slate-500 ring-1 ring-slate-700">
-                  <X className="h-3 w-3" strokeWidth={3} />
-                </span>
-              ) : (
-                <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500" />
-              )}
-              <span
-                className={`text-[18px] leading-relaxed ${
-                  kind === "cross" ? "text-slate-400" : "text-slate-200"
-                }`}
-              >
-                {text}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     )}
 
     {step.paths && (
@@ -5152,10 +4557,10 @@ const JourneyStepCard = ({
             key={p.label}
             className="rounded-xl border border-slate-800 bg-slate-950/60 p-4"
           >
-            <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
+            <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
               {p.label}
             </p>
-            <p className="mt-1.5 text-[17.5px] leading-relaxed text-slate-300">
+            <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-300">
               {p.description}
             </p>
           </div>
@@ -5163,85 +4568,7 @@ const JourneyStepCard = ({
       </div>
     )}
 
-    {step.whyGroups ? (
-      <JourneyCollapsibleSection title="Why this step matters" titleColorClass="text-slate-400">
-        <div className="space-y-5">
-          {step.whyGroups.map((g, gi) => {
-            if (g.kind === "commentary") {
-              return (
-                <div
-                  key={gi}
-                  className="border-l-2 border-slate-700/80 pl-4"
-                >
-                  {g.title && (
-                    <p className="mb-1.5 text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
-                      {g.title}
-                    </p>
-                  )}
-                  <p className="text-[18px] italic leading-relaxed text-slate-200">
-                    {g.text}
-                  </p>
-                  {g.bullets && g.bullets.length > 0 && (
-                    <ul className="mt-3 space-y-1.5">
-                      {g.bullets.map((b, bi) => (
-                        <li
-                          key={bi}
-                          className="flex gap-2 text-[17px] leading-relaxed text-slate-300"
-                        >
-                          <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-slate-500" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {g.subItems && g.subItems.length > 0 && (
-                    <ul className="mt-3 space-y-1.5">
-                      {g.subItems.map((s, si) => (
-                        <li
-                          key={si}
-                          className="flex gap-2 text-[17px] leading-relaxed text-slate-300"
-                        >
-                          <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-slate-500" />
-                          <span>
-                            <span className="font-semibold text-slate-100">
-                              {s.label}
-                            </span>{" "}
-                            <span className="text-slate-300">{s.text}</span>
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {g.conclusion && (
-                    <p className="mt-3 text-[17.5px] italic leading-relaxed text-slate-200">
-                      {g.conclusion}
-                    </p>
-                  )}
-                </div>
-              );
-            }
-            return (
-              <div key={gi}>
-                <p className="text-[17.5px] leading-relaxed text-slate-300">
-                  {g.intro}
-                </p>
-                {g.quoteIndices.length > 0 && (
-                  <div className="mt-3 space-y-2.5">
-                    {g.quoteIndices.map((qi) => {
-                      const q = step.whyQuotes[qi];
-                      if (!q) return null;
-                      return <JourneyQuoteCard key={qi} q={q} />;
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </JourneyCollapsibleSection>
-    ) : (
-      <JourneyQuotes quotes={step.whyQuotes} />
-    )}
+    <JourneyWhyMatters step={step} />
 
     {step.valueProps && (
       <JourneyCollapsibleSection title="Value" titleColorClass="text-emerald-300">
@@ -5257,11 +4584,11 @@ const JourneyStepCard = ({
                   wide ? "sm:col-span-2" : ""
                 }`}
               >
-                <p className="text-[17px] font-semibold text-slate-50">
+                <p className="text-[16px] font-semibold text-slate-50">
                   {v.title}
                 </p>
                 {v.description && (
-                  <p className="mt-1 text-[16px] leading-relaxed text-slate-400">
+                  <p className="mt-1 text-[15px] leading-relaxed text-slate-400">
                     {v.description}
                   </p>
                 )}
@@ -5270,7 +4597,7 @@ const JourneyStepCard = ({
                     {v.bullets!.map((b, bi) => (
                       <li
                         key={bi}
-                        className="flex items-start gap-2 text-[16px] leading-relaxed text-slate-300"
+                        className="flex items-start gap-2 text-[15px] leading-relaxed text-slate-300"
                       >
                         <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
                         <span>{b}</span>
@@ -5287,11 +4614,11 @@ const JourneyStepCard = ({
                       >
                         <div className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
-                          <p className="text-[16px] font-semibold text-slate-100">
+                          <p className="text-[15px] font-semibold text-slate-100">
                             {s.label}
                           </p>
                         </div>
-                        <p className="mt-1 text-[16px] leading-relaxed text-slate-400">
+                        <p className="mt-1 text-[15px] leading-relaxed text-slate-400">
                           {s.text}
                         </p>
                       </div>
@@ -5299,7 +4626,7 @@ const JourneyStepCard = ({
                   </div>
                 )}
                 {v.conclusion && (
-                  <p className="mt-3 text-[16px] leading-relaxed text-slate-300">
+                  <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
                     {v.conclusion}
                   </p>
                 )}
@@ -5319,7 +4646,7 @@ const JourneyStepCard = ({
           {step.designPrinciples.items.map((p, pi) => (
             <li
               key={pi}
-              className="flex items-start gap-3 text-[17.5px] leading-relaxed text-slate-200"
+              className="flex items-start gap-3 text-[16.5px] leading-relaxed text-slate-200"
             >
               <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-indigo-500/15 text-indigo-300 ring-1 ring-indigo-500/30">
                 <Check className="h-3 w-3" strokeWidth={3} />
@@ -5330,10 +4657,10 @@ const JourneyStepCard = ({
         </ul>
         {step.designPrinciples.goal && (
           <div className="mt-4 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-4 py-3">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+            <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
               The goal
             </p>
-            <p className="mt-1 text-[18px] font-semibold leading-snug text-slate-50">
+            <p className="mt-1 text-[17px] font-semibold leading-snug text-slate-50">
               {step.designPrinciples.goal}
             </p>
           </div>
@@ -5352,11 +4679,11 @@ const JourneyStepCard = ({
               <div className="flex items-start gap-3">
                 <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                 <div className="flex-1">
-                  <p className="text-[17.5px] font-semibold leading-snug text-slate-100">
+                  <p className="text-[16.5px] font-semibold leading-snug text-slate-100">
                     {idea.text}
                   </p>
                   {idea.meta && (
-                    <p className="mt-0.5 text-[14.5px] italic leading-relaxed text-slate-400">
+                    <p className="mt-0.5 text-[13.5px] italic leading-relaxed text-slate-400">
                       {idea.meta}
                     </p>
                   )}
@@ -5367,7 +4694,7 @@ const JourneyStepCard = ({
                   {idea.bullets.map((b, bi) => (
                     <li
                       key={bi}
-                      className="flex items-start gap-2.5 text-[16px] leading-relaxed text-slate-300"
+                      className="flex items-start gap-2.5 text-[15px] leading-relaxed text-slate-300"
                     >
                       <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-cyan-400/60" />
                       <span>{b}</span>
@@ -5380,7 +4707,7 @@ const JourneyStepCard = ({
                   {idea.subItems.map((s, si) => (
                     <li
                       key={si}
-                      className="flex flex-wrap items-baseline gap-x-2 text-[16.5px] leading-relaxed"
+                      className="flex flex-wrap items-baseline gap-x-2 text-[15.5px] leading-relaxed"
                     >
                       <span className="font-semibold text-slate-100">
                         {s.label}
@@ -5404,7 +4731,7 @@ const JourneyStepCard = ({
         title="What happens next"
         titleColorClass="text-violet-300"
       >
-        <p className="mb-4 text-[17.5px] leading-relaxed text-slate-300">
+        <p className="mb-4 text-[16.5px] leading-relaxed text-slate-300">
           {step.nextSteps.intro}
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -5413,14 +4740,14 @@ const JourneyStepCard = ({
               key={pi}
               className="rounded-xl border border-violet-500/25 bg-violet-500/5 px-4 py-4"
             >
-              <p className="text-[13.5px] font-semibold uppercase tracking-[0.14em] text-violet-300">
+              <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-violet-300">
                 {p.label}
               </p>
               <ul className="mt-3 space-y-2">
                 {p.items.map((item, ii) => (
                   <li
                     key={ii}
-                    className="flex items-start gap-2.5 text-[16.5px] leading-relaxed text-slate-200"
+                    className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-slate-200"
                   >
                     <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.7)]" />
                     <span>{item}</span>
@@ -5435,10 +4762,10 @@ const JourneyStepCard = ({
 
     {step.keyInsight && (
       <div className="mt-8 rounded-xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-cyan-500/5 to-transparent p-5 sm:p-6">
-        <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-cyan-300">
+        <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-cyan-300">
           Key insight
         </p>
-        <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50 sm:text-[21px]">
+        <p className="mt-2 text-[18px] font-semibold leading-snug text-slate-50 sm:text-[18px]">
           {step.keyInsight.headline}
         </p>
         {step.keyInsight.bullets && step.keyInsight.bullets.length > 0 && (
@@ -5446,7 +4773,7 @@ const JourneyStepCard = ({
             {step.keyInsight.bullets.map((b, bi) => (
               <li
                 key={bi}
-                className="flex items-start gap-2.5 text-[17px] leading-relaxed text-slate-300"
+                className="flex items-start gap-2.5 text-[16px] leading-relaxed text-slate-300"
               >
                 <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-cyan-400" />
                 <span>{b}</span>
@@ -5459,31 +4786,34 @@ const JourneyStepCard = ({
 
     {step.keyTakeaway && (
       <div className="mt-8 rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-5 sm:p-6">
-        <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+        <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
           Key takeaway
         </p>
-        <p className="mt-2 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[22px]">
+        <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50 sm:text-[19px]">
           {step.keyTakeaway.headline}
         </p>
         {step.keyTakeaway.subtext && (
-          <p className="mt-3 text-[17px] italic leading-relaxed text-slate-300">
+          <p className="mt-3 text-[16px] italic leading-relaxed text-slate-300">
             {step.keyTakeaway.subtext}
           </p>
         )}
       </div>
     )}
   </motion.article>
-);
+  );
+};
 
 // Parent-level row: owns the step's useInView observer and passes the active
 // state to both the rail dot and the step card, keeping them in sync.
 const JourneyStepRow = ({
   step,
   isFirstTheme,
+  themeLabel,
   onOpenDiscussion,
 }: {
   step: JourneyStep;
   isFirstTheme: boolean;
+  themeLabel: string;
   onOpenDiscussion?: () => void;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
@@ -5508,7 +4838,7 @@ const JourneyStepRow = ({
         opacity: isActive ? 1 : 0.7,
       }}
       transition={{ duration: 0.5, ease: PREMIUM_EASE }}
-      className="relative pl-14"
+      className="relative pl-10 sm:pl-14"
     >
       <motion.div
         aria-hidden="true"
@@ -5517,7 +4847,7 @@ const JourneyStepRow = ({
           boxShadow: isActive ? activeGlow : restGlow,
         }}
         transition={{ duration: 0.4, ease: PREMIUM_EASE }}
-        className={`absolute left-0 top-6 flex h-10 w-10 items-center justify-center rounded-full text-[15.5px] font-semibold text-white ring-1 ring-inset ring-white/15 ${dotBg}`}
+        className={`absolute left-0 top-5 flex h-8 w-8 items-center justify-center rounded-full text-[12.5px] font-semibold text-white ring-1 ring-inset ring-white/15 sm:top-6 sm:h-10 sm:w-10 sm:text-[13.5px] ${dotBg}`}
       >
         <span className="relative">{step.number}</span>
         {/* Subtle inner highlight */}
@@ -5530,6 +4860,8 @@ const JourneyStepRow = ({
         step={step}
         isActive={isActive}
         onOpenDiscussion={onOpenDiscussion}
+        isFirstTheme={isFirstTheme}
+        themeLabel={themeLabel}
       />
     </motion.li>
   );
@@ -5556,7 +4888,7 @@ const IdealJourney = ({
   return (
     <section className="relative overflow-hidden border-b border-slate-800/60 bg-slate-950">
       <GlowOrb color="violet" size="lg" className="left-[-12%] top-[30%]" delay />
-      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
+      <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24 lg:py-28">
         <SectionReveal>
           <SectionHeader
             number="02"
@@ -5577,7 +4909,7 @@ const IdealJourney = ({
           {/* Background rail — full length, muted */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-[19px] top-5 bottom-5 w-px bg-slate-800"
+            className="pointer-events-none absolute left-[15px] top-5 bottom-5 w-px bg-slate-800 sm:left-[19px]"
           />
           {/* Filled progress rail — grows as the user scrolls through the
               journey, anchored to the top so it extends downward.
@@ -5585,7 +4917,7 @@ const IdealJourney = ({
           <motion.div
             aria-hidden="true"
             style={{ scaleY: fillProgress }}
-            className="pointer-events-none absolute left-[19px] top-5 bottom-5 w-px origin-top bg-gradient-to-b from-indigo-400/70 via-indigo-500/60 to-violet-500/50"
+            className="pointer-events-none absolute left-[15px] top-5 bottom-5 w-px origin-top bg-gradient-to-b from-indigo-400/70 via-indigo-500/60 to-violet-500/50 sm:left-[19px]"
           />
 
           <ol className="space-y-7">
@@ -5598,13 +4930,13 @@ const IdealJourney = ({
               return [
                 <li
                   key={`${theme.id}-label`}
-                  className={`relative pl-14 ${ti > 0 ? "pt-10" : ""}`}
+                  className={`relative pl-10 sm:pl-14 ${ti > 0 ? "pt-10" : ""}`}
                 >
                   {/* Theme transition divider above Theme 2 */}
                   {ti > 0 && (
                     <div
                       aria-hidden="true"
-                      className="absolute left-14 right-0 top-0 flex items-center gap-3"
+                      className="absolute left-10 right-0 top-0 flex items-center gap-3 sm:left-14"
                     >
                       <span className="h-px flex-1 bg-gradient-to-r from-slate-800 via-slate-700 to-transparent" />
                       <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
@@ -5616,7 +4948,7 @@ const IdealJourney = ({
                   {/* Theme waypoint dot */}
                   <span
                     aria-hidden="true"
-                    className="absolute left-0 top-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 shadow-[0_0_0_4px_rgb(2_6_23)]"
+                    className="absolute left-0 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 shadow-[0_0_0_4px_rgb(2_6_23)] sm:h-10 sm:w-10"
                   >
                     <span
                       className={`h-3 w-3 rounded-full ring-1 ${
@@ -5627,11 +4959,11 @@ const IdealJourney = ({
                     />
                   </span>
                   <p
-                    className={`text-[13px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
+                    className={`text-[12.5px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
                   >
                     {theme.label}
                   </p>
-                  <p className="mt-2 max-w-2xl text-[16.5px] leading-relaxed text-slate-400">
+                  <p className="mt-2 max-w-2xl text-[15.5px] leading-relaxed text-slate-400">
                     {theme.subtitle}
                   </p>
                 </li>,
@@ -5640,6 +4972,7 @@ const IdealJourney = ({
                     key={s.id}
                     step={s}
                     isFirstTheme={isFirstTheme}
+                    themeLabel={theme.label}
                     onOpenDiscussion={onOpenDiscussion}
                   />
                 )),
@@ -5654,165 +4987,70 @@ const IdealJourney = ({
 
 
 const Principles = ({
-  onViewSource,
+  onViewSource: _onViewSource,
 }: {
   onViewSource: (t: Transcript) => void;
 }) => (
   <section className="relative overflow-hidden border-b border-slate-800/60 bg-slate-900">
     <GlowOrb color="indigo" size="lg" className="left-[-10%] top-[20%]" delay />
-    <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
+    <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24 lg:py-28">
       <SectionReveal>
-      <SectionHeader
-        number="06"
-        eyebrow="Design principles"
-        title="Eight principles that follow from the research."
-        intro="Each principle states why it matters, what it means in practice, and gives one example quote from the sessions."
-      />
+        <SectionHeader
+          number="06"
+          eyebrow="Design principles"
+          title="Eight principles that should guide Messaging onboarding across Sandbox, RCS, SMS, and future channels."
+        />
       </SectionReveal>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
-        {PRINCIPLES.map((p, i) => {
-          const example = quoteById(p.exampleQuoteId);
-          return (
-            <div
-              key={p.id}
-              className={i > 0 ? "border-t border-slate-800" : ""}
-            >
-              <div className="flex items-baseline gap-6 px-6 pt-6 sm:px-8">
-                <span className="font-serif text-xl font-light tabular-nums text-indigo-400">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-lg font-semibold text-slate-50">
-                  {p.title}
-                </h3>
-              </div>
-              <div className="grid gap-6 px-6 pb-8 pt-4 pl-[calc(1.5rem+2.5rem)] pr-6 sm:grid-cols-2 lg:grid-cols-3 sm:px-8 sm:pl-[calc(2rem+2.5rem)]">
-                <div>
-                  <p className="text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
-                    Why it matters
-                  </p>
-                  <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-300">
-                    {p.whyItMatters}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
-                    What it means
-                  </p>
-                  <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-300">
-                    {p.whatItMeans}
-                  </p>
-                </div>
-                {example && (
-                  <div>
-                    <p className="text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
-                      Example
-                    </p>
-                    <div className="mt-1.5">
-                      <QuoteCard
-                        q={example}
-                        onViewSource={onViewSource}
-                        compact
-                      />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-);
-
-const RecommendedDirection = () => (
-  <section className="relative overflow-hidden border-b border-slate-800/60 bg-slate-950 text-slate-100">
-    <GlowOrb color="indigo" size="xl" className="left-[-15%] top-[-10%]" />
-    <div aria-hidden="true" className="absolute inset-0 grid-bg opacity-25" />
-    <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
-      <SectionReveal>
-      <div className="max-w-3xl">
-        <p className="text-[13.5px] font-semibold uppercase tracking-[0.18em] text-indigo-300">
-          07 · Recommended direction
-        </p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-[34px]">
-          Start with value. Introduce setup when it becomes meaningful.
-        </h2>
-        <p className="mt-4 text-lg leading-relaxed text-slate-300">
-          Four actions, sequenced to match how users actually progress through
-          the messaging journey.
-        </p>
-      </div>
-      </SectionReveal>
-
-      <ol className="mt-14 grid gap-5 lg:grid-cols-2">
-        {DIRECTION_RECS.map((d, i) => (
-          <li
-            key={i}
-            className="rounded-2xl border border-slate-700 bg-slate-800/60 p-6"
+      <div className="space-y-5">
+        {PRINCIPLES.map((p, i) => (
+          <article
+            key={p.id}
+            className="group rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition-colors hover:border-indigo-500/30 sm:p-7 lg:p-8"
           >
-            <div className="flex items-start gap-4">
-              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-[13.5px] font-semibold text-emerald-300">
+            {/* Header: number badge + title */}
+            <header className="flex items-baseline gap-4">
+              <span className="font-serif text-xl font-light tabular-nums leading-none text-indigo-400 sm:text-2xl">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div>
-                <p className="text-lg font-semibold text-white">{d.title}</p>
-                <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-300">
-                  {d.detail}
+              <h3 className="text-[20px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[22px] lg:text-[24px]">
+                {p.title}
+              </h3>
+            </header>
+
+            {/* Lead — the principle's statement */}
+            <p className="mt-3 text-[15.5px] leading-relaxed text-slate-300 sm:text-[16.5px]">
+              {p.lead}
+            </p>
+
+            {/* Two-card grid: design implication (action) + evidence (research) */}
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/[0.06] px-4 py-4">
+                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.7)]" />
+                  Design implication
+                </p>
+                <p className="mt-2 text-[14.5px] leading-relaxed text-slate-200 sm:text-[15.5px]">
+                  {p.implication}
+                </p>
+              </div>
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] px-4 py-4">
+                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
+                  Evidence
+                </p>
+                <p className="mt-2 text-[14.5px] leading-relaxed text-slate-200 sm:text-[15.5px]">
+                  {p.evidence}
                 </p>
               </div>
             </div>
-          </li>
+          </article>
         ))}
-      </ol>
-
-      <div className="mt-14 max-w-3xl rounded-2xl border-l-4 border-indigo-400 bg-slate-800/40 p-6 sm:p-8">
-        <p className="text-[13.5px] font-semibold uppercase tracking-[0.18em] text-indigo-300">
-          Key statement
-        </p>
-        <p className="mt-3 text-[16.5px] leading-relaxed text-slate-300">
-          The goal is not to remove complexity.
-        </p>
-        <p className="mt-2 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-          The goal is to move it to the moment when users are ready to act on
-          it.
-        </p>
-      </div>
-
-      {/* Small subsection: what this means for resource creation */}
-      <div className="mt-12 rounded-2xl border border-slate-700 bg-slate-800/30 p-6 sm:p-8">
-        <p className="text-[13.5px] font-semibold uppercase tracking-[0.18em] text-indigo-300">
-          What this means for resource creation
-        </p>
-        <p className="mt-3 max-w-3xl text-[16.5px] leading-relaxed text-slate-300">
-          {`The research does not support a simple \u201Cauto-create vs manual\u201D decision. It supports a timing principle: resources should not be a user responsibility before value is proven.`}
-        </p>
-        <ul className="mt-5 grid gap-3 sm:grid-cols-3">
-          {RESOURCE_STAGES.map((s) => (
-            <li
-              key={s.stage}
-              className="rounded-xl border border-slate-700 bg-slate-900/60 p-4"
-            >
-              <p className="text-[13.5px] font-semibold uppercase tracking-wide text-indigo-300">
-                {s.stage}
-              </p>
-              <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-200">
-                {s.rule}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-12 max-w-3xl">
-        <p className="text-3xl font-semibold tracking-tight text-white sm:text-[32px]">
-          Proof first. Setup second.
-        </p>
       </div>
     </div>
   </section>
 );
+
 
 const DataTransparency = ({
   onOpen,
@@ -5822,7 +5060,7 @@ const DataTransparency = ({
   return (
     <section className="relative overflow-hidden border-b border-slate-800/60 bg-slate-900">
       <GlowOrb color="indigo" size="md" className="right-[-5%] top-[30%]" delay />
-      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
+      <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24 lg:py-28">
         <SectionReveal>
         <SectionHeader
           number="08"
@@ -5834,13 +5072,13 @@ const DataTransparency = ({
         <div className="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
           <ul className="space-y-2.5 rounded-2xl border border-slate-800 bg-slate-950 p-6">
             {DATA_BULLETS.map((b) => (
-              <li key={b} className="flex gap-3 text-[16.5px] text-slate-200">
+              <li key={b} className="flex gap-3 text-[15.5px] text-slate-200">
                 <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
                 <span>{b}</span>
               </li>
             ))}
           </ul>
-          <p className="text-[16.5px] leading-relaxed text-slate-400">
+          <p className="text-[15.5px] leading-relaxed text-slate-400">
             Every quote on this site comes from a real session transcript. The
             table below lists each session with a link to open its summary and
             indexed quotes. Swedish sessions are presented in English
@@ -5849,9 +5087,9 @@ const DataTransparency = ({
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
-          <table className="w-full border-collapse text-[15.5px]">
+          <table className="w-full border-collapse text-[14.5px]">
             <thead>
-              <tr className="bg-slate-950 text-left text-[13.5px] font-semibold uppercase tracking-wide text-slate-400">
+              <tr className="bg-slate-950 text-left text-[12.5px] font-semibold uppercase tracking-wide text-slate-400">
                 <th className="border-b border-slate-800 px-4 py-3">
                   Participant
                 </th>
@@ -5888,7 +5126,7 @@ const DataTransparency = ({
                       <button
                         type="button"
                         onClick={() => onOpen(t)}
-                        className="inline-flex items-center gap-1 text-[13.5px] font-medium text-indigo-300 hover:text-indigo-200"
+                        className="inline-flex items-center gap-1 text-[12.5px] font-medium text-indigo-300 hover:text-indigo-200"
                       >
                         Read summary <ArrowRight className="h-3 w-3" />
                       </button>
@@ -5944,11 +5182,8 @@ const JOURNEY_CHILDREN: NavChild[] = JOURNEY.flatMap((theme) =>
 const NAV_ITEMS: NavItem[] = [
   { id: "summary", label: "Summary" },
   { id: "journey", label: "Journey", children: JOURNEY_CHILDREN },
-  { id: "resource-discussion", label: "Resource discussion" },
   { id: "principles", label: "Principles" },
-  { id: "direction", label: "Direction" },
   { id: "data", label: "Data" },
-  { id: "analysis", label: "Analysis" },
 ];
 
 // Flat list of every id (top-level + children) for scroll-spy.
@@ -5981,7 +5216,7 @@ const MobileTopBar = () => {
       <div className="mx-auto flex max-w-6xl items-center px-6 py-3">
         <a
           href="#top"
-          className="group flex items-center gap-2 text-[15.5px] font-semibold tracking-tight text-slate-50"
+          className="group flex items-center gap-2 text-[14.5px] font-semibold tracking-tight text-slate-50"
         >
           <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-indigo-400 to-violet-500 shadow-[0_0_20px_-5px_rgba(129,140,248,0.7)]">
             <span className="h-2 w-2 rounded-full bg-white/90" />
@@ -6043,7 +5278,7 @@ const SideNavRow = ({
           href={`#${item.id}`}
           className="flex flex-1 items-center gap-3 py-2 pl-4 pr-1"
         >
-          <span className="font-mono text-[12px] tabular-nums text-slate-500">
+          <span className="font-mono text-[11.5px] tabular-nums text-slate-500">
             {String(index + 1).padStart(2, "0")}
           </span>
           <span className="relative">{item.label}</span>
@@ -6075,7 +5310,7 @@ const SideNavRow = ({
               transition={{ duration: 0.22, ease: PREMIUM_EASE }}
               className="overflow-hidden"
             >
-              <ul className="ml-4 mt-0.5 mb-1 flex flex-col gap-0.5 border-l border-slate-800/80 pl-3 text-[13px]">
+              <ul className="ml-4 mt-0.5 mb-1 flex flex-col gap-0.5 border-l border-slate-800/80 pl-3 text-[12.5px]">
                 {item.children!.map((c) => {
                   const cActive = activeId === c.id;
                   return (
@@ -6127,24 +5362,24 @@ const SideNav = () => {
         {/* Brand */}
         <a
           href="#top"
-          className="group flex items-center gap-2 text-[15.5px] font-semibold tracking-tight text-slate-50"
+          className="group flex items-center gap-2 text-[14.5px] font-semibold tracking-tight text-slate-50"
         >
           <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-indigo-400 to-violet-500 shadow-[0_0_22px_-4px_rgba(129,140,248,0.75)]">
             <span className="h-2.5 w-2.5 rounded-full bg-white/90" />
           </span>
           <span className="leading-tight">
             <span className="block">Messaging</span>
-            <span className="block text-[12.5px] font-medium text-slate-400">
+            <span className="block text-[12px] font-medium text-slate-400">
               Research findings
             </span>
           </span>
         </a>
 
         {/* TOC */}
-        <p className="mt-12 text-[12.5px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        <p className="mt-12 text-[12px] font-semibold uppercase tracking-[0.18em] text-slate-500">
           Table of contents
         </p>
-        <nav className="relative mt-3 flex flex-col gap-0.5 overflow-y-auto pr-1 text-[14.5px]">
+        <nav className="relative mt-3 flex flex-col gap-0.5 overflow-y-auto pr-1 text-[13.5px]">
           {NAV_ITEMS.map((n, i) => (
             <SideNavRow key={n.id} item={n} index={i} activeId={activeId} />
           ))}
@@ -6152,7 +5387,7 @@ const SideNav = () => {
 
         {/* Scroll progress */}
         <div className="mt-auto pt-8">
-          <div className="flex items-center justify-between text-[11.5px] font-mono tabular-nums text-slate-500">
+          <div className="flex items-center justify-between text-[11px] font-mono tabular-nums text-slate-500">
             <span className="uppercase tracking-[0.18em]">Progress</span>
             <span>{Math.round(progress * 100)}%</span>
           </div>
@@ -6171,28 +5406,9 @@ const SideNav = () => {
   );
 };
 
-const ResearchAnalysis = () => (
-  <section className="relative overflow-hidden border-b border-slate-800/60 bg-slate-950">
-    <GlowOrb color="indigo" size="lg" className="right-[-12%] top-[60%]" delay />
-    <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-28">
-      <SectionReveal>
-        <SectionHeader
-          number="09"
-          eyebrow="Research analysis"
-          title="The full structured analysis behind the report."
-          intro="Every insight on this site is grounded in this analysis. It synthesises observed behaviour, friction, opportunities, and design principles across all 14 sessions — and proposes a natural onboarding flow based on what users actually did."
-        />
-      </SectionReveal>
-      <SectionReveal>
-        <ResearchAnalysisSection />
-      </SectionReveal>
-    </div>
-  </section>
-);
-
 const Footer = () => (
   <footer className="bg-slate-900">
-    <div className="mx-auto max-w-7xl px-6 py-12 text-[15.5px] text-slate-400">
+    <div className="mx-auto max-w-6xl px-6 py-12 text-[14.5px] text-slate-400">
       <p>
         Based on {transcripts.length} usability test sessions. Quotes used as
         supporting evidence. Swedish sessions translated to English with
@@ -6224,20 +5440,11 @@ export default function App() {
             onOpenDiscussion={() => setDiscussionOpen(true)}
           />
         </div>
-        <div id="resource-discussion">
-          <ResourceCreationSection />
-        </div>
         <div id="principles">
           <Principles onViewSource={setOpenTranscript} />
         </div>
-        <div id="direction">
-          <RecommendedDirection />
-        </div>
         <div id="data">
           <DataTransparency onOpen={setOpenTranscript} />
-        </div>
-        <div id="analysis">
-          <ResearchAnalysis />
         </div>
         <Footer />
       </div>

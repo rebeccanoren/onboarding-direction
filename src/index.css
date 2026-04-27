@@ -27,6 +27,9 @@ body {
   margin: 0;
   background: #020617;
   color: #e2e8f0;
+  /* Clip horizontal overflow from decorative blur orbs without breaking
+     `position: sticky` (which `overflow: hidden` would). */
+  overflow-x: clip;
 }
 
 @utility quote-mark {
