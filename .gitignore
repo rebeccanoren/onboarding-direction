@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Claude Code workspace tooling (preview launch config, etc.)
+.claude/
