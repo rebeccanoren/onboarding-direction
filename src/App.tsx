@@ -331,7 +331,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Users open the product to send a message — not to set up an account.",
+          "Users wants to send a message — not to configure or set up anything.",
         whyLead:
           "From the very first interaction, developers and non-developers reach for the same thing: a working message. They are not trying to configure the system; they are trying to validate that it works.",
         whyInsights: [
@@ -761,7 +761,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Users stop exploring and start wanting a channel of their own.",
+          "Users shift from exploring the product to exploring their own use.",
         whyLead:
           "Once the test message proves the product is real, users move past the demo. They want a channel under their brand, with their credentials, that they can actually send from \u2014 and they want it before integrating anything deeper.",
         whyInsights: [
@@ -2847,7 +2847,7 @@ const ResourceOverviewPane = ({
           onClick={onGoToOptions}
           className="group inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-gradient-to-br from-violet-500/15 via-indigo-500/10 to-violet-500/5 px-5 py-2.5 text-[12.5px] font-semibold tracking-[0.04em] text-violet-100 shadow-[0_8px_24px_-12px_rgba(139,92,246,0.5)] transition hover:border-violet-400/70 hover:from-violet-500/25 hover:via-indigo-500/20 hover:text-white sm:px-6 sm:py-2.5 sm:text-[13px]"
         >
-          See alternative ways forward
+          See and compare alternative ways forward
           <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" />
         </button>
       </div>
@@ -2972,7 +2972,17 @@ const ResourceAutoPane = () => (
   </div>
 );
 
-const ResourceOptionsPane = () => (
+const ResourceOptionsPane = () => {
+  // Segmented-control state — which option to read in detail. Default to
+  // Option 1 so the reader can step through them in order.
+  const [selectedOption, setSelectedOption] = useState<number>(1);
+  const optionLabels: { n: number; short: string; tone: "rose" | "amber" | "emerald" }[] = [
+    { n: 1, short: "Require setup", tone: "rose" },
+    { n: 2, short: "Auto-create", tone: "amber" },
+    { n: 3, short: "Guided", tone: "amber" },
+    { n: 4, short: "Managed test mode", tone: "emerald" },
+  ];
+  return (
   <div className="space-y-10">
     <header>
       <p className="text-[11.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
@@ -2992,161 +3002,57 @@ const ResourceOptionsPane = () => (
       </p>
     </header>
 
-    {/* Comparison table — at-a-glance scoring across six dimensions (1–5) */}
+    {/* Segmented control — pick which option to read in detail. Comparison
+        table sits at the bottom for at-a-glance scoring across all options. */}
     <section className="space-y-4">
-      <DiscussionEyebrow>Comparison of approaches</DiscussionEyebrow>
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full border-collapse text-left text-[12px]">
-          <thead className="bg-slate-950/70">
-            <tr>
-              {[
-                "Approach",
-                "Immediate validation",
-                "Timing of app responsibility",
-                "Developer control",
-                "UX friction",
-                "System clarity",
-                "Behaviour alignment",
-                "Total",
-              ].map((h) => (
-                <th
-                  key={h}
-                  className="border-b border-slate-800 px-3 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400"
-                >
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              {
-                opt: "Require app setup",
-                immediate: 1,
-                timing: 1,
-                control: 5,
-                ux: 1,
-                clarity: 4,
-                alignment: 1,
-                total: 13,
-              },
-              {
-                opt: "Auto-create app",
-                immediate: 5,
-                timing: 2,
-                control: 1,
-                ux: 5,
-                clarity: 2,
-                alignment: 3,
-                total: 18,
-              },
-              {
-                opt: "Guided connection",
-                immediate: 2,
-                timing: 2,
-                control: 4,
-                ux: 3,
-                clarity: 4,
-                alignment: 4,
-                total: 19,
-              },
-              {
-                opt: "Managed test mode",
-                immediate: 5,
-                timing: 5,
-                control: "5*" as const,
-                ux: 5,
-                clarity: 4,
-                alignment: 5,
-                total: 29,
-                isRec: true,
-              },
-            ].map((row, ri) => {
-              const isRec = !!row.isRec;
-              const scoreClass = (v: number | string) => {
-                const n =
-                  typeof v === "number"
-                    ? v
-                    : parseInt(String(v).replace(/\D.*/, ""), 10);
-                if (n >= 5)
-                  return "border-emerald-500/30 bg-emerald-500/10 text-emerald-200";
-                if (n === 4)
-                  return "border-indigo-500/30 bg-indigo-500/10 text-indigo-200";
-                if (n === 3)
-                  return "border-amber-500/30 bg-amber-500/10 text-amber-200";
-                return "border-rose-500/30 bg-rose-500/10 text-rose-200";
-              };
-              const totals = [13, 18, 19, 29];
-              const max = Math.max(...totals);
-              const totalClass = (t: number) => {
-                if (t === max)
-                  return "border-emerald-500/40 bg-emerald-500/15 text-emerald-100";
-                if (t >= 18)
-                  return "border-indigo-500/30 bg-indigo-500/10 text-indigo-200";
-                return "border-rose-500/30 bg-rose-500/10 text-rose-200";
-              };
-              const Score = ({ v }: { v: number | string }) => (
-                <span
-                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-semibold tabular-nums ${scoreClass(v)}`}
-                >
-                  {v}
-                </span>
-              );
-              return (
-                <tr
-                  key={ri}
-                  className={`${
-                    isRec
-                      ? "bg-emerald-500/[0.05]"
-                      : "border-b border-slate-800/60 last:border-0"
-                  }`}
-                >
-                  <td className="px-3 py-3 align-middle font-semibold text-slate-100">
-                    {row.opt}
-                    {isRec && (
-                      <span className="ml-2 inline-flex items-center rounded border border-emerald-500/40 bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-200">
-                        Recommended
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.immediate} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.timing} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.control} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.ux} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.clarity} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.alignment} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <span
-                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-bold tabular-nums ${totalClass(row.total)}`}
-                    >
-                      {row.total}
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <DiscussionEyebrow>Read each option in detail</DiscussionEyebrow>
+      <div
+        role="tablist"
+        aria-label="Compare options in detail"
+        className="grid grid-cols-2 gap-1 rounded-xl border border-slate-800 bg-slate-950/60 p-1 sm:grid-cols-4"
+      >
+        {optionLabels.map((o) => {
+          const isActive = o.n === selectedOption;
+          const activeRing =
+            o.tone === "emerald"
+              ? "border-emerald-500/40 bg-emerald-500/15 text-emerald-100 shadow-[0_8px_24px_-12px_rgba(52,211,153,0.45)]"
+              : o.tone === "rose"
+                ? "border-rose-500/40 bg-rose-500/15 text-rose-100"
+                : "border-amber-500/40 bg-amber-500/15 text-amber-100";
+          const numTone =
+            o.tone === "emerald"
+              ? "text-emerald-300"
+              : o.tone === "rose"
+                ? "text-rose-300"
+                : "text-amber-300";
+          return (
+            <button
+              key={o.n}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setSelectedOption(o.n)}
+              className={`group relative min-w-0 rounded-lg border px-3 py-2 text-left transition ${
+                isActive
+                  ? activeRing
+                  : "border-transparent bg-transparent text-slate-300 hover:border-slate-700/80 hover:bg-slate-900/60 hover:text-slate-100"
+              }`}
+            >
+              <span
+                className={`block font-mono text-[10px] font-semibold tabular-nums tracking-[0.14em] ${
+                  isActive ? numTone : "text-slate-500"
+                }`}
+              >
+                0{o.n}
+              </span>
+              <span className="mt-0.5 block truncate text-[12px] font-semibold leading-snug sm:text-[12.5px]">
+                {o.short}
+              </span>
+            </button>
+          );
+        })}
       </div>
-      <p className="text-[11.5px] leading-relaxed text-slate-500">
-        Scored 1 (worst) to 5 (best) on each dimension.{" "}
-        <span className="font-mono text-slate-400">5*</span> — control granted
-        at the integration stage, not during testing.
-      </p>
     </section>
-
     {[
       {
         n: 1,
@@ -3201,7 +3107,7 @@ const ResourceOptionsPane = () => (
         cons: [
           "Blocks validation at the wrong moment.",
           "Forces integration thinking too early.",
-          "Introduces compliance and setup before users are ready.",
+          "Mixes compliance with API setup in the same flow.",
           "Requires users to understand system architecture upfront.",
           "High friction for both developers and business users.",
           "Breaks the “quick test” expectation.",
@@ -3235,12 +3141,12 @@ const ResourceOptionsPane = () => (
           "No manual setup required upfront.",
         ],
         cons: [
+          "Leads to orphaned or unused apps over time.",
+          "Defers confusion to a later stage instead of resolving it.",
           "Users are unaware that an app was created.",
           "The relationship between agent and app remains unclear.",
           "Developers lack control over how resources are structured.",
           "Creates persistent infrastructure for a temporary testing need.",
-          "Leads to orphaned or unused apps over time.",
-          "Defers confusion to a later stage instead of resolving it.",
         ],
         keyLabel: "Key issue",
         keyText: "Enables sending, but not understanding.",
@@ -3253,7 +3159,7 @@ const ResourceOptionsPane = () => (
       {
         n: 3,
         title: "Lightweight guided connection",
-        tag: "New RCS model (proposed)",
+        tag: "New RCS model",
         tagColor: "violet",
         flow: "Create agent → guided connect step → send test message",
         meaningIntro:
@@ -3335,7 +3241,9 @@ const ResourceOptionsPane = () => (
         fitText: "Strongly aligned",
         fitTone: "emerald" as const,
       },
-    ].map((opt) => {
+    ]
+      .filter((opt) => opt.n === selectedOption)
+      .map((opt) => {
       const isRecommended = opt.n === 4;
       const tagBgClass =
         opt.tagColor === "emerald"
@@ -3372,22 +3280,10 @@ const ResourceOptionsPane = () => (
           : "text-amber-300/80";
       return (
         <Fragment key={opt.n}>
-          {/* Group header before Option 1 */}
-          {opt.n === 1 && (
-            <div className="!mt-4 space-y-1.5 border-l-2 border-slate-700/70 pl-4">
-              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                Approaches that require user-managed apps
-              </p>
-              <p className="text-[12.5px] leading-relaxed text-slate-500">
-                The user is responsible for the Conversation API app from the
-                start. Differences are in <em>when</em> and <em>how</em> they
-                manage it.
-              </p>
-            </div>
-          )}
-          {/* Group header before Option 4 — emphasised */}
+          {/* Group context for the recommended option — kept inline since it
+              adds nuance the segmented-control button label can't carry. */}
           {opt.n === 4 && (
-            <div className="!mt-10 space-y-1.5 border-l-2 border-emerald-500/50 pl-4">
+            <div className="!mt-2 space-y-1.5 border-l-2 border-emerald-500/50 pl-4">
               <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
                 Recommended approach
               </p>
@@ -3427,9 +3323,61 @@ const ResourceOptionsPane = () => (
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Flow
               </p>
-              <p className="mt-1.5 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 font-mono text-[12.5px] leading-relaxed text-slate-200">
-                {opt.flow}
-              </p>
+              {/* Stripe-style flow diagram — split on "→", render each step
+                  as a pill with a step number, connected by thin arrow lines.
+                  The final step (the value moment) gets the option's tone so
+                  the eye lands on the outcome of each path. */}
+              {(() => {
+                const steps = opt.flow.split("→").map((s) => s.trim()).filter(Boolean);
+                const lastIdx = steps.length - 1;
+                const lastTone = opt.fitTone === "emerald"
+                  ? "border-emerald-500/40 bg-gradient-to-br from-emerald-500/[0.12] to-emerald-500/[0.04] text-emerald-100 shadow-[0_8px_20px_-12px_rgba(52,211,153,0.45)]"
+                  : opt.fitTone === "rose"
+                    ? "border-rose-500/30 bg-rose-500/[0.06] text-rose-100"
+                    : "border-amber-500/30 bg-amber-500/[0.06] text-amber-100";
+                return (
+                  <ol className="mt-2.5 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-0">
+                    {steps.map((step, i) => {
+                      const isLast = i === lastIdx;
+                      const stepTone = isLast
+                        ? lastTone
+                        : "border-slate-700/80 bg-slate-900/70 text-slate-100";
+                      const numTone = isLast
+                        ? opt.fitTone === "emerald"
+                          ? "border-emerald-500/45 bg-emerald-500/15 text-emerald-200"
+                          : opt.fitTone === "rose"
+                            ? "border-rose-500/35 bg-rose-500/15 text-rose-200"
+                            : "border-amber-500/35 bg-amber-500/15 text-amber-200"
+                        : "border-slate-700 bg-slate-950/70 text-slate-300";
+                      return (
+                        <li key={i} className="contents">
+                          <div
+                            className={`flex flex-1 items-center gap-2.5 rounded-lg border px-3 py-2 transition ${stepTone}`}
+                          >
+                            <span
+                              className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border font-mono text-[10px] font-semibold tabular-nums ${numTone}`}
+                            >
+                              {i + 1}
+                            </span>
+                            <span className="text-[12.5px] font-medium leading-snug">
+                              {step}
+                            </span>
+                          </div>
+                          {!isLast && (
+                            <span
+                              aria-hidden="true"
+                              className="flex shrink-0 items-center justify-center text-slate-500 sm:px-1.5"
+                            >
+                              <ArrowRight className="hidden h-3.5 w-3.5 sm:block" />
+                              <ChevronDown className="h-3.5 w-3.5 sm:hidden" />
+                            </span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ol>
+                );
+              })()}
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
@@ -3677,8 +3625,223 @@ const ResourceOptionsPane = () => (
         </Fragment>
       );
     })}
+
+    {/* Divider — separates the deep-dive option above from the at-a-glance
+        comparison table below, so the two sections feel like distinct
+        reading modes rather than one long stack. */}
+    <div className="!mt-12 flex items-center gap-3" aria-hidden="true">
+      <span className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-700/60 to-transparent" />
+      <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        At-a-glance
+      </span>
+      <span className="h-px flex-1 bg-gradient-to-l from-transparent via-slate-700/60 to-transparent" />
+    </div>
+
+    {/* Comparison table — at-a-glance scoring across six dimensions (1–5) */}
+    <section className="space-y-4">
+      <DiscussionEyebrow>Comparison of approaches</DiscussionEyebrow>
+      <div className="overflow-x-auto rounded-2xl border border-slate-800">
+        <table className="w-full border-collapse text-left text-[12px]">
+          <thead className="bg-slate-950/70">
+            <tr>
+              {[
+                {
+                  label: "Approach",
+                  hint: "Which option is being scored.",
+                },
+                {
+                  label: "Immediate validation",
+                  hint:
+                    "Can the user send a real test message right after creating the agent, with no further setup?",
+                },
+                {
+                  label: "Timing of app responsibility",
+                  hint:
+                    "When the user is asked to take ownership of the Conversation API app — immediately, deferred, or hidden behind the platform.",
+                },
+                {
+                  label: "Developer control",
+                  hint:
+                    "How much explicit control developers have over the app, credentials, and integration boundaries.",
+                },
+                {
+                  label: "UX friction",
+                  hint:
+                    "How much effort the option asks of the user before they can get to a working test.",
+                },
+                {
+                  label: "System clarity",
+                  hint:
+                    "How clearly the option conveys what's actually happening — agent, app, credentials, webhooks.",
+                },
+                {
+                  label: "Behaviour alignment",
+                  hint:
+                    "How closely the option matches the test-first sequence observed in the research.",
+                },
+                {
+                  label: "Total",
+                  hint: "Sum of the six dimension scores. Higher = better fit.",
+                },
+              ].map((h) => (
+                <th
+                  key={h.label}
+                  className="border-b border-slate-800 px-3 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400"
+                >
+                  <span
+                    tabIndex={0}
+                    className="group relative inline-flex cursor-help items-center gap-1 outline-none focus-visible:text-slate-200"
+                  >
+                    {h.label}
+                    {/* Hover/focus popover — short explanation of the column.
+                        Positioned absolutely below the header so it doesn't
+                        push table layout. */}
+                    <span
+                      role="tooltip"
+                      className="pointer-events-none absolute left-1/2 top-full z-30 mt-2 w-56 -translate-x-1/2 rounded-lg border border-indigo-500/40 bg-slate-900/95 px-3 py-2 text-[11.5px] font-normal normal-case tracking-normal leading-relaxed text-slate-200 opacity-0 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.9),0_8px_20px_-12px_rgba(99,102,241,0.35)] backdrop-blur-md transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
+                    >
+                      {h.hint}
+                    </span>
+                  </span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                opt: "Require app setup",
+                immediate: 1,
+                timing: 1,
+                control: 5,
+                ux: 1,
+                clarity: 4,
+                alignment: 1,
+                total: 13,
+              },
+              {
+                opt: "Auto-create app",
+                immediate: 5,
+                timing: 2,
+                control: 1,
+                ux: 5,
+                clarity: 2,
+                alignment: 3,
+                total: 18,
+              },
+              {
+                opt: "Guided connection",
+                immediate: 2,
+                timing: 2,
+                control: 4,
+                ux: 3,
+                clarity: 4,
+                alignment: 4,
+                total: 19,
+              },
+              {
+                opt: "Managed test mode",
+                immediate: 5,
+                timing: 5,
+                control: "5*" as const,
+                ux: 5,
+                clarity: 4,
+                alignment: 5,
+                total: 29,
+                isRec: true,
+              },
+            ].map((row, ri) => {
+              const isRec = !!row.isRec;
+              const scoreClass = (v: number | string) => {
+                const n =
+                  typeof v === "number"
+                    ? v
+                    : parseInt(String(v).replace(/\D.*/, ""), 10);
+                if (n >= 5)
+                  return "border-emerald-500/30 bg-emerald-500/10 text-emerald-200";
+                if (n === 4)
+                  return "border-indigo-500/30 bg-indigo-500/10 text-indigo-200";
+                if (n === 3)
+                  return "border-amber-500/30 bg-amber-500/10 text-amber-200";
+                return "border-rose-500/30 bg-rose-500/10 text-rose-200";
+              };
+              const totals = [13, 18, 19, 29];
+              const max = Math.max(...totals);
+              const totalClass = (t: number) => {
+                if (t === max)
+                  return "border-emerald-500/40 bg-emerald-500/15 text-emerald-100";
+                if (t >= 18)
+                  return "border-indigo-500/30 bg-indigo-500/10 text-indigo-200";
+                return "border-rose-500/30 bg-rose-500/10 text-rose-200";
+              };
+              const Score = ({ v }: { v: number | string }) => (
+                <span
+                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-semibold tabular-nums ${scoreClass(v)}`}
+                >
+                  {v}
+                </span>
+              );
+              return (
+                <tr
+                  key={ri}
+                  className={`${
+                    isRec
+                      ? "bg-emerald-500/[0.05]"
+                      : "border-b border-slate-800/60 last:border-0"
+                  }`}
+                >
+                  <td className="px-3 py-3 align-middle font-semibold text-slate-100">
+                    <span className="mr-2 font-mono text-[11px] tabular-nums text-slate-500">
+                      0{ri + 1}
+                    </span>
+                    {row.opt}
+                    {isRec && (
+                      <span className="ml-2 inline-flex items-center rounded border border-emerald-500/40 bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-200">
+                        Recommended
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <Score v={row.immediate} />
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <Score v={row.timing} />
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <Score v={row.control} />
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <Score v={row.ux} />
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <Score v={row.clarity} />
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <Score v={row.alignment} />
+                  </td>
+                  <td className="px-3 py-3 align-middle">
+                    <span
+                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-bold tabular-nums ${totalClass(row.total)}`}
+                    >
+                      {row.total}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p className="text-[11.5px] leading-relaxed text-slate-500">
+        Scored 1 (worst) to 5 (best) on each dimension.{" "}
+        <span className="font-mono text-slate-400">5*</span> — control granted
+        at the integration stage, not during testing.
+      </p>
+    </section>
+
   </div>
-);
+  );
+};
 
 
 /**
