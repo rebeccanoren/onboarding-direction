@@ -1,4 +1,5 @@
 import {
+  Fragment,
   useEffect,
   useLayoutEffect,
   useRef,
@@ -179,6 +180,9 @@ interface JourneyWhyInsight {
   quoteIndices?: number[];
   /** Used for insights that need a bulleted list instead of (or alongside) quotes. */
   bullets?: { text: string; meta?: string }[];
+  /** Extra prose paragraphs rendered after the quotes/bullets — used when an
+   *  insight needs a closing reflection following its supporting evidence. */
+  closing?: string[];
 }
 
 interface JourneyDesignPrinciples {
@@ -294,7 +298,7 @@ const JOURNEY: JourneyTheme[] = [
             participant: "P6",
             persona: "Developer",
             short:
-              "I would expect some kind of result in my own cell phone.",
+              "I would expect some kind of result in my own cell phone. So not really having to set up, but to test it out.",
             long:
               "I would say it\u2019s to just try to send one test message to see how it is working. I guess I would use my phone number and then just go through the whole steps, and I would expect some kind of result in my own cell phone. So not really having to set up, but to test it out.",
           },
@@ -307,6 +311,24 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "I just want to quickly be able to send a message and there it gets blocked by access key\u2026 why do I need that? I thought this would be a quick test.",
           },
+          {
+            title: "New users don't recognise access keys",
+            participant: "P5",
+            persona: "Developer",
+            short:
+              "I really don't know what would be the access key or the key secrets here.",
+            long:
+              "Because I'm new, I really don't know what would be the access key or the key secrets here. And so, like, really sending this message without this, is it gonna work? I don't know. Either it should not need the access key and key secrets for the test\u2026 it should be in the other steps. Now if you wanted to have a real agent, now you need to access this key.",
+          },
+          {
+            title: "Test key or production key?",
+            participant: "P6",
+            persona: "Developer",
+            short:
+              "Should this be\u2026 the test key\u2026 or something I reuse later on?",
+            long:
+              "I think, the only thing I think here is, should this be, like, the test key that I won't just disregard because this feels like something that should be in a list somewhere. So if I create number two here, it should be listed. Let's say, I'm IKEA. Should I actually create, like, a new access key that is called IKEA that I reuse later on? Or should I just have a dummy one, like a test IKEA one?",
+          },
         ],
         whyHeadline:
           "Users open the product to send a message — not to set up an account.",
@@ -314,42 +336,34 @@ const JOURNEY: JourneyTheme[] = [
           "From the very first interaction, developers and non-developers reach for the same thing: a working message. They are not trying to configure the system; they are trying to validate that it works.",
         whyInsights: [
           {
-            title: "They reach for Send first",
+            title: "They want to send a test message",
             description:
               "Sending a message is consistently the first action attempted across sessions, regardless of role.",
             quoteIndices: [0, 1],
           },
           {
-            title: "The intent is to validate, not configure",
+            title: "Both personas share the same initial need",
             description:
-              "Users are not trying to learn the architecture. They are trying to prove the system is real.",
+              "At the start, everyone is trying to do the same thing: send a test message. Motivation differs by role, but the first move is identical.",
           },
           {
-            title: "Both personas converge on the same first action",
+            title: "The goal is to validate, not configure",
             description:
-              "The motivation differs by role, but the first move on the page is identical.",
-            bullets: [
-              {
-                text: "Developers",
-                meta: "want to validate behaviour before writing code.",
-              },
-              {
-                text: "Non-developers",
-                meta: "want to understand the product without technical setup.",
-              },
-            ],
-          },
-          {
-            title: "They expect a tangible result on a real device",
-            description:
-              "A message landing on their own phone is what makes the product feel real — not a confirmation in the UI.",
+              "Users aren’t trying to understand the architecture in detail — they’re trying to confirm it works.",
             quoteIndices: [2],
           },
           {
-            title: "Setup at the very first step turns this against them",
+            title: "Early setup creates friction",
             description:
-              "When the system asks for credentials before showing value, friction starts before trust does.",
-            quoteIndices: [3],
+              "Requiring access keys before showing value breaks the expectation of a quick test.",
+            bullets: [
+              { text: "Users don’t understand why it’s needed." },
+              {
+                text:
+                  "Developers unsure if they’re creating something temporary or production-level.",
+              },
+            ],
+            quoteIndices: [3, 4, 5],
           },
         ],
         whyClosing:
@@ -507,7 +521,7 @@ const JOURNEY: JourneyTheme[] = [
         illustration: "api",
         description: [
           "View the full API request behind the message",
-          "See how Conversation API, sender (RCS agent), and test number relate",
+          "See how Conversation API app, sender (RCS agent), and recipient number relate",
           "Run a preconfigured request with minimal effort",
           "Explore webhooks and incoming events",
         ],
@@ -604,10 +618,20 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "Enables hands-on API testing",
             description:
-              "Developers can try real requests without setup overhead.",
+              "Developers can send real requests without setup overhead.",
           },
           {
-            title: "Educates system architecture",
+            title: "Teaches how to build a request",
+            description:
+              "Shows how Conversation API requests are structured and how to modify them.",
+          },
+          {
+            title: "Makes message types tangible",
+            description:
+              "Previews different message formats and how they render in practice.",
+          },
+          {
+            title: "Explains system architecture",
             description:
               "Clarifies the relationship between Conversation API → sender → recipient.",
           },
@@ -726,6 +750,15 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "Like, I as IKEA for example. I went through this and I did this to see okay. Like, the message was look like this before. Like when I wanted to send, now I\u2019m okay with it. So I want to send, this, like, this exact message to, like, hundred thousand of customers now.",
           },
+          {
+            title: "Trying it teaches the concepts",
+            participant: "P14",
+            persona: "Developer",
+            short:
+              "It educates me a little bit before I actually start working on a product.",
+            long:
+              "I really like this view. I know that as a dev, I am going to need this bit eventually, but I like this view because of the combined \u2014 I can see the code, I can see what I need to do, and I can also see, just visually, what the differences are. It educates me a little bit before I actually start working on a product, which is very nice.",
+          },
         ],
         whyHeadline:
           "Users stop exploring and start wanting a channel of their own.",
@@ -758,10 +791,22 @@ const JOURNEY: JourneyTheme[] = [
                 meta: "their brand (name, logo, content), control over how they appear to customers.",
               },
             ],
+            closing: [
+              "Both converge on the same outcome: a channel they own, configured for their business.",
+            ],
+          },
+          {
+            title: "Concepts become clear through use",
+            description:
+              "Terms like \u201cRCS Agent\u201d stop being abstract once users interact with the product. They don\u2019t learn the system upfront \u2014 they understand it by trying it.",
+            quoteIndices: [2],
+            closing: [
+              "Through testing, users build a mental model of how things connect \u2014 Conversation API, agents, messages \u2014 all become clearer in context.",
+              "This closes the initial knowledge gap and makes the next step feel obvious.",
+              "At this point, setup is no longer confusing \u2014 but it must still be simple. Users are still exploring, so creating a channel should feel fast and lightweight.",
+            ],
           },
         ],
-        whyClosing:
-          "Both converge on the same outcome: a channel they own, configured for their business. This is the first moment where setup is welcomed instead of resisted \u2014 because now it serves the user\u2019s intent.",
         valueProps: [
           {
             title: "Bridges test to real",
@@ -769,19 +814,29 @@ const JOURNEY: JourneyTheme[] = [
               "Users move from a demo to something they can actually use.",
           },
           {
+            title: "Makes concepts understandable",
+            description:
+              "Abstract terms like \u201cRCS Agent\u201d now have context.",
+          },
+          {
             title: "Establishes identity",
             description:
               "This is where the brand becomes real in messages.",
           },
           {
-            title: "Introduces real setup at the right time",
+            title: "Introduces setup at the right time",
             description:
-              "Credentials and integration now feel necessary, not blocking.",
+              "Credentials and configuration now feel necessary, not blocking.",
           },
           {
             title: "Keeps momentum",
             description:
               "Users continue testing, now with their own setup.",
+          },
+          {
+            title: "Supports lightweight creation",
+            description:
+              "Channel creation must stay simple \u2014 users are still exploring.",
           },
         ],
         keyInsight: {
@@ -1434,11 +1489,11 @@ const SectionHeader = ({
         <span className="font-serif text-base font-light text-indigo-400 tabular-nums">
           {number}
         </span>
-        <span className="text-[12.5px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+        <span className="text-[11.5px] font-semibold uppercase tracking-[0.12em] text-slate-400">
           {eyebrow}
         </span>
       </div>
-      <h2 className="mt-3 max-w-3xl text-base font-semibold tracking-tight text-slate-50 sm:text-[30px]">
+      <h2 className="mt-3 max-w-3xl text-base font-semibold tracking-tight text-slate-50 sm:text-[23px]">
         {title}
       </h2>
       {introParagraphs.length > 0 && (
@@ -1464,11 +1519,11 @@ const SectionHeader = ({
 
 const PersonaLabel = ({ persona }: { persona?: Persona }) =>
   persona ? (
-    <span className="text-[12.5px] text-slate-400">{persona}</span>
+    <span className="text-[11.5px] text-slate-400">{persona}</span>
   ) : null;
 
 const ConceptTag = ({ concept }: { concept: string }) => (
-  <span className="rounded-md bg-indigo-500/15 px-2 py-0.5 text-[12.5px] font-medium text-indigo-300 ring-1 ring-inset ring-indigo-500/40">
+  <span className="rounded-md bg-indigo-500/15 px-2 py-0.5 text-[11.5px] font-medium text-indigo-300 ring-1 ring-inset ring-indigo-500/40">
     {concept}
   </span>
 );
@@ -1487,7 +1542,7 @@ const AudienceTag = ({
       ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
       : "border-cyan-500/30 bg-cyan-500/10 text-cyan-300";
   const padding = size === "md" ? "px-2.5 py-0.5" : "px-2 py-0.5";
-  const text = size === "md" ? "text-[11.5px]" : "text-[11px]";
+  const text = size === "md" ? "text-[11px]" : "text-[10.5px]";
   return (
     <span
       className={`inline-flex items-center rounded-full border font-semibold uppercase tracking-[0.14em] ${tone} ${padding} ${text}`}
@@ -1515,7 +1570,7 @@ const QuoteCard = ({
       className={`group rounded-2xl border border-slate-800 bg-slate-900/70 ${compact ? "p-4" : "p-5"} shadow-[0_6px_20px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm transition-colors hover:border-indigo-500/40`}
     >
       <blockquote
-        className={`text-slate-50 ${compact ? "text-[15.5px]" : "text-[16.5px]"} font-medium italic leading-relaxed`}
+        className={`text-slate-50 ${compact ? "text-[14px]" : "text-[15px]"} font-medium italic leading-relaxed`}
       >
         <span className="mr-1 font-serif text-indigo-500">&ldquo;</span>
         {q.quote}
@@ -1527,7 +1582,7 @@ const QuoteCard = ({
           <button
             type="button"
             onClick={() => setShowOriginal((v) => !v)}
-            className="inline-flex items-center gap-1 text-[12.5px] font-medium uppercase tracking-wide text-slate-400 hover:text-indigo-300"
+            className="inline-flex items-center gap-1 text-[11.5px] font-medium uppercase tracking-wide text-slate-400 hover:text-indigo-300"
           >
             Translated from {q.originalLanguage ?? "original"}
             <ChevronDown
@@ -1535,7 +1590,7 @@ const QuoteCard = ({
             />
           </button>
           {showOriginal && (
-            <p className="mt-2 rounded-lg bg-slate-950 p-3 text-[13.5px] italic leading-relaxed text-slate-400">
+            <p className="mt-2 rounded-lg bg-slate-950 p-3 text-[12.5px] italic leading-relaxed text-slate-400">
               {q.originalQuote}
             </p>
           )}
@@ -1543,14 +1598,14 @@ const QuoteCard = ({
       )}
 
       <figcaption
-        className={`mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 ${compact ? "text-[12.5px]" : "text-[14.5px]"}`}
+        className={`mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 ${compact ? "text-[11.5px]" : "text-[13px]"}`}
       >
         <span className="font-semibold text-slate-50">{q.participant}</span>
         <PersonaLabel persona={q.persona} />
         {t?.audience && <AudienceTag audience={t.audience} />}
         <ConceptTag concept={q.concept} />
         {q.timestamp && (
-          <span className="font-mono text-[12.5px] text-slate-400">
+          <span className="font-mono text-[11.5px] text-slate-400">
             {q.timestamp}
           </span>
         )}
@@ -1558,7 +1613,7 @@ const QuoteCard = ({
           <button
             type="button"
             onClick={() => onViewSource(t)}
-            className="ml-auto inline-flex items-center gap-1 text-[12.5px] font-medium text-slate-400 hover:text-indigo-300"
+            className="ml-auto inline-flex items-center gap-1 text-[11.5px] font-medium text-slate-400 hover:text-indigo-300"
           >
             <ExternalLink className="h-3 w-3" />
             View session
@@ -1585,7 +1640,7 @@ const QuoteCard = ({
 // --- Transcript drawer ---------------------------------------------
 
 const ConceptBadge = ({ concept }: { concept: string }) => (
-  <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 text-[12px] font-semibold uppercase tracking-[0.12em] text-indigo-200">
+  <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 text-[11.5px] font-semibold uppercase tracking-[0.12em] text-indigo-200">
     <span className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.7)]" />
     {concept}
   </span>
@@ -1610,7 +1665,7 @@ const AnalysisBullet = ({
   return (
     <li className="flex items-start gap-3">
       <span className={`mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${dotClass}`} />
-      <span className={`text-[16px] leading-relaxed ${textClass}`}>{text}</span>
+      <span className={`text-[14.5px] leading-relaxed ${textClass}`}>{text}</span>
     </li>
   );
 };
@@ -1623,16 +1678,16 @@ const TranscriptAnalysisView = ({
   <div className="space-y-12">
     {/* User goal */}
     <section>
-      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
         User goal
       </p>
-      <p className="mt-3 text-[18px] leading-relaxed text-slate-100">
+      <p className="mt-3 text-[16px] leading-relaxed text-slate-100">
         {analysis.userGoal}
       </p>
       {analysis.userGoalContext && (
         <div className="mt-5 space-y-4 rounded-xl border border-slate-800 bg-slate-950/40 p-5 sm:p-6">
           {analysis.userGoalContext.intro && (
-            <p className="text-[16px] leading-relaxed text-slate-300">
+            <p className="text-[14.5px] leading-relaxed text-slate-300">
               {analysis.userGoalContext.intro}
             </p>
           )}
@@ -1645,12 +1700,12 @@ const TranscriptAnalysisView = ({
               </ul>
             )}
           {analysis.userGoalContext.closing && (
-            <p className="text-[16px] leading-relaxed text-slate-300">
+            <p className="text-[14.5px] leading-relaxed text-slate-300">
               {analysis.userGoalContext.closing}
             </p>
           )}
           {analysis.userGoalContext.quote && (
-            <blockquote className="border-l-2 border-indigo-400/60 pl-4 text-[16.5px] italic leading-relaxed text-slate-200">
+            <blockquote className="border-l-2 border-indigo-400/60 pl-4 text-[15px] italic leading-relaxed text-slate-200">
               <span className="mr-1 font-serif text-indigo-400">&ldquo;</span>
               {analysis.userGoalContext.quote}
               <span className="ml-0.5 font-serif text-indigo-400">&rdquo;</span>
@@ -1662,7 +1717,7 @@ const TranscriptAnalysisView = ({
 
     {/* Observations by concept */}
     <section>
-      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-400">
         Observations by concept
       </p>
       <div className="mt-4 space-y-8">
@@ -1674,20 +1729,20 @@ const TranscriptAnalysisView = ({
             <header className="mb-4">
               <ConceptBadge concept={c.concept} />
               {c.conceptSubtitle && (
-                <p className="mt-2 text-[15px] italic leading-relaxed text-slate-400">
+                <p className="mt-2 text-[13.5px] italic leading-relaxed text-slate-400">
                   {c.conceptSubtitle}
                 </p>
               )}
               {c.mainReaction && (
                 <div className="mt-3 rounded-lg border border-slate-700/70 bg-slate-900/60 px-4 py-3">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                     Main reaction
                   </p>
-                  <p className="mt-1 text-[16px] leading-relaxed text-slate-200">
+                  <p className="mt-1 text-[14.5px] leading-relaxed text-slate-200">
                     {c.mainReaction}
                   </p>
                   {c.mainReactionQuote && (
-                    <blockquote className="mt-3 border-l-2 border-indigo-400/60 pl-4 text-[15.5px] italic leading-relaxed text-slate-300">
+                    <blockquote className="mt-3 border-l-2 border-indigo-400/60 pl-4 text-[14px] italic leading-relaxed text-slate-300">
                       <span className="mr-1 font-serif text-indigo-400">
                         &ldquo;
                       </span>
@@ -1703,7 +1758,7 @@ const TranscriptAnalysisView = ({
 
             {c.whatHappened.length > 0 && (
               <div>
-                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                   What happened
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -1716,7 +1771,7 @@ const TranscriptAnalysisView = ({
 
             {c.whatWorked && c.whatWorked.length > 0 && (
               <div className="mt-5 rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-5">
-                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
                   What worked
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -1729,7 +1784,7 @@ const TranscriptAnalysisView = ({
 
             {c.keyStrengths && c.keyStrengths.length > 0 && (
               <div className="mt-6">
-                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
                   Key strengths
                 </p>
                 <ol className="mt-3 space-y-4">
@@ -1739,10 +1794,10 @@ const TranscriptAnalysisView = ({
                       className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5"
                     >
                       <div className="flex items-baseline gap-3">
-                        <span className="font-serif text-[19px] tabular-nums text-emerald-300">
+                        <span className="font-serif text-[17px] tabular-nums text-emerald-300">
                           {si + 1}.
                         </span>
-                        <h4 className="text-[17.5px] font-semibold leading-snug text-slate-50">
+                        <h4 className="text-[16px] font-semibold leading-snug text-slate-50">
                           {s.title}
                         </h4>
                       </div>
@@ -1772,7 +1827,7 @@ const TranscriptAnalysisView = ({
 
             {c.issues.length > 0 && (
               <div className="mt-6">
-                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-amber-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-amber-300">
                   Main issues
                 </p>
                 <ol className="mt-3 space-y-5">
@@ -1782,10 +1837,10 @@ const TranscriptAnalysisView = ({
                       className="rounded-xl border border-amber-500/20 bg-amber-500/[0.04] p-5"
                     >
                       <div className="flex items-baseline gap-3">
-                        <span className="font-serif text-[19px] tabular-nums text-amber-300">
+                        <span className="font-serif text-[17px] tabular-nums text-amber-300">
                           {ii + 1}.
                         </span>
-                        <h4 className="text-[17.5px] font-semibold leading-snug text-slate-50">
+                        <h4 className="text-[16px] font-semibold leading-snug text-slate-50">
                           {iss.title}
                         </h4>
                       </div>
@@ -1815,7 +1870,7 @@ const TranscriptAnalysisView = ({
 
             {c.expected && c.expected.length > 0 && (
               <div className="mt-5 rounded-xl border border-cyan-500/25 bg-cyan-500/5 p-5">
-                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
                   The user explicitly expected
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -1834,7 +1889,7 @@ const TranscriptAnalysisView = ({
     {analysis.crossCuttingInsights &&
       analysis.crossCuttingInsights.length > 0 && (
         <section>
-          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-violet-300">
             Cross-cutting insights
           </p>
           <ol className="mt-4 space-y-4">
@@ -1844,22 +1899,22 @@ const TranscriptAnalysisView = ({
                 className="rounded-2xl border border-violet-500/20 bg-violet-500/[0.04] p-6"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-serif text-[19px] tabular-nums text-violet-300">
+                  <span className="font-serif text-[17px] tabular-nums text-violet-300">
                     {ii + 1}.
                   </span>
-                  <h4 className="text-[17.5px] font-semibold leading-snug text-slate-50">
+                  <h4 className="text-[16px] font-semibold leading-snug text-slate-50">
                     {ins.title}
                   </h4>
                 </div>
                 {ins.body && (
-                  <p className="mt-3 ml-7 text-[16px] italic leading-relaxed text-slate-300">
+                  <p className="mt-3 ml-7 text-[14.5px] italic leading-relaxed text-slate-300">
                     {ins.body}
                   </p>
                 )}
                 {ins.bullets && ins.bullets.length > 0 && (
                   <div className="mt-3 ml-7">
                     {ins.bulletsIntro && (
-                      <p className="mb-2 text-[15px] leading-relaxed text-slate-400">
+                      <p className="mb-2 text-[13.5px] leading-relaxed text-slate-400">
                         {ins.bulletsIntro}
                       </p>
                     )}
@@ -1892,14 +1947,14 @@ const TranscriptAnalysisView = ({
     {/* Cross-cutting confusion */}
     {analysis.crossCutting && (
       <section className="rounded-2xl border border-violet-500/25 bg-gradient-to-br from-violet-500/10 via-indigo-500/5 to-transparent p-6 sm:p-8">
-        <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-violet-300">
           Cross-cutting confusion
         </p>
-        <h3 className="mt-2 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[20px]">
+        <h3 className="mt-2 text-[18px] font-semibold leading-snug text-slate-50 sm:text-[16px]">
           {analysis.crossCutting.title}
         </h3>
         {analysis.crossCutting.intro && (
-          <p className="mt-4 text-[16px] leading-relaxed text-slate-300">
+          <p className="mt-4 text-[14.5px] leading-relaxed text-slate-300">
             {analysis.crossCutting.intro}
           </p>
         )}
@@ -1911,7 +1966,7 @@ const TranscriptAnalysisView = ({
         {analysis.crossCutting.consequences &&
           analysis.crossCutting.consequences.length > 0 && (
             <div className="mt-5">
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 This led to
               </p>
               <ul className="mt-2.5 space-y-2">
@@ -1926,10 +1981,10 @@ const TranscriptAnalysisView = ({
 
     {/* Behavioral pattern */}
     <section>
-      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-400">
         Behavioural pattern
       </p>
-      <p className="mt-2 text-[16px] leading-relaxed text-slate-400">
+      <p className="mt-2 text-[14.5px] leading-relaxed text-slate-400">
         The user consistently followed this flow:
       </p>
       <ol className="mt-3 space-y-2">
@@ -1938,10 +1993,10 @@ const TranscriptAnalysisView = ({
             key={si}
             className="flex items-start gap-3 rounded-lg border border-slate-800 bg-slate-900/60 px-4 py-3"
           >
-            <span className="font-serif text-[17px] tabular-nums text-indigo-300">
+            <span className="font-serif text-[15.5px] tabular-nums text-indigo-300">
               {String(si + 1).padStart(2, "0")}
             </span>
-            <span className="text-[16px] leading-relaxed text-slate-200">
+            <span className="text-[14.5px] leading-relaxed text-slate-200">
               {step}
             </span>
           </li>
@@ -1949,11 +2004,11 @@ const TranscriptAnalysisView = ({
       </ol>
       {analysis.behavioralPatternNote && (
         <div className="mt-4 rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-5">
-          <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+          <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
             {analysis.behavioralPatternNote.title ??
               "Key difference vs previous users"}
           </p>
-          <p className="mt-1.5 text-[16px] leading-relaxed text-slate-200">
+          <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-200">
             {analysis.behavioralPatternNote.text}
           </p>
         </div>
@@ -1962,10 +2017,10 @@ const TranscriptAnalysisView = ({
 
     {/* Key takeaway */}
     <section className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-6 sm:p-8">
-      <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+      <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
         Key takeaway
       </p>
-      <h3 className="mt-2 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[22px]">
+      <h3 className="mt-2 text-[18px] font-semibold leading-snug text-slate-50 sm:text-[17px]">
         {analysis.keyTakeaway.headline}
       </h3>
       {analysis.keyTakeaway.body && analysis.keyTakeaway.body.length > 0 && (
@@ -1977,7 +2032,7 @@ const TranscriptAnalysisView = ({
       )}
       {analysis.keyTakeaway.missingPiece && (
         <div className="mt-5 rounded-xl border border-cyan-500/25 bg-slate-950/40 p-5">
-          <p className="text-[14px] font-semibold leading-snug text-cyan-200">
+          <p className="text-[13px] font-semibold leading-snug text-cyan-200">
             {analysis.keyTakeaway.missingPiece.title}
           </p>
           <ul className="mt-2.5 space-y-2">
@@ -1990,7 +2045,7 @@ const TranscriptAnalysisView = ({
       {analysis.keyTakeaway.consequences &&
         analysis.keyTakeaway.consequences.length > 0 && (
           <div className="mt-5">
-            <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
               Without that distinction, users don’t know
             </p>
             <ul className="mt-2.5 space-y-2">
@@ -2008,7 +2063,7 @@ const TranscriptAnalysisView = ({
                 key={si}
                 className="rounded-xl border border-indigo-500/20 bg-slate-950/40 p-5"
               >
-                <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
+                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
                   {s.title}
                 </p>
                 <ul className="mt-2.5 space-y-2">
@@ -2021,7 +2076,7 @@ const TranscriptAnalysisView = ({
           </div>
         )}
       {analysis.keyTakeaway.closing && (
-        <p className="mt-6 border-l-2 border-indigo-400/60 pl-5 text-[17px] italic leading-relaxed text-slate-200">
+        <p className="mt-6 border-l-2 border-indigo-400/60 pl-5 text-[15.5px] italic leading-relaxed text-slate-200">
           {analysis.keyTakeaway.closing}
         </p>
       )}
@@ -2056,7 +2111,7 @@ const CollapsibleQuotes = ({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="group inline-flex items-center gap-2 rounded-md text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400 transition hover:text-indigo-300"
+        className="group inline-flex items-center gap-2 rounded-md text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-400 transition hover:text-indigo-300"
       >
         <ChevronDown
           className={`h-4 w-4 transition-transform duration-200 ${
@@ -2232,7 +2287,7 @@ const TranscriptDialogContent = ({
             <a
               href={`/transcripts/${encodeURIComponent(transcript.sourceFile)}`}
               download={transcript.sourceFile}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[12.5px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-[11.5px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
             >
               <Download className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Download transcript</span>
@@ -2255,10 +2310,10 @@ const TranscriptDialogContent = ({
             <TranscriptAnalysisView analysis={analysis} />
           ) : (
             <section>
-              <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                 Session summary
               </p>
-              <p className="mt-3 text-[17px] leading-relaxed text-slate-200">
+              <p className="mt-3 text-[15.5px] leading-relaxed text-slate-200">
                 {transcript.summary}
               </p>
             </section>
@@ -2292,10 +2347,10 @@ const TranscriptDialogContent = ({
           >
             <ChevronLeft className="h-4 w-4 shrink-0 text-slate-400 transition group-enabled:group-hover:text-indigo-300" />
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Previous
               </p>
-              <p className="truncate text-[12.5px] font-medium text-slate-200">
+              <p className="truncate text-[11.5px] font-medium text-slate-200">
                 {prev
                   ? `${prev.participant} (${prev.persona})`
                   : "—"}
@@ -2303,7 +2358,7 @@ const TranscriptDialogContent = ({
             </div>
           </button>
 
-          <p className="hidden shrink-0 text-[12px] font-medium uppercase tracking-[0.14em] text-slate-500 sm:block">
+          <p className="hidden shrink-0 text-[11.5px] font-medium uppercase tracking-[0.14em] text-slate-500 sm:block">
             Session {idx + 1} of {totalCount}
           </p>
 
@@ -2314,10 +2369,10 @@ const TranscriptDialogContent = ({
             className="group flex min-w-0 max-w-[45%] items-center gap-3 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2.5 text-right transition enabled:hover:border-indigo-400/70 disabled:opacity-40"
           >
             <div className="min-w-0 flex-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Next
               </p>
-              <p className="truncate text-[12.5px] font-medium text-slate-200">
+              <p className="truncate text-[11.5px] font-medium text-slate-200">
                 {next
                   ? `${next.participant} (${next.persona})`
                   : "—"}
@@ -2338,7 +2393,7 @@ const TranscriptDialogContent = ({
 // =================================================================
 
 const DiscussionH3 = ({ children }: { children: ReactNode }) => (
-  <h3 className="text-[19px] font-semibold leading-snug text-slate-50 sm:text-[19px]">
+  <h3 className="text-[17px] font-semibold leading-snug text-slate-50 sm:text-[15.5px]">
     {children}
   </h3>
 );
@@ -2359,7 +2414,7 @@ const DiscussionEyebrow = ({
   }[color];
   return (
     <p
-      className={`text-[12px] font-semibold uppercase tracking-[0.16em] ${cls}`}
+      className={`text-[11.5px] font-semibold uppercase tracking-[0.16em] ${cls}`}
     >
       {children}
     </p>
@@ -2383,207 +2438,479 @@ const DiscussionBullet = ({
       <span
         className={`mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${dotClass}`}
       />
-      <span className={`text-[16px] leading-relaxed ${textClass}`}>
+      <span className={`text-[14.5px] leading-relaxed ${textClass}`}>
         {children}
       </span>
     </li>
   );
 };
 
-const DiscussionPullQuote = ({
-  text,
-  participant,
-  persona,
-}: {
-  text: string;
-  participant?: string;
-  persona?: string;
-}) => (
-  <blockquote className="my-2 rounded-xl border border-indigo-500/25 bg-indigo-500/[0.06] px-5 py-4">
-    <p className="text-[17px] italic leading-relaxed text-slate-100">
-      <span className="mr-1 font-serif text-indigo-400">&ldquo;</span>
-      {text}
-      <span className="ml-0.5 font-serif text-indigo-400">&rdquo;</span>
-    </p>
-    {(participant || persona) && (
-      <p className="mt-2 text-[12.5px] font-medium text-slate-400">
-        {participant}
-        {persona ? <span className="text-slate-500"> · {persona}</span> : null}
-      </p>
-    )}
-  </blockquote>
-);
 
-type ResourceDiscussionTab =
-  | "overview"
-  | "auto"
-  | "options"
-  | "direction";
+type ResourceDiscussionTab = "overview" | "auto" | "options";
 
 const RESOURCE_TABS: { id: ResourceDiscussionTab; label: string }[] = [
   { id: "overview", label: "Overview" },
-  { id: "auto", label: "Technical reality" },
   { id: "options", label: "Options compared" },
-  { id: "direction", label: "Recommended direction" },
+  { id: "auto", label: "Technical reality" },
 ];
 
 
-const ResourceOverviewPane = () => (
-  <div className="space-y-12">
-    {/* Title */}
-    <header>
-      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
-        Overview
-      </p>
-      <h1 className="mt-3 text-[24px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[26px] md:text-[36px]">
-        Resource creation: timing and ownership
+const ResourceOverviewPane = ({
+  onGoToOptions,
+}: {
+  onGoToOptions?: () => void;
+}) => (
+  <div className="space-y-10">
+    {/* Hero header — violet accent rule + larger title hierarchy */}
+    <header className="relative">
+      <div className="flex items-center gap-3">
+        <span
+          aria-hidden="true"
+          className="h-px w-9 bg-gradient-to-r from-violet-400 via-violet-500/60 to-transparent"
+        />
+        <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+          Overview · Discussion
+        </p>
+      </div>
+      <h1 className="mt-4 max-w-3xl text-[21px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[23px] md:text-[31px]">
+        Resource creation: timing, motivation, and ownership
       </h1>
-      <p className="mt-4 max-w-3xl text-[16.5px] leading-relaxed text-slate-400">
+      <p className="mt-4 max-w-3xl text-[14.5px] leading-relaxed text-slate-400 sm:text-[15px]">
         A focused discussion on what blocks users from validating their setup,
         and how Conversation API app creation should support the journey from
         testing to integration.
       </p>
     </header>
 
-    {/* Why this page exists */}
-    <section className="space-y-4">
-      <DiscussionEyebrow color="violet">Why this page exists</DiscussionEyebrow>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        There are different opinions on whether Conversation API apps should be:
+    {/* Insights stack — same shape as the journey-step "Why this step
+        matters" layout: eyebrow + headline + lead + numbered insights, each
+        carrying its own evidence inline. Easier to scan than the previous
+        seven-section vertical stack. */}
+    <div className="border-t border-slate-800/60 pt-8">
+      <p className="mb-4 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+        <Sparkles className="h-3.5 w-3.5 text-violet-300" strokeWidth={2.25} />
+        The thesis in five steps
       </p>
-      <ul className="space-y-2">
-        <DiscussionBullet>Auto-created when a channel is created.</DiscussionBullet>
-        <DiscussionBullet>Explicitly created or selected later.</DiscussionBullet>
-        <DiscussionBullet>Managed by the platform during testing.</DiscussionBullet>
-      </ul>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        The research suggests that the real question is not simply:
-      </p>
-      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[16px] italic leading-relaxed text-amber-100">
-        Should apps be auto-created or manual?
-      </p>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        The better question is:
-      </p>
-      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[16px] font-semibold leading-relaxed text-emerald-100">
-        When should the app become a user responsibility?
-      </p>
-    </section>
 
-    {/* What research shows */}
-    <section className="space-y-4">
-      <DiscussionEyebrow>What research shows</DiscussionEyebrow>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        After creating a channel, users expect to validate it. Their intent is
-        simple:
+      <h2 className="text-[18px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[21px]">
+        The real question is when, not whether.
+      </h2>
+      <p className="mt-3 text-[14.5px] leading-relaxed text-slate-300 sm:text-[15px]">
+        There are different opinions on whether Conversation API apps should be
+        auto-created, manual, or platform-managed. The real question is not
+        only technical — it is about timing, motivation, and ownership.
       </p>
-      <DiscussionPullQuote text="I just want to see if it works." />
-      <p className="text-[16.5px] leading-relaxed text-slate-300">They expect:</p>
-      <p className="rounded-lg border border-slate-800 bg-slate-900/50 px-5 py-4 font-mono text-[14.5px] leading-relaxed text-slate-200">
-        Create agent → send test message → see confirmation
-      </p>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        They want to confirm:
-      </p>
-      <ul className="space-y-2">
-        <DiscussionBullet>Does my agent work?</DiscussionBullet>
-        <DiscussionBullet>Does my brand appear correctly?</DiscussionBullet>
-        <DiscussionBullet>Was the message delivered?</DiscussionBullet>
-        <DiscussionBullet>Can I inspect what happened?</DiscussionBullet>
-      </ul>
-    </section>
 
-    {/* What gets in the way */}
-    <section className="space-y-4">
-      <DiscussionEyebrow color="amber">What gets in the way</DiscussionEyebrow>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        Today, validation can require users to:
+      <ol className="mt-7 divide-y divide-slate-800/70 border-y border-slate-800/70">
+        {/* 01 — Why the framing matters */}
+        <li className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5">
+          <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500 sm:text-[12.5px]">
+            01
+          </span>
+          <div className="min-w-0">
+            <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[15.5px]">
+              Why the framing matters
+            </p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 sm:text-[14px]">
+              It is not “auto-create vs manual.” It is about when users have
+              built enough motivation for setup to feel like progress.
+            </p>
+            {/* Reframe block: × Common framing → ✓ Better framing */}
+            <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-center">
+              <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.05] p-4">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-500/20 text-[9px] font-bold leading-none">
+                    ×
+                  </span>
+                  Common framing
+                </p>
+                <p className="mt-2 text-[13px] italic leading-snug text-amber-100/90 line-through decoration-amber-400/40 decoration-1 sm:text-[13.5px]">
+                  Should apps be auto-created or manual?
+                </p>
+                <p className="mt-1.5 text-[11.5px] leading-relaxed text-amber-200/70">
+                  This framing misses the user journey.
+                </p>
+              </div>
+              <div
+                aria-hidden="true"
+                className="hidden md:flex md:flex-col md:items-center md:justify-center md:gap-1"
+              >
+                <ArrowRight
+                  className="h-4 w-4 text-violet-300"
+                  strokeWidth={2.25}
+                />
+                <span className="text-[9.5px] font-semibold uppercase tracking-[0.18em] text-violet-400">
+                  Reframe
+                </span>
+              </div>
+              <div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/[0.10] to-emerald-500/[0.04] p-4 shadow-[0_8px_24px_-16px_rgba(52,211,153,0.4)]">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500/25 text-[9px] font-bold leading-none">
+                    ✓
+                  </span>
+                  Better framing
+                </p>
+                <p className="mt-2 text-[13px] font-semibold leading-snug text-emerald-50 sm:text-[13.5px]">
+                  When should the app become a user responsibility?
+                </p>
+                <p className="mt-1.5 text-[11.5px] leading-relaxed text-emerald-200/80">
+                  This names the real decision the design has to make.
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* 02 — Motivation is earned step by step */}
+        <li className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5">
+          <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500 sm:text-[12.5px]">
+            02
+          </span>
+          <div className="min-w-0">
+            <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[15.5px]">
+              Motivation is earned step by step
+            </p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 sm:text-[14px]">
+              Users become more willing to do setup after each successful step.
+            </p>
+            <ol className="mt-4 space-y-1.5">
+              {[
+                "They send a message.",
+                "They see it delivered.",
+                "They understand what happened.",
+                "They create their own channel.",
+                "They see their own brand in a real message.",
+              ].map((t, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-200 sm:text-[13.5px]"
+                >
+                  <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-violet-500/35 bg-violet-500/10 font-mono text-[9.5px] tabular-nums text-violet-200">
+                    {i + 1}
+                  </span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-4 rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-4 py-2.5 text-[13px] font-medium leading-relaxed text-emerald-100 sm:text-[13.5px]">
+              At that point, integration no longer feels like a blocker. It
+              feels like the next step.
+            </p>
+          </div>
+        </li>
+
+        {/* 03 — Users want to validate, not integrate */}
+        <li className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5">
+          <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500 sm:text-[12.5px]">
+            03
+          </span>
+          <div className="min-w-0">
+            <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[15.5px]">
+              Users want to validate, not integrate
+            </p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 sm:text-[14px]">
+              After creating a channel, their intent is to confirm that the
+              thing they just made works — not to start integrating.
+            </p>
+            <div className="mt-4 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/40">
+              <div className="p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  Expected flow
+                </p>
+                <ol className="mt-2.5 flex flex-col items-stretch gap-1.5 sm:flex-row sm:items-center sm:gap-1">
+                  {[
+                    { step: "Create agent", tone: "indigo" },
+                    { step: "Send test message", tone: "violet" },
+                    { step: "See confirmation", tone: "emerald" },
+                  ].map((s, i, arr) => (
+                    <li key={i} className="contents">
+                      <div
+                        className={`flex-1 rounded-lg border px-3 py-2 text-center font-mono text-[11.5px] leading-relaxed sm:text-[12px] ${
+                          s.tone === "indigo"
+                            ? "border-indigo-500/30 bg-indigo-500/[0.06] text-indigo-100"
+                            : s.tone === "violet"
+                              ? "border-violet-500/30 bg-violet-500/[0.06] text-violet-100"
+                              : "border-emerald-500/30 bg-emerald-500/[0.06] text-emerald-100"
+                        }`}
+                      >
+                        {s.step}
+                      </div>
+                      {i < arr.length - 1 && (
+                        <span
+                          aria-hidden="true"
+                          className="flex shrink-0 items-center justify-center text-slate-500"
+                        >
+                          <ArrowRight className="hidden h-3.5 w-3.5 sm:block" />
+                          <ChevronDown className="h-3.5 w-3.5 sm:hidden" />
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <div aria-hidden="true" className="h-px bg-slate-800/60" />
+              <div className="p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  They want to confirm
+                </p>
+                <ul className="mt-2.5 grid gap-1.5 sm:grid-cols-2">
+                  {[
+                    "Does my agent work?",
+                    "Does my brand appear correctly?",
+                    "Was the message delivered?",
+                    "Can I inspect what happened?",
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-[12.5px] leading-relaxed text-slate-200 sm:text-[13px]"
+                    >
+                      <span className="mt-0.5 inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-md bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/30">
+                        <Check className="h-2 w-2" strokeWidth={3} />
+                      </span>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* 04 — Ownership requires the right timing */}
+        <li className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5">
+          <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500 sm:text-[12.5px]">
+            04
+          </span>
+          <div className="min-w-0">
+            <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[15.5px]">
+              Ownership requires the right timing
+            </p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 sm:text-[14px]">
+              Users value things more when they have intentionally created,
+              named, and understood them. But ownership only works when the
+              timing is right.
+            </p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] p-4">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-500/20 text-[9px] font-bold leading-none">
+                    ×
+                  </span>
+                  Created too early
+                </p>
+                <p className="mt-2 text-[12.5px] leading-relaxed text-amber-100/90 sm:text-[13px]">
+                  Solves a technical dependency, but weakens the user’s sense
+                  of control.
+                </p>
+              </div>
+              <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.04] p-4">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500/25 text-[9px] font-bold leading-none">
+                    ✓
+                  </span>
+                  Introduced with intent
+                </p>
+                <p className="mt-2 text-[12.5px] leading-relaxed text-emerald-100/90 sm:text-[13px]">
+                  Creation becomes meaningful — the resource feels like
+                  something the user owns.
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        {/* 05 — Today's setup creates a mismatch */}
+        <li className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-6 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5">
+          <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500 sm:text-[12.5px]">
+            05
+          </span>
+          <div className="min-w-0">
+            <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[15.5px]">
+              Today’s setup creates a mismatch
+            </p>
+            <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 sm:text-[14px]">
+              At the moment users want to test, the system asks them to set
+              up. The gap between those two intents is where momentum dies.
+            </p>
+            <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
+              <div className="rounded-xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/[0.10] to-emerald-500/[0.04] p-4 shadow-[0_8px_24px_-16px_rgba(52,211,153,0.4)]">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500/25 text-[9px] font-bold leading-none">
+                    ✓
+                  </span>
+                  User intention
+                </p>
+                <p className="mt-2 text-[13.5px] font-semibold leading-snug text-emerald-50 sm:text-[14px]">
+                  Test what they just made
+                </p>
+                <ul className="mt-3 space-y-1.5">
+                  {[
+                    "Send a message from their agent.",
+                    "See it arrive on their device.",
+                    "Get confidence the setup works.",
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-[12px] leading-relaxed text-emerald-100/90"
+                    >
+                      <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                aria-hidden="true"
+                className="hidden md:flex md:flex-col md:items-center md:justify-center md:gap-1.5"
+              >
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-amber-500/40 bg-amber-500/[0.08] text-[13px] font-semibold leading-none text-amber-300">
+                  ≠
+                </span>
+                <span className="text-[9.5px] font-semibold uppercase tracking-[0.18em] text-amber-400">
+                  Mismatch
+                </span>
+              </div>
+              <div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.05] p-4">
+                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-500/20 text-[9px] font-bold leading-none">
+                    !
+                  </span>
+                  Current reality
+                </p>
+                <p className="mt-2 text-[13.5px] font-semibold leading-snug text-amber-50 sm:text-[14px]">
+                  Configure infrastructure first
+                </p>
+                <ul className="mt-3 space-y-1.5">
+                  {[
+                    "Create or connect a Conversation API app.",
+                    "Manage credentials.",
+                    "Think about integration before testing.",
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-[12px] leading-relaxed text-amber-100/90"
+                    >
+                      <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-amber-400" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    {/* Key takeaway — closes with the design principle and final thesis. */}
+    <section className="rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.05] to-transparent p-6 shadow-[0_24px_60px_-32px_rgba(139,92,246,0.4)] sm:p-7">
+      <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+        <Sparkles className="h-3.5 w-3.5 text-violet-300" strokeWidth={2.25} />
+        Key takeaway
       </p>
-      <ul className="space-y-2">
-        <DiscussionBullet>Create or connect a Conversation API app.</DiscussionBullet>
-        <DiscussionBullet>Manage credentials.</DiscussionBullet>
-        <DiscussionBullet>Start thinking about integration.</DiscussionBullet>
-      </ul>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
-        This creates a mismatch:
+      <p className="mt-3 text-[17px] font-semibold leading-snug text-slate-50 sm:text-[19px]">
+        First prove value.
+        <br />
+        Then let users create and own the resources that matter.
       </p>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5">
-          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
-            User intention
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] px-4 py-3">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+            Before validation
           </p>
-          <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50">
-            Test
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-amber-100/90 sm:text-[13px]">
+            The app is infrastructure.
           </p>
         </div>
-        <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] p-5">
-          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-amber-300">
-            Current reality
+        <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.04] px-4 py-3">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
+            After validation
           </p>
-          <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50">
-            Setup
+          <p className="mt-1.5 text-[12.5px] leading-relaxed text-emerald-100/90 sm:text-[13px]">
+            The app can become part of the user’s system.
           </p>
         </div>
       </div>
+      <p className="mt-5 text-[13px] leading-relaxed text-slate-400 sm:text-[13.5px]">
+        The fix is not choosing between auto-create and manual setup. It is
+        deciding when the app becomes a user responsibility — because
+        motivation is earned step by step.
+      </p>
     </section>
+
+    {/* Forward link — points the reader at the next tab where the four
+        possible approaches are compared side-by-side. */}
+    {onGoToOptions && (
+      <div className="!mt-8 flex justify-center">
+        <button
+          type="button"
+          onClick={onGoToOptions}
+          className="group inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-gradient-to-br from-violet-500/15 via-indigo-500/10 to-violet-500/5 px-5 py-2.5 text-[12.5px] font-semibold tracking-[0.04em] text-violet-100 shadow-[0_8px_24px_-12px_rgba(139,92,246,0.5)] transition hover:border-violet-400/70 hover:from-violet-500/25 hover:via-indigo-500/20 hover:text-white sm:px-6 sm:py-2.5 sm:text-[13px]"
+        >
+          See alternative ways forward
+          <ArrowRight className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" />
+        </button>
+      </div>
+    )}
   </div>
 );
+
 
 const ResourceAutoPane = () => (
   <div className="space-y-10">
     <header>
-      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+      <p className="text-[11.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
         Technical reality
       </p>
-      <h2 className="mt-3 text-[22px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[30px]">
+      <h2 className="mt-3 text-[19px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[21px] md:text-[23px]">
         What the API actually requires
       </h2>
     </header>
 
     {/* Agent vs App */}
     <section className="space-y-4">
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
+      <p className="text-[15px] leading-relaxed text-slate-300">
         An RCS Agent cannot send messages on its own.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/[0.05] p-5">
-          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
             The agent
           </p>
-          <p className="mt-2 text-[17px] font-semibold leading-snug text-slate-50">
+          <p className="mt-2 text-[15.5px] font-semibold leading-snug text-slate-50">
             Sender identity
           </p>
-          <p className="mt-2 text-[15px] leading-relaxed text-slate-300">
+          <p className="mt-2 text-[13.5px] leading-relaxed text-slate-300">
             Brand, name, logo, profile, and approved use case.
           </p>
         </div>
         <div className="rounded-xl border border-violet-500/25 bg-violet-500/[0.05] p-5">
-          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300">
             The Conversation API app
           </p>
-          <p className="mt-2 text-[17px] font-semibold leading-snug text-slate-50">
+          <p className="mt-2 text-[15.5px] font-semibold leading-snug text-slate-50">
             Sending mechanism
           </p>
-          <p className="mt-2 text-[15px] leading-relaxed text-slate-300">
+          <p className="mt-2 text-[13.5px] leading-relaxed text-slate-300">
             Authentication, routing, delivery, retries, events, and webhooks.
           </p>
         </div>
       </div>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
+      <p className="text-[15px] leading-relaxed text-slate-300">
         So the question is not:
       </p>
-      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[16px] italic leading-relaxed text-amber-100">
+      <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-5 py-3 text-[14.5px] italic leading-relaxed text-amber-100">
         Can we send without an app?{" "}
         <span className="text-amber-300/80">No.</span>
       </p>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
+      <p className="text-[15px] leading-relaxed text-slate-300">
         The real question is:
       </p>
-      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[16px] font-semibold leading-relaxed text-emerald-100">
+      <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[14.5px] font-semibold leading-relaxed text-emerald-100">
         Does the app need to be user-owned and user-managed at the validation
         stage?
       </p>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
+      <p className="text-[15px] leading-relaxed text-slate-300">
         Based on the API model, it does not.
       </p>
     </section>
@@ -2598,7 +2925,7 @@ const ResourceAutoPane = () => (
         <DiscussionBullet>In-product logs and event timelines.</DiscussionBullet>
         <DiscussionBullet>Reassignment to a user-owned app when the user moves into integration.</DiscussionBullet>
       </ul>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
+      <p className="text-[15px] leading-relaxed text-slate-300">
         This means validation can be enabled without making app setup a user
         responsibility too early.
       </p>
@@ -2607,11 +2934,11 @@ const ResourceAutoPane = () => (
     {/* Core principle */}
     <section className="rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-cyan-500/5 to-transparent p-6 sm:p-8">
       <DiscussionEyebrow color="cyan">Core principle</DiscussionEyebrow>
-      <p className="mt-3 text-[19px] leading-snug text-slate-100 sm:text-[19px]">
+      <p className="mt-3 text-[17px] leading-snug text-slate-100 sm:text-[15.5px]">
         Validation requires infrastructure, but not user ownership of that
         infrastructure.
       </p>
-      <p className="mt-3 text-[16px] leading-relaxed text-slate-300">
+      <p className="mt-3 text-[14.5px] leading-relaxed text-slate-300">
         The app may still exist technically. But the user should not have to
         create, connect, or understand it before they know why it matters.
       </p>
@@ -2620,25 +2947,25 @@ const ResourceAutoPane = () => (
     {/* Core tension */}
     <section className="space-y-4">
       <DiscussionEyebrow color="violet">The core tension</DiscussionEyebrow>
-      <p className="text-[16.5px] leading-relaxed text-slate-300">
+      <p className="text-[15px] leading-relaxed text-slate-300">
         There are two valid needs.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] p-5">
           <DiscussionH3>Reduce friction early</DiscussionH3>
-          <p className="mt-2.5 text-[15.5px] leading-relaxed text-slate-300">
+          <p className="mt-2.5 text-[14px] leading-relaxed text-slate-300">
             Users need to validate quickly without being blocked by setup.
           </p>
         </div>
         <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/[0.04] p-5">
           <DiscussionH3>Preserve clarity and control</DiscussionH3>
-          <p className="mt-2.5 text-[15.5px] leading-relaxed text-slate-300">
+          <p className="mt-2.5 text-[14px] leading-relaxed text-slate-300">
             Developers need visibility and ownership of the resources they use
             for real integration.
           </p>
         </div>
       </div>
-      <p className="text-[16.5px] italic leading-relaxed text-slate-200">
+      <p className="text-[15px] italic leading-relaxed text-slate-200">
         The challenge is to support both.
       </p>
     </section>
@@ -2648,18 +2975,18 @@ const ResourceAutoPane = () => (
 const ResourceOptionsPane = () => (
   <div className="space-y-10">
     <header>
-      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+      <p className="text-[11.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
         Alternative approaches to enable validation
       </p>
-      <h2 className="mt-3 text-[22px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[30px]">
+      <h2 className="mt-3 text-[19px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[21px] md:text-[23px]">
         Four options compared
       </h2>
-      <p className="mt-4 max-w-3xl text-[16.5px] leading-relaxed text-slate-300">
+      <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-slate-300">
         There are multiple ways to enable validation after channel creation.
         All approaches support sending messages, but they differ in when
         users are required to deal with infrastructure.
       </p>
-      <p className="mt-4 max-w-3xl rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[16px] font-semibold leading-relaxed text-emerald-100">
+      <p className="mt-4 max-w-3xl rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-5 py-3 text-[14.5px] font-semibold leading-relaxed text-emerald-100">
         The core tradeoff is not technical feasibility, but timing of
         responsibility.
       </p>
@@ -2669,7 +2996,7 @@ const ResourceOptionsPane = () => (
     <section className="space-y-4">
       <DiscussionEyebrow>Comparison of approaches</DiscussionEyebrow>
       <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full border-collapse text-left text-[13px]">
+        <table className="w-full border-collapse text-left text-[12px]">
           <thead className="bg-slate-950/70">
             <tr>
               {[
@@ -2684,7 +3011,7 @@ const ResourceOptionsPane = () => (
               ].map((h) => (
                 <th
                   key={h}
-                  className="border-b border-slate-800 px-3 py-3 align-top text-[11.5px] font-semibold uppercase tracking-[0.12em] text-slate-400"
+                  className="border-b border-slate-800 px-3 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400"
                 >
                   {h}
                 </th>
@@ -2760,7 +3087,7 @@ const ResourceOptionsPane = () => (
               };
               const Score = ({ v }: { v: number | string }) => (
                 <span
-                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[12.5px] font-semibold tabular-nums ${scoreClass(v)}`}
+                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-semibold tabular-nums ${scoreClass(v)}`}
                 >
                   {v}
                 </span>
@@ -2802,7 +3129,7 @@ const ResourceOptionsPane = () => (
                   </td>
                   <td className="px-3 py-3 align-middle">
                     <span
-                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[12.5px] font-bold tabular-nums ${totalClass(row.total)}`}
+                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-bold tabular-nums ${totalClass(row.total)}`}
                     >
                       {row.total}
                     </span>
@@ -2813,7 +3140,7 @@ const ResourceOptionsPane = () => (
           </tbody>
         </table>
       </div>
-      <p className="text-[12.5px] leading-relaxed text-slate-500">
+      <p className="text-[11.5px] leading-relaxed text-slate-500">
         Scored 1 (worst) to 5 (best) on each dimension.{" "}
         <span className="font-mono text-slate-400">5*</span> — control granted
         at the integration stage, not during testing.
@@ -2823,13 +3150,13 @@ const ResourceOptionsPane = () => (
     {[
       {
         n: 1,
-        title: "Require app setup before testing",
+        title: "Require app setup while creating sender",
         tag: "Current RCS model",
         tagColor: "amber",
         flow: "Create agent → create/connect app → send test message",
-        meaningIntro: "Before users can send a test message, they must:",
+        meaningIntro: "While a RCS Agent is created users must:",
         meaningPoints: [
-          "Create or select a Conversation API app.",
+          "Create or select a Conversation API app to connect it to.",
           "Connect the RCS Agent to that app.",
           "Provide required setup details (including parts of compliance and configuration).",
         ],
@@ -3030,44 +3357,86 @@ const ResourceOptionsPane = () => (
           : "border-amber-500/30 bg-amber-500/[0.06] text-amber-100";
       const keyLabelClass =
         opt.keyTone === "emerald" ? "text-emerald-300" : "text-amber-300";
+      // Stripe-inspired tone-aware outer card: subtle gradient hint + lift.
       const cardOuterClass = isRecommended
-        ? "border-emerald-500/40 bg-emerald-500/[0.05] shadow-[0_0_0_1px_rgba(52,211,153,0.15)]"
-        : "border-slate-800 bg-slate-900/40";
+        ? "border-emerald-500/40 bg-gradient-to-br from-emerald-500/[0.08] via-emerald-500/[0.03] to-transparent shadow-[0_24px_60px_-32px_rgba(52,211,153,0.4)]"
+        : opt.fitTone === "rose"
+          ? "border-slate-800 bg-gradient-to-br from-rose-500/[0.04] via-slate-900/40 to-slate-900/40"
+          : opt.fitTone === "amber"
+            ? "border-slate-800 bg-gradient-to-br from-amber-500/[0.04] via-slate-900/40 to-slate-900/40"
+            : "border-slate-800 bg-slate-900/40";
+      const numberToneClass = isRecommended
+        ? "text-emerald-300"
+        : opt.fitTone === "rose"
+          ? "text-rose-300/80"
+          : "text-amber-300/80";
       return (
-        <article
-          key={opt.n}
-          className={`rounded-2xl border p-6 sm:p-7 ${cardOuterClass}`}
-        >
-          <header className="flex flex-wrap items-baseline gap-3">
-            <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-slate-500">
-              Option {opt.n}
-            </p>
-            <h3 className="text-[20px] font-semibold leading-snug text-slate-50 sm:text-[20px]">
-              {opt.title}
-            </h3>
-            {opt.tag && (
-              <span
-                className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11.5px] font-semibold uppercase tracking-[0.12em] ${tagBgClass}`}
-              >
-                {opt.tag}
-              </span>
-            )}
-          </header>
+        <Fragment key={opt.n}>
+          {/* Group header before Option 1 */}
+          {opt.n === 1 && (
+            <div className="!mt-4 space-y-1.5 border-l-2 border-slate-700/70 pl-4">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Approaches that require user-managed apps
+              </p>
+              <p className="text-[12.5px] leading-relaxed text-slate-500">
+                The user is responsible for the Conversation API app from the
+                start. Differences are in <em>when</em> and <em>how</em> they
+                manage it.
+              </p>
+            </div>
+          )}
+          {/* Group header before Option 4 — emphasised */}
+          {opt.n === 4 && (
+            <div className="!mt-10 space-y-1.5 border-l-2 border-emerald-500/50 pl-4">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                Recommended approach
+              </p>
+              <p className="text-[12.5px] leading-relaxed text-slate-400">
+                The platform manages the app during testing. The user takes
+                ownership only at integration, when it serves their goal.
+              </p>
+            </div>
+          )}
+          <article
+            className={`relative overflow-hidden rounded-2xl border p-6 sm:p-7 ${cardOuterClass}`}
+          >
+            {/* Big serif number — stripe-style accent in the corner */}
+            <span
+              aria-hidden="true"
+              className={`pointer-events-none absolute right-5 top-4 font-serif text-[44px] italic leading-none opacity-20 sm:text-[56px] ${numberToneClass}`}
+            >
+              {String(opt.n).padStart(2, "0")}
+            </span>
+            <header className="relative flex flex-wrap items-baseline gap-3 pr-12 sm:pr-16">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Option {opt.n}
+              </p>
+              {opt.tag && (
+                <span
+                  className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.12em] ${tagBgClass}`}
+                >
+                  {opt.tag}
+                </span>
+              )}
+              <h3 className="basis-full text-[18px] font-semibold leading-snug tracking-tight text-slate-50 sm:text-[20px]">
+                {opt.title}
+              </h3>
+            </header>
           <div className="mt-4 space-y-5">
             <div>
-              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 Flow
               </p>
-              <p className="mt-1.5 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 font-mono text-[13.5px] leading-relaxed text-slate-200">
+              <p className="mt-1.5 rounded-lg border border-slate-800 bg-slate-950/60 px-4 py-3 font-mono text-[12.5px] leading-relaxed text-slate-200">
                 {opt.flow}
               </p>
             </div>
             <div>
-              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                 What this means
               </p>
               {opt.meaningIntro && (
-                <p className="mt-1.5 text-[15.5px] leading-relaxed text-slate-200">
+                <p className="mt-1.5 text-[14px] leading-relaxed text-slate-200">
                   {opt.meaningIntro}
                 </p>
               )}
@@ -3079,17 +3448,17 @@ const ResourceOptionsPane = () => (
                 </ul>
               )}
               {opt.meaningClosing && (
-                <p className="mt-3 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-4 py-3 text-[14.5px] leading-relaxed text-amber-100">
+                <p className="mt-3 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-4 py-3 text-[13px] leading-relaxed text-amber-100">
                   {opt.meaningClosing}
                 </p>
               )}
             </div>
             {opt.practice && (
               <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
-                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-amber-300">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-300">
                   {opt.practice.title}
                 </p>
-                <p className="mt-2 text-[15px] leading-relaxed text-slate-200">
+                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-200">
                   {opt.practice.intro}
                 </p>
                 <ul className="mt-3 space-y-1.5">
@@ -3100,39 +3469,52 @@ const ResourceOptionsPane = () => (
                   ))}
                 </ul>
                 {opt.practice.mixIntro && (
-                  <p className="mt-4 text-[14.5px] font-medium leading-relaxed text-slate-300">
+                  <p className="mt-5 text-[13px] font-medium leading-relaxed text-slate-300">
                     {opt.practice.mixIntro}
                   </p>
                 )}
                 {opt.practice.mix && opt.practice.mix.length > 0 && (
-                  <ul className="mt-2.5 space-y-1.5">
-                    {opt.practice.mix.map((m, i) => (
-                      <li
-                        key={i}
-                        className="flex flex-wrap items-baseline gap-x-2 text-[14.5px] leading-relaxed"
-                      >
-                        <span className="font-semibold text-slate-100">
-                          {m.label}
-                        </span>
-                        <span className="text-slate-500">→</span>
-                        <span className="italic text-slate-300">
-                          “{m.text}”
-                        </span>
-                      </li>
-                    ))}
+                  <ul className="mt-3 grid gap-2 sm:grid-cols-3">
+                    {opt.practice.mix.map((m, i) => {
+                      const tones = [
+                        "border-cyan-500/25 bg-cyan-500/[0.05]",
+                        "border-indigo-500/25 bg-indigo-500/[0.05]",
+                        "border-amber-500/25 bg-amber-500/[0.05]",
+                      ];
+                      const labelTones = [
+                        "text-cyan-300",
+                        "text-indigo-300",
+                        "text-amber-300",
+                      ];
+                      return (
+                        <li
+                          key={i}
+                          className={`rounded-xl border px-3.5 py-3 ${tones[i % 3]}`}
+                        >
+                          <p
+                            className={`text-[10px] font-semibold uppercase tracking-[0.16em] ${labelTones[i % 3]}`}
+                          >
+                            {m.label}
+                          </p>
+                          <p className="mt-1.5 text-[13px] italic leading-snug text-slate-200">
+                            “{m.text}”
+                          </p>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </div>
             )}
             {opt.coreProblem && (
               <div className="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-5">
-                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-rose-300">
                   {opt.coreProblem.title ?? "Core problem"}
                 </p>
-                <p className="mt-2 text-[16px] font-semibold leading-snug text-slate-50">
+                <p className="mt-2 text-[14.5px] font-semibold leading-snug text-slate-50">
                   {opt.coreProblem.headline}
                 </p>
-                <p className="mt-3 text-[14.5px] leading-relaxed text-slate-300">
+                <p className="mt-3 text-[13px] leading-relaxed text-slate-300">
                   {opt.coreProblem.intro}
                 </p>
                 <ul className="mt-2 space-y-1.5">
@@ -3146,7 +3528,7 @@ const ResourceOptionsPane = () => (
             )}
             {opt.how && (
               <div>
-                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                   {opt.howLabel ?? "How it works"}
                 </p>
                 <div className="mt-2 space-y-3">
@@ -3174,7 +3556,7 @@ const ResourceOptionsPane = () => (
                         flushRun(i);
                         blocks.push(
                           <div key={`grp-${i}`}>
-                            <p className="text-[14.5px] font-medium leading-relaxed text-slate-200">
+                            <p className="text-[13px] font-medium leading-relaxed text-slate-200">
                               {h.heading}
                             </p>
                             <ul className="mt-2 space-y-1.5">
@@ -3193,7 +3575,7 @@ const ResourceOptionsPane = () => (
                 </div>
                 {opt.howFollowUp && (
                   <div className="mt-4">
-                    <p className="text-[14.5px] font-medium leading-relaxed text-slate-200">
+                    <p className="text-[13px] font-medium leading-relaxed text-slate-200">
                       {opt.howFollowUp.title}
                     </p>
                     <ul className="mt-2 space-y-1.5">
@@ -3210,14 +3592,14 @@ const ResourceOptionsPane = () => (
             >
               {opt.pros.length > 0 && (
                 <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] p-4">
-                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
                     Pros
                   </p>
                   <ul className="mt-2 space-y-1.5">
                     {opt.pros.map((p, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-slate-200"
+                        className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-200"
                       >
                         <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
                         <span>{p}</span>
@@ -3227,14 +3609,14 @@ const ResourceOptionsPane = () => (
                 </div>
               )}
               <div className="rounded-xl border border-rose-500/20 bg-rose-500/[0.04] p-4">
-                <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-rose-300">
                   {opt.consLabel ?? "Cons"}
                 </p>
                 <ul className="mt-2 space-y-1.5">
                   {opt.cons.map((c, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-slate-200"
+                      className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-200"
                     >
                       <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
                       <span>{c}</span>
@@ -3245,171 +3627,59 @@ const ResourceOptionsPane = () => (
             </div>
             <div className={`rounded-lg border px-4 py-3 ${keyToneClass}`}>
               <p
-                className={`text-[11.5px] font-semibold uppercase tracking-[0.14em] ${keyLabelClass}`}
+                className={`text-[11px] font-semibold uppercase tracking-[0.14em] ${keyLabelClass}`}
               >
                 {opt.keyLabel}
               </p>
-              <p className="mt-1 text-[15px] font-medium leading-relaxed">
+              <p className="mt-1 text-[13.5px] font-medium leading-relaxed">
                 {opt.keyText}
               </p>
               {opt.keyDetail && (
-                <div className="mt-4 space-y-2.5">
-                  <p className="text-[13.5px] leading-relaxed text-amber-100/85">
-                    {opt.keyDetail.insteadIntro}
-                  </p>
-                  <p className="rounded-md border border-emerald-500/25 bg-slate-950/60 px-3 py-2 font-mono text-[13px] leading-relaxed text-emerald-200">
-                    {opt.keyDetail.instead}
-                  </p>
-                  <p className="text-[13.5px] leading-relaxed text-amber-100/85">
-                    {opt.keyDetail.forceIntro}
-                  </p>
-                  <p className="rounded-md border border-rose-500/30 bg-slate-950/60 px-3 py-2 font-mono text-[13px] leading-relaxed text-rose-200">
-                    {opt.keyDetail.force}
-                  </p>
+                <div className="mt-4 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.04] p-3.5">
+                    <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                      <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500/25 text-[9px] font-bold leading-none">
+                        ✓
+                      </span>
+                      {opt.keyDetail.insteadIntro}
+                    </p>
+                    <p className="mt-2 rounded-md border border-emerald-500/20 bg-slate-950/60 px-3 py-2 font-mono text-[11.5px] leading-relaxed text-emerald-200">
+                      {opt.keyDetail.instead}
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-3.5">
+                    <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-rose-300">
+                      <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-rose-500/25 text-[9px] font-bold leading-none">
+                        ✗
+                      </span>
+                      {opt.keyDetail.forceIntro}
+                    </p>
+                    <p className="mt-2 rounded-md border border-rose-500/25 bg-slate-950/60 px-3 py-2 font-mono text-[11.5px] leading-relaxed text-rose-200">
+                      {opt.keyDetail.force}
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
             <div
               className={`flex items-center gap-3 rounded-lg border px-4 py-3 ${fitToneClass}`}
             >
-              <span className="text-[17px]" aria-hidden="true">
+              <span className="text-[15.5px]" aria-hidden="true">
                 {opt.fitIcon}
               </span>
-              <p className="text-[13.5px] font-semibold leading-snug">
+              <p className="text-[12.5px] font-semibold leading-snug">
                 <span className="opacity-70">Fit with research — </span>
                 {opt.fitText}
               </p>
             </div>
           </div>
-        </article>
+          </article>
+        </Fragment>
       );
     })}
   </div>
 );
 
-const ResourceDirectionPane = () => (
-  <div className="space-y-10">
-    <header>
-      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-violet-300">
-        Recommended direction
-      </p>
-      <h2 className="mt-3 text-[22px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[30px]">
-        Separate testing from integration
-      </h2>
-    </header>
-
-    {/* Use managed test infrastructure */}
-    <section className="space-y-4 rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.04] p-6 sm:p-7">
-      <DiscussionEyebrow color="emerald">
-        Use managed test infrastructure for validation
-      </DiscussionEyebrow>
-      <p className="text-[16.5px] leading-relaxed text-slate-200">
-        Testing should use platform-owned infrastructure.
-      </p>
-      <p className="text-[16px] leading-relaxed text-slate-300">
-        Users should be able to:
-      </p>
-      <ul className="space-y-2">
-        <DiscussionBullet>Send a message using their agent.</DiscussionBullet>
-        <DiscussionBullet>See delivery status and logs.</DiscussionBullet>
-        <DiscussionBullet>Confirm behaviour.</DiscussionBullet>
-        <DiscussionBullet>Understand what happened.</DiscussionBullet>
-      </ul>
-      <p className="text-[16px] italic leading-relaxed text-slate-200">
-        Without first creating or connecting their own app.
-      </p>
-    </section>
-
-    {/* Use user-owned apps for integration */}
-    <section className="space-y-4 rounded-2xl border border-indigo-500/25 bg-indigo-500/[0.04] p-6 sm:p-7">
-      <DiscussionEyebrow>Use user-owned apps for integration</DiscussionEyebrow>
-      <p className="text-[16.5px] leading-relaxed text-slate-200">
-        When users move toward integration:
-      </p>
-      <ul className="space-y-2">
-        <DiscussionBullet>The purpose of the app becomes clear.</DiscussionBullet>
-        <DiscussionBullet>The agent / app relationship can be explained.</DiscussionBullet>
-        <DiscussionBullet>Developers can create or select apps intentionally.</DiscussionBullet>
-        <DiscussionBullet>Webhooks and credentials become relevant.</DiscussionBullet>
-      </ul>
-    </section>
-
-    {/* Design principle */}
-    <section className="rounded-2xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-cyan-500/5 to-transparent p-6 sm:p-8">
-      <DiscussionEyebrow color="cyan">Design principle</DiscussionEyebrow>
-      <p className="mt-3 text-[19px] leading-snug text-slate-100 sm:text-[19px]">
-        Users should not be required to create or connect an app before they
-        understand why it exists.
-      </p>
-      <p className="mt-3 text-[16px] leading-relaxed text-slate-300">
-        But when they move into integration, they should remain in control of
-        it.
-      </p>
-    </section>
-
-    {/* Implication for onboarding */}
-    <section className="space-y-4">
-      <DiscussionEyebrow>Implication for onboarding</DiscussionEyebrow>
-      <ul className="space-y-2">
-        <DiscussionBullet>Do not make app setup a prerequisite for validation.</DiscussionBullet>
-        <DiscussionBullet>Do not use hidden auto-created user apps as the default solution.</DiscussionBullet>
-        <DiscussionBullet>Use managed test infrastructure for early validation.</DiscussionBullet>
-        <DiscussionBullet>Introduce app creation when users move into integration.</DiscussionBullet>
-        <DiscussionBullet>
-          Apply the same principle across SMS, RCS, and WhatsApp, even if
-          implementation differs by channel.
-        </DiscussionBullet>
-      </ul>
-    </section>
-
-    {/* Open questions */}
-    <section className="space-y-4">
-      <DiscussionEyebrow color="amber">Open questions</DiscussionEyebrow>
-      <ol className="space-y-3">
-        {[
-          "What is the lightest managed test architecture we can support?",
-          "How many managed apps are needed per region?",
-          "How should event routing and tenant isolation work?",
-          "What should the test data retention policy be?",
-          "How do we communicate the move from test mode to user-owned integration?",
-          "How do we avoid hidden or orphaned resources?",
-          "How should this principle apply across SMS, RCS, and WhatsApp?",
-        ].map((q, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-4 rounded-xl border border-amber-500/20 bg-amber-500/[0.03] px-5 py-4"
-          >
-            <span className="font-serif text-[19px] tabular-nums text-amber-300">
-              {i + 1}
-            </span>
-            <span className="text-[16px] leading-relaxed text-slate-200">
-              {q}
-            </span>
-          </li>
-        ))}
-      </ol>
-    </section>
-
-    {/* Key takeaway */}
-    <section className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-6 sm:p-8">
-      <DiscussionEyebrow>Key takeaway</DiscussionEyebrow>
-      <p className="mt-3 text-[20px] leading-snug text-slate-100 sm:text-[22px]">
-        The goal is not to remove the app.
-      </p>
-      <p className="mt-1 text-[20px] font-semibold leading-snug text-slate-50 sm:text-[22px]">
-        The goal is to introduce it when it becomes meaningful.
-      </p>
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <p className="rounded-lg border border-emerald-500/25 bg-emerald-500/[0.06] px-4 py-3 text-[15px] font-medium leading-relaxed text-emerald-100">
-          Use managed infrastructure for validation.
-        </p>
-        <p className="rounded-lg border border-indigo-500/25 bg-indigo-500/[0.06] px-4 py-3 text-[15px] font-medium leading-relaxed text-indigo-100">
-          Use user-owned resources for integration.
-        </p>
-      </div>
-    </section>
-  </div>
-);
 
 /**
  * Inline page section that renders the same resource-creation discussion
@@ -3459,7 +3729,7 @@ const ResourceCreationDialog = ({
         <motion.div
           role="dialog"
           aria-modal="true"
-          aria-label="Discussion: Resource creation — timing and ownership"
+          aria-label="Discussion: Resource creation — timing, motivation, and ownership"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -3489,18 +3759,18 @@ const ResourceCreationDialog = ({
                   className="h-9 w-px shrink-0 bg-slate-800"
                 />
                 <div className="min-w-0">
-                  <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300">
                     Discussion · Linked from Step 5
                   </p>
                   <h2 className="mt-0.5 truncate text-base font-semibold text-slate-50 sm:text-base">
-                    Resource creation: timing and ownership
+                    Resource creation: timing, motivation, and ownership
                   </h2>
                 </div>
               </div>
             </div>
             {/* Tab strip — sticky alongside the header */}
             <div className="border-t border-slate-900 bg-slate-950/85 backdrop-blur">
-              <div className="mx-auto flex w-full max-w-6xl items-center gap-1 overflow-x-auto px-6 sm:px-8">
+              <div className="mx-auto flex w-full max-w-6xl items-center justify-center gap-1 overflow-x-auto px-6 sm:px-8">
                 {RESOURCE_TABS.map((t) => {
                   const isActive = t.id === activeTab;
                   return (
@@ -3509,7 +3779,7 @@ const ResourceCreationDialog = ({
                       type="button"
                       onClick={() => setActiveTab(t.id)}
                       aria-current={isActive ? "page" : undefined}
-                      className={`relative shrink-0 px-4 py-3 text-[13px] font-medium transition ${
+                      className={`relative shrink-0 px-4 py-3 text-[12px] font-medium transition ${
                         isActive
                           ? "text-slate-50"
                           : "text-slate-400 hover:text-slate-200"
@@ -3553,7 +3823,9 @@ const ResourceCreationDialog = ({
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.22, ease: PREMIUM_EASE }}
                 >
-                  <ResourceOverviewPane />
+                  <ResourceOverviewPane
+                    onGoToOptions={() => setActiveTab("options")}
+                  />
                 </motion.div>
               )}
 
@@ -3580,18 +3852,6 @@ const ResourceCreationDialog = ({
                   <ResourceOptionsPane />
                 </motion.div>
               )}
-
-              {activeTab === "direction" && (
-                <motion.div
-                  key="direction"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 4 }}
-                  transition={{ duration: 0.22, ease: PREMIUM_EASE }}
-                >
-                  <ResourceDirectionPane />
-                </motion.div>
-              )}
               </AnimatePresence>
 
               {/* Footer — always visible at the end of any tab */}
@@ -3599,7 +3859,7 @@ const ResourceCreationDialog = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5 text-[13px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
+                  className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5 text-[12px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
                 >
                   <ChevronLeft className="h-4 w-4" />
                   Back to Step 5
@@ -3642,7 +3902,7 @@ const Hero = () => (
       >
         <motion.p
           variants={fadeInUp}
-          className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-[12.5px] font-medium tracking-[0.14em] text-slate-300 backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1 text-[11.5px] font-medium tracking-[0.14em] text-slate-300 backdrop-blur"
         >
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.8)]" />
           RESEARCH FINDINGS · 2026
@@ -3650,7 +3910,7 @@ const Hero = () => (
 
         <motion.h1
           variants={fadeInUp}
-          className="mt-8 max-w-5xl text-[40px] font-semibold tracking-tight leading-[1.04] text-slate-50 sm:text-6xl sm:leading-[1.02] md:text-[64px]"
+          className="mt-8 max-w-5xl text-[35px] font-semibold tracking-tight leading-[1.04] text-slate-50 sm:text-6xl sm:leading-[1.02] md:text-[56px]"
         >
           Messaging Onboarding
           <span className="block bg-gradient-to-r from-indigo-200 via-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -3685,7 +3945,7 @@ const Hero = () => (
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-indigo-500/0 to-indigo-500/0 opacity-0 transition group-hover:from-indigo-500/10 group-hover:opacity-100"
               />
-              <dt className="relative text-[12.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              <dt className="relative text-[11.5px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                 {s.label}
               </dt>
               <dd className="relative mt-2 text-base font-semibold tracking-tight text-slate-50">
@@ -3729,7 +3989,7 @@ const ExecutiveSummary = () => (
                 {t.body.map((p, pi) => (
                   <p
                     key={pi}
-                    className="text-[15.5px] leading-relaxed text-slate-400"
+                    className="text-[14px] leading-relaxed text-slate-400"
                   >
                     {p}
                   </p>
@@ -3739,7 +3999,7 @@ const ExecutiveSummary = () => (
                     {t.bullets.map((b, bi) => (
                       <li
                         key={bi}
-                        className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-slate-300"
+                        className="flex items-start gap-2.5 text-[14px] leading-relaxed text-slate-300"
                       >
                         <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
                         <span>{b}</span>
@@ -3794,14 +4054,16 @@ const JourneyQuoteHover = ({
     const update = () => {
       if (!wrapperRef.current) return;
       const r = wrapperRef.current.getBoundingClientRect();
-      const ESTIMATED_HEIGHT = 220;
-      const placeAbove = r.top >= ESTIMATED_HEIGHT;
+      // Always place the popover above the quote, no matter where the quote
+      // sits in the viewport. If the trigger is near the very top of the
+      // page the popover may render partly off-screen — that is the
+      // explicit user-chosen trade-off for a consistent placement.
       setPopoverRect({
         left: r.left + window.scrollX,
         top: r.top + window.scrollY,
         bottom: r.bottom + window.scrollY,
         width: r.width,
-        placeAbove,
+        placeAbove: true,
       });
     };
     update();
@@ -3829,12 +4091,11 @@ const JourneyQuoteHover = ({
         createPortal(
           <AnimatePresence>
             {open && q.long && popoverRect && (
-              <motion.div
-                role="tooltip"
-                initial={{ opacity: 0, y: 6, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                transition={{ duration: 0.2, ease: PREMIUM_EASE }}
+              // Static positioning wrapper. Owns `transform: translateY(...)`
+              // so framer-motion's animated transform on the inner element
+              // can't override it (the previous bug — popover landed on top
+              // of the trigger instead of above it).
+              <div
                 style={{
                   position: "absolute",
                   left: popoverRect.left,
@@ -3845,33 +4106,42 @@ const JourneyQuoteHover = ({
                   transform: popoverRect.placeAbove
                     ? "translateY(calc(-100% - 8px))"
                     : "translateY(8px)",
+                  zIndex: 50,
+                  pointerEvents: "none",
                 }}
-                className={`pointer-events-none z-50 rounded-xl border border-indigo-500/40 bg-slate-900/95 p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.95),0_10px_25px_-15px_rgba(99,102,241,0.35)] backdrop-blur-md sm:p-5 ${
+              >
+              <motion.div
+                role="tooltip"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: PREMIUM_EASE }}
+                className={`rounded-xl border border-indigo-500/40 bg-slate-900/95 p-4 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.95),0_10px_25px_-15px_rgba(99,102,241,0.35)] backdrop-blur-md sm:p-5 ${
                   popoverRect.placeAbove ? "origin-bottom" : "origin-top"
                 }`}
               >
                 {q.title && (
-                  <p className="text-[16px] font-semibold leading-snug text-slate-50">
+                  <p className="text-[14.5px] font-semibold leading-snug text-slate-50">
                     {q.title}
                   </p>
                 )}
-                <p className="mt-2 text-[16px] italic leading-relaxed text-slate-300">
+                <p className="mt-2 text-[14.5px] italic leading-relaxed text-slate-300">
                   &ldquo;{q.long}&rdquo;
                 </p>
                 {(q.participant || q.persona) && (
                   <div className="mt-3 flex items-center gap-2 border-t border-slate-800 pt-3">
-                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400/60 to-violet-500/60 text-[11px] font-semibold text-white ring-1 ring-indigo-300/40">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400/60 to-violet-500/60 text-[10.5px] font-semibold text-white ring-1 ring-indigo-300/40">
                       {q.participant
                         ? q.participant.replace(/^P/i, "")
                         : "·"}
                     </span>
-                    <span className="text-[12.5px] font-medium text-slate-300">
+                    <span className="text-[11.5px] font-medium text-slate-300">
                       {q.participant ?? "Participant"}
                     </span>
                     {q.persona && (
                       <>
                         <span className="text-slate-600">·</span>
-                        <span className="text-[12.5px] text-slate-400">
+                        <span className="text-[11.5px] text-slate-400">
                           {q.persona}
                         </span>
                       </>
@@ -3883,6 +4153,7 @@ const JourneyQuoteHover = ({
                   </div>
                 )}
               </motion.div>
+              </div>
             )}
           </AnimatePresence>,
           document.body,
@@ -3903,12 +4174,12 @@ const JourneyQuoteHover = ({
 const SendMessageMock = () => (
   <div className="mx-auto mb-5 max-w-md overflow-hidden rounded-xl border border-dashed border-slate-700 bg-slate-950/70 p-4 sm:p-5">
     {/* Template selector */}
-    <p className="text-[12px] font-medium text-slate-400">
+    <p className="text-[11.5px] font-medium text-slate-400">
       Message template
     </p>
     <div className="mt-1.5 inline-flex items-center gap-2.5 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2">
       <span className="h-5 w-5 rounded-sm bg-gradient-to-br from-indigo-400/50 to-violet-500/50 ring-1 ring-slate-700" />
-      <span className="text-[13.5px] font-medium text-slate-100">
+      <span className="text-[12.5px] font-medium text-slate-100">
         Text message
       </span>
       <ChevronDown className="h-4 w-4 text-slate-400" />
@@ -3916,9 +4187,9 @@ const SendMessageMock = () => (
 
     {/* Message field */}
     <div className="mt-4">
-      <p className="text-[12px] font-medium text-slate-400">Message</p>
+      <p className="text-[11.5px] font-medium text-slate-400">Message</p>
       <div className="mt-1.5 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2.5">
-        <p className="text-[13.5px] text-slate-100">
+        <p className="text-[12.5px] text-slate-100">
           Check out our latest collection
         </p>
       </div>
@@ -3928,7 +4199,7 @@ const SendMessageMock = () => (
     <button
       type="button"
       disabled
-      className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-[12.5px] font-medium text-slate-200"
+      className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-[11.5px] font-medium text-slate-200"
     >
       Send test message
       <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
@@ -3992,7 +4263,7 @@ const AnalyticsRowMock = () => {
               ))}
             </div>
             <span
-              className={`shrink-0 font-mono text-[11.5px] uppercase tracking-[0.12em] ${labelColor}`}
+              className={`shrink-0 font-mono text-[11px] uppercase tracking-[0.12em] ${labelColor}`}
             >
               {r.label}
             </span>
@@ -4011,17 +4282,17 @@ const ApiPlaygroundMock = () => (
     {/* Tab strip */}
     <div className="flex items-center justify-between border-b border-slate-800 px-3 py-2">
       <div className="flex items-center gap-1">
-        <span className="rounded-md bg-slate-800 px-2.5 py-1 text-[12px] font-medium text-slate-100">
+        <span className="rounded-md bg-slate-800 px-2.5 py-1 text-[11.5px] font-medium text-slate-100">
           cURL
         </span>
-        <span className="px-2.5 py-1 text-[12px] font-medium text-slate-500">
+        <span className="px-2.5 py-1 text-[11.5px] font-medium text-slate-500">
           Node.js
         </span>
-        <span className="px-2.5 py-1 text-[12px] font-medium text-slate-500">
+        <span className="px-2.5 py-1 text-[11.5px] font-medium text-slate-500">
           Python
         </span>
       </div>
-      <div className="flex items-center gap-3 text-[11.5px] text-slate-500">
+      <div className="flex items-center gap-3 text-[11px] text-slate-500">
         <span>Copy</span>
         <span>Edit</span>
       </div>
@@ -4029,7 +4300,7 @@ const ApiPlaygroundMock = () => (
 
     {/* Code body with bottom fade */}
     <div className="relative">
-      <pre className="overflow-x-auto whitespace-pre px-4 py-2.5 font-mono text-[12px] leading-relaxed text-slate-300">
+      <pre className="overflow-x-auto whitespace-pre px-4 py-2.5 font-mono text-[11.5px] leading-relaxed text-slate-300">
         <span>curl -X POST </span>
         <span className="text-emerald-300">
           &quot;https://api.sinch.com/conversations/v1/projects/
@@ -4070,7 +4341,7 @@ const ApiPlaygroundMock = () => (
 
     {/* Footer */}
     <div className="flex items-center justify-end gap-3 border-t border-slate-800 px-3 py-2.5">
-      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-[12px] font-medium text-slate-200">
+      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1 text-[11.5px] font-medium text-slate-200">
         <span className="text-slate-500">▷</span>
         Run request
       </span>
@@ -4105,24 +4376,24 @@ const DeliveredMessageMock = () => (
       {/* Bubble */}
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-1.5">
-          <p className="text-[12.5px] font-semibold text-slate-100">Lumen</p>
+          <p className="text-[11.5px] font-semibold text-slate-100">Lumen</p>
         </div>
 
         {/* Rich card — text + buttons only */}
         <div className="mt-1.5 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
           <div className="px-3 py-2.5">
-            <p className="text-[12.5px] font-semibold text-slate-50">
+            <p className="text-[11.5px] font-semibold text-slate-50">
               Your order is on the way
             </p>
-            <p className="mt-0.5 text-[12px] leading-snug text-slate-400">
+            <p className="mt-0.5 text-[11.5px] leading-snug text-slate-400">
               Track your delivery and update your preferences from the link
               below.
             </p>
             <div className="mt-2.5 flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 rounded-md border border-indigo-400/40 bg-indigo-500/10 px-2 py-1 text-[11.5px] font-medium text-indigo-200">
+              <span className="inline-flex items-center gap-1 rounded-md border border-indigo-400/40 bg-indigo-500/10 px-2 py-1 text-[11px] font-medium text-indigo-200">
                 Track order
               </span>
-              <span className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[11.5px] font-medium text-slate-300">
+              <span className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[11px] font-medium text-slate-300">
                 Manage preferences
               </span>
             </div>
@@ -4130,7 +4401,7 @@ const DeliveredMessageMock = () => (
         </div>
 
         {/* Delivery metadata */}
-        <div className="mt-2 flex items-center gap-1.5 text-[11px] text-slate-500">
+        <div className="mt-2 flex items-center gap-1.5 text-[10.5px] text-slate-500">
           <span>2:14 PM</span>
           <span className="text-slate-700">·</span>
           <span className="inline-flex items-center gap-1 text-emerald-400">
@@ -4186,7 +4457,7 @@ const JourneyCollapsibleSection = ({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className={`group mb-4 flex w-full items-center justify-between gap-3 text-[13px] font-semibold uppercase tracking-[0.16em] ${titleColorClass} transition hover:opacity-80`}
+        className={`group mb-4 flex w-full items-center justify-between gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] ${titleColorClass} transition hover:opacity-80`}
       >
         <span className="flex items-center gap-2">
           {titleIcon}
@@ -4229,7 +4500,7 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
   if (!step.whyInsights || step.whyInsights.length === 0) return null;
   return (
     <div className="mt-8 border-t border-slate-800/60 pt-6">
-      <p className="mb-4 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+      <p className="mb-4 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-400">
         <Sparkles className="h-3.5 w-3.5 text-violet-300" strokeWidth={2.25} />
         Why this step matters
       </p>
@@ -4237,12 +4508,12 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
       {(step.whyHeadline || step.whyLead) && (
         <div className="space-y-3">
           {step.whyHeadline && (
-            <h5 className="text-[19px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[22px]">
+            <h5 className="text-[17px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[17px]">
               {step.whyHeadline}
             </h5>
           )}
           {step.whyLead && (
-            <p className="text-[15.5px] leading-relaxed text-slate-300 sm:text-[16.5px]">
+            <p className="text-[14px] leading-relaxed text-slate-300 sm:text-[13.5px]">
               {step.whyLead}
             </p>
           )}
@@ -4251,7 +4522,10 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
 
       {/* Body — full content always rendered. When collapsed, height is
           clamped and a fade mask + reduced opacity make it look like a
-          preview. When expanded, mask + clamp lift and content is full. */}
+          preview. When expanded, mask + clamp lift and content is full.
+          `pointer-events-none` while collapsed so hovering inline
+          blockquotes does NOT trigger the long-quote popover — interaction
+          requires the user to expand first. */}
       <motion.div
         animate={{
           maxHeight: open ? 4000 : 180,
@@ -4259,7 +4533,9 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
         }}
         initial={false}
         transition={{ duration: 0.35, ease: PREMIUM_EASE }}
-        className="relative mt-6 overflow-hidden"
+        className={`relative mt-6 overflow-hidden ${
+          open ? "" : "pointer-events-none"
+        }`}
         style={{
           maskImage: open
             ? "none"
@@ -4276,14 +4552,14 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
               key={ii}
               className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-5 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5"
             >
-              <span className="pt-0.5 font-mono text-[12.5px] tabular-nums text-slate-500 sm:text-[13px]">
+              <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500 sm:text-[11.5px]">
                 {String(ii + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0">
-                <p className="text-[16px] font-semibold text-slate-50 sm:text-[17px]">
+                <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[14px]">
                   {ins.title}
                 </p>
-                <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-300 sm:text-[15.5px]">
+                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-300 sm:text-[13px]">
                   {ins.description}
                 </p>
                 {ins.quoteIndices && ins.quoteIndices.length > 0 && (
@@ -4300,7 +4576,7 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
                                 : ""
                             }`}
                           >
-                            <p className="text-[14.5px] italic leading-relaxed text-slate-300 sm:text-[15.5px]">
+                            <p className="text-[13px] italic leading-relaxed text-slate-300 sm:text-[13px]">
                               “{q.short.replace(/^[“"]|[”"]$/g, "")}”
                               {q.participant && (
                                 <>
@@ -4308,7 +4584,7 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
                                   <span className="not-italic text-slate-500">
                                     —
                                   </span>{" "}
-                                  <span className="not-italic font-mono text-[13px] text-slate-400">
+                                  <span className="not-italic font-mono text-[12px] text-slate-400">
                                     {q.participant}
                                   </span>
                                 </>
@@ -4325,7 +4601,7 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
                     {ins.bullets.map((b, bi) => (
                       <li
                         key={bi}
-                        className="flex items-baseline gap-2 text-[14.5px] leading-relaxed text-slate-300 sm:text-[15.5px]"
+                        className="flex items-baseline gap-2 text-[13px] leading-relaxed text-slate-300 sm:text-[13px]"
                       >
                         <span aria-hidden="true" className="text-slate-500">
                           ·
@@ -4340,6 +4616,18 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
                     ))}
                   </ul>
                 )}
+                {ins.closing && ins.closing.length > 0 && (
+                  <div className="mt-3 space-y-2.5">
+                    {ins.closing.map((p, pi) => (
+                      <p
+                        key={pi}
+                        className="text-[12.5px] leading-relaxed text-slate-300 sm:text-[13px]"
+                      >
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
             </li>
           ))}
@@ -4350,27 +4638,30 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
               className="mt-0.5 h-4 w-4 shrink-0 text-slate-500"
               strokeWidth={2}
             />
-            <p className="text-[14.5px] leading-relaxed text-slate-300 sm:text-[15.5px]">
+            <p className="text-[13px] leading-relaxed text-slate-300 sm:text-[13px]">
               {step.whyClosing}
             </p>
           </div>
         )}
       </motion.div>
 
-      {/* Toggle — replaces the previous chevron */}
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="group mt-4 inline-flex items-center gap-1.5 rounded-md border border-slate-800 bg-slate-950/60 px-3 py-1.5 text-[12.5px] font-semibold tracking-[0.04em] text-slate-200 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-100"
-      >
-        {open ? "Show less" : "Learn more"}
-        <ChevronDown
-          className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${
-            open ? "rotate-180" : "rotate-0"
-          }`}
-        />
-      </button>
+      {/* Toggle — replaces the previous chevron. Centred and prominent so
+          it reads as the call-to-action that reveals the supporting evidence. */}
+      <div className="mt-5 flex justify-center">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          className="group inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-gradient-to-br from-violet-500/20 via-indigo-500/15 to-violet-500/10 px-5 py-2 text-[12.5px] font-semibold tracking-[0.04em] text-violet-100 shadow-[0_8px_24px_-12px_rgba(139,92,246,0.55)] transition hover:border-violet-400/70 hover:from-violet-500/30 hover:via-indigo-500/25 hover:text-white sm:px-6 sm:py-2.5 sm:text-[13px]"
+        >
+          {open ? "Show less" : "Learn more"}
+          <ChevronDown
+            className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${
+              open ? "rotate-180" : "rotate-0 group-hover:translate-y-0.5"
+            }`}
+          />
+        </button>
+      </div>
     </div>
   );
 };
@@ -4420,25 +4711,25 @@ const JourneyStepCard = ({
         obvious without scanning the side rail. */}
     <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 sm:mb-5">
       <span
-        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${stepBadgeBg}`}
+        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em] ${stepBadgeBg}`}
       >
         <span className={`h-1.5 w-1.5 rounded-full ${themeDot}`} />
         Step {step.number}
       </span>
       <span
-        className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${themeChipText}`}
+        className={`text-[10.5px] font-semibold uppercase tracking-[0.18em] ${themeChipText}`}
       >
         Theme {themeNumber} · {themeLabelTitle}
       </span>
       {step.tag && (
-        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-cyan-500/25 bg-cyan-500/[0.06] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
+        <span className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-cyan-500/25 bg-cyan-500/[0.06] px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-cyan-300">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400/80" />
           {step.tag}
         </span>
       )}
     </div>
 
-    <h4 className="text-[20px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[24px] md:text-[26px] lg:text-[30px]">
+    <h4 className="text-[18px] font-semibold tracking-tight leading-tight text-slate-50 sm:text-[21px] md:text-[23px] lg:text-[23px]">
       {step.title}
     </h4>
 
@@ -4446,14 +4737,14 @@ const JourneyStepCard = ({
         so the user immediately sees what they would actually do here. */}
     {step.keyAction && (
       <div
-        className={`mt-4 inline-flex items-center gap-2.5 rounded-lg border bg-slate-950/60 px-3.5 py-2 text-[13px] sm:text-[12.5px] ${
+        className={`mt-4 inline-flex items-center gap-2.5 rounded-lg border bg-slate-950/60 px-3.5 py-2 text-[12px] sm:text-[11px] ${
           isFirstTheme
             ? "border-indigo-500/25"
             : "border-violet-500/25"
         }`}
       >
         <span
-          className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${
+          className={`text-[10.5px] font-semibold uppercase tracking-[0.16em] ${
             isFirstTheme ? "text-indigo-300" : "text-violet-300"
           }`}
         >
@@ -4478,14 +4769,14 @@ const JourneyStepCard = ({
           <ExternalLink className="h-4 w-4" />
         </span>
         <div className="flex-1 min-w-0">
-          <p className="text-[14.5px] font-semibold leading-snug text-slate-50 sm:text-[17px] lg:text-[18px]">
-            Resource creation: timing and ownership
+          <p className="text-[13px] font-semibold leading-snug text-slate-50 sm:text-[14px] lg:text-[14.5px]">
+            Resource creation: timing, motivation, and ownership
           </p>
-          <p className="mt-1.5 hidden text-[14px] leading-relaxed text-slate-300 sm:block">
+          <p className="mt-1.5 hidden text-[13px] leading-relaxed text-slate-300 sm:block">
             Why this step exists, the auto-create-vs-explicit-setup tradeoff,
             and the design principle the rest of the journey follows.
           </p>
-          <p className="mt-1.5 inline-flex items-center gap-1.5 text-[12px] font-medium text-violet-200 transition group-hover:text-violet-100 sm:mt-3 sm:text-[12px]">
+          <p className="mt-1.5 inline-flex items-center gap-1.5 text-[11.5px] font-medium text-violet-200 transition group-hover:text-violet-100 sm:mt-3 sm:text-[11px]">
             Open the discussion
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </p>
@@ -4514,7 +4805,7 @@ const JourneyStepCard = ({
               isFirstTheme ? "bg-indigo-400" : "bg-violet-400"
             }`}
           />
-          <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
             What happens in this step
           </p>
         </div>
@@ -4537,7 +4828,7 @@ const JourneyStepCard = ({
                   <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500" />
                 )}
                 <span
-                  className={`text-[15px] leading-relaxed sm:text-[16px] ${
+                  className={`text-[13.5px] leading-relaxed sm:text-[13px] ${
                     kind === "cross" ? "text-slate-400" : "text-slate-200"
                   }`}
                 >
@@ -4557,10 +4848,10 @@ const JourneyStepCard = ({
             key={p.label}
             className="rounded-xl border border-slate-800 bg-slate-950/60 p-4"
           >
-            <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-indigo-300">
               {p.label}
             </p>
-            <p className="mt-1.5 text-[16.5px] leading-relaxed text-slate-300">
+            <p className="mt-1.5 text-[15px] leading-relaxed text-slate-300">
               {p.description}
             </p>
           </div>
@@ -4584,11 +4875,11 @@ const JourneyStepCard = ({
                   wide ? "sm:col-span-2" : ""
                 }`}
               >
-                <p className="text-[16px] font-semibold text-slate-50">
+                <p className="text-[14.5px] font-semibold text-slate-50">
                   {v.title}
                 </p>
                 {v.description && (
-                  <p className="mt-1 text-[15px] leading-relaxed text-slate-400">
+                  <p className="mt-1 text-[13.5px] leading-relaxed text-slate-400">
                     {v.description}
                   </p>
                 )}
@@ -4597,7 +4888,7 @@ const JourneyStepCard = ({
                     {v.bullets!.map((b, bi) => (
                       <li
                         key={bi}
-                        className="flex items-start gap-2 text-[15px] leading-relaxed text-slate-300"
+                        className="flex items-start gap-2 text-[13.5px] leading-relaxed text-slate-300"
                       >
                         <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
                         <span>{b}</span>
@@ -4614,11 +4905,11 @@ const JourneyStepCard = ({
                       >
                         <div className="flex items-center gap-2">
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
-                          <p className="text-[15px] font-semibold text-slate-100">
+                          <p className="text-[13.5px] font-semibold text-slate-100">
                             {s.label}
                           </p>
                         </div>
-                        <p className="mt-1 text-[15px] leading-relaxed text-slate-400">
+                        <p className="mt-1 text-[13.5px] leading-relaxed text-slate-400">
                           {s.text}
                         </p>
                       </div>
@@ -4626,7 +4917,7 @@ const JourneyStepCard = ({
                   </div>
                 )}
                 {v.conclusion && (
-                  <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
+                  <p className="mt-3 text-[13.5px] leading-relaxed text-slate-300">
                     {v.conclusion}
                   </p>
                 )}
@@ -4646,7 +4937,7 @@ const JourneyStepCard = ({
           {step.designPrinciples.items.map((p, pi) => (
             <li
               key={pi}
-              className="flex items-start gap-3 text-[16.5px] leading-relaxed text-slate-200"
+              className="flex items-start gap-3 text-[15px] leading-relaxed text-slate-200"
             >
               <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-indigo-500/15 text-indigo-300 ring-1 ring-indigo-500/30">
                 <Check className="h-3 w-3" strokeWidth={3} />
@@ -4657,10 +4948,10 @@ const JourneyStepCard = ({
         </ul>
         {step.designPrinciples.goal && (
           <div className="mt-4 rounded-lg border border-indigo-500/30 bg-indigo-500/10 px-4 py-3">
-            <p className="text-[12.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+            <p className="text-[11.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
               The goal
             </p>
-            <p className="mt-1 text-[17px] font-semibold leading-snug text-slate-50">
+            <p className="mt-1 text-[15.5px] font-semibold leading-snug text-slate-50">
               {step.designPrinciples.goal}
             </p>
           </div>
@@ -4679,11 +4970,11 @@ const JourneyStepCard = ({
               <div className="flex items-start gap-3">
                 <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                 <div className="flex-1">
-                  <p className="text-[16.5px] font-semibold leading-snug text-slate-100">
+                  <p className="text-[15px] font-semibold leading-snug text-slate-100">
                     {idea.text}
                   </p>
                   {idea.meta && (
-                    <p className="mt-0.5 text-[13.5px] italic leading-relaxed text-slate-400">
+                    <p className="mt-0.5 text-[12.5px] italic leading-relaxed text-slate-400">
                       {idea.meta}
                     </p>
                   )}
@@ -4694,7 +4985,7 @@ const JourneyStepCard = ({
                   {idea.bullets.map((b, bi) => (
                     <li
                       key={bi}
-                      className="flex items-start gap-2.5 text-[15px] leading-relaxed text-slate-300"
+                      className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-slate-300"
                     >
                       <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-cyan-400/60" />
                       <span>{b}</span>
@@ -4707,7 +4998,7 @@ const JourneyStepCard = ({
                   {idea.subItems.map((s, si) => (
                     <li
                       key={si}
-                      className="flex flex-wrap items-baseline gap-x-2 text-[15.5px] leading-relaxed"
+                      className="flex flex-wrap items-baseline gap-x-2 text-[14px] leading-relaxed"
                     >
                       <span className="font-semibold text-slate-100">
                         {s.label}
@@ -4731,7 +5022,7 @@ const JourneyStepCard = ({
         title="What happens next"
         titleColorClass="text-violet-300"
       >
-        <p className="mb-4 text-[16.5px] leading-relaxed text-slate-300">
+        <p className="mb-4 text-[15px] leading-relaxed text-slate-300">
           {step.nextSteps.intro}
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -4740,14 +5031,14 @@ const JourneyStepCard = ({
               key={pi}
               className="rounded-xl border border-violet-500/25 bg-violet-500/5 px-4 py-4"
             >
-              <p className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-violet-300">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-violet-300">
                 {p.label}
               </p>
               <ul className="mt-3 space-y-2">
                 {p.items.map((item, ii) => (
                   <li
                     key={ii}
-                    className="flex items-start gap-2.5 text-[15.5px] leading-relaxed text-slate-200"
+                    className="flex items-start gap-2.5 text-[14px] leading-relaxed text-slate-200"
                   >
                     <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.7)]" />
                     <span>{item}</span>
@@ -4762,10 +5053,10 @@ const JourneyStepCard = ({
 
     {step.keyInsight && (
       <div className="mt-8 rounded-xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-cyan-500/5 to-transparent p-5 sm:p-6">
-        <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-cyan-300">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-cyan-300">
           Key insight
         </p>
-        <p className="mt-2 text-[18px] font-semibold leading-snug text-slate-50 sm:text-[18px]">
+        <p className="mt-2 text-[16px] font-semibold leading-snug text-slate-50 sm:text-[14.5px]">
           {step.keyInsight.headline}
         </p>
         {step.keyInsight.bullets && step.keyInsight.bullets.length > 0 && (
@@ -4773,7 +5064,7 @@ const JourneyStepCard = ({
             {step.keyInsight.bullets.map((b, bi) => (
               <li
                 key={bi}
-                className="flex items-start gap-2.5 text-[16px] leading-relaxed text-slate-300"
+                className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-slate-300"
               >
                 <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-cyan-400" />
                 <span>{b}</span>
@@ -4786,14 +5077,14 @@ const JourneyStepCard = ({
 
     {step.keyTakeaway && (
       <div className="mt-8 rounded-xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-5 sm:p-6">
-        <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
           Key takeaway
         </p>
-        <p className="mt-2 text-[19px] font-semibold leading-snug text-slate-50 sm:text-[19px]">
+        <p className="mt-2 text-[17px] font-semibold leading-snug text-slate-50 sm:text-[15.5px]">
           {step.keyTakeaway.headline}
         </p>
         {step.keyTakeaway.subtext && (
-          <p className="mt-3 text-[16px] italic leading-relaxed text-slate-300">
+          <p className="mt-3 text-[14.5px] italic leading-relaxed text-slate-300">
             {step.keyTakeaway.subtext}
           </p>
         )}
@@ -4833,10 +5124,10 @@ const JourneyStepRow = ({
     <motion.li
       ref={ref}
       id={`journey-${step.id}`}
-      animate={{
-        scale: isActive ? 1 : 0.99,
-        opacity: isActive ? 1 : 0.7,
-      }}
+      // Animating only opacity here (no `scale`) — a `scale` animation would
+      // apply `transform` on this element, which creates a containing block
+      // for fixed/sticky descendants and would break the Step 5 sticky CTA.
+      animate={{ opacity: isActive ? 1 : 0.7 }}
       transition={{ duration: 0.5, ease: PREMIUM_EASE }}
       className="relative pl-10 sm:pl-14"
     >
@@ -4847,7 +5138,7 @@ const JourneyStepRow = ({
           boxShadow: isActive ? activeGlow : restGlow,
         }}
         transition={{ duration: 0.4, ease: PREMIUM_EASE }}
-        className={`absolute left-0 top-5 flex h-8 w-8 items-center justify-center rounded-full text-[12.5px] font-semibold text-white ring-1 ring-inset ring-white/15 sm:top-6 sm:h-10 sm:w-10 sm:text-[13.5px] ${dotBg}`}
+        className={`absolute left-0 top-5 flex h-8 w-8 items-center justify-center rounded-full text-[11.5px] font-semibold text-white ring-1 ring-inset ring-white/15 sm:top-6 sm:h-10 sm:w-10 sm:text-[11.5px] ${dotBg}`}
       >
         <span className="relative">{step.number}</span>
         {/* Subtle inner highlight */}
@@ -4894,10 +5185,7 @@ const IdealJourney = ({
             number="02"
             eyebrow="Ideal onboarding journey"
             title="A research-backed journey based on how participants actually approached messaging."
-            intro={[
-              "Across sessions, users followed a consistent pattern: first proving the product works, then moving toward setup, integration, and go-live.",
-              "This journey reflects that progression, organised into two themes:",
-            ]}
+            intro="Across sessions, users followed a consistent pattern: first proving the product works, then moving toward setup, integration, and go-live. This journey reflects that progression, organised into two themes:"
             introBullets={[
               "Theme 1 focuses on proving value.",
               "Theme 2 focuses on getting ready for production.",
@@ -4939,7 +5227,7 @@ const IdealJourney = ({
                       className="absolute left-10 right-0 top-0 flex items-center gap-3 sm:left-14"
                     >
                       <span className="h-px flex-1 bg-gradient-to-r from-slate-800 via-slate-700 to-transparent" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-500">
                         Phase shift
                       </span>
                       <span className="h-px flex-1 bg-gradient-to-l from-slate-800 via-slate-700 to-transparent" />
@@ -4959,11 +5247,11 @@ const IdealJourney = ({
                     />
                   </span>
                   <p
-                    className={`text-[12.5px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
+                    className={`text-[11.5px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
                   >
                     {theme.label}
                   </p>
-                  <p className="mt-2 max-w-2xl text-[15.5px] leading-relaxed text-slate-400">
+                  <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-slate-400">
                     {theme.subtitle}
                   </p>
                 </li>,
@@ -5010,36 +5298,36 @@ const Principles = ({
           >
             {/* Header: number badge + title */}
             <header className="flex items-baseline gap-4">
-              <span className="font-serif text-xl font-light tabular-nums leading-none text-indigo-400 sm:text-2xl">
+              <span className="font-serif text-base font-light tabular-nums leading-none text-indigo-400 sm:text-base">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-[20px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[22px] lg:text-[24px]">
+              <h3 className="text-[18px] font-semibold tracking-tight leading-snug text-slate-50 sm:text-[17px] lg:text-[21px]">
                 {p.title}
               </h3>
             </header>
 
             {/* Lead — the principle's statement */}
-            <p className="mt-3 text-[15.5px] leading-relaxed text-slate-300 sm:text-[16.5px]">
+            <p className="mt-3 text-[14px] leading-relaxed text-slate-300 sm:text-[13.5px]">
               {p.lead}
             </p>
 
             {/* Two-card grid: design implication (action) + evidence (research) */}
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-indigo-500/25 bg-indigo-500/[0.06] px-4 py-4">
-                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
+                <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-indigo-300">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(129,140,248,0.7)]" />
                   Design implication
                 </p>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-slate-200 sm:text-[15.5px]">
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-200 sm:text-[13px]">
                   {p.implication}
                 </p>
               </div>
               <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] px-4 py-4">
-                <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
                   Evidence
                 </p>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-slate-200 sm:text-[15.5px]">
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-200 sm:text-[13px]">
                   {p.evidence}
                 </p>
               </div>
@@ -5072,13 +5360,13 @@ const DataTransparency = ({
         <div className="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
           <ul className="space-y-2.5 rounded-2xl border border-slate-800 bg-slate-950 p-6">
             {DATA_BULLETS.map((b) => (
-              <li key={b} className="flex gap-3 text-[15.5px] text-slate-200">
+              <li key={b} className="flex gap-3 text-[14px] text-slate-200">
                 <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
                 <span>{b}</span>
               </li>
             ))}
           </ul>
-          <p className="text-[15.5px] leading-relaxed text-slate-400">
+          <p className="text-[14px] leading-relaxed text-slate-400">
             Every quote on this site comes from a real session transcript. The
             table below lists each session with a link to open its summary and
             indexed quotes. Swedish sessions are presented in English
@@ -5087,9 +5375,9 @@ const DataTransparency = ({
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
-          <table className="w-full border-collapse text-[14.5px]">
+          <table className="w-full border-collapse text-[13px]">
             <thead>
-              <tr className="bg-slate-950 text-left text-[12.5px] font-semibold uppercase tracking-wide text-slate-400">
+              <tr className="bg-slate-950 text-left text-[11.5px] font-semibold uppercase tracking-wide text-slate-400">
                 <th className="border-b border-slate-800 px-4 py-3">
                   Participant
                 </th>
@@ -5126,7 +5414,7 @@ const DataTransparency = ({
                       <button
                         type="button"
                         onClick={() => onOpen(t)}
-                        className="inline-flex items-center gap-1 text-[12.5px] font-medium text-indigo-300 hover:text-indigo-200"
+                        className="inline-flex items-center gap-1 text-[11.5px] font-medium text-indigo-300 hover:text-indigo-200"
                       >
                         Read summary <ArrowRight className="h-3 w-3" />
                       </button>
@@ -5216,7 +5504,7 @@ const MobileTopBar = () => {
       <div className="mx-auto flex max-w-6xl items-center px-6 py-3">
         <a
           href="#top"
-          className="group flex items-center gap-2 text-[14.5px] font-semibold tracking-tight text-slate-50"
+          className="group flex items-center gap-2 text-[13px] font-semibold tracking-tight text-slate-50"
         >
           <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-indigo-400 to-violet-500 shadow-[0_0_20px_-5px_rgba(129,140,248,0.7)]">
             <span className="h-2 w-2 rounded-full bg-white/90" />
@@ -5278,7 +5566,7 @@ const SideNavRow = ({
           href={`#${item.id}`}
           className="flex flex-1 items-center gap-3 py-2 pl-4 pr-1"
         >
-          <span className="font-mono text-[11.5px] tabular-nums text-slate-500">
+          <span className="font-mono text-[11px] tabular-nums text-slate-500">
             {String(index + 1).padStart(2, "0")}
           </span>
           <span className="relative">{item.label}</span>
@@ -5310,7 +5598,7 @@ const SideNavRow = ({
               transition={{ duration: 0.22, ease: PREMIUM_EASE }}
               className="overflow-hidden"
             >
-              <ul className="ml-4 mt-0.5 mb-1 flex flex-col gap-0.5 border-l border-slate-800/80 pl-3 text-[12.5px]">
+              <ul className="ml-4 mt-0.5 mb-1 flex flex-col gap-0.5 border-l border-slate-800/80 pl-3 text-[11.5px]">
                 {item.children!.map((c) => {
                   const cActive = activeId === c.id;
                   return (
@@ -5323,7 +5611,7 @@ const SideNavRow = ({
                             : "text-slate-500 hover:text-slate-300"
                         }`}
                       >
-                        <span className="mt-px font-mono text-[10.5px] tabular-nums text-slate-600">
+                        <span className="mt-px font-mono text-[10px] tabular-nums text-slate-600">
                           {String(c.number).padStart(2, "0")}
                         </span>
                         <span className="flex flex-wrap items-center gap-1.5 leading-snug">
@@ -5350,7 +5638,11 @@ const SideNavRow = ({
 // Left-rail Table of Contents column. Lives in its own grid/flex column
 // alongside the main page content. Inside the column, the inner content is
 // sticky so it stays in view while scrolling. Hidden on screens below lg.
-const SideNav = () => {
+const SideNav = ({
+  onOpenDiscussion,
+}: {
+  onOpenDiscussion?: () => void;
+}) => {
   const activeId = useActiveSection(ALL_NAV_IDS);
   const progress = useScrollProgress();
   return (
@@ -5362,32 +5654,57 @@ const SideNav = () => {
         {/* Brand */}
         <a
           href="#top"
-          className="group flex items-center gap-2 text-[14.5px] font-semibold tracking-tight text-slate-50"
+          className="group flex items-center gap-2 text-[13px] font-semibold tracking-tight text-slate-50"
         >
           <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-indigo-400 to-violet-500 shadow-[0_0_22px_-4px_rgba(129,140,248,0.75)]">
             <span className="h-2.5 w-2.5 rounded-full bg-white/90" />
           </span>
           <span className="leading-tight">
             <span className="block">Messaging</span>
-            <span className="block text-[12px] font-medium text-slate-400">
+            <span className="block text-[11.5px] font-medium text-slate-400">
               Research findings
             </span>
           </span>
         </a>
 
         {/* TOC */}
-        <p className="mt-12 text-[12px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+        <p className="mt-12 text-[11.5px] font-semibold uppercase tracking-[0.18em] text-slate-500">
           Table of contents
         </p>
-        <nav className="relative mt-3 flex flex-col gap-0.5 overflow-y-auto pr-1 text-[13.5px]">
+        <nav className="relative mt-3 flex flex-col gap-0.5 overflow-y-auto pr-1 text-[12.5px]">
           {NAV_ITEMS.map((n, i) => (
             <SideNavRow key={n.id} item={n} index={i} activeId={activeId} />
           ))}
         </nav>
 
+        {/* Resource creation discussion — sits directly under the TOC's
+            last entry ("Data"). Visible as its own block with a violet
+            accent so it reads as a secondary entry point separate from the
+            anchored sections above. */}
+        {onOpenDiscussion && (
+          <button
+            type="button"
+            onClick={onOpenDiscussion}
+            className="group mt-3 flex w-full items-start gap-3 rounded-lg border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.06] to-transparent px-3 py-2.5 text-left transition hover:border-violet-400/60 hover:from-violet-500/[0.18] hover:via-indigo-500/[0.10]"
+          >
+            <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-violet-500/20 text-violet-200 ring-1 ring-violet-400/40">
+              <ExternalLink className="h-2.5 w-2.5" />
+            </span>
+            <span className="flex-1 min-w-0">
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+                Discussion
+              </span>
+              <span className="mt-0.5 block text-[12.5px] font-medium leading-snug text-slate-100 group-hover:text-white">
+                Resource creation
+              </span>
+            </span>
+            <ArrowRight className="mt-1 h-3 w-3 shrink-0 text-violet-300/70 transition group-hover:translate-x-0.5 group-hover:text-violet-200" />
+          </button>
+        )}
+
         {/* Scroll progress */}
         <div className="mt-auto pt-8">
-          <div className="flex items-center justify-between text-[11px] font-mono tabular-nums text-slate-500">
+          <div className="flex items-center justify-between text-[10.5px] font-mono tabular-nums text-slate-500">
             <span className="uppercase tracking-[0.18em]">Progress</span>
             <span>{Math.round(progress * 100)}%</span>
           </div>
@@ -5408,7 +5725,7 @@ const SideNav = () => {
 
 const Footer = () => (
   <footer className="bg-slate-900">
-    <div className="mx-auto max-w-6xl px-6 py-12 text-[14.5px] text-slate-400">
+    <div className="mx-auto max-w-6xl px-6 py-12 text-[13px] text-slate-400">
       <p>
         Based on {transcripts.length} usability test sessions. Quotes used as
         supporting evidence. Swedish sessions translated to English with
@@ -5428,7 +5745,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-50 lg:flex">
-      <SideNav />
+      <SideNav onOpenDiscussion={() => setDiscussionOpen(true)} />
       <div className="min-w-0 flex-1">
         <MobileTopBar />
         <Hero />
