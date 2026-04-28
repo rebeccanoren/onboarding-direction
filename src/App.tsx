@@ -193,6 +193,16 @@ interface JourneyWhyInsight {
   closing?: string[];
 }
 
+/** Highlighted "tracks" block that sits between the Why-this-step lead and
+ *  the numbered insights — used to call out a structural distinction the
+ *  reader needs before drilling into specific insights. */
+interface JourneyWhyTracks {
+  title: string;
+  description: string;
+  tracks: { label: string; description: string; tone?: "indigo" | "violet" | "amber" }[];
+  closing?: string;
+}
+
 interface JourneyDesignPrinciples {
   items: string[];
   goal?: string;
@@ -235,6 +245,10 @@ interface JourneyStep {
   whyInsights?: JourneyWhyInsight[];
   /** Closing observation rendered as a callout under the insights. */
   whyClosing?: string;
+  /** Optional "tracks" block rendered between the lead and the numbered
+   *  insights — used when an insight section needs a structural framing
+   *  the reader should understand before drilling into specifics. */
+  whyTracks?: JourneyWhyTracks;
   /** When present, a Value section appears at the bottom of the step card. */
   valueProps?: JourneyValueProp[];
   paths?: { label: string; description: string }[];
@@ -1171,23 +1185,111 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "Okay. And how do we know what we need to do here? When you have special requirement — I have no idea what I need to do if I should contact someone, kind of lost. I know there is some action required. Don’t really know what.",
           },
+          {
+            title: "Recognising compliance from the form itself",
+            participant: "P14",
+            persona: "Developer",
+            short:
+              "Once I got to the use case information, I started to get a sense that this was either regulatory compliance…",
+            long:
+              "I do see, at least initially, when we started talking about, which one was it? Oh, no — it was the use case. Once I got to the use case information, I started to get a sense that this was either regulatory compliance or I'm checking a box for something. What might trip me up, since I have the benefit of making things up on the spot, is if I didn't have that information. If I'm doing an exploratory analysis of Cinch, for example.",
+          },
         ],
         whyHeadline:
-          "Compliance was not a research focus — but when users reached it, the need for guidance was clear.",
+          "When users reach compliance, they need guidance to move forward.",
         whyLead:
-          "This step was not the main focus of the research, but when users reached it, it was clear that compliance needs guidance. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission.",
+          "Compliance was not the primary focus of the research — but when users reached it, a clear pattern emerged. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission. This step is regulatory compliance, not product setup, and it follows a different logic than the rest of onboarding.",
+        whyTracks: {
+          title: "Two parallel tracks",
+          description:
+            "After the first successful test, users move in two directions:",
+          tracks: [
+            {
+              label: "Integration (developers)",
+              description:
+                "Continue building, testing, and integrating with the API.",
+              tone: "indigo",
+            },
+            {
+              label: "Regulatory compliance",
+              description:
+                "Provide required business details and submit for approval.",
+              tone: "amber",
+            },
+          ],
+          closing:
+            "These tracks are independent — but this is not always clear in the current experience.",
+        },
         whyInsights: [
           {
-            title: "Forms feel tedious",
+            title: "Compliance feels like a blocker — but shouldn’t be",
             description:
-              "Even when users know the answers, the length and tone of the compliance form erode momentum.",
+              "Many developers assume they must complete this step before continuing, even when their goal is to integrate.",
+            quoteIndices: [3],
+            closing: [
+              "In reality, compliance is only required to send to real users — not to continue building or testing.",
+            ],
+          },
+          {
+            title: "Who fills this out depends on the company",
+            description:
+              "Responsibility for compliance varies:",
+            bullets: [
+              {
+                text: "Startups / solo developers",
+                meta:
+                  "— the developer often owns everything, including compliance, and must fill it out themselves.",
+              },
+              {
+                text: "Larger organizations",
+                meta:
+                  "— the developer relies on legal, marketing, or business teams for the required information.",
+              },
+            ],
+            closing: [
+              "This means the experience must support both self-serve completion and handoff or collaboration.",
+            ],
+          },
+          {
+            title: "Users can complete it — but don’t always have the information",
+            description:
+              "Even when developers are responsible, they don’t always have the answers readily available. They may:",
+            bullets: [
+              { text: "make assumptions to move forward, or" },
+              { text: "pause to gather input internally." },
+            ],
+          },
+          {
+            title: "Guidance in the UI reduces friction",
+            description:
+              "When forms include clear explanations, examples, or context, users feel more confident progressing. Users respond positively to:",
+            bullets: [
+              { text: "knowing why information is required" },
+              { text: "seeing what good answers look like" },
+              { text: "getting inline guidance instead of external docs" },
+            ],
+            closing: [
+              "This is especially important for solo developers who don’t have internal support.",
+            ],
+          },
+          {
+            title: "Forms still feel tedious",
+            description:
+              "Even with guidance, the length and tone of the compliance form can erode momentum.",
             quoteIndices: [1],
           },
           {
-            title: "Required actions are unclear",
+            title: "Users need clarity to proceed",
             description:
-              "Users see “action required” but don’t know what they’re supposed to do — or who to ask.",
-            quoteIndices: [2],
+              "Users don’t need to understand every field — but they need to understand:",
+            bullets: [
+              { text: "this is a regulatory requirement" },
+              { text: "it does not block integration" },
+              { text: "it can be completed later" },
+            ],
+            closing: [
+              "Without that clarity, the flow feels linear and blocking. With it, users can confidently continue on their intended path.",
+            ],
           },
         ],
         valueProps: [
@@ -4898,6 +5000,54 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
         }}
         aria-hidden={!open}
       >
+        {step.whyTracks && (
+          <section className="mb-6 overflow-hidden rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.05] to-transparent shadow-[0_24px_60px_-32px_rgba(139,92,246,0.4)]">
+            <div className="px-5 py-5 sm:px-6 sm:py-6">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+                {step.whyTracks.title}
+              </p>
+              <p className="mt-2.5 text-[14px] leading-relaxed text-slate-200 sm:text-[14.5px]">
+                {step.whyTracks.description}
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {step.whyTracks.tracks.map((t, ti) => {
+                  const toneClass =
+                    t.tone === "violet"
+                      ? "border-violet-500/30 bg-violet-500/[0.06]"
+                      : t.tone === "amber"
+                        ? "border-amber-500/30 bg-amber-500/[0.06]"
+                        : "border-indigo-500/30 bg-indigo-500/[0.06]";
+                  const labelClass =
+                    t.tone === "violet"
+                      ? "text-violet-300"
+                      : t.tone === "amber"
+                        ? "text-amber-300"
+                        : "text-indigo-300";
+                  return (
+                    <div
+                      key={ti}
+                      className={`rounded-xl border px-4 py-3 ${toneClass}`}
+                    >
+                      <p
+                        className={`text-[10.5px] font-semibold uppercase tracking-[0.16em] ${labelClass}`}
+                      >
+                        {t.label}
+                      </p>
+                      <p className="mt-1.5 text-[13px] leading-relaxed text-slate-200 sm:text-[13.5px]">
+                        {t.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+              {step.whyTracks.closing && (
+                <p className="mt-4 text-[12.5px] leading-relaxed text-slate-400 sm:text-[13px]">
+                  {step.whyTracks.closing}
+                </p>
+              )}
+            </div>
+          </section>
+        )}
         <ol className="divide-y divide-slate-800/70 border-y border-slate-800/70">
           {step.whyInsights.map((ins, ii) => (
             <li
