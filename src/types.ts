@@ -6,8 +6,8 @@ export type Persona =
   | "Unknown";
 
 export type Concept =
-  | "Sandbox 2.0"
-  | "Sandbox 1.0"
+  | "RCS Getting started 2.0"
+  | "RCS Getting started 1.0"
   | "Onboarding app"
   | "SMS onboarding"
   | "RCS setup";
@@ -27,7 +27,7 @@ export interface Transcript {
   participant: string;
   persona: Persona;
   /** Concepts shown in the session — most internal sessions covered both
-   *  the Onboarding app and Sandbox 1.0; Sandbox 2.0 sessions usually one. */
+   *  the Onboarding app and RCS Getting started 1.0; RCS Getting started 2.0 sessions usually one. */
   concepts: Concept[];
   date: string | null;
   sourceFile: string;
@@ -194,7 +194,7 @@ export interface TranscriptAnalysis {
     /** Optional pull-quote to highlight the user's exact framing. */
     quote?: string;
   };
-  /** Per-concept observations (e.g. Onboarding app, Sandbox 1.0). */
+  /** Per-concept observations (e.g. Onboarding app, RCS Getting started 1.0). */
   concepts: TranscriptAnalysisConcept[];
   /** Optional cross-cutting issue spanning both/all concepts. */
   crossCutting?: {

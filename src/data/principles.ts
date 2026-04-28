@@ -54,17 +54,17 @@ export const principles: Principle[] = [
 export const researchSources: ResearchSource[] = [
   {
     id: "s1",
-    title: "Sandbox 2.0 usability tests",
+    title: "RCS Getting started 2.0 usability tests",
     description:
-      "Moderated sessions testing the send-first Sandbox 2.0 prototype. Developers and non-developers.",
+      "Moderated sessions testing the send-first RCS Getting started 2.0 prototype. Developers and non-developers.",
     sessions: 10,
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
   },
   {
     id: "s2",
     title: "Onboarding app usability tests",
     description:
-      "Sessions testing the guided onboarding app, often as a comparison point to Sandbox 2.0.",
+      "Sessions testing the guided onboarding app, often as a comparison point to RCS Getting started 2.0.",
     sessions: 4,
     concept: "Onboarding app",
   },
@@ -72,7 +72,7 @@ export const researchSources: ResearchSource[] = [
     id: "s3",
     title: "RCS setup flow observations",
     description:
-      "Notes on RCS agent creation, compliance, and go-live requirements encountered in Sandbox 2.0 sessions.",
+      "Notes on RCS agent creation, compliance, and go-live requirements encountered in RCS Getting started 2.0 sessions.",
     sessions: 8,
     concept: "RCS setup",
   },

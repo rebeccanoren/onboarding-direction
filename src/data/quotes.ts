@@ -1,7 +1,7 @@
 import type { Quote } from "../types";
 
 export const quotes: Quote[] = [
-  // --- t01 / P1 (Developer, Onboarding app → Sandbox 1.0 comparison) ---
+  // --- t01 / P1 (Developer, Onboarding app → RCS Getting started 1.0 comparison) ---
   {
     id: "q001",
     transcriptId: "t01",
@@ -72,7 +72,7 @@ export const quotes: Quote[] = [
     transcriptId: "t01",
     participant: "P1",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "48:31",
     quote:
       "I like this, message log, table much better. I have everything in one page.",
@@ -85,7 +85,7 @@ export const quotes: Quote[] = [
     transcriptId: "t01",
     participant: "P1",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "49:40",
     quote:
       "The simulation. I mean, the wording, it's sent test message would be not simulate to message, but I think that's a mistake when when building it. Because, yeah, you are sending a message for real.",
@@ -150,7 +150,7 @@ export const quotes: Quote[] = [
     transcriptId: "t01",
     participant: "P1",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "27:18",
     quote:
       "Now I read it that it's prepared to go live. I thought I could use it for testing.",
@@ -163,7 +163,7 @@ export const quotes: Quote[] = [
     transcriptId: "t01",
     participant: "P1",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "29:42",
     quote:
       "It is harder to know. It's a bit mixed, the sending and the actual setting up. I'm not completely sure what is in test mode right now and what is me trying to prepare a real app.",
@@ -176,7 +176,7 @@ export const quotes: Quote[] = [
     transcriptId: "t01",
     participant: "P1",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "33:05",
     quote:
       "It looks like I have a test agent. But then when I go into the test agent, I'm kind of trying to set it up, which is weird.",
@@ -189,7 +189,7 @@ export const quotes: Quote[] = [
     transcriptId: "t01",
     participant: "P1",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "33:48",
     quote:
       "If I go to the test agent, I wouldn't expect to set up the test agent. If I want to set up an agent, I would want to set up a new one.",
@@ -198,13 +198,13 @@ export const quotes: Quote[] = [
       "Users expect a clear separation: a temporary test agent for experimentation, and a separate flow to create their own real agent.",
   },
 
-  // --- t02 / P2 (Developer, Sandbox 1.0) ---
+  // --- t02 / P2 (Developer, RCS Getting started 1.0) ---
   {
     id: "q009",
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "08:50",
     quote:
       "For me these are examples of the most important things they want to do… You want to send a test message and, maybe most of all, you want to test a Rich message.",
@@ -220,7 +220,7 @@ export const quotes: Quote[] = [
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "10:08",
     quote:
       "Here I'd have found something to do the absolute easiest thing possible without so much setup… As a developer, that's not the first thing you look at — you want to be able to solve your task.",
@@ -236,7 +236,7 @@ export const quotes: Quote[] = [
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "16:53",
     quote:
       "It's when you need all the webhooks and this-and-that that it starts getting more advanced… But this I think is a huge improvement over what we have, especially once it's in place.",
@@ -252,7 +252,7 @@ export const quotes: Quote[] = [
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "20:36",
     quote:
       "Yes. Because you can basically just copy it… This is good, I think.",
@@ -267,7 +267,7 @@ export const quotes: Quote[] = [
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "30:29",
     quote:
       "It solves two pretty big problems. It removes the wall you hit when you come in as a user… You have to sign up, you have to become an approved user, you have to submit your credit-card stuff before you can even test anything.",
@@ -283,7 +283,7 @@ export const quotes: Quote[] = [
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "33:07",
     quote:
       "It teaches you a lot about our capability as Sinch, but quite little about our dashboard. You'll still sign up and end up on the dashboard where you have to create senders and everything yourself after that.",
@@ -299,7 +299,7 @@ export const quotes: Quote[] = [
     transcriptId: "t02",
     participant: "P2",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "28:39",
     quote:
       "Of course you can make something that's a button-press or super easy if you don't take into account all the extra things that come. And the question is, do you even belong in a sandbox in this way?",
@@ -412,7 +412,7 @@ export const quotes: Quote[] = [
     transcriptId: "t03",
     participant: "P3",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "43:26",
     quote:
       "If I'm using Sinch, I understand this — I probably have the option to use all these channels to reach my customers… That's reassuring.",
@@ -428,7 +428,7 @@ export const quotes: Quote[] = [
     transcriptId: "t03",
     participant: "P3",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "51:01",
     quote:
       "What I've asked for is a more straightforward documentation, based on the Sinch documentation we have today, but focused specifically on RCS.",
@@ -508,7 +508,7 @@ export const quotes: Quote[] = [
     transcriptId: "t03",
     participant: "P3",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "05:55",
     quote:
       "Above all, as a developer it's about — and I'll actually say this as the first word — build trust. It's often sensitive information being sent here. It could be login credentials or whatever it might be.",
@@ -524,7 +524,7 @@ export const quotes: Quote[] = [
     transcriptId: "t03",
     participant: "P3",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "07:13",
     quote:
       "This feels significantly more accessible — it gives me the information I want in a more inductive flow. I'm met with the information I want directly, instead of in a deep hierarchy of sixteen steps.",
@@ -622,7 +622,7 @@ export const quotes: Quote[] = [
     transcriptId: "t04",
     participant: "P4",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "29:22",
     quote:
       "Here I want to test RCS. Okay. I think some people would have clicked up here, Get started. I'd probably actually look for the thing I'm really after and click Get started there.",
@@ -638,7 +638,7 @@ export const quotes: Quote[] = [
     transcriptId: "t04",
     participant: "P4",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "34:07",
     quote:
       "The toast came up when I clicked, so something actually happened. Otherwise I'd have had to check.",
@@ -718,7 +718,7 @@ export const quotes: Quote[] = [
     transcriptId: "t04",
     participant: "P4",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "29:50",
     quote:
       "When you see RCS next to SMS I understand a little better what RCS means.",
@@ -734,7 +734,7 @@ export const quotes: Quote[] = [
     transcriptId: "t04",
     participant: "P4",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "51:32",
     quote:
       "I would have been a bit lost now. You don't know where to go after this.",
@@ -750,7 +750,7 @@ export const quotes: Quote[] = [
     transcriptId: "t04",
     participant: "P4",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "43:24",
     quote:
       "$200 to pay. Yes, that's quite a lot. Maybe a bit much. Let me choose how much I want to test-send for. Maybe I want to test-send five dollars. But I wouldn't have wanted to test for $200.",
@@ -766,7 +766,7 @@ export const quotes: Quote[] = [
     transcriptId: "t04",
     participant: "P4",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "46:49",
     quote:
       "I understood that I had to add Agent Appearance, Add Country, Add Contact Information. I just didn't really understand what to do now.",
@@ -778,13 +778,13 @@ export const quotes: Quote[] = [
       "Hidden system requirements (e.g. Conversation API app) trap junior users — they cannot infer dependencies that the UI doesn't surface.",
   },
 
-  // --- t05 / P5 (Developer, Sandbox 1.0 → Onboarding app) ---
+  // --- t05 / P5 (Developer, RCS Getting started 1.0 → Onboarding app) ---
   {
     id: "q093",
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "11:03",
     quote:
       "It was easy to work. Even though I haven't worked with RCS or doing this thing before at all, I could get it, what's going on, and the steps were really organized — you could follow them easily.",
@@ -797,7 +797,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "04:30",
     quote:
       "From a developer perspective, this is good that you can get this kind of information.",
@@ -810,7 +810,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "05:44",
     quote:
       "I was looking for something like this, actually. But I didn't see it in the first place. So what I was looking for is something like this here instead.",
@@ -823,7 +823,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "07:47",
     quote:
       "What if we just wanted to have a text? Is it possible? When I look at this, I think, oh, like, none of them possible to just have a text… So I cannot just send a text.",
@@ -836,7 +836,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "09:32",
     quote:
       "We can paste our code here, right?… I didn't get that, that's gonna happen because I didn't have that experience before to see something like that.",
@@ -849,7 +849,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "13:57",
     quote:
       "I'm looking for, like, a place that what if I don't want to have a test agent now and I want just to use the, like, a real agent?… So I was looking for where I can start the real one then.",
@@ -862,7 +862,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "15:07",
     quote:
       "I want to send this exact message to, like, hundred thousand of customers now.",
@@ -875,7 +875,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "16:02",
     quote:
       "The new, actually, it caused me to have some misunderstanding because I thought that this is gonna make a new test agent.",
@@ -888,7 +888,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "19:56",
     quote:
       "I'm looking for the IKEA… I was expecting that, because the agent that we made was for IKEA. We did test two. And I was thinking that I have to see this in the details here.",
@@ -901,7 +901,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "25:37",
     quote:
       "I really didn't think that's gonna happen. If I was not doing this right now, I could understand it could be a shock for them. So maybe some kind of information that there is another layer, or another step even for you to make this happen.",
@@ -914,7 +914,7 @@ export const quotes: Quote[] = [
     transcriptId: "t05",
     participant: "P5",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "26:56",
     quote:
       "Test numbers as a customer who would get the message, or test number as an agent who can send the message to them. I don't know which of them is.",
@@ -962,13 +962,13 @@ export const quotes: Quote[] = [
       "The onboarding app reads more like documentation than action — better for finding information, weaker for actually doing things.",
   },
 
-  // --- t06 / P6 (Developer, comparing Sandbox 1.0 and Onboarding app) ---
+  // --- t06 / P6 (Developer, comparing RCS Getting started 1.0 and Onboarding app) ---
   {
     id: "q025",
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "00:57",
     quote:
       "this would be, the page that shows, yeah, different channels communication channels for that's available at Cinch... from the cards here, I I get that it will give a short introduction",
@@ -981,7 +981,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "06:01",
     quote:
       "I I would say it's, to just try to send one, test message to see how it is working... So not really having to set up, but to test it out.",
@@ -993,7 +993,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "12:40",
     quote:
       "I think it's good. I think, maybe I would, like, explore conversation API, but also, I will maybe... there's, like, no real way of going to get started.",
@@ -1019,7 +1019,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "55:33",
     quote:
       "I think I I prefer the first one, because it's more, like, feels like, it's more in in in the app, of, like, this style, of, like, self-service, more clear self-service style.",
@@ -1045,7 +1045,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "13:49",
     quote:
       "How do I go from here to starting the implementation for myself, like, for my company?",
@@ -1058,7 +1058,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "15:34",
     quote:
       "There's something that should be like — send your first own message from your company or whatever. Something like that, I feel like is missing here.",
@@ -1071,7 +1071,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "17:42",
     quote:
       "I didn't really pay attention too much to send with code, but I probably should have clicked and then seen what it is.",
@@ -1084,7 +1084,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "01:30",
     quote:
       "We will use the conversation API to be able to do all of the above.",
@@ -1097,7 +1097,7 @@ export const quotes: Quote[] = [
     transcriptId: "t06",
     participant: "P6",
     persona: "Developer",
-    concept: "Sandbox 1.0",
+    concept: "RCS Getting started 1.0",
     timestamp: "26:57",
     quote:
       "There might be missing an explanation to verify your agent, what verify your agent actually means.",
@@ -1132,13 +1132,13 @@ export const quotes: Quote[] = [
       "Information and action are disconnected — users have to read in one place and act in another, breaking the learning-by-doing loop.",
   },
 
-  // --- t07 / P7 (Developer, Sandbox 2.0) ---
+  // --- t07 / P7 (Developer, RCS Getting started 2.0) ---
   {
     id: "q031",
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "07:36",
     quote:
       "it's kind of like, you know, like a playground type scenario... it's kinda like what you the environment to, play around with an API or something like that.",
@@ -1151,7 +1151,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "04:35",
     quote:
       "So I can see all the, like, message information here. The test messages, I can see the IDs, the channel, recipient, correlation ID, and then I can see when it was delivered and when it was queued.",
@@ -1164,7 +1164,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "17:57",
     quote:
       "Maybe there could be, like, a link or something that if I'm lazy and I'm because I think a lot of us in tech are, like, we just kinda scan... if I don't wanna go through with this whole thing.",
@@ -1177,7 +1177,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "15:21",
     quote:
       "I think both are useful in different for different reasons... this is helpful for right off from the start... As a tech person, then here, this is like okay. I've seen the functionality, and here now I can see how to actually implement.",
@@ -1190,20 +1190,20 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "45:04",
     quote:
       "I think it's definitely a step up from our current experience… I think this is super helpful that it walks you through and gets you, like, baby steps.",
     theme: "Time-to-value",
     interpretation:
-      "Sandbox 2.0 reads as a clear step up — the guided, baby-step structure removes the overwhelm of earlier flows.",
+      "RCS Getting started 2.0 reads as a clear step up — the guided, baby-step structure removes the overwhelm of earlier flows.",
   },
   {
     id: "q115",
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "45:04",
     quote:
       "It explains the reason for this field and why I need to do this with countries or my business details.",
@@ -1216,7 +1216,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "49:03",
     quote:
       "I like that it doesn't throw me into the deep end.",
@@ -1229,7 +1229,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "49:58",
     quote:
       "It walks me through the setup of it, so that I almost can't go the wrong way. I kinda have to go, like, follow the correct steps.",
@@ -1242,7 +1242,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "03:03",
     quote:
       "I was focusing more on this. I didn't realize the iframe.",
@@ -1255,7 +1255,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "10:14",
     quote:
       "Key ID would, I'm assuming, be your access key, and then my secret key would be this one because it's called secret key. Access key and key ID was a little bit, like, I'm just assuming.",
@@ -1268,7 +1268,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "40:26",
     quote:
       "Maybe some sort of link or something where I can read up on that could be helpful for somebody who doesn't fully understand the concept.",
@@ -1281,7 +1281,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "51:57",
     quote:
       "If there's some sort of graphic that explains, you know, this is your conversation API and here's your WhatsApp channel and here's your SMS channel and all that stuff. If I can see a quick, like, little graphic, then I understand.",
@@ -1294,7 +1294,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "19:41",
     quote:
       "If I'm doing this and I edit these fields, I think it would be smart for that data to persist to this page.",
@@ -1307,7 +1307,7 @@ export const quotes: Quote[] = [
     transcriptId: "t07",
     participant: "P7",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "47:35",
     quote:
       "Even if I don't come from that background, I understand because I understand what those business things are doing… I think it's pretty self explanatory.",
@@ -1316,13 +1316,13 @@ export const quotes: Quote[] = [
       "Business fields (consent, use case) are framed clearly enough that even a developer without a business-side background can complete them without confusion.",
   },
 
-  // --- t08 / P8 (Developer, Sandbox 2.0) ---
+  // --- t08 / P8 (Developer, RCS Getting started 2.0) ---
   {
     id: "q035",
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "29:32",
     quote:
       "I haven't encountered anything that felt difficult, but there is kind of a lot of steps to go through.",
@@ -1335,7 +1335,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "23:54",
     quote:
       "I think as a first time user, I would just want to say, like, okay. Give me give me RCS. And then this app business is sort of a detail that I don't need to know about.",
@@ -1348,7 +1348,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "26:04",
     quote:
       "Yeah. I think so. I think I would want to try and send a test message. And, ideally, I would want to send it with my, company name... to my own phone.",
@@ -1361,7 +1361,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "02:25",
     quote:
       "I'm gonna try out RCS. Because that's what I came to check out.",
@@ -1374,7 +1374,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "04:07",
     quote:
       "This is probably what I would look at first, actually. I can tell it's just the HTTP message, looks pretty simple to construct in playground.",
@@ -1387,7 +1387,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "30:03",
     quote:
       "Nothing that would cause me to rage quit.",
@@ -1400,7 +1400,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "46:30",
     quote:
       "I managed to get through it, with not that much of a hassle considering the amount of questions.",
@@ -1413,7 +1413,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "05:06",
     quote:
       "I didn't create an RCS agent, So I guess I would go back. And I would be curious what is an RCS agent and how do we set one up.",
@@ -1426,7 +1426,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "18:12",
     quote:
       "Feels like it's stuff that has already been entered. So maybe some of it could be prepopulated.",
@@ -1439,7 +1439,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "12:12",
     quote:
       "I'm confused as to why I would need to know this. Is this something that Cinch wants to know to get to know me as a customer better, or if it's something that's sent passed on to Google for RCS registration.",
@@ -1452,7 +1452,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "16:50",
     quote:
       "I'm not sure who is going to reach out to me. If that's some RCS entity or if it's Cinch.",
@@ -1465,7 +1465,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "26:04",
     quote:
       "I don't really care about webhooks until later. If I send to my own phone, then I don't really need confirmation elsewhere. Then I might try webhooks.",
@@ -1478,7 +1478,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "30:46",
     quote:
       "I'm wondering what best for high throughput, best for two way. This is a bit confusing to me… as a user, I would probably just assume to be able to do everything.",
@@ -1491,7 +1491,7 @@ export const quotes: Quote[] = [
     transcriptId: "t08",
     participant: "P8",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "42:32",
     quote:
       "I'm finding it difficult to find my way… I don't know how to find my way back to the app view that I was at previously.",
@@ -1500,13 +1500,13 @@ export const quotes: Quote[] = [
       "Navigation between sandbox, agent setup, and the app view is weak — users lose their place when moving between sections.",
   },
 
-  // --- t09 / P9 (Non-developer, Sandbox 2.0) ---
+  // --- t09 / P9 (Non-developer, RCS Getting started 2.0) ---
   {
     id: "q038",
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "02:28",
     quote:
       "I think it would like, the the option to have the logo ready immediately, kind of like instantly have how you want the message to come across. It's pretty pretty simple.",
@@ -1519,7 +1519,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "05:30",
     quote:
       "One way or two way is also some people may find that confusing. But that just, like, I know at least in the US, that's that's the, like, language we're told to use.",
@@ -1532,7 +1532,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "08:12",
     quote:
       "Having this available for for clarification is good... if they had, like, a confirmation, like, hey. Your agent was successfully set up. This is your Google agent ID. This is your Cinch ID.",
@@ -1545,7 +1545,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "00:32",
     quote:
       "This is pretty simple… this is also pretty straightforward. I think that someone without a dev background would be able to go in and set that up pretty well.",
@@ -1558,7 +1558,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "12:20",
     quote:
       "This would appeal to, like, a retail brand… most people like the the card, like, the app like experience where they can send you, like, an offer and then you order it… customize your order all within the text message.",
@@ -1571,7 +1571,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "18:05",
     quote:
       "I like that it's always taking you to, like, what the next step in the process is… I wouldn't be confused on what to do next.",
@@ -1584,7 +1584,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "11:08",
     quote:
       "Being able to see, like, have updates on what's going on… if they're reading it, that has been delivered, that has been sent. If the number was bad, they'd have access to information. If it bounces, it'd say like 'message not delivered.'",
@@ -1597,7 +1597,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "16:35",
     quote:
       "What would generating an access key do exactly? Like, what is the use case for that?",
@@ -1610,7 +1610,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "27:14",
     quote:
       "Why would the RCS agent not automatically be connected to common API?",
@@ -1623,7 +1623,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "29:58",
     quote:
       "For someone else, integrate sounds like optional. I think maybe just make it a little bit more clear that you need to integrate for your agent, like, to be able to send messages.",
@@ -1636,7 +1636,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "36:33",
     quote:
       "In this one, they're using dispatch. In the other one, they use the term nonconversational and conversational. I think if you kept it all uniform…",
@@ -1649,7 +1649,7 @@ export const quotes: Quote[] = [
     transcriptId: "t09",
     participant: "P9",
     persona: "Non-developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "28:21",
     quote:
       "I made the RCS agent. I've sent the test message. I've done everything I need to do. This would be maybe a little bit confusing… why am I having to connect to the app when it's like, isn't that what I made the agent for kind of thing?",
@@ -1658,13 +1658,13 @@ export const quotes: Quote[] = [
       "Mismatch between expectation (agent = ready to send) and reality (agent → app → API connection required) — non-developers don't understand why the work isn't already done.",
   },
 
-  // --- t11 / P11 (Developer, Sandbox 2.0) ---
+  // --- t11 / P11 (Developer, RCS Getting started 2.0) ---
   {
     id: "q041",
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "11:08",
     quote:
       "Like, being able to see, like, like, have updates on what's going on, like, if they're being able like, if they're reading it, that has been delivered, that has been sent. Because that way they'll know if they send a message to, like, a singular number.",
@@ -1677,7 +1677,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "09:24",
     quote:
       "Any client who is using RCS through our platform would definitely leverage it and use it on their own code base.",
@@ -1690,7 +1690,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "24:57",
     quote: "Why would why would this not be automatic? Like, why would the RCS, like, agent not automatically be connected to common API?",
     theme: "Production readiness",
@@ -1698,13 +1698,13 @@ export const quotes: Quote[] = [
       "Manual connection step feels unintuitive; users expect agent creation to wire to messaging automatically.",
   },
 
-  // --- t12 / P12 (Developer, Sandbox 2.0) ---
+  // --- t12 / P12 (Developer, RCS Getting started 2.0) ---
   {
     id: "q044",
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "01:55",
     quote:
       "So since I'm a developer, my instinct could be just to open up a terminal and run this command in curl because that would be the simplest way.",
@@ -1717,7 +1717,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "04:59",
     quote:
       "I like the layout of this page. It looks great. I like the fact that the cards are collapsed here, just showing a preview of the information, but the very last one is expanded to show me the output of the commands here.",
@@ -1730,7 +1730,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "07:39",
     quote:
       "So wait. So let me generate a key first. There we go. So these would be the things that I want here. Oh, it's already there, which is beautiful.",
@@ -1743,7 +1743,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "18:33",
     quote: "Website is w w w dot w w dot com… It's, quite heavy.",
     theme: "Production readiness",
@@ -1755,7 +1755,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "31:19",
     quote:
       "This part is confusing to me just because I didn't actually set up a test app beforehand. So, like, this setting up the webhooks part, that makes sense.",
@@ -1768,7 +1768,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "39:22",
     quote:
       "That was actually super easy. Like, the sending the test message, working with the API, I really liked how user friendly that flow was.",
@@ -1777,13 +1777,13 @@ export const quotes: Quote[] = [
       "Initial quick-test experience is delightful; complexity only emerges in production flow.",
   },
 
-  // --- t13 / P13 (Developer, Sandbox 2.0) ---
+  // --- t13 / P13 (Developer, RCS Getting started 2.0) ---
   {
     id: "q050",
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:56",
     quote:
       "I like the fact that we can run the request directly from there. Usually you need to copy-paste into your terminal.",
@@ -1796,7 +1796,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "14:47",
     quote:
       "Super easy. And once again, I like the fact that you have the preview here, because you can directly see, the what will happen on the on the phone screen.",
@@ -1809,7 +1809,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "23:41",
     quote:
       "Because I was like, I don't know what it is, and I don't have any information. I didn't pay attention to view. But, okay. So to be honest, I don't know what's the difference between those two.",
@@ -1822,7 +1822,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "38:56",
     quote:
       "Great. Except, yeah, few few comments that I that I push for the countries, and, before… it was quite fast, easy to understand… especially if you are, under this market, because this is the you know how, things are working.",
@@ -1831,13 +1831,13 @@ export const quotes: Quote[] = [
       "Messaging industry expertise required to navigate compliance steps smoothly.",
   },
 
-  // --- t14 / P14 (Developer, Sandbox 2.0) ---
+  // --- t14 / P14 (Developer, RCS Getting started 2.0) ---
   {
     id: "q054",
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "09:30",
     quote:
       "I really like this view… The the OpenAPI play around I mean, this, this part in particular is important, certainly, but I I'm almost finding myself less interested in, in this version versus, versus the previous version.",
@@ -1850,7 +1850,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "12:42",
     quote:
       "It it is a little, a little odd, at least only from the perspective of if this is set up to be a test message… I would almost assume that this code would be more or less the same, the same code, but using that, whatever temporary access key is being used in the background.",
@@ -1863,7 +1863,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "19:56",
     quote:
       "It, it was definitely the the freedom of a, of a text box with a requirement that I wasn't aware of… Would that potentially, hurt me later in the flow?",
@@ -1876,7 +1876,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "24:26",
     quote:
       "Is it fair to say that these two are kind of like, you've done the first part, you've created your agent, now you must do step one, step two to actually start using the agent, as the prepare to go live.",
@@ -1889,7 +1889,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "44:01",
     quote:
       "Yes. Now, is this, would this just be the the prototype? Or after completing these steps, would this, well, actually, I have not submitted for approval… I broke the prototype and created my own confusion.",
@@ -1902,7 +1902,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "52:33",
     quote:
       "I love the, the previews. The previews give visual to the configuration that I am barreling through… If, if I, as a developer, hear that something is required for compliance, I immediately start to start getting, stakeholders involved.",
@@ -1911,13 +1911,13 @@ export const quotes: Quote[] = [
       "Explicit 'compliance required' labels trigger delegation; unlabeled steps look discretionary.",
   },
 
-  // --- t10 / P10 (Developer with sales/account-manager background, Sandbox 2.0) ---
+  // --- t10 / P10 (Developer with sales/account-manager background, RCS Getting started 2.0) ---
   {
     id: "q060",
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:06",
     quote:
       "So what I'm looking at this, like, here, it seems that, we need to copy that and to put ourselves, like, our credential to go somewhere to check our project ID and put it.",
@@ -1930,7 +1930,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "07:03",
     quote:
       "I think yes. When I'm, if I'm logging inside the platform and I can do that, then yes… Maybe also, being able to I don't know, to see because I guess when you are on the platform, you could have multiple project ID, multiple, API keys, secrets…",
@@ -1943,7 +1943,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "28:45",
     quote:
       "Just to seems to, one contact wants to opt in to receive some communication from us… or by subscribing to a loyalty program… So when you are a sales service customer, I have no idea of what, I should put here.",
@@ -1956,7 +1956,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "31:27",
     quote:
       "When you are a sales service customer, when you just want to send messages, I have really no idea of what I should put here… And Yeah. I guess one of the two option is required and if one of the two option is required, I want you don't really know exactly.",
@@ -1969,7 +1969,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "47:24",
     quote:
       "I think especially the onboarding part… I think it's, really great, at least a lot compared to to what I have experienced, a few months ago… a lot of, details that could maybe some missing links to more information, like to learn more links.",
@@ -1982,7 +1982,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "55:27",
     quote:
       "What you want to see, the request, payload expected, the variables, where to find those variables, and what this call is doing… And here you have clearly, a test, a sample message that you said you will receive it.",
@@ -1995,7 +1995,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "55:53",
     quote:
       "I really see, like, a huge difference compared to when I tried to use it before. A lot better than before. Really.",
@@ -2008,7 +2008,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "47:24",
     quote:
       "You finish onboarding, which is pretty straightforward. Like, you just need to follow step. Nothing really complicated.",
@@ -2021,7 +2021,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "50:18",
     quote:
       "Every secret that you need seems to be on the same page, which is a really game changer in my opinion… having this page of app, which seems to be kind of your starting point.",
@@ -2034,7 +2034,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "20:37",
     quote:
       "This is very useful. Like, this was something that, in my opinion, was very missing in the previous version. Like, not knowing where you need to go to get your information in the dashboard.",
@@ -2047,7 +2047,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "07:30",
     quote:
       "Your project ID, this is not really clear as a developer that this is a parameter that you need to fill. So in general, when you want to fill a parameter, you have this kind of notation… If you just look at the URL like that, you may not think that your project ID is a variable that you need to replace.",
@@ -2060,7 +2060,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "01:15",
     quote:
       "What I'm looking for when I'm a developer, when I want to start playing with APIs, is also having the possibility to download somewhere like a Postman collection… so you could see everything quite fast.",
@@ -2073,7 +2073,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "27:25",
     quote:
       "I have no idea what I need to do if I should contact someone… kind of lost. I know there is some action required. Don't really know what.",
@@ -2086,7 +2086,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "39:59",
     quote:
       "There is a lot of layers of hierarchy inside it. So you have a project. Seems like in the project you have apps, but you have also agents. There is a lot of things everywhere, which makes things a bit complicated.",
@@ -2099,7 +2099,7 @@ export const quotes: Quote[] = [
     transcriptId: "t10",
     participant: "P10",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "23:00",
     quote:
       "In case something is not working as you expect, since there is no link to like, okay, well, if something went wrong, like go here and you will see all the different reasons maybe for that, like all the error states.",
@@ -2125,7 +2125,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "30:10",
     quote:
       "I would not like the app to be created for me… I should be determining what the name is from the very start.",
@@ -2138,7 +2138,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "40:09",
     quote:
       "The UI was pretty straightforward. Everything was explained and structured in a clear way. I didn't have to search for anything. It was just there.",
@@ -2151,7 +2151,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "40:09",
     quote:
       "The only decision I had to make was which option I'm gonna do — to do a live test, or API testing, or create an RCS agent.",
@@ -2164,7 +2164,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "23:45",
     quote:
       "You don't have to do anything apart from copying and filling the access key and the secret key. You don't have to type it as well — you could copy and paste. So there will be less mistakes when you do that.",
@@ -2177,7 +2177,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "12:25",
     quote:
       "This is super useful. Basically, we get a lot of queries revolving around these, because the customer only could see a few details of the message they have sent. So most of the time, when a client wants to know what happened to the message, they would basically have to reach out to an AM or create a ticket. So the queries that right now we have would be reduced.",
@@ -2190,7 +2190,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "16:50",
     quote:
       "Now it makes more sense. I had doubts on contact ID — so having this explained to me kind of makes it more clear for me.",
@@ -2203,7 +2203,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "40:09",
     quote:
       "Everything is happening on the front end. They have visibility to the code if they want and how it's gonna show up. So I think it's really transparent. Visibility was there for the user.",
@@ -2216,7 +2216,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "01:20",
     quote:
       "Do we expect the client to know which one they should create? Like, do a test message first, or create an RCS agent?",
@@ -2229,7 +2229,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "23:00",
     quote:
       "I've seen even the engineers come and ask what they should use for authenticating this.",
@@ -2242,7 +2242,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "33:29",
     quote:
       "I think it's redundant — we have the same payload repeating itself. The only thing that is changing is the status and event time.",
@@ -2255,7 +2255,7 @@ export const quotes: Quote[] = [
     transcriptId: "t11",
     participant: "P11",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "48:20",
     quote:
       "I'm not sure what connecting your RCS agent to the conversation API means… if a customer doesn't know what conversation API is, then there might be a doubt. But it's not because of the UI — it's because of I don't know how the product itself is working.",
@@ -2268,7 +2268,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:30",
     quote:
       "When I'm just getting familiar with the product, I check out this page one time, and then every single time after that I'll just go straight to the API.",
@@ -2281,7 +2281,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "04:20",
     quote:
       "It says queued. Oh, now it says delivered. That's cool. So delivered, and then we can tell when the message is read.",
@@ -2294,7 +2294,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:00",
     quote:
       "I think that prevents people who don't gravitate towards the API part from getting overloaded with all of that code… if you're targeting a wide range of people, it makes sense to offer the simple version first, and then go into the more nerdy stuff after.",
@@ -2307,7 +2307,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "16:30",
     quote:
       "It feels very tedious filling out this information.",
@@ -2320,7 +2320,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "15:14",
     quote:
       "It wasn't clear to me that I need to do both of these or click on both of these items down here.",
@@ -2333,7 +2333,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "29:08",
     quote:
       "I don't really know what a channel is, but apparently that's good.",
@@ -2346,7 +2346,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "35:50",
     quote:
       "That's what I was just gonna say. Probably just, like, move it up one.",
@@ -2359,7 +2359,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "29:08",
     quote:
       "It makes sense because you have to — I would have to connect my application that I want to work with the agent somehow… It's just confusing because I didn't actually do the creation part, so I just got dropped here.",
@@ -2372,7 +2372,7 @@ export const quotes: Quote[] = [
     transcriptId: "t12",
     participant: "P12",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "00:30",
     quote:
       "I don't know what an RCS agent is, so I think the first thing that I would do is click on send test message to see if I can do that.",
@@ -2385,7 +2385,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "00:42",
     quote:
       "I don't really know what an RCS agent is, in detail, just briefly. But, yeah, first, I will click on send test message.",
@@ -2398,7 +2398,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "10:30",
     quote:
       "This is quite simple, clear, and easy to use. I didn't pay attention to Node and Python, but most of the time when you test, you use curl.",
@@ -2411,7 +2411,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:56",
     quote:
       "I like both because that's quite easy. Everything is shown.",
@@ -2424,7 +2424,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "09:48",
     quote:
       "It looks the same like sending an SMS, but with more capabilities.",
@@ -2437,7 +2437,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "38:56",
     quote:
       "You can have result really really quickly.",
@@ -2450,7 +2450,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "01:06",
     quote:
       "An agent for a country, if I'm not wrong, or per country, that is able to send a message?",
@@ -2463,7 +2463,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:56",
     quote:
       "What I thought weird at the beginning is finding the IDs. I didn't see that to enable that, but that's the only thing that was weird in my opinion.",
@@ -2476,7 +2476,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "14:47",
     quote:
       "When I land on that, this is weird because I land on this page, but the first thing I see is one on four. And, yeah, this is not expanded. So in my mind, I will assume that the other ones are not mandatory, but I assume it is.",
@@ -2489,7 +2489,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "30:27",
     quote:
       "First, as a developer, when I wanna test, I don't want to integrate right now from with an app. So this will be later in my discovery of Sinch Build.",
@@ -2502,7 +2502,7 @@ export const quotes: Quote[] = [
     transcriptId: "t13",
     participant: "P13",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "34:54",
     quote:
       "Here, this is the review for the agent specifically. But the countries are not really highlighted somewhere. You don't know what's happening for the country itself. Maybe something else needs to be displayed.",
@@ -2515,7 +2515,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "00:30",
     quote:
       "If there is a demo, go for the demo. So that's why I honed in straight into send a test message versus create an agent.",
@@ -2528,7 +2528,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "06:00",
     quote:
       "I would probably end up taking these examples out of the playground, and I would probably end up taking them into my terminal to do a diff between them.",
@@ -2541,7 +2541,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "07:35",
     quote:
       "How am I gonna get notification back that the message has been acted on or so forth? So scrolling to this kind of answered that for me.",
@@ -2554,7 +2554,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "29:30",
     quote:
       "I didn't initially see the connection between the steps that I did previously and that this was doing a setup for the test. I was actually treating these as two distinct blocks of things to be done.",
@@ -2567,7 +2567,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "35:45",
     quote:
       "I ignored the integrate tab — mostly because I was taking it from the approach of I just want to write some code to send a message real quick. I'll worry about the integration later.",
@@ -2580,7 +2580,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "29:30",
     quote:
       "Should my test number from before have been ported over to here since it was already approved?",
@@ -2593,7 +2593,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "37:00",
     quote:
       "I wasn't drawing a clear distinction between the test numbers and the go live numbers.",
@@ -2606,7 +2606,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "41:30",
     quote:
       "It was clear that they were different. It wasn't necessarily clear of the role differentiator.",
@@ -2619,7 +2619,7 @@ export const quotes: Quote[] = [
     transcriptId: "t14",
     participant: "P14",
     persona: "Developer",
-    concept: "Sandbox 2.0",
+    concept: "RCS Getting started 2.0",
     timestamp: "44:30",
     quote:
       "This is fantastic. The flow from send test, test the API to so forth — this is fantastic. I love this. It is very intuitive, very intuitive.",
