@@ -5855,7 +5855,7 @@ const Principles = ({
         <SectionHeader
           number="06"
           eyebrow="Design principles"
-          title="Eight principles that should guide Messaging onboarding across Sandbox, RCS, SMS, and future channels."
+          title="Eight principles that should guide onboarding across RCS, SMS, and future channels."
         />
       </SectionReveal>
 

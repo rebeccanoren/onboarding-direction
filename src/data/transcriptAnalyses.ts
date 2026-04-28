@@ -44,7 +44,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         ],
       },
       {
-        concept: "Sandbox 1.0",
+        concept: "RCS Getting started 1.0",
         whatHappened: [
           "The user was given a pre-created “Test RCS Agent.”",
           "They could send a message more quickly, with less friction.",
@@ -74,7 +74,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     crossCutting: {
       title: "Unclear boundary between test and real setup",
       intro:
-        "Across both Onboarding app and Sandbox 1.0, the same core issue appeared. In both experiences, the user struggled to understand:",
+        "Across both Onboarding app and RCS Getting started 1.0, the same core issue appeared. In both experiences, the user struggled to understand:",
       bullets: [
         "What is temporary vs persistent.",
         "What is simulated vs real.",
@@ -97,7 +97,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         "The product does not clearly separate “testing the product” from “setting up the product.”",
       body: [
         "Onboarding app created friction by introducing setup too early.",
-        "Sandbox 1.0 reduced friction, but introduced confusion by giving a pre-created resource that looked like a real setup.",
+        "RCS Getting started 1.0 reduced friction, but introduced confusion by giving a pre-created resource that looked like a real setup.",
       ],
       missingPiece: {
         title: "The missing piece is a clear distinction between:",
@@ -133,7 +133,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 1.0",
+        concept: "RCS Getting started 1.0",
         conceptSubtitle: "Lovable-style test experience",
         whatHappened: [
           "Started by reading the documentation to understand how the API worked.",
@@ -172,7 +172,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         ],
         issues: [
           {
-            title: "Sandbox vs real product gap",
+            title: "RCS Getting started vs real product gap",
             points: [
               "The sandbox teaches the product capability, but not how the real dashboard works.",
               "After testing, users will still enter a complex real setup — agents, senders, real configuration.",
@@ -246,7 +246,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
       headline:
         "Solving onboarding is not just about making testing easy — it is about connecting testing → real usage in a clear, predictable way.",
       body: [
-        "Sandbox = excellent for evaluation and first value.",
+        "RCS Getting started 2.0 = excellent for evaluation and first value.",
         "Onboarding = needed for real setup and understanding system complexity.",
         "Right now, these two experiences are disconnected.",
       ],
@@ -335,7 +335,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         ],
       },
       {
-        concept: "Sandbox 1.0",
+        concept: "RCS Getting started 1.0",
         conceptSubtitle: "Test-focused experience",
         mainReaction:
           "This felt much better aligned with their expectations.",
@@ -428,7 +428,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           title: "Core problems identified",
           items: [
             "Onboarding app: too long, too heavy, mixes testing and production.",
-            "Sandbox: much better aligned with user intent.",
+            "RCS Getting started 2.0: much better aligned with user intent.",
           ],
         },
         {
@@ -546,7 +546,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         ],
       },
       {
-        concept: "Sandbox 1.0",
+        concept: "RCS Getting started 1.0",
         conceptSubtitle: "Test-focused experience",
         mainReaction:
           "This felt much easier and more intuitive, especially for a junior developer.",
@@ -659,7 +659,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           title: "Main issues",
           items: [
             "Onboarding: good structure, but introduces concepts too early.",
-            "Sandbox: great for learning and testing, but unclear transition to real setup.",
+            "RCS Getting started 2.0: great for learning and testing, but unclear transition to real setup.",
           ],
         },
         {
@@ -696,8 +696,8 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 1.0",
-        conceptSubtitle: "Sandbox-style test-first flow",
+        concept: "RCS Getting started 1.0",
+        conceptSubtitle: "Test-first flow",
         mainReaction:
           "The experience felt easy, intuitive, and well-organized.",
         whatHappened: [
@@ -759,7 +759,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         ],
       },
       {
-        concept: "Sandbox 1.0",
+        concept: "RCS Getting started 1.0",
         conceptSubtitle: "Transition to real setup (agent creation)",
         mainReaction:
           "After testing, the path to real production setup broke down — the user repeatedly got blocked or confused.",
@@ -891,7 +891,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         {
           title: "Main issues",
           items: [
-            "Sandbox: easy to start, clear for testing.",
+            "RCS Getting started 2.0: easy to start, clear for testing.",
             "But unclear how to move to production, with a weak connection between test and real setup.",
           ],
         },
@@ -930,8 +930,8 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 1.0",
-        conceptSubtitle: "Sandbox-style test-first experience",
+        concept: "RCS Getting started 1.0",
+        conceptSubtitle: "Test-first experience",
         mainReaction:
           "The experience felt intuitive, useful, and aligned with expectations for testing.",
         whatHappened: [
@@ -1001,7 +1001,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         ],
       },
       {
-        concept: "Sandbox 1.0",
+        concept: "RCS Getting started 1.0",
         conceptSubtitle: "Transition to real setup (agent creation)",
         mainReaction:
           "Once inside the setup flow, the steps were straightforward — but the entry point was hidden.",
@@ -1148,7 +1148,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         {
           title: "Main issues",
           items: [
-            "Sandbox: excellent for testing, but ends abruptly.",
+            "RCS Getting started 2.0: excellent for testing, but ends abruptly.",
             "Onboarding: informative, but too passive.",
           ],
         },
@@ -1189,7 +1189,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle: "Step-by-step guided sandbox + agent creation",
         mainReaction:
           "This version felt like a clear improvement over previous onboarding experiences — more guided, less overwhelming, easier to understand what to do next.",
@@ -1365,8 +1365,8 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
-        conceptSubtitle: "Sandbox + agent creation + integration",
+        concept: "RCS Getting started 2.0",
+        conceptSubtitle: "RCS Getting started 2.0 + agent creation + integration",
         mainReaction:
           "The experience felt logical and usable, but still had friction around concepts, repetition, and flow clarity.",
         mainReactionQuote:
@@ -1556,7 +1556,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle: "Non-developer (marketing / sales) perspective",
         mainReaction:
           "The experience felt very simple, clear, and usable for a non-developer — the first test where a non-dev can successfully navigate the flow without major friction.",
@@ -1740,7 +1740,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle: "Returning user with prior Sinch Build experience",
         mainReaction:
           "The user clearly recognizes a major improvement compared to their previous experience — onboarding is now structured and usable, navigation is much clearer, and key information is easier to find.",
@@ -1917,7 +1917,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle:
           "External developer (first-time user) — strongest validation of the new direction",
         mainReaction:
@@ -1926,7 +1926,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           "The UI was pretty straightforward… everything was structured in a clear way.",
         whatHappened: [
           "Scanned the landing page, immediately self-selected RCS, and chose “send test message” without hesitation.",
-          "Used the UI to send, then switched to the code tab to inspect the payload — exactly the test → API → code flow Sandbox 2.0 was designed for.",
+          "Used the UI to send, then switched to the code tab to inspect the payload — exactly the test → API → code flow RCS Getting started 2.0 was designed for.",
           "Inspected message logs and the API playground, then moved into agent creation and completed setup, only hitting conceptual confusion at the Conversation API connection step.",
         ],
         keyStrengths: [
@@ -2063,7 +2063,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     ],
     behavioralPatternNote: {
       title: "First-time external developer perspective",
-      text: "This user completed the entire Sandbox 2.0 journey end-to-end without any major blocker — the strongest validation yet that the flow works for someone arriving cold to the platform.",
+      text: "This user completed the entire RCS Getting started 2.0 journey end-to-end without any major blocker — the strongest validation yet that the flow works for someone arriving cold to the platform.",
     },
     keyTakeaway: {
       headline:
@@ -2121,7 +2121,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle:
           "Two-phase experience — strong test-first, breaks at ownership",
         mainReaction:
@@ -2348,7 +2348,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle:
           "External developer with marketing / Mailjet background",
         mainReaction:
@@ -2559,7 +2559,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     },
     concepts: [
       {
-        concept: "Sandbox 2.0",
+        concept: "RCS Getting started 2.0",
         conceptSubtitle:
           "External developer — strong test/API, structural confusion at compliance",
         mainReaction:
