@@ -57,12 +57,20 @@ const HERO = {
     {
       label: "Personas covered",
       value: "13 Developers & 1 non-developer",
+      subValue: "8 internal · 6 external",
     },
     {
       label: "Prototypes tested",
-      value: "Sandbox 1.0 · Sandbox 2.0 · Onboarding app",
+      value: "RCS Getting started (1.0 & 2.0) · Onboarding app",
+      hint:
+        "Two iterations of the RCS getting started experience, tested with users alongside the onboarding app to validate the onboarding journey from first test to setup.",
     },
-  ],
+  ] as {
+    label: string;
+    value: string;
+    subValue?: string;
+    hint?: string;
+  }[],
 };
 
 interface ExecSummaryItem {
@@ -713,14 +721,6 @@ const JOURNEY: JourneyTheme[] = [
             "Developers don’t want to set up the API first. They want to understand it and try it first.",
         },
       },
-    ],
-  },
-  {
-    id: "production",
-    label: "Theme 2 \u00b7 Get ready for production",
-    subtitle:
-      "Users have validated value. Now they build their own setup and go live.",
-    steps: [
       {
         id: "s5",
         number: 4,
@@ -981,6 +981,14 @@ const JOURNEY: JourneyTheme[] = [
             "Enabling this moment turns setup into confidence, and confidence into progress.",
         },
       },
+    ],
+  },
+  {
+    id: "production",
+    label: "Theme 2 \u00b7 Get ready for production",
+    subtitle:
+      "Users have validated value. Now they build their own setup and go live.",
+    steps: [
       {
         id: "s8",
         number: 6,
@@ -1316,7 +1324,7 @@ const PRINCIPLES: Principle[] = [
 const DATA_BULLETS: string[] = [
   "14 sessions",
   "Developers and non-developers",
-  "Sandbox 1.0, Sandbox 2.0 and onboarding app testing",
+  "RCS Getting started (1.0 & 2.0) · Onboarding app testing",
   "Think-aloud tasks",
   "Quotes used as supporting evidence",
   "Swedish sessions translated to English with original transcripts preserved",
@@ -2459,7 +2467,19 @@ const ResourceOverviewPane = ({
   onGoToOptions,
 }: {
   onGoToOptions?: () => void;
-}) => (
+}) => {
+  // Playback-rate state for the embedded ownership video. Synced to the
+  // <video> element via a ref so the user can change speed without losing
+  // the current playhead.
+  const [playbackRate, setPlaybackRate] = useState<number>(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const RATES = [0.5, 1, 1.25, 1.5, 2];
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = playbackRate;
+    }
+  }, [playbackRate]);
+  return (
   <div className="space-y-10">
     {/* Hero header — violet accent rule + larger title hierarchy */}
     <header className="relative">
@@ -2690,6 +2710,106 @@ const ResourceOverviewPane = ({
               named, and understood them. But ownership only works when the
               timing is right.
             </p>
+            <JourneyQuoteHover
+              q={{
+                title: "Don’t name the app for me",
+                participant: "P12",
+                persona: "Developer",
+                short:
+                  "I would not like the app to be created for me… I should be determining, like, what the name is from the very start.",
+                long:
+                  "I would not like the app to be created for this is just me. I don’t want you to create the app for me just and have me drop into this UI. You started calling it, like, test app. I should be determining, like, what the name is from the very start and know that I’m in the test app creation flow or app creation flow. So maybe, like, add a little banner explaining, now you need to create your app.",
+              }}
+            >
+              <blockquote className="mt-3 cursor-default border-l-2 border-slate-700 pl-3.5 transition-colors hover:border-indigo-400/70">
+                <p className="text-[13px] italic leading-relaxed text-slate-300 sm:text-[13.5px]">
+                  “I would not like the app to be created for me… I should be
+                  determining, like, what the name is from the very start.”
+                  {" "}
+                  <span className="not-italic text-slate-500">—</span>{" "}
+                  <span className="not-italic font-mono text-[12px] text-slate-400">
+                    P12
+                  </span>
+                </p>
+              </blockquote>
+            </JourneyQuoteHover>
+
+            {/* Recorded session clip — P12 talking through resource ownership.
+                Native browser controls plus a custom playback-speed pill row
+                so reviewers can scrub through faster (research clips often
+                contain stretches of dead air). */}
+            <figure className="mt-4 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/40">
+              <video
+                ref={videoRef}
+                src="/videos/app-resource.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                className="block w-full bg-black"
+                crossOrigin="anonymous"
+              >
+                <track
+                  kind="subtitles"
+                  src="/videos/app-resource.vtt"
+                  srcLang="en"
+                  label="English"
+                  default
+                />
+              </video>
+              <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-800 px-3 py-2 sm:px-4">
+                <span className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                  Session clip · P12
+                </span>
+                <div
+                  role="group"
+                  aria-label="Playback speed"
+                  className="inline-flex items-center gap-0.5 rounded-md border border-slate-800 bg-slate-900/70 p-0.5"
+                >
+                  {RATES.map((r) => {
+                    const isActive = r === playbackRate;
+                    return (
+                      <button
+                        key={r}
+                        type="button"
+                        onClick={() => setPlaybackRate(r)}
+                        aria-pressed={isActive}
+                        className={`rounded px-2 py-0.5 font-mono text-[10.5px] tabular-nums transition ${
+                          isActive
+                            ? "bg-indigo-500/20 text-indigo-100 ring-1 ring-indigo-500/40"
+                            : "text-slate-400 hover:bg-slate-800/60 hover:text-slate-200"
+                        }`}
+                      >
+                        {r}×
+                      </button>
+                    );
+                  })}
+                </div>
+              </figcaption>
+            </figure>
+
+            {/* What this shows — frames the contrast that follows. The
+                problem isn't comprehension; it's missing the moment of
+                decision. */}
+            <div className="mt-5 rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                What this shows
+              </p>
+              <p className="mt-2.5 text-[13px] leading-relaxed text-slate-200 sm:text-[13.5px]">
+                The issue is not that users don’t understand the concept of
+                having an app.
+              </p>
+              <p className="mt-2 text-[13px] leading-relaxed text-slate-300 sm:text-[13.5px]">
+                P12 understands webhooks, credentials, and system connections.
+                The problem is being dropped into a setup they didn’t initiate.
+              </p>
+              <blockquote className="mt-3 border-l-2 border-slate-700 pl-3.5">
+                <p className="text-[13px] italic leading-relaxed text-slate-300 sm:text-[13.5px]">
+                  “I didn’t actually do the creation part, so I just got
+                  dropped here.”
+                </p>
+              </blockquote>
+            </div>
+
             <div className="mt-4 grid gap-3 md:grid-cols-2">
               <div className="rounded-xl border border-amber-500/25 bg-amber-500/[0.04] p-4">
                 <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300">
@@ -2698,10 +2818,21 @@ const ResourceOverviewPane = ({
                   </span>
                   Created too early
                 </p>
-                <p className="mt-2 text-[12.5px] leading-relaxed text-amber-100/90 sm:text-[13px]">
-                  Solves a technical dependency, but weakens the user’s sense
-                  of control.
-                </p>
+                <ul className="mt-2.5 space-y-1.5">
+                  {[
+                    "Skips the moment of decision",
+                    "Lacks context and purpose",
+                    "Feels like platform setup, not something the user owns",
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-[12.5px] leading-relaxed text-amber-100/90 sm:text-[13px]"
+                    >
+                      <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-amber-400" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.04] p-4">
                 <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
@@ -2710,9 +2841,50 @@ const ResourceOverviewPane = ({
                   </span>
                   Introduced with intent
                 </p>
-                <p className="mt-2 text-[12.5px] leading-relaxed text-emerald-100/90 sm:text-[13px]">
-                  Creation becomes meaningful — the resource feels like
-                  something the user owns.
+                <ul className="mt-2.5 space-y-1.5">
+                  {[
+                    "Users understand why the app is needed",
+                    "Creation is intentional and meaningful",
+                    "Users are ready for webhooks, credentials, and integration",
+                  ].map((t) => (
+                    <li
+                      key={t}
+                      className="flex items-start gap-2 text-[12.5px] leading-relaxed text-emerald-100/90 sm:text-[13px]"
+                    >
+                      <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Insight-level "Key insight" callout — the pithy summary that
+                ties the contrast above to the broader thesis. */}
+            <div className="mt-5 rounded-xl border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.05] to-transparent p-4 shadow-[0_8px_24px_-16px_rgba(139,92,246,0.4)] sm:p-5">
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+                Key insight
+              </p>
+              <p className="mt-2.5 text-[14px] font-semibold leading-snug text-slate-50 sm:text-[15px]">
+                Ownership doesn’t come from configuration.
+                <br />
+                It comes from creating something with intent, at the right
+                moment.
+              </p>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                <p className="rounded-lg border border-amber-500/25 bg-amber-500/[0.05] px-3 py-2 text-[12px] leading-relaxed text-amber-100/90">
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-amber-300">
+                    Before validation
+                  </span>
+                  <span className="mt-1 block">The app is infrastructure.</span>
+                </p>
+                <p className="rounded-lg border border-emerald-500/30 bg-emerald-500/[0.05] px-3 py-2 text-[12px] leading-relaxed text-emerald-100/90">
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                    After validation
+                  </span>
+                  <span className="mt-1 block">
+                    It becomes part of the user’s system.
+                  </span>
                 </p>
               </div>
             </div>
@@ -2853,7 +3025,8 @@ const ResourceOverviewPane = ({
       </div>
     )}
   </div>
-);
+  );
+};
 
 
 const ResourceAutoPane = () => (
@@ -4102,7 +4275,10 @@ const Hero = () => (
               variants={fadeInUp}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.3, ease: PREMIUM_EASE }}
-              className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-sm transition hover:border-indigo-500/40"
+              tabIndex={s.hint ? 0 : undefined}
+              className={`group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-sm outline-none transition hover:border-indigo-500/40 focus-visible:border-indigo-500/60 ${
+                s.hint ? "cursor-help" : ""
+              }`}
             >
               <div
                 aria-hidden="true"
@@ -4114,6 +4290,19 @@ const Hero = () => (
               <dd className="relative mt-2 text-base font-semibold tracking-tight text-slate-50">
                 {s.value}
               </dd>
+              {s.subValue && (
+                <p className="relative mt-1 text-[11.5px] leading-relaxed text-slate-500">
+                  {s.subValue}
+                </p>
+              )}
+              {s.hint && (
+                <span
+                  role="tooltip"
+                  className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 w-72 -translate-x-1/2 rounded-lg border border-indigo-500/40 bg-slate-900/95 px-4 py-3 text-[12px] font-normal normal-case tracking-normal leading-relaxed text-slate-200 opacity-0 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.9),0_8px_20px_-12px_rgba(99,102,241,0.35)] backdrop-blur-md transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
+                >
+                  {s.hint}
+                </span>
+              )}
             </motion.div>
           ))}
         </motion.dl>
@@ -5354,6 +5543,26 @@ const IdealJourney = ({
               "Theme 2 focuses on getting ready for production.",
             ]}
           />
+          {/* Important note — frames the journey as a research artefact, not
+              a build spec. Sits inside the section reveal so it animates in
+              with the header. Amber accent so it reads as guidance, not just
+              another paragraph. */}
+          <div className="mt-8 mb-12 flex max-w-3xl items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] px-5 py-4 sm:mb-16">
+            <Info
+              className="mt-0.5 h-4 w-4 shrink-0 text-amber-300"
+              strokeWidth={2.25}
+            />
+            <div>
+              <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+                Important note
+              </p>
+              <p className="mt-1.5 text-[14px] leading-relaxed text-amber-100/90 sm:text-[14.5px]">
+                This journey is based on observed user behaviour. It’s designed
+                to help us understand user needs and decision points, not to be
+                implemented as-is.
+              </p>
+            </div>
+          </div>
         </SectionReveal>
 
         <div ref={railRef} className="relative mx-auto">
@@ -5379,45 +5588,92 @@ const IdealJourney = ({
                 : "text-slate-300";
 
               return [
-                <li
-                  key={`${theme.id}-label`}
-                  className={`relative pl-10 sm:pl-14 ${ti > 0 ? "pt-10" : ""}`}
-                >
-                  {/* Theme transition divider above Theme 2 */}
-                  {ti > 0 && (
-                    <div
-                      aria-hidden="true"
-                      className="absolute left-10 right-0 top-0 flex items-center gap-3 sm:left-14"
-                    >
-                      <span className="h-px flex-1 bg-gradient-to-r from-slate-800 via-slate-700 to-transparent" />
-                      <span className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-slate-500">
-                        Phase shift
-                      </span>
-                      <span className="h-px flex-1 bg-gradient-to-l from-slate-800 via-slate-700 to-transparent" />
-                    </div>
-                  )}
-                  {/* Theme waypoint dot */}
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 shadow-[0_0_0_4px_rgb(2_6_23)] sm:h-10 sm:w-10"
-                  >
-                    <span
-                      className={`h-3 w-3 rounded-full ring-1 ${
-                        isFirstTheme
-                          ? "bg-indigo-400 ring-indigo-300/40 shadow-[0_0_12px_rgba(129,140,248,0.7)]"
-                          : "bg-violet-400 ring-violet-300/40 shadow-[0_0_12px_rgba(167,139,250,0.6)]"
-                      }`}
-                    />
-                  </span>
-                  <p
-                    className={`text-[11.5px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
-                  >
-                    {theme.label}
-                  </p>
-                  <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-slate-400">
-                    {theme.subtitle}
-                  </p>
-                </li>,
+                /* Theme 2 transition card — unified panel that holds both
+                   the "Customers made a decision" framing and the Theme 2
+                   intro inside one violet-tinted block. Reads as one
+                   moment in the journey instead of two stacked decorations.
+                   For Theme 1 (no phase shift) the simple inline label is
+                   used below, unchanged. */
+                ...(ti > 0
+                  ? [
+                      <li
+                        key={`${theme.id}-transition`}
+                        className="relative pl-10 pt-16 sm:pl-14 sm:pt-20"
+                      >
+                        <div className="overflow-hidden rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.05] to-transparent shadow-[0_24px_60px_-32px_rgba(139,92,246,0.4)]">
+                          {/* Top half — phase-shift narrative */}
+                          <div className="px-6 py-6 sm:px-8 sm:py-7">
+                            <div className="flex items-center gap-3">
+                              <span
+                                aria-hidden="true"
+                                className="h-px flex-1 bg-gradient-to-r from-transparent via-violet-500/40 to-violet-400/70"
+                              />
+                              <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-violet-500/[0.08] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-200">
+                                <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.7)]" />
+                                Phase shift
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                className="h-px flex-1 bg-gradient-to-l from-transparent via-violet-500/40 to-violet-400/70"
+                              />
+                            </div>
+                            <p className="mt-5 text-center text-[18px] font-semibold leading-snug text-violet-50 sm:text-[20px]">
+                              Customers made a decision.
+                            </p>
+                            <p className="mx-auto mt-2 max-w-xl text-center text-[12.5px] leading-relaxed text-violet-200/80 sm:text-[13px]">
+                              The journey moves from{" "}
+                              <em className="not-italic font-semibold text-violet-100">
+                                proving value
+                              </em>{" "}
+                              to{" "}
+                              <em className="not-italic font-semibold text-violet-100">
+                                getting ready for production
+                              </em>
+                              .
+                            </p>
+                          </div>
+                          {/* Divider — internal separator inside the card */}
+                          <div
+                            aria-hidden="true"
+                            className="h-px bg-gradient-to-r from-transparent via-violet-500/25 to-transparent"
+                          />
+                          {/* Bottom half — Theme 2 intro */}
+                          <div className="px-6 py-5 sm:px-8 sm:py-6">
+                            <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+                              <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.7)]" />
+                              {theme.label}
+                            </p>
+                            <p className="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-slate-300 sm:text-[14px]">
+                              {theme.subtitle}
+                            </p>
+                          </div>
+                        </div>
+                      </li>,
+                    ]
+                  : [
+                      <li
+                        key={`${theme.id}-label`}
+                        className="relative pl-10 sm:pl-14"
+                      >
+                        {/* Theme waypoint dot — keeps Theme 1 anchored to
+                            the journey rail (Theme 2 uses the unified card
+                            above instead). */}
+                        <span
+                          aria-hidden="true"
+                          className="absolute left-0 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 shadow-[0_0_0_4px_rgb(2_6_23)] sm:h-10 sm:w-10"
+                        >
+                          <span className="h-3 w-3 rounded-full bg-indigo-400 ring-1 ring-indigo-300/40 shadow-[0_0_12px_rgba(129,140,248,0.7)]" />
+                        </span>
+                        <p
+                          className={`text-[11.5px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
+                        >
+                          {theme.label}
+                        </p>
+                        <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-slate-400">
+                          {theme.subtitle}
+                        </p>
+                      </li>,
+                    ]),
                 ...theme.steps.map((s) => (
                   <JourneyStepRow
                     key={s.id}
@@ -5631,10 +5887,10 @@ const JOURNEY_CHILDREN: NavChild[] = JOURNEY.flatMap((theme) =>
 );
 
 const NAV_ITEMS: NavItem[] = [
-  { id: "summary", label: "Summary" },
-  { id: "journey", label: "Journey", children: JOURNEY_CHILDREN },
-  { id: "principles", label: "Principles" },
-  { id: "data", label: "Data" },
+  { id: "summary", label: "Executive summary" },
+  { id: "journey", label: "Ideal onboarding journey", children: JOURNEY_CHILDREN },
+  { id: "principles", label: "Design principles" },
+  { id: "data", label: "Research data & transcripts" },
 ];
 
 // Flat list of every id (top-level + children) for scroll-spy.
@@ -5855,10 +6111,10 @@ const SideNav = ({
             </span>
             <span className="flex-1 min-w-0">
               <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-violet-300">
-                Discussion
+                Deeper discussion
               </span>
               <span className="mt-0.5 block text-[12.5px] font-medium leading-snug text-slate-100 group-hover:text-white">
-                Resource creation
+                Resource creation: timing & ownership
               </span>
             </span>
             <ArrowRight className="mt-1 h-3 w-3 shrink-0 text-violet-300/70 transition group-hover:translate-x-0.5 group-hover:text-violet-200" />
