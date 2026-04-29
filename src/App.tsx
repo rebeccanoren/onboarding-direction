@@ -123,7 +123,7 @@ const EXEC_SUMMARY: ExecSummaryItem[] = [
   {
     headline: "Resources are understood in context of a goal",
     body: [
-      "Users don’t struggle with the concept of apps or keys — they struggle with why they need them at that moment.",
+      "Users understand the concept of apps and keys once they’re introduced in context — the friction is having to engage with them before there’s a reason to.",
       "These concepts become clearer when introduced in the context of integration or go-live.",
     ],
   },
@@ -137,7 +137,7 @@ const EXEC_SUMMARY: ExecSummaryItem[] = [
   },
   {
     headline:
-      "Implication: lead with value, introduce setup when relevant",
+      "Implication: onboarding should be structured around validation first, with setup and integration introduced only when users have intent",
     body: [
       "Start with a test-first entry point to prove the product works.",
       "Introduce API concepts and resource ownership when users move toward integration and go-live.",
@@ -276,6 +276,10 @@ interface JourneyStep {
   designPrinciples?: JourneyDesignPrinciples;
   /** Optional concrete implementation ideas listed after the principles. */
   concreteIdeas?: JourneyConcreteIdea[];
+  /** Optional Win/Loss Report Q1 2026 corroboration — surfaces business
+   *  evidence (conversion / retention / support load) that reinforces the
+   *  research finding for this step. Renders at the very end of the card. */
+  businessSignal?: { body: string; quote?: string };
 }
 
 interface JourneyTheme {
@@ -299,9 +303,9 @@ const JOURNEY: JourneyTheme[] = [
         illustration: "send",
         description: [
           { kind: "check", text: "User sends a message directly in the UI" },
-          { kind: "cross", text: "No resource creation" },
-          { kind: "cross", text: "No access keys" },
-          { kind: "cross", text: "No technical setup" },
+          { kind: "cross", text: "No user-managed setup" },
+          { kind: "cross", text: "No need to create or manage credentials" },
+          { kind: "cross", text: "Setup is handled for you during testing" },
         ],
         keyAction: "Send message",
         whyQuotes: [
@@ -380,7 +384,7 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "The goal is to validate, not configure",
             description:
-              "Users aren’t trying to understand the architecture in detail — they’re trying to confirm it works.",
+              "Users are not trying to fully understand the architecture upfront — they’re trying to confirm it works.",
             quoteIndices: [2],
           },
           {
@@ -542,6 +546,8 @@ const JOURNEY: JourneyTheme[] = [
         keyTakeaway: {
           headline:
             "This is where the product shifts from \u201cit works\u201d to \u201cI understand how it works.\u201d",
+          subtext:
+            "Validation must be unambiguous. Whether reviewed visually or programmatically, the system should clearly indicate what happened, why, and what to do next.",
         },
       },
       {
@@ -606,8 +612,13 @@ const JOURNEY: JourneyTheme[] = [
         whyHeadline:
           "Developers consistently tried to run requests themselves, often starting with curl or prefilled examples",
         whyLead:
-          "After validating that messaging works, developers shift from “does this work?” to “how does this work, and how do I use it?” — and they want to find out by running the API, not reading about it.",
+          "After the first proof point, developers move from validation to exploration. They want to run the API, inspect the request, and understand the system by using it.",
         whyInsights: [
+          {
+            title: "Both UI and API are valid starting points",
+            description:
+              "Most users start by testing in the UI, while some developers go directly to the API. Both paths should be supported.",
+          },
           {
             title: "They reach for cURL first",
             description:
@@ -635,11 +646,11 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "They want the system map alongside the calls",
             description:
-              "Knowing the endpoint isn’t enough — they need the relationships between the moving parts.",
+              "Developers need to understand how the system fits together, not just how to call an endpoint.",
             bullets: [
-              { text: "How messages are sent", meta: "(Conversation API)" },
-              { text: "What represents the sender", meta: "(RCS agent)" },
-              { text: "How incoming messages are received", meta: "(webhooks)" },
+              { text: "App", meta: "→ sending layer" },
+              { text: "Agent", meta: "→ sender identity" },
+              { text: "Webhooks", meta: "→ incoming events" },
             ],
           },
         ],
@@ -684,9 +695,9 @@ const JOURNEY: JourneyTheme[] = [
         ],
         designPrinciples: {
           items: [
-            "No resource creation required",
-            "No persistent setup needed",
-            "Testing should not require users to create or manage persistent credentials",
+            "No user-managed setup required",
+            "No need to create or manage credentials during testing",
+            "Setup is handled for the user during testing",
             "Everything is prefilled and ready to run",
           ],
           goal: "Copy, run, modify.",
@@ -743,6 +754,10 @@ const JOURNEY: JourneyTheme[] = [
           headline:
             "Developers don’t want to set up the API first. They want to understand it and try it first.",
         },
+        businessSignal: {
+          body:
+            "The Win/Loss Report Q1 2026 surfaces this directly: evaluations stalled when developers couldn’t move from documentation to running and inspecting requests on their own. Hands-on exploration is what closes the gap from interest to confidence — and what the report associates with deals progressing.",
+        },
       },
       {
         id: "s5",
@@ -797,7 +812,7 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "Their target is real customers, not their own phone",
             description:
-              "They picture sending the same message to thousands of customers \u2014 not running another test.",
+              "They picture sending the same message to thousands of customers.",
             quoteIndices: [1],
           },
           {
@@ -942,7 +957,7 @@ const JOURNEY: JourneyTheme[] = [
               "What looks like the same action — Send test message — is now answering a different question.",
             bullets: [
               { text: "Before", meta: "→ Does the product work?" },
-              { text: "Now", meta: "→ Does my setup work?" },
+              { text: "Now", meta: "→ Does my newly created channel work?" },
             ],
           },
           {
@@ -961,7 +976,7 @@ const JOURNEY: JourneyTheme[] = [
               "It validates, in one action: sender identity, message appearance, and delivery behaviour.",
             bullets: [
               { text: "First", meta: "→ “Messaging works.”" },
-              { text: "Second", meta: "→ “My setup works.”" },
+              { text: "Second", meta: "→ “My channel works.”" },
             ],
           },
         ],
@@ -1096,11 +1111,11 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "They look for system relationships, not features",
             description:
-              "The shift in behaviour is consistent across sessions — developers work outwards from the app, not inwards from a button.",
+              "Developers need to understand how the system fits together, not just how to call an endpoint. The shift is consistent across sessions — they work outwards from the app, not inwards from a button.",
             bullets: [
-              { text: "How the app connects to the agent" },
-              { text: "API structure and resources" },
-              { text: "Webhook configuration and integrations they own" },
+              { text: "App", meta: "→ sending layer" },
+              { text: "Agent", meta: "→ sender identity" },
+              { text: "Webhooks", meta: "→ incoming events" },
             ],
           },
         ],
@@ -1157,6 +1172,11 @@ const JOURNEY: JourneyTheme[] = [
           subtext:
             "Not something they tried — but something they own and control.",
         },
+        businessSignal: {
+          body:
+            "Buyers in the Win/Loss Report Q1 2026 often walked away during integration, not at intent. The friction comes late in the cycle — when ownership is unclear and the path to a working integration is not obvious — and the cost of losing them is highest at this stage.",
+          quote: "We were going to use you, but you’re just too difficult.",
+        },
       },
       {
         id: "s9",
@@ -1207,27 +1227,33 @@ const JOURNEY: JourneyTheme[] = [
         whyHeadline:
           "When users reach compliance, they need enough guidance to know how to proceed.",
         whyLead:
-          "Compliance was not the primary focus of the research — but when users reached it, a recurring signal emerged. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission. This step is regulatory compliance, not product setup, and it follows a different logic than the rest of onboarding.",
+          "Compliance was not the primary focus of the research — but when users reached it, a recurring signal emerged. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission. This step is regulatory compliance, not product setup, and it follows a different logic than the rest of onboarding. This step is required for production messaging only. It does not block testing or integration.",
         whyTracks: {
-          title: "Two parallel tracks",
+          title: "Testing, integration, and compliance are separate concerns",
           description:
-            "After the first successful test, users move in two directions:",
+            "After the first successful test, users can move in any of three directions. Compliance is one possible direction — not a prerequisite for the others.",
           tracks: [
             {
-              label: "Integration (developers)",
+              label: "Testing",
+              description:
+                "Continue validating that messaging behaves the way users expect — no compliance needed.",
+              tone: "violet",
+            },
+            {
+              label: "Integration",
               description:
                 "Continue building, testing, and integrating with the API.",
               tone: "indigo",
             },
             {
-              label: "Regulatory compliance",
+              label: "Compliance",
               description:
-                "Provide required business details and submit for approval.",
+                "Provide required business details and submit for approval — required only for production messaging to real users.",
               tone: "amber",
             },
           ],
           closing:
-            "These tracks are independent — but this is not always clear in the current experience.",
+            "These tracks are independent. Compliance is required for production messaging only — it does not block testing or integration. But this is not always clear in the current experience.",
         },
         whyInsights: [
           {
@@ -1344,8 +1370,17 @@ interface Principle {
   lead: string;
   /** How to apply the principle in design. */
   implication: string;
+  /** Optional bullet list shown beneath the implication paragraph \u2014 used
+   *  when a principle has multiple concrete sub-actions. */
+  implicationBullets?: string[];
+  /** Optional secondary callout that adds a related caveat or consideration
+   *  alongside the main implication (e.g. user responsibility under
+   *  assisted workflows). */
+  additionalConsideration?: string;
   /** A short, attributed observation from the research. */
   evidence: string;
+  /** Optional one-line takeaway shown below the implication/evidence pair. */
+  keyTakeaway?: string;
 }
 
 const PRINCIPLES: Principle[] = [
@@ -1353,7 +1388,7 @@ const PRINCIPLES: Principle[] = [
     id: "pr1",
     title: "Lead with proof, not setup",
     lead:
-      "Users typically do not start by trying to understand the architecture. They start by trying to prove that messaging works.",
+      "Users typically do not start by trying to fully understand the architecture upfront. They start by trying to prove that messaging works.",
     implication:
       "Let users send a message before requiring apps, keys, webhooks, or production setup.",
     evidence:
@@ -1413,9 +1448,9 @@ const PRINCIPLES: Principle[] = [
     id: "pr7",
     title: "Keep ownership explicit at integration",
     lead:
-      "Developers want control over the resources that represent their system.",
+      "Ownership is not just about creating resources — it’s about understanding what they represent and controlling how they are used.",
     implication:
-      "When users create or connect an app, make the purpose clear: app equals sending layer, agent equals sender identity.",
+      "When users create or connect an app, make the purpose clear: app equals sending layer, agent equals sender identity. Give users control over how the resources they own are used.",
     evidence:
       "P1 described an app as something they expect to use per integration, with keys and API access inside it.",
   },
@@ -1428,6 +1463,29 @@ const PRINCIPLES: Principle[] = [
       "Separate test mode from go-live. Make submit for approval explicit, explain what is required, and clarify what users can do before approval.",
     evidence:
       "P14 completed go-live steps but initially missed that they still needed to submit for approval, creating confusion about whether the setup was ready.",
+  },
+  {
+    id: "pr9",
+    title: "Design for human and agent-assisted onboarding",
+    lead:
+      "Users may rely on assistants to generate requests, troubleshoot errors, and move through setup. This does not change the underlying onboarding need: the system must remain easy to run, inspect, and validate.",
+    implication:
+      "Onboarding actions should be runnable, observable, and clearly structured so both humans and assisted workflows can determine what happened, what failed, and what to do next.",
+    implicationBullets: [
+      "Provide prefilled, runnable examples",
+      "Make system relationships explicit",
+      "Show clear success and error states",
+      "Expose logs, payloads, IDs, and events",
+      "Use predictable labels and terminology",
+      "Avoid hiding critical setup logic in UI-only steps",
+      "Make documentation and examples easy to reference",
+    ],
+    additionalConsideration:
+      "Even when actions are assisted, users remain responsible for key concepts such as sender identity, system ownership, and compliance. These should be introduced and reinforced at the moment they become relevant.",
+    evidence:
+      "This was not directly tested as an assisted workflow, but it extends the same observed pattern: users try to make something work, inspect the result, and use feedback to decide what to do next.",
+    keyTakeaway:
+      "Assisted workflows do not remove the need for onboarding clarity. They increase the need for systems that are executable, observable, and easy to reason about.",
   },
 ];
 
@@ -4776,6 +4834,63 @@ const ExecutiveSummary = () => (
           </StaggerItem>
         ))}
       </StaggerGroup>
+
+      {/* Closing reflection — sits outside the seven numbered points so it
+          reads as a framing statement that applies to the whole summary,
+          not a numbered finding. */}
+      <p className="mt-8 text-[14.5px] leading-relaxed text-slate-300 sm:text-[15px]">
+        These principles apply regardless of whether actions are performed
+        manually or assisted. The system must support fast execution, clear
+        feedback, and predictable behavior so outcomes can be validated
+        reliably.
+      </p>
+
+      {/* Business-signal corroboration — Win/Loss Report Q1 2026 evidence
+          that the friction surfaced in the research is also affecting
+          conversion in self-serve scenarios. Restyled as an editorial
+          two-zone card: a cyan header rail with the citation, then a
+          stacked body with a prominent pull-quote treatment for the
+          buyer voice. Visually distinct from the indigo research cards. */}
+      <figure className="mt-8 overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.08] via-slate-900/40 to-slate-900/40 shadow-[0_24px_60px_-32px_rgba(34,211,238,0.4)]">
+        <div className="flex items-center gap-3 border-b border-cyan-500/20 bg-cyan-500/[0.06] px-5 py-3 sm:px-7">
+          <span
+            aria-hidden="true"
+            className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]"
+          />
+          <p className="text-[10.5px] font-semibold uppercase tracking-[0.2em] text-cyan-300">
+            Business signal
+          </p>
+          <span aria-hidden="true" className="text-cyan-500/40">
+            ·
+          </span>
+          <p className="text-[12px] font-medium text-cyan-200/85">
+            Win/Loss Report Q1 2026
+          </p>
+        </div>
+        <div className="px-5 py-6 sm:px-7 sm:py-7">
+          <p className="text-[15px] leading-relaxed text-slate-100 sm:text-[15.5px]">
+            Findings from the Win/Loss Report Q1 2026 reinforce these
+            patterns. Onboarding and integration friction are not only
+            usability issues — they directly affect conversion and the
+            ability to succeed without sales or support.
+          </p>
+          <p className="mt-3.5 text-[14px] leading-relaxed text-slate-300 sm:text-[14.5px]">
+            In supported, sales-led flows, onboarding works. In self-serve
+            scenarios, the same steps can become a blocker:
+          </p>
+          <blockquote className="relative mt-5 rounded-xl border border-cyan-400/25 bg-slate-950/50 px-6 py-5 sm:px-7 sm:py-6">
+            <span
+              aria-hidden="true"
+              className="absolute left-4 top-1 select-none font-serif text-[56px] leading-none text-cyan-400/30 sm:left-5"
+            >
+              “
+            </span>
+            <p className="ml-4 text-[16px] italic leading-relaxed text-slate-100 sm:ml-5 sm:text-[17px]">
+              API setup required IT resources we did not have.
+            </p>
+          </blockquote>
+        </div>
+      </figure>
     </div>
   </section>
 );
@@ -4936,7 +5051,7 @@ const JourneyQuoteHover = ({
 // a single message field, and a quiet send button (the action is a follow-up,
 // not the loud focal point).
 const SendMessageMock = () => (
-  <div className="mx-auto mb-5 max-w-md overflow-hidden rounded-xl border border-dashed border-slate-700 bg-slate-950/70 p-4 sm:p-5">
+  <div className="mx-auto mb-5 max-w-md overflow-hidden rounded-xl border border-slate-800 bg-slate-950/70 p-4 sm:p-5">
     {/* Template selector */}
     <p className="text-[11.5px] font-medium text-slate-400">
       Message template
@@ -4994,7 +5109,7 @@ const AnalyticsRowMock = () => {
     },
   ];
   return (
-    <div className="mx-auto mb-5 max-w-xl overflow-hidden rounded-xl border border-dashed border-slate-700 bg-slate-950/70 px-3 py-1.5 sm:px-4">
+    <div className="mx-auto mb-5 max-w-xl overflow-hidden rounded-xl border border-slate-800 bg-slate-950/70 px-3 py-1.5 sm:px-4">
       {rows.map((r, i) => {
         const Icon = r.icon === "clock" ? Clock : Check;
         const ringColor =
@@ -5042,7 +5157,7 @@ const AnalyticsRowMock = () => {
 // with placeholder pills, soft fade-out to suggest more code below, and a
 // quiet Run button. Sized smaller than full-width and not full-height.
 const ApiPlaygroundMock = () => (
-  <div className="mx-auto mb-5 max-w-2xl overflow-hidden rounded-xl border border-dashed border-slate-700 bg-slate-950/80">
+  <div className="mx-auto mb-5 max-w-2xl overflow-hidden rounded-xl border border-slate-800 bg-slate-950/80">
     {/* Tab strip */}
     <div className="flex items-center justify-between border-b border-slate-800 px-3 py-2">
       <div className="flex items-center gap-1">
@@ -5478,6 +5593,36 @@ const JourneyWhyMatters = ({ step }: { step: JourneyStep }) => {
   );
 };
 
+// Win/Loss Report Q1 2026 corroboration callout. Cyan toned to read as
+// an external business signal (distinct from indigo research insights),
+// with optional buyer-quote blockquote underneath the body paragraph.
+const WinLossCallout = ({
+  body,
+  quote,
+  className = "",
+}: {
+  body: string;
+  quote?: string;
+  className?: string;
+}) => (
+  <div
+    className={`rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.10] via-cyan-500/[0.05] to-transparent px-5 py-5 sm:px-6 sm:py-6 ${className}`}
+  >
+    <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-cyan-300">
+      <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
+      Business signal · Win/Loss Report Q1 2026
+    </p>
+    <p className="mt-2.5 text-[14px] leading-relaxed text-slate-100 sm:text-[14.5px]">
+      {body}
+    </p>
+    {quote && (
+      <blockquote className="mt-3 border-l-2 border-cyan-400/50 pl-3 text-[13.5px] italic leading-relaxed text-slate-300">
+        “{quote}”
+      </blockquote>
+    )}
+  </div>
+);
+
 const JourneyStepCard = ({
   step,
   isActive,
@@ -5902,6 +6047,14 @@ const JourneyStepCard = ({
         )}
       </div>
     )}
+
+    {step.businessSignal && (
+      <WinLossCallout
+        className="mt-5"
+        body={step.businessSignal.body}
+        quote={step.businessSignal.quote}
+      />
+    )}
   </motion.article>
   );
 };
@@ -6003,11 +6156,27 @@ const IdealJourney = ({
               "Phase 2 focuses on getting ready for production.",
             ]}
           />
+          {/* Core model — the single sentence stakeholders should leave
+              with. Sits above the methodological note so the mental model
+              lands before the caveat. Violet accent matches Phase 2 /
+              ownership tones used elsewhere in the journey. */}
+          <div className="mt-8 max-w-3xl rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.05] to-transparent px-5 py-5 shadow-[0_24px_60px_-32px_rgba(139,92,246,0.4)] sm:px-6 sm:py-6">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+              Core model
+            </p>
+            <p className="mt-2.5 text-[15px] leading-relaxed text-slate-100 sm:text-[15.5px]">
+              Users do not follow a setup-first journey. They follow a
+              validation-first journey:
+            </p>
+            <p className="mt-2 font-mono text-[13px] leading-relaxed text-violet-200 sm:text-[13.5px]">
+              prove value → understand how the system behaves → establish ownership → integrate → go live
+            </p>
+          </div>
           {/* Important note — frames the journey as a research artefact, not
               a build spec. Sits inside the section reveal so it animates in
               with the header. Amber accent so it reads as guidance, not just
               another paragraph. */}
-          <div className="mt-8 mb-12 flex max-w-3xl items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] px-5 py-4 sm:mb-16">
+          <div className="mt-4 mb-12 flex max-w-3xl items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.05] px-5 py-4 sm:mb-16">
             <Info
               className="mt-0.5 h-4 w-4 shrink-0 text-amber-300"
               strokeWidth={2.25}
@@ -6124,6 +6293,26 @@ const IdealJourney = ({
                             friction. At this moment they align with user
                             intent.
                           </p>
+                          {/* Mode shift — the questions users ask change as
+                              they progress, and that progression is what
+                              defines the mode shift from trying to owning. */}
+                          <div className="mx-auto mt-6 max-w-xl rounded-xl border border-violet-500/30 bg-violet-500/[0.06] px-4 py-4 text-center sm:px-5 sm:py-5">
+                            <p className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
+                              The mode shift
+                            </p>
+                            <p className="mt-2 text-[14px] font-semibold leading-snug text-violet-50 sm:text-[14.5px]">
+                              Users move from trying{" "}
+                              <span className="font-mono text-violet-300">→</span>{" "}
+                              owning
+                            </p>
+                            <p className="mt-3 font-mono text-[12px] leading-relaxed text-violet-100/85 sm:text-[12.5px]">
+                              “does it work?”{" "}
+                              <span className="text-violet-300">→</span>{" "}
+                              “does my setup work?”{" "}
+                              <span className="text-violet-300">→</span>{" "}
+                              “how do I integrate this?”
+                            </p>
+                          </div>
                           <p className="mx-auto mt-5 max-w-xl text-[14px] font-semibold leading-snug text-violet-50 sm:text-[15px]">
                             For developers, the critical moment is not only the first message.
                             <br />
@@ -6204,7 +6393,7 @@ const Principles = ({
         <SectionHeader
           number="06"
           eyebrow="Design principles"
-          title="Eight principles that should guide onboarding across RCS, SMS, and future channels."
+          title="Nine principles that should guide onboarding across RCS, SMS, and future channels."
         />
       </SectionReveal>
 
@@ -6239,6 +6428,19 @@ const Principles = ({
                 <p className="mt-2 text-[13px] leading-relaxed text-slate-200 sm:text-[13px]">
                   {p.implication}
                 </p>
+                {p.implicationBullets && p.implicationBullets.length > 0 && (
+                  <ul className="mt-3 space-y-1.5">
+                    {p.implicationBullets.map((b, bi) => (
+                      <li
+                        key={bi}
+                        className="flex items-start gap-2 text-[13px] leading-relaxed text-slate-200"
+                      >
+                        <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-indigo-400" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.04] px-4 py-4">
                 <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
@@ -6250,8 +6452,57 @@ const Principles = ({
                 </p>
               </div>
             </div>
+            {p.additionalConsideration && (
+              <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-4 py-4">
+                <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-amber-300">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
+                  Additional consideration
+                </p>
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-200 sm:text-[13px]">
+                  {p.additionalConsideration}
+                </p>
+              </div>
+            )}
+            {p.keyTakeaway && (
+              <div className="mt-4 rounded-xl border border-violet-500/30 bg-violet-500/[0.06] px-4 py-4">
+                <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-violet-300">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(139,92,246,0.7)]" />
+                  Key takeaway
+                </p>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-100">
+                  {p.keyTakeaway}
+                </p>
+              </div>
+            )}
           </article>
         ))}
+      </div>
+      {/* Closing statement — editorial section terminator. Hairlines
+          flank a small eyebrow with a sparkle accent; the body sits in
+          a centered larger-type column on the page background. No card
+          chrome, so it reads as a deliberate section signature rather
+          than yet another callout panel. */}
+      <div className="mx-auto mt-14 max-w-3xl sm:mt-16">
+        <div
+          aria-hidden="true"
+          className="flex items-center gap-4"
+        >
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-700/60 to-violet-500/40" />
+          <span className="inline-flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+            <Sparkles
+              className="h-3 w-3 text-violet-300"
+              strokeWidth={2.25}
+            />
+            In closing
+          </span>
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-slate-700/60 to-violet-500/40" />
+        </div>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-[16px] leading-relaxed text-slate-200 sm:text-[17px]">
+          These principles are grounded in observed user behavior, but they
+          also support automated and assisted workflows. Systems that are
+          runnable, observable, and clearly structured enable both humans
+          and programmatic execution to operate reliably.
+        </p>
       </div>
     </div>
   </section>
