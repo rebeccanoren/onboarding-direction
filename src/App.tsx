@@ -49,7 +49,7 @@ import { transcriptAnalysisById } from "./data/transcriptAnalyses";
 const HERO = {
   title: "Messaging Onboarding: Key Insights & Direction",
   supporting: [
-    "Across fourteen usability sessions, a clear pattern emerged: users try to validate messaging first, then figure out how to set it up and integrate it.",
+    "Across fourteen usability sessions, a consistent pattern emerged: users first try to validate messaging, then move toward setup and integration when it becomes relevant.",
     "This presentation shows what users actually do, where they get blocked, and the onboarding approach that better supports that journey.",
   ],
   stats: [
@@ -79,60 +79,68 @@ interface ExecSummaryItem {
   body: string[];
   /** Optional bullet list (e.g. for the persona-divergence finding). */
   bullets?: string[];
+  /** Optional closing line rendered after the bullets. */
+  closing?: string;
 }
 
 const EXEC_SUMMARY: ExecSummaryItem[] = [
   {
-    headline: "Users seek proof before setup",
+    headline:
+      "Users try to validate messaging before engaging with setup",
     body: [
-      "Across sessions, most participants tried to send a message as their first action.",
-      "They were not looking to configure resources or understand the system upfront.",
+      "Across sessions, attempting to send a message was the most common first action.",
+      "They were focused on confirming that messaging works — not configuring the system.",
     ],
   },
   {
-    headline: "The first value moment is a working message",
+    headline: "Confidence builds when users see a message delivered",
     body: [
-      "Users evaluate the product by sending a message and seeing it delivered through logs, status, or preview.",
-      "This immediate feedback builds trust and helps users understand how the system works.",
+      "Users evaluate the product by sending a message and inspecting the result — through logs, status, or preview.",
+      "This feedback builds trust and helps them understand how the system behaves.",
     ],
   },
   {
-    headline: "Early setup creates friction",
+    headline: "Setup creates friction when introduced too early",
     body: [
       "Apps, keys, agents, and webhooks are necessary.",
-      "But when introduced before the first test, they feel like blockers rather than progress.",
+      "But when introduced before users understand their purpose, they feel like blockers rather than progress.",
     ],
   },
   {
-    headline: "Users start the same, then diverge",
+    headline: "Users move from validation into different modes",
     body: [
-      "Most users begin by testing the product.",
-      "After that, their paths diverge:",
+      "Most participants first tried to validate messaging.",
+      "After that, their focus shifted depending on what they were trying to achieve:",
     ],
     bullets: [
-      "Developers move toward API integration.",
-      "Business users move toward setup and compliance.",
+      "exploring and testing further",
+      "integrating with their system",
+      "completing setup or compliance",
     ],
+    closing:
+      "These are not fixed user types. They are modes that can be owned by the same person or split across different roles.",
   },
   {
-    headline: "Resources only make sense with intent",
+    headline: "Resources are understood in context of a goal",
     body: [
-      "Concepts like apps, keys, and agents become clear when users are ready to integrate or go live.",
-      "Before that, they are often confusing or ignored.",
+      "Users don’t struggle with the concept of apps or keys — they struggle with why they need them at that moment.",
+      "These concepts become clearer when introduced in the context of integration or go-live.",
     ],
   },
   {
-    headline: "Users learn by doing, not by reading",
+    headline:
+      "Users prefer to start by doing, then use documentation as support",
     body: [
-      "Participants engaged by taking action \u2014 sending messages, running requests, and exploring results.",
-      "Documentation and navigation were typically secondary until after initial interaction.",
+      "Participants engaged by taking action — sending messages, running requests, and exploring results.",
+      "Documentation was typically used after initial interaction, not as a starting point.",
     ],
   },
   {
-    headline: "Implication: lead with value, introduce setup later",
+    headline:
+      "Implication: lead with value, introduce setup when relevant",
     body: [
       "Start with a test-first entry point to prove the product works.",
-      "Then introduce API and resources when users move toward integration and go-live.",
+      "Introduce API concepts and resource ownership when users move toward integration and go-live.",
     ],
   },
 ];
@@ -280,9 +288,9 @@ interface JourneyTheme {
 const JOURNEY: JourneyTheme[] = [
   {
     id: "experience-value",
-    label: "Theme 1 \u00b7 Experience value",
+    label: "Phase 1 \u00b7 Experience value",
     subtitle:
-      "Users prove the product works before they configure anything.",
+      "Users try to confirm that the product works before they configure anything.",
     steps: [
       {
         id: "s1",
@@ -353,9 +361,9 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Users wants to send a message — not to configure or set up anything.",
+          "At this stage, users are primarily focused on sending a message, not configuring the system.",
         whyLead:
-          "From the very first interaction, developers and non-developers reach for the same thing: a working message. They are not trying to configure the system; they are trying to validate that it works.",
+          "In the sessions, both developers and the non-developer participant reached for the same thing early: a working message. They are not trying to configure the system; they are trying to validate that it works.",
         whyInsights: [
           {
             title: "They want to send a test message",
@@ -364,9 +372,10 @@ const JOURNEY: JourneyTheme[] = [
             quoteIndices: [0, 1],
           },
           {
-            title: "Both personas share the same initial need",
+            title:
+              "Among users trying to use messaging, both developers and non-developers started by testing.",
             description:
-              "At the start, everyone is trying to do the same thing: send a test message. Motivation differs by role, but the first move is identical.",
+              "Among users trying to use messaging, the early goal is often the same: send a test message. Motivation differs by role, but the first move is identical.",
           },
           {
             title: "The goal is to validate, not configure",
@@ -389,7 +398,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyClosing:
-          "In both cases, users want to confirm value before investing time in APIs or setup. If the first interaction lands behind setup, the product loses people before it has shown what it can do.",
+          "In both cases, users want to confirm value before investing time in APIs or setup. If the first interaction is blocked by setup, users risk losing momentum before the product has shown what it can do.",
         valueProps: [
           {
             title: "Immediate value perception",
@@ -464,7 +473,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Sending isn’t proof — seeing what happened is.",
+          "Sending alone isn’t enough — users look for confirmation of what happened.",
         whyLead:
           "After a message is sent, users immediately look for confirmation and insight into what the system actually did. Status, payloads, events, and replies are how they decide whether to trust what they just saw.",
         whyInsights: [
@@ -494,7 +503,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyClosing:
-          "This step is not passive. Users are actively trying to understand how the system behaves — and feedback is what turns a single test into trust.",
+          "Users actively inspect what happened after sending — and feedback is what turns a single test into trust.",
         valueProps: [
           {
             title: "Confirms the product works",
@@ -527,7 +536,7 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "Drives next steps",
             description:
-              "Users move naturally toward API usage, integration, or setup.",
+              "Many users then move toward API usage and integration.",
           },
         ],
         keyTakeaway: {
@@ -595,9 +604,9 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Developers want to try it themselves — but with the friction taken out",
+          "Developers consistently tried to run requests themselves, often starting with curl or prefilled examples",
         whyLead:
-          "After validating that messaging works, they shift from “does this work?” to “how does this work, and how do I drive it?” — and they want to find out by running the API, not reading about it.",
+          "After validating that messaging works, developers shift from “does this work?” to “how does this work, and how do I use it?” — and they want to find out by running the API, not reading about it.",
         whyInsights: [
           {
             title: "They reach for cURL first",
@@ -775,7 +784,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Users shift from exploring the product to exploring their own use.",
+          "Users shift from exploring the product to applying it to their own context.",
         whyLead:
           "Once the test message proves the product is real, users move past the demo. They want a channel under their brand, with their credentials, that they can actually send from \u2014 and they want it before integrating anything deeper.",
         whyInsights: [
@@ -792,7 +801,7 @@ const JOURNEY: JourneyTheme[] = [
             quoteIndices: [1],
           },
           {
-            title: "Both personas converge on the same need",
+            title: "Different roles converge on the same outcome",
             description:
               "What \u201ctheir own channel\u201d means depends on the role, but the underlying ask is identical.",
             bullets: [
@@ -801,7 +810,7 @@ const JOURNEY: JourneyTheme[] = [
                 meta: "their own credentials, their own agent, control over integration.",
               },
               {
-                text: "Business users want",
+                text: "Business-oriented users want",
                 meta: "their brand (name, logo, content), control over how they appear to customers.",
               },
             ],
@@ -810,13 +819,13 @@ const JOURNEY: JourneyTheme[] = [
             ],
           },
           {
-            title: "Concepts become clear through use",
+            title: "Concepts like RCS agent and app became clearer once users interacted with them in context",
             description:
               "Terms like \u201cRCS Agent\u201d stop being abstract once users interact with the product. They don\u2019t learn the system upfront \u2014 they understand it by trying it.",
             quoteIndices: [2],
             closing: [
-              "Through testing, users build a mental model of how things connect \u2014 Conversation API, agents, messages \u2014 all become clearer in context.",
-              "This closes the initial knowledge gap and makes the next step feel obvious.",
+              "Through testing, users start to understand how the system components relate to each other \u2014 Conversation API, agents, messages \u2014 all become clearer in context.",
+              "This helps users understand the system enough to move forward and makes the next step feel obvious.",
               "At this point, setup is no longer confusing \u2014 but it must still be simple. Users are still exploring, so creating a channel should feel fast and lightweight.",
             ],
           },
@@ -939,15 +948,15 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "Without immediate validation, the flow breaks",
             description:
-              "If users cannot confirm their setup right after creation, momentum collapses.",
+              "If users cannot confirm their setup right after creation, progress often stalls at this point.",
             bullets: [
               { text: "Validation is delayed or blocked." },
               { text: "The flow breaks right after creation." },
-              { text: "Confidence drops instead of building." },
+              { text: "Users become uncertain instead of gaining confidence." },
             ],
           },
           {
-            title: "This is the second value moment",
+            title: "This is a second confidence moment",
             description:
               "It validates, in one action: sender identity, message appearance, and delivery behaviour.",
             bullets: [
@@ -957,7 +966,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyClosing:
-          "Without this moment, users are pushed forward without confidence. Instead of confidence → momentum → progress, we get friction → uncertainty → drop-off. Enabling validation here is what turns setup into trust.",
+          "Without this confirmation, users are pushed forward before they know whether their setup works. Instead of confidence → momentum → progress, we get friction → uncertainty → drop-off. Enabling validation here is what turns setup into trust.",
         valueProps: [
           {
             title: "Builds confidence immediately",
@@ -999,7 +1008,7 @@ const JOURNEY: JourneyTheme[] = [
   },
   {
     id: "production",
-    label: "Theme 2 \u00b7 Get ready for production",
+    label: "Phase 2 \u00b7 Get ready for production",
     subtitle:
       "Users have validated value. Now they build their own setup and go live.",
     steps: [
@@ -1062,7 +1071,7 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "Developers stop exploring and start integrating.",
+          "Developers shift from exploration to integration.",
         whyLead:
           "After validating their setup, developers want to use their own credentials, understand how components connect, and bring messaging into their stack on their terms. The goal is no longer “does this work?” but “how do I make this part of my system?”",
         whyInsights: [
@@ -1196,9 +1205,9 @@ const JOURNEY: JourneyTheme[] = [
           },
         ],
         whyHeadline:
-          "When users reach compliance, they need guidance to move forward.",
+          "When users reach compliance, they need enough guidance to know how to proceed.",
         whyLead:
-          "Compliance was not the primary focus of the research — but when users reached it, a clear pattern emerged. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission. This step is regulatory compliance, not product setup, and it follows a different logic than the rest of onboarding.",
+          "Compliance was not the primary focus of the research — but when users reached it, a recurring signal emerged. Users were often unsure what information was required, how to answer certain questions, or what would happen after submission. This step is regulatory compliance, not product setup, and it follows a different logic than the rest of onboarding.",
         whyTracks: {
           title: "Two parallel tracks",
           description:
@@ -1281,7 +1290,7 @@ const JOURNEY: JourneyTheme[] = [
           {
             title: "Users need clarity to proceed",
             description:
-              "Users don’t need to understand every field — but they need to understand:",
+              "Users don’t need to fully understand every field, but they need enough clarity to proceed:",
             bullets: [
               { text: "this is a regulatory requirement" },
               { text: "it does not block integration" },
@@ -1344,7 +1353,7 @@ const PRINCIPLES: Principle[] = [
     id: "pr1",
     title: "Lead with proof, not setup",
     lead:
-      "Users do not start by trying to understand the architecture. They start by trying to prove that messaging works.",
+      "Users typically do not start by trying to understand the architecture. They start by trying to prove that messaging works.",
     implication:
       "Let users send a message before requiring apps, keys, webhooks, or production setup.",
     evidence:
@@ -1374,7 +1383,7 @@ const PRINCIPLES: Principle[] = [
     id: "pr4",
     title: "Let users learn by doing",
     lead:
-      "Users understand messaging through interaction, not explanation.",
+      "Users understand messaging best through interaction, supported by explanation when needed.",
     implication:
       "Use editable examples, live previews, runnable requests, and message logs to teach concepts through use.",
     evidence:
@@ -1384,7 +1393,7 @@ const PRINCIPLES: Principle[] = [
     id: "pr5",
     title: "Separate simple testing from developer exploration",
     lead:
-      "The same journey must support both non-technical validation and developer depth.",
+      "The experience must support both simple validation and developer depth.",
     implication:
       "Start with a simple UI test. Then offer code, API playground, payloads, Postman, and webhooks as the developer path.",
     evidence:
@@ -1394,7 +1403,7 @@ const PRINCIPLES: Principle[] = [
     id: "pr6",
     title: "Introduce resources when users have intent",
     lead:
-      "Apps, agents, keys, and webhooks are meaningful when users are ready to integrate or go live. Before that, they create confusion.",
+      "Apps, agents, keys, and webhooks are meaningful when users are ready to integrate or go live. Before that, they can create confusion.",
     implication:
       "Do not make user-owned app creation a prerequisite for validation. Introduce it when users move from testing to integration.",
     evidence:
@@ -3255,7 +3264,7 @@ const ResourceOptionsPane = () => {
     { n: 1, short: "Require setup", tone: "rose" },
     { n: 2, short: "Auto-create", tone: "amber" },
     { n: 3, short: "Guided", tone: "amber" },
-    { n: 4, short: "Managed test mode", tone: "emerald" },
+    { n: 4, short: "System-managed test app", tone: "emerald" },
   ];
   return (
   <div className="space-y-10">
@@ -3334,26 +3343,54 @@ const ResourceOptionsPane = () => {
         title: "Require app setup while creating sender",
         tag: "Current RCS model",
         tagColor: "amber",
-        flow: "Create agent → create/connect app → send test message",
-        meaningIntro: "While a RCS Agent is created users must:",
-        meaningPoints: [
-          "Create or select a Conversation API app to connect it to.",
-          "Connect the RCS Agent to that app.",
-          "Provide required setup details (including parts of compliance and configuration).",
-        ],
+        flow: "Create agent → Create or connect app → Send test message",
+        meaningIntro:
+          "To create an RCS Agent in the current production flow, users must work through a long-form setup that bundles three distinct concerns into a single extended step: agent configuration, regulatory compliance, and Conversation API app connection. Validation cannot happen until all of this is complete.",
         meaningClosing:
-          "The connection between the RCS Agent (identity) and the Conversation API app (sending layer) is required before any validation can happen.",
+          "The connection between the RCS Agent (identity) and the Conversation API app (sending layer) is required before any test message can be sent.",
+        noteOnTested: {
+          title: "A note on what was tested",
+          paragraphs: [
+            "The research tested prototypes that approximated this model at a lighter weight, not the production flow itself. The actual production flow is heavier than what's described in this option — the agent creation form is longer, compliance is collected inline, and the app connection sits inside a multi-step setup rather than alongside it. The friction observed in the research is structural to the pattern, not specific to the prototype. It is reproduced, and likely amplified, in production.",
+          ],
+        },
+        how: [
+          {
+            heading: "In the UI",
+            bullets: [
+              "The user is asked to create or select a Conversation API app as part of agent creation.",
+              "Compliance fields (regions, use case, billing model, business details) are collected during the same flow.",
+              "Configuration inputs tied to integration appear inline.",
+              "The agent cannot send a test message until app connection and setup are complete.",
+            ],
+          },
+          {
+            heading: "In the API / developer context",
+            bullets: [
+              "Developers must locate or create credentials before sending a test request.",
+              "The Conversation API app, the agent, and the credential model must all be understood before the first message can be sent.",
+              "Architecture concepts (apps, channels, webhooks, project IDs) are surfaced at the validation moment, not at the integration moment.",
+            ],
+          },
+          {
+            heading: "When users move beyond testing",
+            bullets: [
+              "The work is already done. Once the agent is set up, integration is largely a matter of connecting the existing app to the user's system.",
+              "Ownership is established early — but at the cost of asking the user to take ownership before they have reason to.",
+            ],
+          },
+        ],
         practice: {
           title: "What actually happens in practice",
           intro:
-            "This step is not just “connect an app.” It often includes:",
+            "This step is not just “connect an app.” It consistently includes:",
           points: [
-            "Choosing or creating an app without understanding what it represents.",
-            "Providing configuration inputs tied to integration.",
-            "Encountering compliance-related fields or requirements.",
-            "Being exposed to concepts like credentials, webhooks, or regions.",
+            "Choosing or creating an app without understanding what an app represents.",
+            "Providing configuration inputs tied to integration concerns the user hasn't reached yet.",
+            "Encountering compliance-related fields (regions, use case, billing model, business contact details) before the product has been validated.",
+            "Being exposed to concepts like credentials, webhooks, and regions in the same step as the first attempted test.",
           ],
-          mixIntro: "This mixes multiple concerns into a single moment:",
+          mixIntro: "This mixes three distinct concerns into a single moment:",
           mix: [
             { label: "Validation", text: "Does this work?" },
             { label: "Integration", text: "How do I connect this to my system?" },
@@ -3362,41 +3399,49 @@ const ResourceOptionsPane = () => {
               text: "What do I need to go live?",
             },
           ],
+          closing:
+            "The research shows users approach these as separate questions, asked at different points in the journey. Compressing them into one step forces the user to engage with all three at once, regardless of which one they actually came to answer.",
         },
+        pros: [
+          "Aligned with the underlying technical architecture — the resources users see in the UI map directly to the resources that exist in the system.",
+          "Clear ownership from the start. There is no ambiguity about what the user has created or what they own.",
+          "No hidden behaviour. Nothing is provisioned silently; nothing surfaces later as a surprise.",
+          "Conceptually consistent for production use, where this level of explicit setup is genuinely required.",
+        ],
+        cons: [
+          "Blocks validation at the wrong moment. The first thing users want to do — test — is the thing they cannot do until setup is complete.",
+          "Mixes testing, integration, and compliance into a single step, with no signal to the user that these are separable concerns.",
+          "High friction for both personas. Developers want to validate before integrating; non-developers may not understand the integration concepts at all.",
+          "Forces architecture comprehension upfront. Users must understand the system before they have any motivation to.",
+          "Conflicts with the test-first behaviour observed in the research.",
+        ],
         coreProblem: {
           title: "Core problem",
           headline:
-            "We are mixing testing, integration, and compliance into one step.",
-          intro: "At a point where users:",
+            "The model assumes users come to the product with a goal of setting up infrastructure. The research shows they come with a goal of seeing whether the product works. These are different journeys, and the current model asks the user to complete the first before they can begin the second.",
+          intro:
+            "This is the source of the consistent friction observed in the research:",
           points: [
-            "Have not validated the product yet.",
-            "May not know how they will integrate.",
-            "May not even be technical (business users).",
+            "Users have not validated the product yet — but are asked to commit to setup decisions.",
+            "Users may not know how they will integrate — but are asked to make integration choices.",
+            "Users may not be technical at all — but are asked to make decisions about integration",
           ],
+          closing:
+            "The result is a flow where validation depends on understanding architecture, integration, and setup first.",
+          sequence: {
+            insteadIntro: "Natural sequence the research observed",
+            instead: "create → test → understand → integrate",
+            forceIntro: "What the current model forces",
+            force: "create → integrate → configure → then test",
+          },
         },
-        pros: [
-          "Fully aligned with technical architecture.",
-          "No hidden system behaviour.",
-          "Clear ownership from the start.",
-        ],
-        cons: [
-          "Blocks validation at the wrong moment.",
-          "Forces integration thinking too early.",
-          "Mixes compliance with API setup in the same flow.",
-          "Requires users to understand system architecture upfront.",
-          "High friction for both developers and business users.",
-          "Breaks the “quick test” expectation.",
-          "Increases drop-off risk.",
-        ],
-        keyLabel: "Key issue",
-        keyText:
-          "Validation depends on understanding architecture, integration, and setup.",
-        keyTone: "amber" as const,
-        keyDetail: {
-          insteadIntro: "Instead of allowing users to:",
-          instead: "create → test → understand → integrate",
-          forceIntro: "We force:",
-          force: "create → integrate → configure → then test",
+        whyTempting: {
+          title: "Why this option still has merit",
+          paragraphs: [
+            "The case for changing this model isn't that the architecture is wrong — it's that the architecture is right for the wrong moment.",
+            "The current model is exactly what production usage requires. An app with explicit credentials, owned by the user, connected to their integration, with clear configuration boundaries — this is the correct model when the user is actually integrating. The problem is not that the model exists. The problem is that the model is presented as a prerequisite for testing, when it should be a destination for integration.",
+            "A version of this model that applied only at the integration step would be preserved, not removed, by Options 3 and 4. The recommendation isn't to discard the current architecture. It's to stop asking users to engage with it before they've decided they need to.",
+          ],
         },
         fitIcon: "❌",
         fitText: "Conflicts with observed behaviour",
@@ -3405,27 +3450,63 @@ const ResourceOptionsPane = () => {
       {
         n: 2,
         title: "Auto-create and connect app",
-        flow: "Create agent → auto-create app → send test message",
+        flow: "Create agent → App auto-created and connected → Send test message",
         meaningIntro:
-          "The system automatically creates and connects a Conversation API app in the background, allowing users to send a test message immediately without any setup.",
+          "When the user creates an RCS agent, the platform silently creates a Conversation API app on their behalf and connects it to the agent. The user is not asked to do anything — they can send a test message immediately.",
         meaningClosing:
-          "Users can take action right away, but the underlying structure is not visible or explained.",
+          "This solves the friction problem from Option 1 by removing the setup step entirely. But it solves it by hiding the setup, not by deferring it. The app exists, is owned by the user, and is connected to their agent — they just weren't told.",
+        how: [
+          {
+            heading: "In the UI",
+            bullets: [
+              "The user sees only the agent creation step.",
+              "After agent creation, they can send a test message.",
+              "An app has been created in their project, but it's not surfaced during the test flow.",
+              "The app appears in their inventory either silently or when they navigate to integration screens later.",
+            ],
+          },
+          {
+            heading: "In the API / developer context",
+            bullets: [
+              "The auto-created app's credentials may be exposed for sending test requests.",
+              "The app is real and persistent — it is not test-only or scoped.",
+              "Developers may discover it later when looking through their resources, often without understanding when or why it was created.",
+            ],
+          },
+          {
+            heading: "When users move toward integration",
+            bullets: [
+              "The app already exists. The user did not create it, name it, or choose it.",
+              "They must either accept the auto-created app or create another and reassign the agent.",
+              "Either path requires explaining what happened earlier — which the original flow avoided.",
+            ],
+          },
+        ],
         pros: [
-          "Removes immediate friction.",
-          "Enables a fast first test.",
-          "No manual setup required upfront.",
+          "Removes setup friction at the validation moment.",
+          "Users can test immediately, which matches the test-first behaviour observed in the research.",
+          "Lower implementation cost than a managed test infrastructure — the same resource model used in production is reused for testing.",
         ],
         cons: [
-          "Leads to orphaned or unused apps over time.",
-          "Defers confusion to a later stage instead of resolving it.",
-          "Users are unaware that an app was created.",
-          "The relationship between agent and app remains unclear.",
-          "Developers lack control over how resources are structured.",
-          "Creates persistent infrastructure for a temporary testing need.",
+          "Integration happens invisibly. The user has been integrated by the platform without being told.",
+          "The user has no context for the app: no name they chose, no purpose they understand, no moment of intent.",
+          "Ownership is broken before integration begins. When the user later moves toward integration, they're not creating their app — they're inheriting one.",
+          "The auto-created app conflates testing infrastructure with production infrastructure. A user may build their integration on top of an app that was created for a different purpose.",
+          "P12: “I just got dropped here.” — This is the failure mode the option produces, articulated by a participant who experienced it directly.",
         ],
         keyLabel: "Key issue",
-        keyText: "Enables sending, but not understanding.",
+        keyText:
+          "This option enables sending, but not understanding. The user can complete a test, but they cannot answer questions about the system: what was created? when? why? what does it do? The research shows users build trust by understanding what happened — and this option blocks understanding by hiding the mechanism.",
+        keyTextExtra:
+          "It also defers a problem rather than solving it. The auto-created app must surface eventually, and when it does, the user encounters something they don't recognise as theirs. That moment — the moment of “I didn't make this” — is precisely what the research identifies as where ownership breaks.",
         keyTone: "amber" as const,
+        whyTempting: {
+          title: "Why this option is tempting",
+          paragraphs: [
+            "It's worth naming why this option keeps coming up despite the cons. Auto-create is the most architecturally conservative of the four options that solve the friction problem — it requires no new test infrastructure, no managed app pools, no handoff logic. The same Conversation API app model used for production is simply created earlier and silently. From an engineering perspective, it's the smallest change. From a user-experience perspective, it's the change that hides the most.",
+            "This trade — minimal engineering investment in exchange for hidden ownership — is the core of why this option is tempting and why the research argues against it. The friction it removes is real. The ownership it sacrifices is also real. The research suggests the second cost is the larger one.",
+          ],
+        },
         fitIcon: "⚠️",
         fitText:
           "Solves short-term friction, but creates long-term confusion",
@@ -3434,86 +3515,192 @@ const ResourceOptionsPane = () => {
       {
         n: 3,
         title: "Lightweight guided connection",
-        tag: "New RCS model",
+        tag: "current new RCS direction",
         tagColor: "violet",
-        flow: "Create agent → guided connect step → send test message",
+        flow: "Create agent → Guided connection step → Send test message",
         meaningIntro:
-          "Users are guided through a simplified and more structured app connection step before they can send a test message.",
+          "Users are guided through a simplified and more structured app connection step before they can send a test message. The experience improves how the app is introduced — better explanations, lighter setup, clearer language — but the connection itself is still required before any validation can happen.",
         meaningClosing:
-          "The experience improves how the app is introduced, but the connection is still required before any validation.",
+          "This option is an improvement on the current model in form. It is not a change in sequence. The user is still asked to engage with integration before they have validated the product.",
+        how: [
+          {
+            heading: "In the UI",
+            bullets: [
+              "The user creates an agent and is then guided through app connection in a structured step.",
+              "The connection screen explains what an app is, why it's needed, and how it relates to the agent.",
+              "Setup is lighter than the current production flow — fewer fields, better hierarchy, clearer language.",
+              "The agent cannot send a test message until the connection is complete.",
+            ],
+          },
+          {
+            heading: "In the API / developer context",
+            bullets: [
+              "Developers still see app, credentials, and webhook concepts surface during the connection step.",
+              "The presentation is more structured, but the concepts arrive at the same moment as in Option 1.",
+              "Reference material and inline guidance reduce the comprehension burden, but don't remove it.",
+            ],
+          },
+          {
+            heading: "When users move beyond testing",
+            bullets: [
+              "The setup work is largely already done. Integration becomes a continuation rather than a new step.",
+              "Ownership has been established — the user did create the app intentionally, even if the moment was earlier than they would have chosen.",
+            ],
+          },
+        ],
+        callouts: [
+          {
+            title: "What this option improves",
+            tone: "emerald" as const,
+            paragraphs: [
+              "Compared to Option 1, this option fixes several real problems:",
+            ],
+            points: [
+              "The agent creation flow is no longer a single long-form bundle. Compliance, configuration, and connection are visually separated.",
+              "The connection step has clear explanations and lighter input requirements.",
+              "Users who do engage with the step come away with a better mental model than they would in the current production flow.",
+            ],
+            closing:
+              "These are real improvements and worth acknowledging. A user who completes Option 3 will understand the system better than a user who completes Option 1.",
+          },
+          {
+            title: "What this option does not change",
+            tone: "amber" as const,
+            paragraphs: [
+              "The fundamental problem — integration is required before validation — remains. The research finding that drove the rest of this discussion is not addressed by improving how setup is presented. It is addressed only by changing when setup is introduced.",
+              "This is the core distinction:",
+            ],
+            points: [
+              "Option 1 asks users to engage with setup before testing, in a heavy form.",
+              "Option 3 asks users to engage with setup before testing, in a lighter form.",
+              "Option 4 does not ask users to engage with setup before testing.",
+            ],
+            closing:
+              "Option 3 is a better instance of the same pattern, not a different pattern.",
+          },
+        ],
         pros: [
-          "Improves clarity compared to the current model.",
-          "Makes the relationship between agent and app more visible.",
-          "Preserves transparency into how the system works.",
-          "Reduces confusion at the integration stage.",
+          "Preserves user-initiated ownership — the user does create the app themselves, with intent.",
+          "Explains the system as setup happens, building a clearer mental model than auto-create.",
+          "More transparent than Option 2 — nothing is provisioned silently.",
+          "Significantly better than the current production flow, both in friction and in clarity.",
         ],
         cons: [
-          "Still introduces setup before users can validate.",
-          "Still requires users to engage with unfamiliar concepts too early.",
-          "Breaks the expectation of an immediate, simple test.",
-          "Adds friction at a critical moment in the journey.",
-          "Does not align with user intent during the testing phase.",
+          "Forces integration thinking during testing — earlier than the journey suggests.",
+          "Reintroduces the friction the test-first flow is meant to avoid, even if at a lower intensity.",
+          "Still asks users to engage with integration concepts before they've decided to integrate.",
+          "Improves how the setup is presented, but not when it is introduced.",
         ],
         keyLabel: "Key issue",
         keyText:
-          "Improves how setup is presented, but not when it is introduced.",
+          "This option treats the problem as a presentation problem when the research suggests it is a sequencing problem. Better explanations of setup do not remove the friction of doing setup at the wrong moment. Lighter forms do not change the user's intent at that moment, which is to test, not to configure.",
+        keyTextExtra:
+          "The strength of this option is that it avoids the worst failures of Option 1 (heavy bundling, mixed concerns) and Option 2 (invisible integration, broken ownership). It sits in the middle: more honest than auto-create, less heavy than the current model, but still not aligned with the test-first behaviour the research consistently surfaces.",
         keyTone: "amber" as const,
+        whyTempting: {
+          title: "Why this option still has merit",
+          paragraphs: [
+            "Option 3 is the safest move in the design space. It improves on the current model without requiring new infrastructure. It preserves ownership without hiding mechanism. It can be built and shipped incrementally, with no platform-level changes to test infrastructure.",
+            "For a team weighing engineering investment against alignment with the research, Option 3 is the option that delivers improvement without requiring a structural shift. It is the right choice if the constraint is “do better than today with what we have.” It is not the right choice if the constraint is “align with what users actually do.”",
+            "The recommendation toward Option 4 is not because Option 3 is wrong. It is because Option 3 is a partial answer to a question that the research suggests deserves a fuller one.",
+          ],
+        },
         fitIcon: "⚠️",
         fitText: "Better than current, but still misaligned with intent",
         fitTone: "amber" as const,
       },
       {
         n: 4,
-        title: "Managed test mode",
+        title: "System-managed test app",
         tag: "Recommended direction",
         tagColor: "emerald",
-        flow: "Create agent → validate in test mode → integrate later",
+        flow: "Create agent → Validate in test mode → Integrate later",
         meaningIntro:
-          "Users can test what they've created immediately. The system handles the required infrastructure behind the scenes, and app setup is introduced only when users are ready to integrate.",
+          "When users come to the product, their first goal is to test — to see whether messaging actually works. They do not need an app, credentials, or integration infrastructure yet. This option lets them act on that goal directly. The system handles the test infrastructure on their behalf; app setup is introduced only when the user moves toward integration, when it serves their goal.",
+        meaningClosing:
+          "Test and integration become two distinct moments instead of a single bundled step. The user is never asked to engage with concepts they have no reason to engage with yet.",
         howLabel: "How it works",
         how: [
-          "The agent is temporarily connected to a system-managed app.",
-          "This app is treated as managed test infrastructure, not a user resource.",
           {
-            heading: "In the UI:",
+            heading: "In the UI",
             bullets: [
-              "The connection is not exposed.",
-              "The app does not appear in the user's inventory.",
-              "Users simply test their agent.",
+              "The user creates an agent and is taken directly to a screen where they can send a test message.",
+              "No app, no credentials, no setup — those concepts are not surfaced.",
+              "Delivery status, logs, and events are shown directly in the UI.",
+              "The agent appears connected and working, because it is.",
             ],
           },
           {
-            heading: "In API / developer context:",
+            heading: "In the API / developer context",
             bullets: [
               "A managed test app ID may be exposed for sending test requests.",
-              "It is clearly labelled as test-only and system-managed.",
-              "It is not something the user creates, owns, or manages.",
+              "It is clearly labelled as test-only and system-managed — not a resource the user owns.",
+              "Developers can validate request and response shape immediately, without provisioning their own app.",
             ],
           },
-          "Messages can be sent to test numbers immediately.",
-          "Delivery status, logs, and events are shown directly in the UI.",
+          {
+            heading: "Behind the scenes",
+            bullets: [
+              "The agent is connected to a system-managed app drawn from a managed pool.",
+              "This app is test infrastructure, not a user resource.",
+              "It is never exposed in the user's inventory and never confused with a production app.",
+            ],
+          },
+          {
+            heading: "When users are ready to integrate",
+            bullets: [
+              "They create or select their own app — the first point where the app is a visible, user-owned resource.",
+              "The agent is reassigned to their app.",
+              "Setup, configuration, and compliance are introduced now — when the user has a reason to engage with them.",
+            ],
+          },
         ],
-        howFollowUp: {
-          title: "When users are ready to integrate:",
-          bullets: [
-            "They create or select their own app.",
-            "The agent is then connected to their app.",
-            "This is the first point where the app becomes a visible, user-owned resource.",
-          ],
-        },
-        pros: [],
+        callouts: [
+          {
+            title: "Why this aligns with users' goal",
+            tone: "emerald" as const,
+            paragraphs: [
+              "The research is consistent across personas: users come to the product to test, not to set up. Their first question is “Does this work?”, not “How do I integrate this?”. Until they have an answer to the first, the second is not yet a question they have.",
+            ],
+            points: [
+              "Users do not need an app to validate messaging. They need a working channel.",
+              "Setup is a question users ask after the product has proven itself, not before.",
+              "Ownership is meaningful when it's tied to intent — when the user has decided to integrate.",
+            ],
+            closing:
+              "This option is the only one of the four that lets users act on their actual goal. Validation happens at the validation moment. Integration happens at the integration moment. Compliance happens at the go-live moment. The three stop competing for attention in the same step.",
+          },
+        ],
+        pros: [
+          "Test and integration are sequenced as the research suggests — validation first, integration when the user is ready.",
+          "No setup before first value. The user can answer “does this work?” without engaging with infrastructure.",
+          "Ownership is preserved for when integration begins. The app the user owns is the app they chose.",
+          "No blurred lines: when a user creates an app, it's because they want to integrate.",
+          "Compliance, integration, and validation stop competing for attention in the same step.",
+        ],
         cons: [
-          "Requires managed infrastructure (apps, webhooks, event routing).",
-          "Requires clear separation between test and production.",
-          "Requires a defined transition from testing to integration.",
+          "Adds platform-side complexity — managed app pools, reassignment from test app to user-owned app.",
+          "Requires a clear handoff on the integration side, so developers understand the transition from test app to user-owned app.",
+          "If the handoff is invisible, developers may be surprised when an app appears later in their inventory.",
         ],
         consLabel: "Cons / constraints",
         keyLabel: "Key insight",
         keyText:
-          "The app still exists — but during testing, it is infrastructure, not a user responsibility.",
+          "The app still exists during testing — but it is infrastructure, not a user responsibility. The user is not hiding from the app; the system is simply not asking the user to engage with it yet, because at this moment they have no reason to.",
+        keyTextExtra:
+          "This is the structural difference from Options 2 and 3. Auto-create hides the app from the user. Guided connection asks the user to engage with the app early. Option 4 introduces the app at the moment when engaging with it is meaningful — when the user is integrating.",
         keyTone: "emerald" as const,
+        whyTempting: {
+          title: "Why this is the recommendation",
+          paragraphs: [
+            "Of the four options, Option 4 is the only one that solves the sequencing problem identified by the research, rather than presenting it differently. Options 1 and 3 ask users to do setup at the wrong moment, in different forms. Option 2 hides the cost without removing it. Option 4 changes when setup happens — and changing the sequence is what the research suggests is needed.",
+            "It is also the option with the highest implementation cost. It requires a managed test app pool, reassignment logic, and a clear handoff between test and integration. These costs are real. The case for paying them is that they buy alignment with the goal users actually come to the product with — the goal that the current model fights, that Option 2 obscures, and that Option 3 only partially accommodates.",
+            "The recommendation is to build Option 4 — not because the others are wrong in absolute terms, but because the research identifies sequencing as the core problem, and Option 4 is the only option that changes the sequence.",
+          ],
+        },
         fitIcon: "✅",
-        fitText: "Strongly aligned",
+        fitText:
+          "Strongly aligned with users' goal — they came to test, not to integrate",
         fitTone: "emerald" as const,
       },
     ]
@@ -3553,6 +3740,21 @@ const ResourceOptionsPane = () => {
         : opt.fitTone === "rose"
           ? "text-rose-300/80"
           : "text-amber-300/80";
+      // Tone-aware accent stripe + dot for inner panels — borrows the
+      // visual language of the journey "What happens in this step" snapshot
+      // (left-edge gradient stripe + colored dot before the eyebrow).
+      const accentStripeClass =
+        opt.fitTone === "emerald"
+          ? "bg-gradient-to-b from-emerald-400/70 via-emerald-500/40 to-transparent"
+          : opt.fitTone === "rose"
+            ? "bg-gradient-to-b from-rose-400/70 via-rose-500/40 to-transparent"
+            : "bg-gradient-to-b from-amber-400/70 via-amber-500/40 to-transparent";
+      const accentDotClass =
+        opt.fitTone === "emerald"
+          ? "bg-emerald-400"
+          : opt.fitTone === "rose"
+            ? "bg-rose-400"
+            : "bg-amber-400";
       return (
         <Fragment key={opt.n}>
           {/* Group context for the recommended option — kept inline since it
@@ -3563,8 +3765,10 @@ const ResourceOptionsPane = () => {
                 Recommended approach
               </p>
               <p className="text-[12.5px] leading-relaxed text-slate-400">
-                The platform manages the app during testing. The user takes
-                ownership only at integration, when it serves their goal.
+                Users come to the product to test, not to integrate. This
+                option lets them act on that goal: the platform manages the
+                test app behind the scenes, and the user only takes ownership
+                of an app when they're ready to integrate.
               </p>
             </div>
           )}
@@ -3654,34 +3858,117 @@ const ResourceOptionsPane = () => {
                 );
               })()}
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                What this means
-              </p>
+            {/* What this means — journey-step-inspired snapshot panel:
+                rounded-xl with a tone-aware left-edge accent stripe and a
+                dot before the eyebrow, mirroring "What happens in this step". */}
+            <section className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/40 p-5 sm:p-6">
+              <span
+                aria-hidden="true"
+                className={`absolute inset-y-0 left-0 w-0.5 ${accentStripeClass}`}
+              />
+              <div className="flex items-center gap-2">
+                <span className={`h-1.5 w-1.5 rounded-full ${accentDotClass}`} />
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                  What this means
+                </p>
+              </div>
               {opt.meaningIntro && (
-                <p className="mt-1.5 text-[14px] leading-relaxed text-slate-200">
+                <p className="mt-3 text-[14px] leading-relaxed text-slate-200">
                   {opt.meaningIntro}
                 </p>
-              )}
-              {opt.meaningPoints && opt.meaningPoints.length > 0 && (
-                <ul className="mt-2 space-y-1.5">
-                  {opt.meaningPoints.map((m, i) => (
-                    <DiscussionBullet key={i}>{m}</DiscussionBullet>
-                  ))}
-                </ul>
               )}
               {opt.meaningClosing && (
                 <p className="mt-3 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-4 py-3 text-[13px] leading-relaxed text-amber-100">
                   {opt.meaningClosing}
                 </p>
               )}
-            </div>
+            </section>
+            {opt.noteOnTested && (
+              <aside className="rounded-xl border border-slate-700/60 bg-slate-950/40 p-5">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-slate-500/40 text-[9px] font-bold text-slate-400">
+                    i
+                  </span>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    {opt.noteOnTested.title}
+                  </p>
+                </div>
+                <div className="mt-2.5 space-y-3">
+                  {opt.noteOnTested.paragraphs.map((p, i) => (
+                    <p
+                      key={i}
+                      className="text-[13px] leading-relaxed text-slate-300"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </aside>
+            )}
+            {opt.how && (
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className={`h-1.5 w-1.5 rounded-full ${accentDotClass}`} />
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    {opt.howLabel ?? "How it works"}
+                  </p>
+                </div>
+                {/* Numbered list — visual language borrowed from the
+                    journey-step "Why this step matters" insights: divide-y
+                    border-y rule, narrow mono number column, semibold title +
+                    optional bulleted body in the wider column. */}
+                <ol className="mt-3 divide-y divide-slate-800/70 border-y border-slate-800/70">
+                  {opt.how.map((h, i) => {
+                    const isGroup = typeof h !== "string";
+                    const title = isGroup ? h.heading : h;
+                    const bullets = isGroup ? h.bullets : null;
+                    return (
+                      <li
+                        key={i}
+                        className="grid grid-cols-[2.25rem_1fr] gap-x-4 py-5 sm:grid-cols-[2.75rem_1fr] sm:gap-x-5"
+                      >
+                        <span className="pt-0.5 font-mono text-[11.5px] tabular-nums text-slate-500">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-[14.5px] font-semibold text-slate-50 sm:text-[14px]">
+                            {title}
+                          </p>
+                          {bullets && bullets.length > 0 && (
+                            <ul className="mt-2 space-y-1.5 pl-1">
+                              {bullets.map((b, bi) => (
+                                <li
+                                  key={bi}
+                                  className="flex items-baseline gap-2 text-[13px] leading-relaxed text-slate-300"
+                                >
+                                  <span aria-hidden="true" className="text-slate-500">
+                                    ·
+                                  </span>
+                                  <span>{b}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
             {opt.practice && (
-              <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-300">
-                  {opt.practice.title}
-                </p>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-200">
+              <section className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950/40 p-5 sm:p-6">
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-y-0 left-0 w-0.5 ${accentStripeClass}`}
+                />
+                <div className="flex items-center gap-2">
+                  <span className={`h-1.5 w-1.5 rounded-full ${accentDotClass}`} />
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-amber-300">
+                    {opt.practice.title}
+                  </p>
+                </div>
+                <p className="mt-3 text-[13.5px] leading-relaxed text-slate-200">
                   {opt.practice.intro}
                 </p>
                 <ul className="mt-3 space-y-1.5">
@@ -3727,87 +4014,100 @@ const ResourceOptionsPane = () => {
                     })}
                   </ul>
                 )}
-              </div>
-            )}
-            {opt.coreProblem && (
-              <div className="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-rose-300">
-                  {opt.coreProblem.title ?? "Core problem"}
-                </p>
-                <p className="mt-2 text-[14.5px] font-semibold leading-snug text-slate-50">
-                  {opt.coreProblem.headline}
-                </p>
-                <p className="mt-3 text-[13px] leading-relaxed text-slate-300">
-                  {opt.coreProblem.intro}
-                </p>
-                <ul className="mt-2 space-y-1.5">
-                  {opt.coreProblem.points.map((p, i) => (
-                    <DiscussionBullet key={i} tone="muted">
-                      {p}
-                    </DiscussionBullet>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {opt.how && (
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  {opt.howLabel ?? "How it works"}
-                </p>
-                <div className="mt-2 space-y-3">
-                  {(() => {
-                    const blocks: React.ReactNode[] = [];
-                    let runStart = 0;
-                    const flushRun = (endExclusive: number) => {
-                      const run = opt.how
-                        .slice(runStart, endExclusive)
-                        .filter((h): h is string => typeof h === "string");
-                      if (run.length === 0) return;
-                      blocks.push(
-                        <ul
-                          key={`run-${runStart}`}
-                          className="space-y-1.5"
-                        >
-                          {run.map((h, i) => (
-                            <DiscussionBullet key={i}>{h}</DiscussionBullet>
-                          ))}
-                        </ul>,
-                      );
-                    };
-                    opt.how.forEach((h, i) => {
-                      if (typeof h !== "string") {
-                        flushRun(i);
-                        blocks.push(
-                          <div key={`grp-${i}`}>
-                            <p className="text-[13px] font-medium leading-relaxed text-slate-200">
-                              {h.heading}
-                            </p>
-                            <ul className="mt-2 space-y-1.5">
-                              {h.bullets.map((b, j) => (
-                                <DiscussionBullet key={j}>{b}</DiscussionBullet>
-                              ))}
-                            </ul>
-                          </div>,
-                        );
-                        runStart = i + 1;
-                      }
-                    });
-                    flushRun(opt.how.length);
-                    return blocks;
-                  })()}
-                </div>
-                {opt.howFollowUp && (
-                  <div className="mt-4">
-                    <p className="text-[13px] font-medium leading-relaxed text-slate-200">
-                      {opt.howFollowUp.title}
-                    </p>
-                    <ul className="mt-2 space-y-1.5">
-                      {opt.howFollowUp.bullets.map((b, i) => (
-                        <DiscussionBullet key={i}>{b}</DiscussionBullet>
-                      ))}
-                    </ul>
-                  </div>
+                {opt.practice.closing && (
+                  <p className="mt-5 text-[13px] leading-relaxed text-slate-300">
+                    {opt.practice.closing}
+                  </p>
                 )}
+              </section>
+            )}
+            {opt.callouts && opt.callouts.length > 0 && (
+              <div className="space-y-4">
+                {opt.callouts.map((c, ci) => {
+                  // Tone-aware callout panel — same accent-stripe + dot
+                  // language as the other inner panels, with tone derived
+                  // from the callout itself (emerald for "improves",
+                  // amber for "does not change", etc.) so the visual
+                  // signal aligns with the content.
+                  const tone = c.tone ?? "slate";
+                  const surfaceClass =
+                    tone === "emerald"
+                      ? "border-emerald-500/25 bg-emerald-500/[0.04]"
+                      : tone === "amber"
+                        ? "border-amber-500/25 bg-amber-500/[0.04]"
+                        : tone === "rose"
+                          ? "border-rose-500/25 bg-rose-500/[0.04]"
+                          : "border-slate-800 bg-slate-950/40";
+                  const eyebrowClass =
+                    tone === "emerald"
+                      ? "text-emerald-300"
+                      : tone === "amber"
+                        ? "text-amber-300"
+                        : tone === "rose"
+                          ? "text-rose-300"
+                          : "text-slate-400";
+                  const stripeClass =
+                    tone === "emerald"
+                      ? "bg-gradient-to-b from-emerald-400/70 via-emerald-500/40 to-transparent"
+                      : tone === "amber"
+                        ? "bg-gradient-to-b from-amber-400/70 via-amber-500/40 to-transparent"
+                        : tone === "rose"
+                          ? "bg-gradient-to-b from-rose-400/70 via-rose-500/40 to-transparent"
+                          : "bg-gradient-to-b from-slate-400/70 via-slate-500/40 to-transparent";
+                  const dotClass =
+                    tone === "emerald"
+                      ? "bg-emerald-400"
+                      : tone === "amber"
+                        ? "bg-amber-400"
+                        : tone === "rose"
+                          ? "bg-rose-400"
+                          : "bg-slate-400";
+                  return (
+                    <section
+                      key={ci}
+                      className={`relative overflow-hidden rounded-xl border p-5 sm:p-6 ${surfaceClass}`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`absolute inset-y-0 left-0 w-0.5 ${stripeClass}`}
+                      />
+                      <div className="flex items-center gap-2">
+                        <span className={`h-1.5 w-1.5 rounded-full ${dotClass}`} />
+                        <p
+                          className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${eyebrowClass}`}
+                        >
+                          {c.title}
+                        </p>
+                      </div>
+                      {c.paragraphs && c.paragraphs.length > 0 && (
+                        <div className="mt-3 space-y-3">
+                          {c.paragraphs.map((p, pi) => (
+                            <p
+                              key={pi}
+                              className="text-[13.5px] leading-relaxed text-slate-200"
+                            >
+                              {p}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+                      {c.points && c.points.length > 0 && (
+                        <ul className="mt-3 space-y-1.5">
+                          {c.points.map((p, pi) => (
+                            <DiscussionBullet key={pi} tone="muted">
+                              {p}
+                            </DiscussionBullet>
+                          ))}
+                        </ul>
+                      )}
+                      {c.closing && (
+                        <p className="mt-4 text-[13px] leading-relaxed text-slate-300">
+                          {c.closing}
+                        </p>
+                      )}
+                    </section>
+                  );
+                })}
               </div>
             )}
             <div
@@ -3848,42 +4148,105 @@ const ResourceOptionsPane = () => {
                 </ul>
               </div>
             </div>
-            <div className={`rounded-lg border px-4 py-3 ${keyToneClass}`}>
-              <p
-                className={`text-[11px] font-semibold uppercase tracking-[0.14em] ${keyLabelClass}`}
-              >
-                {opt.keyLabel}
-              </p>
-              <p className="mt-1 text-[13.5px] font-medium leading-relaxed">
-                {opt.keyText}
-              </p>
-              {opt.keyDetail && (
-                <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.04] p-3.5">
-                    <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
-                      <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500/25 text-[9px] font-bold leading-none">
-                        ✓
-                      </span>
-                      {opt.keyDetail.insteadIntro}
-                    </p>
-                    <p className="mt-2 rounded-md border border-emerald-500/20 bg-slate-950/60 px-3 py-2 font-mono text-[11.5px] leading-relaxed text-emerald-200">
-                      {opt.keyDetail.instead}
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-3.5">
-                    <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-rose-300">
-                      <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-rose-500/25 text-[9px] font-bold leading-none">
-                        ✗
-                      </span>
-                      {opt.keyDetail.forceIntro}
-                    </p>
-                    <p className="mt-2 rounded-md border border-rose-500/25 bg-slate-950/60 px-3 py-2 font-mono text-[11.5px] leading-relaxed text-rose-200">
-                      {opt.keyDetail.force}
-                    </p>
-                  </div>
+            {opt.coreProblem && (
+              <section className="relative overflow-hidden rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-5 sm:p-6">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-0.5 bg-gradient-to-b from-rose-400/70 via-rose-500/40 to-transparent"
+                />
+                <div className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-rose-300">
+                    {opt.coreProblem.title ?? "Core problem"}
+                  </p>
                 </div>
-              )}
-            </div>
+                <p className="mt-3 text-[14.5px] font-semibold leading-snug text-slate-50">
+                  {opt.coreProblem.headline}
+                </p>
+                <p className="mt-3 text-[13px] leading-relaxed text-slate-300">
+                  {opt.coreProblem.intro}
+                </p>
+                <ul className="mt-2 space-y-1.5">
+                  {opt.coreProblem.points.map((p, i) => (
+                    <DiscussionBullet key={i} tone="muted">
+                      {p}
+                    </DiscussionBullet>
+                  ))}
+                </ul>
+                {opt.coreProblem.closing && (
+                  <p className="mt-4 text-[13px] leading-relaxed text-slate-300">
+                    {opt.coreProblem.closing}
+                  </p>
+                )}
+                {opt.coreProblem.sequence && (
+                  <div className="mt-4 grid gap-3 md:grid-cols-2">
+                    <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/[0.04] p-3.5">
+                      <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                        <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500/25 text-[9px] font-bold leading-none">
+                          ✓
+                        </span>
+                        {opt.coreProblem.sequence.insteadIntro}
+                      </p>
+                      <p className="mt-2 rounded-md border border-emerald-500/20 bg-slate-950/60 px-3 py-2 font-mono text-[11.5px] leading-relaxed text-emerald-200">
+                        {opt.coreProblem.sequence.instead}
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-rose-500/25 bg-rose-500/[0.04] p-3.5">
+                      <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-rose-300">
+                        <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-rose-500/25 text-[9px] font-bold leading-none">
+                          ✗
+                        </span>
+                        {opt.coreProblem.sequence.forceIntro}
+                      </p>
+                      <p className="mt-2 rounded-md border border-rose-500/25 bg-slate-950/60 px-3 py-2 font-mono text-[11.5px] leading-relaxed text-rose-200">
+                        {opt.coreProblem.sequence.force}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </section>
+            )}
+            {opt.keyText && (
+              <div className={`rounded-lg border px-4 py-3 ${keyToneClass}`}>
+                <p
+                  className={`text-[11px] font-semibold uppercase tracking-[0.14em] ${keyLabelClass}`}
+                >
+                  {opt.keyLabel}
+                </p>
+                <p className="mt-1 text-[13.5px] font-medium leading-relaxed">
+                  {opt.keyText}
+                </p>
+                {opt.keyTextExtra && (
+                  <p className="mt-2.5 text-[13.5px] font-medium leading-relaxed">
+                    {opt.keyTextExtra}
+                  </p>
+                )}
+              </div>
+            )}
+            {opt.whyTempting && (
+              <section className="relative overflow-hidden rounded-xl border border-slate-700/60 bg-slate-950/40 p-5 sm:p-6">
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-y-0 left-0 w-0.5 ${accentStripeClass}`}
+                />
+                <div className="flex items-center gap-2">
+                  <span className={`h-1.5 w-1.5 rounded-full ${accentDotClass}`} />
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    {opt.whyTempting.title}
+                  </p>
+                </div>
+                <div className="mt-3 space-y-3">
+                  {opt.whyTempting.paragraphs.map((p, i) => (
+                    <p
+                      key={i}
+                      className="text-[13.5px] leading-relaxed text-slate-300"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            )}
             <div
               className={`flex items-center gap-3 rounded-lg border px-4 py-3 ${fitToneClass}`}
             >
@@ -3915,191 +4278,149 @@ const ResourceOptionsPane = () => {
     {/* Comparison table — at-a-glance scoring across six dimensions (1–5) */}
     <section className="space-y-4">
       <DiscussionEyebrow>Comparison of approaches</DiscussionEyebrow>
-      <div className="overflow-x-auto rounded-2xl border border-slate-800">
-        <table className="w-full border-collapse text-left text-[12px]">
+      <p className="max-w-3xl text-[13.5px] leading-relaxed text-slate-400 sm:text-[14px]">
+        My assessment of the four approaches against the ideal journey. Each
+        carries trade-offs; the table summarises where each is strongest and
+        where it breaks down.
+      </p>
+      <div className="overflow-hidden rounded-2xl border border-slate-800">
+        <table className="w-full border-collapse text-left text-[12.5px]">
           <thead className="bg-slate-950/70">
             <tr>
-              {[
-                {
-                  label: "Approach",
-                  hint: "Which option is being scored.",
-                },
-                {
-                  label: "Immediate validation",
-                  hint:
-                    "Can the user send a real test message right after creating the agent, with no further setup?",
-                },
-                {
-                  label: "Timing of app responsibility",
-                  hint:
-                    "When the user is asked to take ownership of the Conversation API app — immediately, deferred, or hidden behind the platform.",
-                },
-                {
-                  label: "Developer control",
-                  hint:
-                    "How much explicit control developers have over the app, credentials, and integration boundaries.",
-                },
-                {
-                  label: "UX friction",
-                  hint:
-                    "How much effort the option asks of the user before they can get to a working test.",
-                },
-                {
-                  label: "System clarity",
-                  hint:
-                    "How clearly the option conveys what's actually happening — agent, app, credentials, webhooks.",
-                },
-                {
-                  label: "Behaviour alignment",
-                  hint:
-                    "How closely the option matches the test-first sequence observed in the research.",
-                },
-                {
-                  label: "Total",
-                  hint: "Sum of the six dimension scores. Higher = better fit.",
-                },
-              ].map((h) => (
-                <th
-                  key={h.label}
-                  className="border-b border-slate-800 px-3 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400"
-                >
-                  <span
-                    tabIndex={0}
-                    className="group relative inline-flex cursor-help items-center gap-1 outline-none focus-visible:text-slate-200"
-                  >
-                    {h.label}
-                    {/* Hover/focus popover — short explanation of the column.
-                        Positioned absolutely below the header so it doesn't
-                        push table layout. */}
-                    <span
-                      role="tooltip"
-                      className="pointer-events-none absolute left-1/2 top-full z-30 mt-2 w-56 -translate-x-1/2 rounded-lg border border-indigo-500/40 bg-slate-900/95 px-3 py-2 text-[11.5px] font-normal normal-case tracking-normal leading-relaxed text-slate-200 opacity-0 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.9),0_8px_20px_-12px_rgba(99,102,241,0.35)] backdrop-blur-md transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
-                    >
-                      {h.hint}
-                    </span>
-                  </span>
-                </th>
-              ))}
+              <th className="border-b border-slate-800 px-4 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400 sm:w-[26%]">
+                Approach
+              </th>
+              <th className="border-b border-slate-800 px-4 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-300">
+                Pros
+              </th>
+              <th className="border-b border-slate-800 px-4 py-3 align-top text-[11px] font-semibold uppercase tracking-[0.12em] text-rose-300">
+                Cons
+              </th>
             </tr>
           </thead>
           <tbody>
             {[
               {
                 opt: "Require app setup",
-                immediate: 1,
-                timing: 1,
-                control: 5,
-                ux: 1,
-                clarity: 4,
-                alignment: 1,
-                total: 13,
+                tag: "current production",
+                pros: [
+                  "Aligned with technical architecture",
+                  "Clear ownership from the start",
+                  "No hidden behaviour",
+                  "Conceptually correct for production use",
+                  "Users are integration-ready as soon as setup is complete — compliance approval runs in parallel",
+                ],
+                cons: [
+                  "Blocks validation at the wrong moment",
+                  "Mixes testing, integration, and compliance",
+                  "High friction for both personas",
+                  "Forces integration thinking before testing has even started",
+                ],
               },
               {
                 opt: "Auto-create app",
-                immediate: 5,
-                timing: 2,
-                control: 1,
-                ux: 5,
-                clarity: 2,
-                alignment: 3,
-                total: 18,
+                pros: [
+                  "Removes setup friction",
+                  "User can test immediately",
+                  "Lower implementation cost than a managed test app",
+                ],
+                cons: [
+                  "Integration happens invisibly",
+                  "User has no context for the app — and encounters it later as something they didn't choose",
+                  "Breaks ownership before integration begins",
+                  "Pushes the cost to later: auto-created apps accumulate as orphaned resources in the user's inventory",
+                ],
               },
               {
                 opt: "Guided connection",
-                immediate: 2,
-                timing: 2,
-                control: 4,
-                ux: 3,
-                clarity: 4,
-                alignment: 4,
-                total: 19,
+                tag: "current new RCS direction",
+                pros: [
+                  "Preserves user-initiated ownership",
+                  "Explains the system as setup happens",
+                  "More transparent than auto-create",
+                ],
+                cons: [
+                  "Forces integration thinking during testing — earlier than the journey suggests",
+                  "Reintroduces the friction the test-first flow is meant to avoid",
+                  "Still asks users to engage with integration concepts before they've decided to integrate",
+                ],
               },
               {
-                opt: "Managed test mode",
-                immediate: 5,
-                timing: 5,
-                control: "5*" as const,
-                ux: 5,
-                clarity: 4,
-                alignment: 5,
-                total: 29,
+                opt: "System-managed test app",
+                tag: "recommended",
+                pros: [
+                  "Test and integration are sequenced as the research suggests",
+                  "No setup before first value",
+                  "Ownership preserved for when integration begins",
+                  "No blurred lines: when a user creates an app, it's because they want to integrate",
+                  "Compliance, integration, and validation stop competing for attention in the same step",
+                ],
+                cons: [
+                  "Adds platform-side complexity",
+                  "Requires clear handoff on the integration side, from test app to user-owned app",
+                  "If the handoff is invisible, developers may be surprised when an app appears later",
+                ],
                 isRec: true,
               },
             ].map((row, ri) => {
               const isRec = !!row.isRec;
-              const scoreClass = (v: number | string) => {
-                const n =
-                  typeof v === "number"
-                    ? v
-                    : parseInt(String(v).replace(/\D.*/, ""), 10);
-                if (n >= 5)
-                  return "border-emerald-500/30 bg-emerald-500/10 text-emerald-200";
-                if (n === 4)
-                  return "border-indigo-500/30 bg-indigo-500/10 text-indigo-200";
-                if (n === 3)
-                  return "border-amber-500/30 bg-amber-500/10 text-amber-200";
-                return "border-rose-500/30 bg-rose-500/10 text-rose-200";
-              };
-              const totals = [13, 18, 19, 29];
-              const max = Math.max(...totals);
-              const totalClass = (t: number) => {
-                if (t === max)
-                  return "border-emerald-500/40 bg-emerald-500/15 text-emerald-100";
-                if (t >= 18)
-                  return "border-indigo-500/30 bg-indigo-500/10 text-indigo-200";
-                return "border-rose-500/30 bg-rose-500/10 text-rose-200";
-              };
-              const Score = ({ v }: { v: number | string }) => (
-                <span
-                  className={`inline-flex min-w-[28px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-semibold tabular-nums ${scoreClass(v)}`}
-                >
-                  {v}
-                </span>
-              );
+              const tagClass =
+                row.tag === "recommended"
+                  ? "border-emerald-500/40 bg-emerald-500/15 text-emerald-200"
+                  : row.tag === "current new RCS direction"
+                    ? "border-violet-500/40 bg-violet-500/15 text-violet-200"
+                    : row.tag === "minimal-change alternative"
+                      ? "border-slate-500/40 bg-slate-500/15 text-slate-200"
+                      : "border-amber-500/35 bg-amber-500/15 text-amber-200";
               return (
                 <tr
                   key={ri}
-                  className={`${
+                  className={`align-top ${
                     isRec
                       ? "bg-emerald-500/[0.05]"
                       : "border-b border-slate-800/60 last:border-0"
                   }`}
                 >
-                  <td className="px-3 py-3 align-middle font-semibold text-slate-100">
-                    <span className="mr-2 font-mono text-[11px] tabular-nums text-slate-500">
-                      0{ri + 1}
-                    </span>
-                    {row.opt}
-                    {isRec && (
-                      <span className="ml-2 inline-flex items-center rounded border border-emerald-500/40 bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-200">
-                        Recommended
+                  <td className="px-4 py-4 align-top font-semibold text-slate-100">
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-mono text-[11px] tabular-nums text-slate-500">
+                        0{ri + 1}
+                      </span>
+                      <span>{row.opt}</span>
+                    </div>
+                    {row.tag && (
+                      <span
+                        className={`mt-2 inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] ${tagClass}`}
+                      >
+                        {row.tag}
                       </span>
                     )}
                   </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.immediate} />
+                  <td className="px-4 py-4 align-top">
+                    <ul className="space-y-1.5">
+                      {row.pros.map((t, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-[12.5px] leading-relaxed text-slate-200"
+                        >
+                          <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
+                          <span>{t}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.timing} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.control} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.ux} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.clarity} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <Score v={row.alignment} />
-                  </td>
-                  <td className="px-3 py-3 align-middle">
-                    <span
-                      className={`inline-flex min-w-[36px] items-center justify-center rounded border px-2 py-0.5 text-[11.5px] font-bold tabular-nums ${totalClass(row.total)}`}
-                    >
-                      {row.total}
-                    </span>
+                  <td className="px-4 py-4 align-top">
+                    <ul className="space-y-1.5">
+                      {row.cons.map((t, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-[12.5px] leading-relaxed text-slate-200"
+                        >
+                          <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-rose-400" />
+                          <span>{t}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </td>
                 </tr>
               );
@@ -4107,11 +4428,6 @@ const ResourceOptionsPane = () => {
           </tbody>
         </table>
       </div>
-      <p className="text-[11.5px] leading-relaxed text-slate-500">
-        Scored 1 (worst) to 5 (best) on each dimension.{" "}
-        <span className="font-mono text-slate-400">5*</span> — control granted
-        at the integration stage, not during testing.
-      </p>
     </section>
 
   </div>
@@ -4198,7 +4514,7 @@ const ResourceCreationDialog = ({
                 />
                 <div className="min-w-0">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-300">
-                    Discussion · Linked from Step 5
+                    Discussion
                   </p>
                   <h2 className="mt-0.5 truncate text-base font-semibold text-slate-50 sm:text-base">
                     Resource creation: timing, motivation, and ownership
@@ -4292,17 +4608,6 @@ const ResourceCreationDialog = ({
               )}
               </AnimatePresence>
 
-              {/* Footer — always visible at the end of any tab */}
-              <footer className="mt-12 border-t border-slate-800 pt-6">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-4 py-2.5 text-[12px] font-medium text-slate-300 transition hover:border-indigo-400/70 hover:text-indigo-300"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                  Back to Step 5
-                </button>
-              </footer>
             </div>
           </motion.div>
         </motion.div>
@@ -4426,7 +4731,7 @@ const ExecutiveSummary = () => (
         <SectionHeader
           number="01"
           eyebrow="Executive summary"
-          title="What the research shows, in seven lines."
+          title="What the research shows, in seven points."
         />
       </SectionReveal>
       <StaggerGroup className="divide-y divide-slate-800 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm">
@@ -4460,6 +4765,11 @@ const ExecutiveSummary = () => (
                       </li>
                     ))}
                   </ul>
+                )}
+                {t.closing && (
+                  <p className="!mt-3 text-[14px] leading-relaxed text-slate-300">
+                    {t.closing}
+                  </p>
                 )}
               </div>
             </div>
@@ -5687,10 +5997,10 @@ const IdealJourney = ({
             number="02"
             eyebrow="Ideal onboarding journey"
             title="A research-backed journey based on how participants actually approached messaging."
-            intro="Across sessions, users followed a consistent pattern: first proving the product works, then moving toward setup, integration, and go-live. This journey reflects that progression, organised into two themes:"
+            intro="Across sessions, a strong pattern emerged: users first try to prove that messaging works, then move toward setup, integration, and go-live when those steps become relevant. This journey reflects a common progression observed in the sessions, organised into two phases:"
             introBullets={[
-              "Theme 1 focuses on proving value.",
-              "Theme 2 focuses on getting ready for production.",
+              "Phase 1 focuses on proving value.",
+              "Phase 2 focuses on getting ready for production.",
             ]}
           />
           {/* Important note — frames the journey as a research artefact, not
@@ -5707,9 +6017,10 @@ const IdealJourney = ({
                 Important note
               </p>
               <p className="mt-1.5 text-[14px] leading-relaxed text-amber-100/90 sm:text-[14.5px]">
-                This journey is based on observed user behaviour. It’s designed
-                to help us understand user needs and decision points, not to be
-                implemented as-is.
+                This journey reflects common behaviours observed among
+                users trying to use messaging. It highlights key behaviours
+                and transitions, and should inform — not dictate — how
+                onboarding is structured.
               </p>
             </div>
           </div>
@@ -5733,10 +6044,6 @@ const IdealJourney = ({
           <ol className="space-y-7">
             {JOURNEY.flatMap((theme, ti) => {
               const isFirstTheme = ti === 0;
-              const themeAccent = isFirstTheme
-                ? "text-indigo-300"
-                : "text-slate-300";
-
               return [
                 /* Theme 2 transition card — unified panel that holds both
                    the "Customers made a decision" framing and the Theme 2
@@ -5748,80 +6055,122 @@ const IdealJourney = ({
                   ? [
                       <li
                         key={`${theme.id}-transition`}
-                        className="relative pl-10 pt-16 sm:pl-14 sm:pt-20"
+                        className="relative pt-16 sm:pt-20"
                       >
-                        <div className="overflow-hidden rounded-2xl border border-violet-500/30 bg-gradient-to-br from-violet-500/[0.10] via-indigo-500/[0.05] to-transparent shadow-[0_24px_60px_-32px_rgba(139,92,246,0.4)]">
-                          {/* Top half — phase-shift narrative */}
-                          <div className="px-6 py-6 sm:px-8 sm:py-7">
-                            <div className="flex items-center gap-3">
-                              <span
-                                aria-hidden="true"
-                                className="h-px flex-1 bg-gradient-to-r from-transparent via-violet-500/40 to-violet-400/70"
-                              />
-                              <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-violet-500/[0.08] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-200">
-                                <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_8px_rgba(167,139,250,0.7)]" />
-                                Phase shift
+                        {/* Phase 2 — minimal text-only divider. No card
+                            chrome, sits on the page background so it reads
+                            as a transition, not a step card. */}
+                        <div className="mx-auto max-w-2xl text-center">
+                          <div className="flex items-center gap-3">
+                            <span
+                              aria-hidden="true"
+                              className="h-px flex-1 bg-gradient-to-r from-transparent via-violet-500/30 to-violet-400/60"
+                            />
+                            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-violet-300">
+                              <span className="inline-block h-1 w-1 rounded-full bg-violet-400" />
+                              Phase 2
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              className="h-px flex-1 bg-gradient-to-l from-transparent via-violet-500/30 to-violet-400/60"
+                            />
+                          </div>
+                          <p className="mt-4 text-[18px] font-semibold tracking-tight leading-snug text-violet-50 sm:text-[20px]">
+                            From validation to integration
+                          </p>
+                          <p className="mt-3 text-[13px] leading-relaxed text-violet-100/75 sm:text-[13.5px]">
+                            After validating that messaging works, developers
+                            can shift from exploring the product to
+                            integrating it into their own system. Their
+                            needs change:
+                          </p>
+                          <ul className="mx-auto mt-3 grid max-w-md gap-1.5 text-[13px] leading-relaxed text-violet-100/85 sm:text-[13.5px]">
+                            <li className="grid grid-cols-[1fr_auto_1fr] items-baseline gap-3">
+                              <span className="text-right text-violet-200/60">
+                                simplicity
                               </span>
-                              <span
-                                aria-hidden="true"
-                                className="h-px flex-1 bg-gradient-to-l from-transparent via-violet-500/40 to-violet-400/70"
-                              />
-                            </div>
-                            <p className="mt-5 text-center text-[18px] font-semibold leading-snug text-violet-50 sm:text-[20px]">
-                              Customers made a decision.
-                            </p>
-                            <p className="mx-auto mt-2 max-w-xl text-center text-[12.5px] leading-relaxed text-violet-200/80 sm:text-[13px]">
-                              The journey moves from{" "}
-                              <em className="not-italic font-semibold text-violet-100">
-                                proving value
-                              </em>{" "}
-                              to{" "}
-                              <em className="not-italic font-semibold text-violet-100">
-                                getting ready for production
-                              </em>
-                              .
-                            </p>
-                          </div>
-                          {/* Divider — internal separator inside the card */}
-                          <div
-                            aria-hidden="true"
-                            className="h-px bg-gradient-to-r from-transparent via-violet-500/25 to-transparent"
-                          />
-                          {/* Bottom half — Theme 2 intro */}
-                          <div className="px-6 py-5 sm:px-8 sm:py-6">
-                            <p className="flex items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.18em] text-violet-300">
-                              <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.7)]" />
-                              {theme.label}
-                            </p>
-                            <p className="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-slate-300 sm:text-[14px]">
-                              {theme.subtitle}
-                            </p>
-                          </div>
+                              <span className="font-mono text-violet-300">
+                                →
+                              </span>
+                              <span className="text-left font-semibold text-violet-50">
+                                control
+                              </span>
+                            </li>
+                            <li className="grid grid-cols-[1fr_auto_1fr] items-baseline gap-3">
+                              <span className="text-right text-violet-200/60">
+                                abstraction
+                              </span>
+                              <span className="font-mono text-violet-300">
+                                →
+                              </span>
+                              <span className="text-left font-semibold text-violet-50">
+                                clarity
+                              </span>
+                            </li>
+                            <li className="grid grid-cols-[1fr_auto_1fr] items-baseline gap-3">
+                              <span className="text-right text-violet-200/60">
+                                testing
+                              </span>
+                              <span className="font-mono text-violet-300">
+                                →
+                              </span>
+                              <span className="text-left font-semibold text-violet-50">
+                                ownership
+                              </span>
+                            </li>
+                          </ul>
+                          <p className="mt-3 text-[12.5px] leading-relaxed text-violet-200/60">
+                            Introducing integration concerns too early creates
+                            friction. At this moment they align with user
+                            intent.
+                          </p>
+                          <p className="mx-auto mt-5 max-w-xl text-[14px] font-semibold leading-snug text-violet-50 sm:text-[15px]">
+                            For developers, the critical moment is not only the first message.
+                            <br />
+                            It’s when users decide to move from testing to
+                            integration.
+                          </p>
                         </div>
                       </li>,
                     ]
                   : [
+                      /* Phase 1 — same minimal text-only treatment as
+                         Phase 2, indigo accent, sits on the page background
+                         so it reads as a transition, not a step card. */
                       <li
                         key={`${theme.id}-label`}
-                        className="relative pl-10 sm:pl-14"
+                        className="relative"
                       >
-                        {/* Theme waypoint dot — keeps Theme 1 anchored to
-                            the journey rail (Theme 2 uses the unified card
-                            above instead). */}
-                        <span
-                          aria-hidden="true"
-                          className="absolute left-0 top-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 shadow-[0_0_0_4px_rgb(2_6_23)] sm:h-10 sm:w-10"
-                        >
-                          <span className="h-3 w-3 rounded-full bg-indigo-400 ring-1 ring-indigo-300/40 shadow-[0_0_12px_rgba(129,140,248,0.7)]" />
-                        </span>
-                        <p
-                          className={`text-[11.5px] font-semibold uppercase tracking-[0.18em] ${themeAccent}`}
-                        >
-                          {theme.label}
-                        </p>
-                        <p className="mt-2 max-w-2xl text-[14px] leading-relaxed text-slate-400">
-                          {theme.subtitle}
-                        </p>
+                        <div className="mx-auto max-w-2xl text-center">
+                          <div className="flex items-center gap-3">
+                            <span
+                              aria-hidden="true"
+                              className="h-px flex-1 bg-gradient-to-r from-transparent via-indigo-500/30 to-indigo-400/60"
+                            />
+                            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-indigo-300">
+                              <span className="inline-block h-1 w-1 rounded-full bg-indigo-400" />
+                              Phase 1
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              className="h-px flex-1 bg-gradient-to-l from-transparent via-indigo-500/30 to-indigo-400/60"
+                            />
+                          </div>
+                          <p className="mt-4 text-[18px] font-semibold tracking-tight leading-snug text-indigo-50 sm:text-[20px]">
+                            From curiosity to validation
+                          </p>
+                          <p className="mt-3 text-[14px] italic leading-snug text-indigo-100/85 sm:text-[15px]">
+                            “Does this actually work?”
+                          </p>
+                          <p className="mt-3 text-[13px] leading-relaxed text-indigo-100/75 sm:text-[13.5px]">
+                            At this stage, users tend to value{" "}
+                            <span className="text-indigo-100">speed</span>,{" "}
+                            <span className="text-indigo-100">simplicity</span>, and{" "}
+                            <span className="text-indigo-100">immediate feedback</span>{" "}
+                            over completeness, control, and configuration.
+                            This is where the product proves its value.
+                          </p>
+                        </div>
                       </li>,
                     ]),
                 ...theme.steps.map((s) => (
