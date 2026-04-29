@@ -3547,10 +3547,9 @@ const ResourceOptionsPane = () => {
         ],
         cons: [
           "Integration happens invisibly. The user has been integrated by the platform without being told.",
-          "The user has no context for the app: no name they chose, no purpose they understand, no moment of intent.",
-          "Ownership is broken before integration begins. When the user later moves toward integration, they're not creating their app — they're inheriting one.",
-          "The auto-created app conflates testing infrastructure with production infrastructure. A user may build their integration on top of an app that was created for a different purpose.",
-          "P12: “I just got dropped here.” — This is the failure mode the option produces, articulated by a participant who experienced it directly.",
+          "Ownership is broken before integration begins — the user has no context, no naming, no intent for the app, and later encounters it as something they didn't choose. P12: “I just got dropped here.”",
+          "Conflates test and production infrastructure — users may build their integration on top of an app that was originally created as test scaffolding.",
+          "Pushes the cost to later: auto-created apps accumulate as orphaned resources in the user's inventory, especially as users create multiple agents over time.",
         ],
         keyLabel: "Key issue",
         keyText:
@@ -3567,7 +3566,7 @@ const ResourceOptionsPane = () => {
         },
         fitIcon: "⚠️",
         fitText:
-          "Solves short-term friction, but creates long-term confusion",
+          "Solves short-term friction, but breaks ownership and creates downstream cost",
         fitTone: "amber" as const,
       },
       {

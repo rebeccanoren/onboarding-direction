@@ -76,7 +76,7 @@ export const transcripts: Transcript[] = [
     sourceFile: "RCS Getting started 2.0-7-dev-internal.txt",
     audience: "internal",
     summary:
-      "P7 (internal) tested RCS Getting started 2.0 onboarding for RCS setup. Appreciated the sandbox metaphor and API playground for testing, described the flow from test messages to API integration, and suggested linking to live production setup earlier. Praised the UI design and hand-holding through regulatory steps.",
+      "P7 (internal) tested RCS Getting started 2.0 onboarding for RCS setup. Appreciated the RCS Getting started 2.0 environment and API playground for testing, described the flow from test messages to API integration, and suggested linking to live production setup earlier. Praised the UI design and hand-holding through regulatory steps.",
   },
   {
     id: "t08",

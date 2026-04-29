@@ -127,7 +127,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         "Then decide if it’s worth using.",
       ],
       closing:
-        "They explicitly wanted a fast way to validate the product without needing to sign up fully or configure everything — a sandbox where they can test:",
+        "They explicitly wanted a fast way to validate the product without needing to sign up fully or configure everything — a test environment where they can:",
       quote:
         "without account, without card details… just to see if this is interesting.",
     },
@@ -137,13 +137,13 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         conceptSubtitle: "Lovable-style test experience",
         whatHappened: [
           "Started by reading the documentation to understand how the API worked.",
-          "Moved into the sandbox, copied the example request, and sent a test message.",
+          "Moved into RCS Getting started 1.0, copied the example request, and sent a test message.",
           "Inspected the request and response side-by-side and felt the task was complete.",
         ],
         whatWorked: [
           "Clear path to send a test message with minimal setup.",
           "Could copy working requests, see request + response, and inspect payloads.",
-          "Felt like a true sandbox — removed the “wall” of sign-up, approval, and credit card.",
+          "Felt like a true test environment — removed the “wall” of sign-up, approval, and credit card.",
           "Strongly validated as a better first experience: faster than the current flow, removes friction, proves value early.",
         ],
         keyStrengths: [
@@ -165,7 +165,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           {
             title: "Clear separation of concerns (mostly)",
             points: [
-              "The sandbox was perceived as a testing environment — not a production setup.",
+              "RCS Getting started 1.0 was perceived as a testing environment — not a production setup.",
               "This worked better than the previous test.",
             ],
           },
@@ -174,7 +174,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           {
             title: "RCS Getting started vs real product gap",
             points: [
-              "The sandbox teaches the product capability, but not how the real dashboard works.",
+              "RCS Getting started 1.0 teaches the product capability, but not how the real dashboard works.",
               "After testing, users will still enter a complex real setup — agents, senders, real configuration.",
               "Risk: user thinks “this is easy” → then hits complexity later.",
             ],
@@ -183,9 +183,9 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           {
             title: "Complexity is hidden, not explained",
             points: [
-              "The user explicitly acknowledged that real setup is complex (webhooks, countries, approvals, etc.) — but the sandbox hides this.",
+              "The user explicitly acknowledged that real setup is complex (webhooks, countries, approvals, etc.) — but RCS Getting started 1.0 hides this.",
               "Tension: good for reducing friction early, but risks a mismatch with reality later.",
-              "They questioned whether this complexity even belongs in the sandbox at all.",
+              "They questioned whether this complexity even belongs in a test environment like this at all.",
             ],
             supportingQuoteIds: ["q074", "q011"],
           },
@@ -224,18 +224,18 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     behavioralPattern: [
       "Look for documentation or explanation first.",
       "Understand how sending works.",
-      "Find a way to test quickly (sandbox).",
+      "Find a way to test quickly (RCS Getting started 1.0).",
       "Send message and inspect request/response.",
       "Stop once value is proven.",
     ],
     crossCutting: {
-      title: "A great sandbox can prove value, but it does not replace onboarding.",
+      title: "RCS Getting started 1.0 can prove value, but it does not replace onboarding.",
       intro:
         "The user did not want to continue into full setup. They considered the task complete after testing — but flagged that the path beyond testing isn’t addressed.",
       bullets: [
-        "The sandbox successfully removes friction and proves value.",
+        "RCS Getting started 1.0 successfully removes friction and proves value.",
         "But it creates a gap between “this looks easy” and “this is actually complex.”",
-        "The product currently either shows too much complexity too early (old flow) or hides too much complexity (sandbox).",
+        "The product currently either shows too much complexity too early (old flow) or hides too much complexity (RCS Getting started 1.0).",
       ],
       consequences: [
         "Users can test easily.",
@@ -253,7 +253,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
       missingPiece: {
         title: "What’s missing — a clearer bridge between:",
         items: [
-          "Testing the product (sandbox).",
+          "Testing the product (RCS Getting started 1.0).",
           "Understanding how to actually use it in production (dashboard + setup).",
         ],
       },
@@ -348,7 +348,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           {
             title: "Clear value and capability",
             points: [
-              "The sandbox made it obvious what Sinch can do and what channels exist.",
+              "RCS Getting started 1.0 made it obvious what Sinch can do and what channels exist.",
               "Helped them understand the big picture quickly.",
             ],
           },
@@ -828,7 +828,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         whatHappened: [
           "Followed the step-based flow and found explanations of RCS, pricing, APIs, and setup.",
           "Hit access key and message-edit friction during what they expected to be a quick test.",
-          "Compared it to the sandbox and concluded the previous version was easier to work with for action.",
+          "Compared it to RCS Getting started 1.0 and concluded the previous version was easier to work with for action.",
         ],
         keyStrengths: [
           {
@@ -870,7 +870,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
             title: "Feels like documentation, not action",
             points: [
               "The user described this flow as more informational.",
-              "Compared to the sandbox: less interactive and harder to act on.",
+              "Compared to RCS Getting started 1.0: less interactive and harder to act on.",
             ],
             supportingQuoteIds: ["q106"],
           },
@@ -994,7 +994,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
             points: [
               "The user initially misinterpreted this feature.",
               "Did not clearly see how it connects to real implementation.",
-              "Even after opening it, still lacked clarity on how to move from sandbox → real code usage.",
+              "Even after opening it, still lacked clarity on how to move from RCS Getting started 1.0 → real code usage.",
             ],
             supportingQuoteIds: ["q109"],
           },
@@ -1040,7 +1040,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           {
             title: "Weak connection between test and real",
             points: [
-              "The sandbox is clearly isolated.",
+              "RCS Getting started 1.0 is clearly isolated.",
               "But not connected to the next step.",
               "User didn't know how the test relates to production setup.",
             ],
@@ -1062,7 +1062,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
         whatHappened: [
           "Followed the step-based flow and got useful explanations of APIs, agents, and pricing.",
           "Worked through fifteen steps but didn't feel anything had actually happened along the way.",
-          "Compared it directly to the sandbox and preferred the latter for its self-service, action-driven style.",
+          "Compared it directly to RCS Getting started 1.0 and preferred the latter for its self-service, action-driven style.",
         ],
         keyStrengths: [
           {
@@ -1085,7 +1085,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
             title: "Lack of progress and feedback",
             points: [
               "No sense of completion or progress.",
-              "Compared to the sandbox: much weaker engagement.",
+              "Compared to RCS Getting started 1.0: much weaker engagement.",
             ],
             supportingQuoteIds: ["q029"],
           },
@@ -1112,7 +1112,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
       {
         title: "Strong validation of test-first approach",
         body:
-          "The sandbox works very well — clear, actionable, and engaging.",
+          "RCS Getting started 1.0 works very well — clear, actionable, and engaging.",
         supportingQuoteIds: ["q026"],
       },
       {
@@ -1190,7 +1190,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
     concepts: [
       {
         concept: "RCS Getting started 2.0",
-        conceptSubtitle: "Step-by-step guided sandbox + agent creation",
+        conceptSubtitle: "Step-by-step guided test environment + agent creation",
         mainReaction:
           "This version felt like a clear improvement over previous onboarding experiences — more guided, less overwhelming, easier to understand what to do next.",
         mainReactionQuote:
@@ -1274,7 +1274,7 @@ export const transcriptAnalyses: TranscriptAnalysis[] = [
           {
             title: "“Test vs production” still slightly implicit",
             points: [
-              "The concept of sandbox vs real setup was understood, but not explicitly reinforced.",
+              "The concept of RCS Getting started 2.0 vs real setup was understood, but not explicitly reinforced.",
               "User relied on prior developer knowledge.",
               "Opportunity: make this distinction clearer for less experienced users.",
             ],

@@ -292,7 +292,7 @@ export const quotes: Quote[] = [
     originalLanguage: "Swedish",
     theme: "Production readiness",
     interpretation:
-      "A great sandbox proves capability but doesn't prepare users for the real dashboard's complexity — risking a 'this looks easy' / 'this is actually complex' mismatch.",
+      "RCS Getting started 1.0 proves capability but doesn't prepare users for the real dashboard's complexity — risking a 'this looks easy' / 'this is actually complex' mismatch.",
   },
   {
     id: "q074",
@@ -308,7 +308,7 @@ export const quotes: Quote[] = [
     originalLanguage: "Swedish",
     theme: "Setup friction",
     interpretation:
-      "Making the sandbox effortless is possible only by hiding real production complexity — raising a question of whether that complexity belongs in the sandbox at all.",
+      "Making RCS Getting started 1.0 effortless is possible only by hiding real production complexity — raising a question of whether that complexity belongs in it at all.",
   },
   {
     id: "q075",
@@ -743,7 +743,7 @@ export const quotes: Quote[] = [
     originalLanguage: "Swedish",
     theme: "Production readiness",
     interpretation:
-      "After a successful sandbox test, the next step isn't signposted — juniors are left without a clear path forward.",
+      "After a successful test in RCS Getting started 1.0, the next step isn't signposted — juniors are left without a clear path forward.",
   },
   {
     id: "q091",
@@ -790,7 +790,7 @@ export const quotes: Quote[] = [
       "It was easy to work. Even though I haven't worked with RCS or doing this thing before at all, I could get it, what's going on, and the steps were really organized — you could follow them easily.",
     theme: "Time-to-value",
     interpretation:
-      "Clear, organised steps in the sandbox enable first-time users to follow along without prior RCS experience.",
+      "Clear, organised steps in RCS Getting started 1.0 enable first-time users to follow along without prior RCS experience.",
   },
   {
     id: "q094",
@@ -986,7 +986,7 @@ export const quotes: Quote[] = [
     quote:
       "I I would say it's, to just try to send one, test message to see how it is working... So not really having to set up, but to test it out.",
     theme: "Time-to-value",
-    interpretation: "Clear sandbox purpose: test functionality without setup friction.",
+    interpretation: "Clear purpose for RCS Getting started 1.0: test functionality without setup friction.",
   },
   {
     id: "q027",
@@ -1012,7 +1012,7 @@ export const quotes: Quote[] = [
       "I think it was pretty straightforward. Only thing I missed was, like, some way to, like, go back from the test try RCS agent page... to creating the first RCS app for my own business.",
     theme: "Production readiness",
     interpretation:
-      "Missing navigation from sandbox testing to real agent creation leaves users stranded.",
+      "Missing navigation from RCS Getting started 1.0 testing to real agent creation leaves users stranded.",
   },
   {
     id: "q029",
@@ -1144,7 +1144,7 @@ export const quotes: Quote[] = [
       "it's kind of like, you know, like a playground type scenario... it's kinda like what you the environment to, play around with an API or something like that.",
     theme: "API playground",
     interpretation:
-      "Developer interprets 'sandbox' as a safe testing environment for APIs — aligns with mental model.",
+      "Developer interprets RCS Getting started 2.0 as a safe testing environment for APIs — aligns with mental model.",
   },
   {
     id: "q032",
@@ -1497,7 +1497,7 @@ export const quotes: Quote[] = [
       "I'm finding it difficult to find my way… I don't know how to find my way back to the app view that I was at previously.",
     theme: "Setup friction",
     interpretation:
-      "Navigation between sandbox, agent setup, and the app view is weak — users lose their place when moving between sections.",
+      "Navigation between RCS Getting started 2.0, agent setup, and the app view is weak — users lose their place when moving between sections.",
   },
 
   // --- t09 / P9 (Non-developer, RCS Getting started 2.0) ---

@@ -114,7 +114,7 @@ export interface Filters {
 export interface ComparisonRow {
   dimension: string;
   onboardingApp: string;
-  sandbox2: string;
+  rcs2: string;
   evidenceQuoteId: string;
 }
 

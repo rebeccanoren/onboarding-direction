@@ -5,7 +5,7 @@ export const insights: Insight[] = [
     id: "i01",
     title: "Developers want to test hands-on before they configure",
     body:
-      "Across developer sessions, the first thing participants reach for is a way to send a test message. P1 said 'I usually like to try it hands on as soon as possible.' P6 described the sandbox's purpose as 'just try to send one test message… not really having to set up.' P8 wanted to send a test message with their company name before webhook setup.",
+      "Across developer sessions, the first thing participants reach for is a way to send a test message. P1 said 'I usually like to try it hands on as soon as possible.' P6 described the purpose of RCS Getting started 1.0 as 'just try to send one test message… not really having to set up.' P8 wanted to send a test message with their company name before webhook setup.",
     relatedThemes: ["Time-to-value", "Setup friction"],
     relatedQuoteIds: ["q001", "q026", "q037", "q049"],
     relatedConcepts: ["RCS Getting started 2.0", "Onboarding app"],
