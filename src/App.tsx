@@ -697,7 +697,7 @@ const JOURNEY: JourneyTheme[] = [
             meta: "(curl, UI, or API playground)",
             bullets: [
               "Matches the message just sent.",
-              "Can be run immediately with no setup.",
+              "Can be run immediately with no user-managed setup.",
             ],
           },
           {
@@ -3625,7 +3625,7 @@ const ResourceOptionsPane = () => {
             heading: "In the UI",
             bullets: [
               "The user creates an agent and is taken directly to a screen where they can send a test message.",
-              "No app, no credentials, no setup — those concepts are not surfaced.",
+              "No app, no credentials, no user-managed setup — those concepts are not surfaced.",
               "Delivery status, logs, and events are shown directly in the UI.",
               "The agent appears connected and working, because it is.",
             ],
@@ -3673,7 +3673,7 @@ const ResourceOptionsPane = () => {
         ],
         pros: [
           "Test and integration are sequenced as the research suggests — validation first, integration when the user is ready.",
-          "No setup before first value. The user can answer “does this work?” without engaging with infrastructure.",
+          "No user-managed setup before first value. The user can answer “does this work?” without engaging with infrastructure.",
           "Ownership is preserved for when integration begins. The app the user owns is the app they chose.",
           "No blurred lines: when a user creates an app, it's because they want to integrate.",
           "Compliance, integration, and validation stop competing for attention in the same step.",
@@ -4350,7 +4350,7 @@ const ResourceOptionsPane = () => {
                 tag: "recommended",
                 pros: [
                   "Test and integration are sequenced as the research suggests",
-                  "No setup before first value",
+                  "No user-managed setup before first value",
                   "Ownership preserved for when integration begins",
                   "No blurred lines: when a user creates an app, it's because they want to integrate",
                   "Compliance, integration, and validation stop competing for attention in the same step",
@@ -5117,7 +5117,7 @@ const ApiPlaygroundMock = () => (
 // device, with avatar, rich card, and a Delivered checkmark in the metadata
 // row. Used for "Validate again" — the second value moment.
 const DeliveredMessageMock = () => (
-  <div className="mx-auto mb-5 max-w-md overflow-hidden rounded-xl border border-dashed border-slate-700 bg-slate-950/70 p-4 sm:p-5">
+  <div className="mx-auto mb-5 max-w-md">
     <div className="flex items-start gap-3">
       {/* Avatar — branded logo mark on a gradient disc */}
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 ring-2 ring-indigo-500/40">
