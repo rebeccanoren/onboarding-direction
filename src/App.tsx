@@ -756,7 +756,7 @@ const JOURNEY: JourneyTheme[] = [
         },
         businessSignal: {
           body:
-            "The Win/Loss Report Q1 2026 surfaces this directly: evaluations stalled when developers couldn’t move from documentation to running and inspecting requests on their own. Hands-on exploration is what closes the gap from interest to confidence — and what the report associates with deals progressing.",
+            "The Win/Loss Report Q1 2026 shows that integration gaps and API setup complexity can stall evaluations. This reinforces the need for runnable examples, clear system mapping, and ways for developers to inspect requests without depending on external support.",
         },
       },
       {
@@ -1036,23 +1036,27 @@ const JOURNEY: JourneyTheme[] = [
         description: [
           {
             kind: "check",
-            text: "Developer connects their backend to send and receive messages",
+            text: "Choose the API that matches the use case (REST, SMPP, Connect, or channel-specific APIs)",
           },
           {
             kind: "check",
-            text: "Creates a new Conversation API app or selects an existing one",
+            text: "Create or select the app that represents the integration, and authenticate with the credentials it provides",
           },
           {
             kind: "check",
-            text: "Connects the app to the RCS agent",
+            text: "Pick the regional endpoint that matches the deployment",
           },
           {
             kind: "check",
-            text: "Retrieves API credentials and sends messages from their own environment",
+            text: "Configure callback URLs to receive delivery reports and incoming events",
           },
           {
             kind: "check",
-            text: "Configures webhooks to handle incoming messages and delivery events",
+            text: "Set default originators — short codes, long numbers, alphanumeric IDs — and assign virtual numbers",
+          },
+          {
+            kind: "check",
+            text: "Connect to their backend and integrate messaging into their workflows",
           },
         ],
         keyAction: "Create app & connect",
@@ -1118,9 +1122,51 @@ const JOURNEY: JourneyTheme[] = [
               { text: "Webhooks", meta: "→ incoming events" },
             ],
           },
+          {
+            title: "Integration is layered, not single-step",
+            description:
+              "Real integration involves multiple decisions and configuration surfaces — not just creating one resource. Developers need a clear map of what each layer is for and where it lives in the product.",
+            bullets: [
+              {
+                text: "API type",
+                meta:
+                  "— REST, SMPP, Connect, or channel-specific (different use cases, different auth models)",
+              },
+              {
+                text: "Credentials",
+                meta:
+                  "— Service Plan ID + API token for REST, System ID + token for SMPP",
+              },
+              {
+                text: "Regional endpoint",
+                meta:
+                  "— Europe, US, etc., with region-specific URLs (e.g. eu.smpp.api.sinch.com:3601)",
+              },
+              {
+                text: "Callback URLs",
+                meta:
+                  "— delivery reports and incoming events, configured per app",
+              },
+              {
+                text: "Default originators",
+                meta:
+                  "— short codes, long numbers, alphanumeric sender IDs",
+              },
+              {
+                text: "Assigned numbers",
+                meta:
+                  "— virtual phone numbers tied to the service",
+              },
+              {
+                text: "Go live",
+                meta:
+                  "— a distinct guided path from test to production, surfaced separately",
+              },
+            ],
+          },
         ],
         whyClosing:
-          "If the app is auto-created and connected silently, this breaks ownership, clarity, and the developer’s understanding of how the system fits together. The app must be introduced when developers are ready to own it.",
+          "If the app is auto-created and connected silently, this breaks ownership, clarity, and the developer’s understanding of how the system fits together. The app must be introduced when developers are ready to own it — and the surrounding layers (region, callbacks, originators, numbers) must be discoverable, not hidden.",
         valueProps: [
           {
             title: "Enables real integration",
@@ -1174,7 +1220,7 @@ const JOURNEY: JourneyTheme[] = [
         },
         businessSignal: {
           body:
-            "Buyers in the Win/Loss Report Q1 2026 often walked away during integration, not at intent. The friction comes late in the cycle — when ownership is unclear and the path to a working integration is not obvious — and the cost of losing them is highest at this stage.",
+            "The Win/Loss Report Q1 2026 shows that buyers can walk away during onboarding and integration, even when intent is strong. The risk appears when ownership is unclear, setup requires extra support, or the path to a working integration is not obvious.",
           quote: "We were going to use you, but you’re just too difficult.",
         },
       },
@@ -3672,10 +3718,15 @@ const ResourceOptionsPane = () => {
         tag: "Recommended direction",
         tagColor: "emerald",
         flow: "Create agent → Validate in test mode → Integrate later",
-        meaningIntro:
-          "When users come to the product, their first goal is to test — to see whether messaging actually works. They do not need an app, credentials, or integration infrastructure yet. This option lets them act on that goal directly. The system handles the test infrastructure on their behalf; app setup is introduced only when the user moves toward integration, when it serves their goal.",
+        meaningIntro: [
+          "When users come to the product, their first goal is to test — to see whether messaging actually works. They do not need an app, credentials, or integration infrastructure yet.",
+          "This option lets them act on that goal directly.",
+          "The system handles the test infrastructure on their behalf. App setup, webhooks, and integration are introduced only when the user moves toward integration — when those concepts become meaningful.",
+        ],
         meaningClosing:
-          "Test and integration become two distinct moments instead of a single bundled step. The user is never asked to engage with concepts they have no reason to engage with yet.",
+          "Test and integration become two distinct moments instead of a single bundled step.",
+        meaningAfter:
+          "This follows a well-established pattern used by platforms like Stripe, where users can fully validate the product using system-managed infrastructure before taking ownership of resources or completing setup.",
         howLabel: "How it works",
         how: [
           {
@@ -3684,6 +3735,7 @@ const ResourceOptionsPane = () => {
               "The user creates an agent and is taken directly to a screen where they can send a test message.",
               "No app, no credentials, no user-managed setup — those concepts are not surfaced.",
               "Delivery status, logs, and events are shown directly in the UI.",
+              "Webhooks and event flows work out of the box via a system-managed layer.",
               "The agent appears connected and working, because it is.",
             ],
           },
@@ -3693,6 +3745,7 @@ const ResourceOptionsPane = () => {
               "A managed test app ID may be exposed for sending test requests.",
               "It is clearly labelled as test-only and system-managed — not a resource the user owns.",
               "Developers can validate request and response shape immediately, without provisioning their own app.",
+              "The API behaves as in production, enabling real validation from the first request.",
             ],
           },
           {
@@ -3700,7 +3753,9 @@ const ResourceOptionsPane = () => {
             bullets: [
               "The agent is connected to a system-managed app drawn from a managed pool.",
               "This app is test infrastructure, not a user resource.",
-              "It is never exposed in the user's inventory and never confused with a production app.",
+              "Managed webhook handling allows events to be observed without setup.",
+              "Most observability infrastructure (logs, payloads, events) is required regardless of approach — not specific to this option.",
+              "The app is never exposed in the user's inventory and never confused with a production app.",
             ],
           },
           {
@@ -3708,6 +3763,7 @@ const ResourceOptionsPane = () => {
             bullets: [
               "They create or select their own app — the first point where the app is a visible, user-owned resource.",
               "The agent is reassigned to their app.",
+              "They configure their own webhooks and integration.",
               "Setup, configuration, and compliance are introduced now — when the user has a reason to engage with them.",
             ],
           },
@@ -3717,12 +3773,11 @@ const ResourceOptionsPane = () => {
             title: "Why this aligns with users' goal",
             tone: "emerald" as const,
             paragraphs: [
-              "The research is consistent across personas: users come to the product to test, not to set up. Their first question is “Does this work?”, not “How do I integrate this?”. Until they have an answer to the first, the second is not yet a question they have.",
-            ],
-            points: [
+              "The research is consistent across personas: users come to the product to test, not to set up.",
+              "Their first question is “Does this work?” — not “How do I integrate this?”. Until they have an answer to the first, the second is not yet a question they have.",
               "Users do not need an app to validate messaging. They need a working channel.",
-              "Setup is a question users ask after the product has proven itself, not before.",
-              "Ownership is meaningful when it's tied to intent — when the user has decided to integrate.",
+              "Users do not need webhooks to validate messaging. They need to see that events exist and understand how they behave.",
+              "Setup is a question users ask after the product has proven itself, not before. Ownership is meaningful when it's tied to intent — when the user has decided to integrate.",
             ],
             closing:
               "This option is the only one of the four that lets users act on their actual goal. Validation happens at the validation moment. Integration happens at the integration moment. Compliance happens at the go-live moment. The three stop competing for attention in the same step.",
@@ -3730,34 +3785,52 @@ const ResourceOptionsPane = () => {
         ],
         pros: [
           "Test and integration are sequenced as the research suggests — validation first, integration when the user is ready.",
-          "No user-managed setup before first value. The user can answer “does this work?” without engaging with infrastructure.",
-          "Ownership is preserved for when integration begins. The app the user owns is the app they chose.",
+          "No user-managed setup before first value.",
+          "Users can observe webhook behavior without configuring endpoints.",
+          "Ownership is preserved for when integration begins.",
           "No blurred lines: when a user creates an app, it's because they want to integrate.",
-          "Compliance, integration, and validation stop competing for attention in the same step.",
+          "Reduces cognitive load for both technical and non-technical users.",
+          "Aligns with established industry patterns (e.g. Stripe).",
+          "Investment compounds across channels — once built, the same model supports SMS and future products.",
         ],
         cons: [
-          "Adds platform-side complexity — managed app pools, reassignment from test app to user-owned app.",
-          "Requires a clear handoff on the integration side, so developers understand the transition from test app to user-owned app.",
+          "Requires additional platform capabilities: managed app pool, reassignment logic, and a clear test-to-production handoff.",
+          "Requires clear communication so users understand the transition from system-managed to user-owned resources.",
           "If the handoff is invisible, developers may be surprised when an app appears later in their inventory.",
         ],
         consLabel: "Cons / constraints",
         keyLabel: "Key insight",
         keyText:
-          "The app still exists during testing — but it is infrastructure, not a user responsibility. The user is not hiding from the app; the system is simply not asking the user to engage with it yet, because at this moment they have no reason to.",
+          "The app still exists during testing — but it is infrastructure, not a user responsibility.",
         keyTextExtra:
-          "This is the structural difference from Options 2 and 3. Auto-create hides the app from the user. Guided connection asks the user to engage with the app early. Option 4 introduces the app at the moment when engaging with it is meaningful — when the user is integrating.",
+          "The system is not hiding the app. It is simply not asking the user to engage with it yet, because at this moment they have no reason to.",
+        keyTextBulletsIntro:
+          "This is the structural difference from Options 2 and 3:",
+        keyTextBullets: [
+          "Auto-create hides the app and breaks ownership.",
+          "Guided connection introduces the app too early.",
+          "Option 4 introduces the app when engaging with it becomes meaningful — during integration.",
+        ],
         keyTone: "emerald" as const,
         whyTempting: {
           title: "Why this is the recommendation",
           paragraphs: [
-            "Of the four options, Option 4 is the only one that solves the sequencing problem identified by the research, rather than presenting it differently. Options 1 and 3 ask users to do setup at the wrong moment, in different forms. Option 2 hides the cost without removing it. Option 4 changes when setup happens — and changing the sequence is what the research suggests is needed.",
-            "It is also the option with the highest implementation cost. It requires a managed test app pool, reassignment logic, and a clear handoff between test and integration. These costs are real. The case for paying them is that they buy alignment with the goal users actually come to the product with — the goal that the current model fights, that Option 2 obscures, and that Option 3 only partially accommodates.",
-            "The recommendation is to build Option 4 — not because the others are wrong in absolute terms, but because the research identifies sequencing as the core problem, and Option 4 is the only option that changes the sequence.",
+            "Of the four options, Option 4 is the only one that solves the sequencing problem identified by the research.",
+            "Options 1 and 3 ask users to do setup at the wrong moment. Option 2 hides the cost without removing it. Option 4 changes when setup happens — and changing the sequence is what the research shows is needed.",
+            "The implementation cost is real, but smaller than it initially appears:",
+            {
+              items: [
+                "Observability infrastructure (logs, payload inspection, event visibility) is required regardless of approach.",
+                "The incremental cost is limited to managed test infrastructure and the transition to user-owned resources.",
+              ],
+            },
+            "This investment is not channel-specific: once implemented, the same model supports RCS, SMS, and future messaging products.",
+            "The recommendation is to build Option 4 — because it aligns the product with how users actually approach it.",
           ],
         },
         fitIcon: "✅",
         fitText:
-          "Strongly aligned with users' goal — they came to test, not to integrate",
+          "Strongly aligned with users' goal: they came to test, not to integrate",
         fitTone: "emerald" as const,
       },
     ]
@@ -3930,13 +4003,28 @@ const ResourceOptionsPane = () => {
                 </p>
               </div>
               {opt.meaningIntro && (
-                <p className="mt-3 text-[14px] leading-relaxed text-slate-200">
-                  {opt.meaningIntro}
-                </p>
+                <div className="mt-3 space-y-3">
+                  {(Array.isArray(opt.meaningIntro)
+                    ? opt.meaningIntro
+                    : [opt.meaningIntro]
+                  ).map((p, pi) => (
+                    <p
+                      key={pi}
+                      className="text-[14px] leading-relaxed text-slate-200"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </div>
               )}
               {opt.meaningClosing && (
                 <p className="mt-3 rounded-lg border border-amber-500/25 bg-amber-500/[0.06] px-4 py-3 text-[13px] leading-relaxed text-amber-100">
                   {opt.meaningClosing}
+                </p>
+              )}
+              {opt.meaningAfter && (
+                <p className="mt-3 text-[13.5px] leading-relaxed text-slate-300">
+                  {opt.meaningAfter}
                 </p>
               )}
             </section>
@@ -4148,15 +4236,17 @@ const ResourceOptionsPane = () => {
                           ))}
                         </div>
                       )}
-                      {c.points && c.points.length > 0 && (
-                        <ul className="mt-3 space-y-1.5">
-                          {c.points.map((p, pi) => (
-                            <DiscussionBullet key={pi} tone="muted">
-                              {p}
-                            </DiscussionBullet>
-                          ))}
-                        </ul>
-                      )}
+                      {"points" in c &&
+                        c.points &&
+                        c.points.length > 0 && (
+                          <ul className="mt-3 space-y-1.5">
+                            {c.points.map((p: string, pi: number) => (
+                              <DiscussionBullet key={pi} tone="muted">
+                                {p}
+                              </DiscussionBullet>
+                            ))}
+                          </ul>
+                        )}
                       {c.closing && (
                         <p className="mt-4 text-[13px] leading-relaxed text-slate-300">
                           {c.closing}
@@ -4278,6 +4368,27 @@ const ResourceOptionsPane = () => {
                     {opt.keyTextExtra}
                   </p>
                 )}
+                {opt.keyTextBulletsIntro && (
+                  <p className="mt-3 text-[13px] leading-relaxed">
+                    {opt.keyTextBulletsIntro}
+                  </p>
+                )}
+                {opt.keyTextBullets && opt.keyTextBullets.length > 0 && (
+                  <ul className="mt-2 space-y-1.5">
+                    {opt.keyTextBullets.map((b, bi) => (
+                      <li
+                        key={bi}
+                        className="flex items-start gap-2 text-[13px] leading-relaxed"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-current opacity-70"
+                        />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             )}
             {opt.whyTempting && (
@@ -4293,14 +4404,31 @@ const ResourceOptionsPane = () => {
                   </p>
                 </div>
                 <div className="mt-3 space-y-3">
-                  {opt.whyTempting.paragraphs.map((p, i) => (
-                    <p
-                      key={i}
-                      className="text-[13.5px] leading-relaxed text-slate-300"
-                    >
-                      {p}
-                    </p>
-                  ))}
+                  {opt.whyTempting.paragraphs.map((p, i) =>
+                    typeof p === "string" ? (
+                      <p
+                        key={i}
+                        className="text-[13.5px] leading-relaxed text-slate-300"
+                      >
+                        {p}
+                      </p>
+                    ) : (
+                      <ul key={i} className="space-y-1.5 pl-1">
+                        {p.items.map((b, bi) => (
+                          <li
+                            key={bi}
+                            className="flex items-start gap-2 text-[13.5px] leading-relaxed text-slate-300"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-slate-400"
+                            />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ),
+                  )}
                 </div>
               </section>
             )}
@@ -4870,12 +4998,13 @@ const ExecutiveSummary = () => (
           <p className="text-[15px] leading-relaxed text-slate-100 sm:text-[15.5px]">
             Findings from the Win/Loss Report Q1 2026 reinforce these
             patterns. Onboarding and integration friction are not only
-            usability issues — they directly affect conversion and the
-            ability to succeed without sales or support.
+            usability issues. They affect conversion and whether the
+            product can succeed without sales or support.
           </p>
           <p className="mt-3.5 text-[14px] leading-relaxed text-slate-300 sm:text-[14.5px]">
-            In supported, sales-led flows, onboarding works. In self-serve
-            scenarios, the same steps can become a blocker:
+            In supported, sales-led flows, onboarding can become a
+            differentiator. In self-serve scenarios, the same steps can
+            become a blocker:
           </p>
           <blockquote className="relative mt-5 rounded-xl border border-cyan-400/25 bg-slate-950/50 px-6 py-5 sm:px-7 sm:py-6">
             <span
