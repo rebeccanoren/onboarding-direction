@@ -1036,27 +1036,23 @@ const JOURNEY: JourneyTheme[] = [
         description: [
           {
             kind: "check",
-            text: "Choose the API that matches the use case (REST, SMPP, Connect, or channel-specific APIs)",
+            text: "Developer connects their backend to send and receive messages",
           },
           {
             kind: "check",
-            text: "Create or select the app that represents the integration, and authenticate with the credentials it provides",
+            text: "Creates a new Conversation API app or selects an existing one",
           },
           {
             kind: "check",
-            text: "Pick the regional endpoint that matches the deployment",
+            text: "Connects the app to the RCS agent",
           },
           {
             kind: "check",
-            text: "Configure callback URLs to receive delivery reports and incoming events",
+            text: "Retrieves API credentials and sends messages from their own environment",
           },
           {
             kind: "check",
-            text: "Set default originators — short codes, long numbers, alphanumeric IDs — and assign virtual numbers",
-          },
-          {
-            kind: "check",
-            text: "Connect to their backend and integrate messaging into their workflows",
+            text: "Configures webhooks to handle incoming messages and delivery events",
           },
         ],
         keyAction: "Create app & connect",
@@ -1122,51 +1118,9 @@ const JOURNEY: JourneyTheme[] = [
               { text: "Webhooks", meta: "→ incoming events" },
             ],
           },
-          {
-            title: "Integration is layered, not single-step",
-            description:
-              "Real integration involves multiple decisions and configuration surfaces — not just creating one resource. Developers need a clear map of what each layer is for and where it lives in the product.",
-            bullets: [
-              {
-                text: "API type",
-                meta:
-                  "— REST, SMPP, Connect, or channel-specific (different use cases, different auth models)",
-              },
-              {
-                text: "Credentials",
-                meta:
-                  "— Service Plan ID + API token for REST, System ID + token for SMPP",
-              },
-              {
-                text: "Regional endpoint",
-                meta:
-                  "— Europe, US, etc., with region-specific URLs (e.g. eu.smpp.api.sinch.com:3601)",
-              },
-              {
-                text: "Callback URLs",
-                meta:
-                  "— delivery reports and incoming events, configured per app",
-              },
-              {
-                text: "Default originators",
-                meta:
-                  "— short codes, long numbers, alphanumeric sender IDs",
-              },
-              {
-                text: "Assigned numbers",
-                meta:
-                  "— virtual phone numbers tied to the service",
-              },
-              {
-                text: "Go live",
-                meta:
-                  "— a distinct guided path from test to production, surfaced separately",
-              },
-            ],
-          },
         ],
         whyClosing:
-          "If the app is auto-created and connected silently, this breaks ownership, clarity, and the developer’s understanding of how the system fits together. The app must be introduced when developers are ready to own it — and the surrounding layers (region, callbacks, originators, numbers) must be discoverable, not hidden.",
+          "If the app is auto-created and connected silently, this breaks ownership, clarity, and the developer’s understanding of how the system fits together. The app must be introduced when developers are ready to own it.",
         valueProps: [
           {
             title: "Enables real integration",
@@ -3785,7 +3739,7 @@ const ResourceOptionsPane = () => {
         ],
         pros: [
           "Test and integration are sequenced as the research suggests — validation first, integration when the user is ready.",
-          "No user-managed setup before first value.",
+          "No user-managed setup before second value with own sender identity.",
           "Users can observe webhook behavior without configuring endpoints.",
           "Ownership is preserved for when integration begins.",
           "No blurred lines: when a user creates an app, it's because they want to integrate.",
@@ -4535,7 +4489,7 @@ const ResourceOptionsPane = () => {
                 tag: "recommended",
                 pros: [
                   "Test and integration are sequenced as the research suggests",
-                  "No user-managed setup before first value",
+                  "No user-managed setup before second value with own sender identity",
                   "Ownership preserved for when integration begins",
                   "No blurred lines: when a user creates an app, it's because they want to integrate",
                   "Compliance, integration, and validation stop competing for attention in the same step",
