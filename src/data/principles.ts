@@ -49,6 +49,18 @@ export const principles: Principle[] = [
     elaboration:
       "Design the progression so each step earns the next: a successful test makes API exploration obvious; API usage makes production setup obvious.",
   },
+  {
+    id: "p9",
+    title: "Expose pricing where the decision happens",
+    elaboration:
+      "Pricing is the last gate before commitment. Show a per-country / per-channel estimate before the account wall and again as the user commits to countries or use-cases — hiding cost defers the decision rather than removing it.",
+  },
+  {
+    id: "p10",
+    title: "Give developers a persistent 'dev' environment",
+    elaboration:
+      "Sandbox is Sinch's shared playground; production is fully compliant and expensive. Developers need a third stage — their own agent, their own keys, close to prod — that they can keep using through the build.",
+  },
 ];
 
 export const researchSources: ResearchSource[] = [
@@ -75,5 +87,13 @@ export const researchSources: ResearchSource[] = [
       "Notes on RCS agent creation, compliance, and go-live requirements encountered in RCS Getting started 2.0 sessions.",
     sessions: 8,
     concept: "RCS setup",
+  },
+  {
+    id: "s4",
+    title: "RCS Getting started 3.0 usability tests",
+    description:
+      "Five moderated sessions on the RCS Getting started 3.0 prototype (P15–P19). Mix of external and internal, developer and non-developer. Two sessions were conducted in Swedish and are cited in English translation with the originals preserved on each quote.",
+    sessions: 5,
+    concept: "RCS Getting started 3.0",
   },
 ];

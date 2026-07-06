@@ -155,6 +155,61 @@ export const transcripts: Transcript[] = [
     summary:
       "P14 (external; UX/design background) appreciated the visual previews and intuitive flow but was confused by two parallel checklists (test vs compliance) and role differentiation. Setup friction felt minimal for testing, but compliance steps felt tedious and lacked clarity on which steps were mandatory vs informational.",
   },
+  {
+    id: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concepts: ["RCS Getting started 3.0"],
+    date: "2026-05-25",
+    sourceFile: "v3-participant-15-external-dev-2026-05-25-translated.txt",
+    audience: "external",
+    summary:
+      "P15 (external developer, session translated from Swedish) explored the RCS Getting started 3.0 send-first flow. Praised how quickly a test message returned a log entry and how transparent the payload / delivery-status loop was. Repeatedly asked for the payload schema for different message types, language SDKs, TypeScript types, and downloadable 'agent skills' for AI coding tools. Confused by the service / agent / channel / access-key hierarchy — 'the hierarchy and all the layers are what create confusion.' Called the compliance / go-live formulation 'a bit over my pay grade' and said RCS onboarding should have two distinct tracks: play with the API vs. set up your own production agent.",
+  },
+  {
+    id: "t16",
+    participant: "P16",
+    persona: "Developer",
+    concepts: ["RCS Getting started 3.0"],
+    date: "2026-05-25",
+    sourceFile: "v3-participant-16-internal-dev-2026-05-25-translated.txt",
+    audience: "internal",
+    summary:
+      "P16 (internal developer, translated from Swedish) tested RCS Getting started 3.0 end-to-end. Praised the send-a-test-message shortcut and the way the sandbox lets developers borrow preconfigured resources. Struggled with state loss (checklist and logs disappeared after creating an access key) and with the fact that the UI-first and code-first paths represent the same underlying action. 'Go to Production' language felt too final — the missing step is 'build against your own agent' before real go-live. Also flagged that country selection surfaces heavy operator-approval cost before the developer has finished integrating.",
+  },
+  {
+    id: "t17",
+    participant: "P17",
+    persona: "Developer",
+    concepts: ["RCS Getting started 3.0"],
+    date: "2026-05-27",
+    sourceFile: "v3-participant-17-external-dev-2026-05-27-translated.txt",
+    audience: "external",
+    summary:
+      "P17 (external developer, translated from Swedish) went straight to docs, ran the RCS Getting started 3.0 sandbox quickly, and pasted the curl example into their own environment. Praised the log, the preview, and the code samples. The big gap: no clear separation between sandbox, dev, and production. Wanted separate keys for test and production, a persistent test environment that stays close to prod, and a single place that lists all the values (project ID, messaging service ID, keys) needed for a production request. Would have looked at webhooks earlier if they had been surfaced in the sandbox.",
+  },
+  {
+    id: "t18",
+    participant: "P18",
+    persona: "Non-developer",
+    concepts: ["RCS Getting started 3.0"],
+    date: "2026-06-01",
+    sourceFile: "v3-participant-18-external-2026-06-01.txt",
+    audience: "external",
+    summary:
+      "P18 (external non-developer, session in Swedish) read the RCS docs first, then tried the sandbox — 'I love this feature, it's great that you can use Sandbox and get concretely how it looks in my own phone.' Wanted docs and pricing before creating an account. Called out that 'agent' is confusing next to AI agents and that the messaging-service / channel / project-ID relationship is unclear. Refused to fill compliance fields with fake data. Wanted a live cost summary as countries are added — 'I would have wanted to see a summary of this.'",
+  },
+  {
+    id: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concepts: ["RCS Getting started 3.0"],
+    date: "2026-06-01",
+    sourceFile: "v3-participant-19-external-2026-06-01.txt",
+    audience: "external",
+    summary:
+      "P19 (external developer, first-time messaging-API user) started in the RCS Getting started 3.0 documentation, then had to be pointed to the sandbox — 'I would highlight it a bit more instead of it being hidden.' Once inside, said 'oh, this is fabulous.' Asked for docs and sandbox side-by-side, an LLM/Copilot integration inside the code panel, a preview of the message as it would render on the phone, richer logs with filtering and bulk download, and an architectural overview of how agent / messaging service / channel fit together. Pricing was the explicit blocker to commitment — 'if the costs were clear, I'd just put my credit card number in and go.'",
+  },
 ];
 
 export const transcriptById = (id: string) =>

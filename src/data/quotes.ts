@@ -2627,6 +2627,382 @@ export const quotes: Quote[] = [
     interpretation:
       "Strong main-reaction quote — the test → API flow is intuitive and aligns with developer expectations end-to-end.",
   },
+
+  // --- t15 / P15 (External Developer, RCS Getting started 3.0) ---
+  {
+    id: "q200",
+    transcriptId: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "02:53",
+    quote:
+      "Now I've sent something and I can see in the log that it was sent and queued. I'm kind of curious to see what payload is being sent.",
+    theme: "Message logs",
+    interpretation:
+      "Send → log lands well; the follow-up question is 'show me the payload,' i.e. the code, not just the outcome.",
+  },
+  {
+    id: "q201",
+    transcriptId: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "04:20",
+    quote:
+      "Something I look for a lot these days is agent skills in some way. So you can download a skill.",
+    theme: "API playground",
+    interpretation:
+      "Downloadable AI-agent scaffolding (MCP-style skills, Copilot context) is now part of developers' baseline expectations — currently absent.",
+  },
+  {
+    id: "q202",
+    transcriptId: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "44:00",
+    quote:
+      "This is a bit over my pay grade. Maybe someone else sets this up.",
+    theme: "Production readiness",
+    interpretation:
+      "Even a technically confident developer treats the compliance / go-live path as belonging to a different role — reinforces the case for two tracks.",
+  },
+  {
+    id: "q203",
+    transcriptId: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "17:49",
+    quote:
+      "I think the transition between 'play around with your API' and 'set up your own production agent' should be much clearer.",
+    theme: "Setup friction",
+    interpretation:
+      "Two conceptually distinct tracks are being presented as one linear flow. The transition — not the individual steps — is the gap.",
+  },
+  {
+    id: "q204",
+    transcriptId: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "20:44",
+    quote:
+      "My biggest takeaway is definitely to expose the SDKs much earlier. I spent a long time looking for the types.",
+    theme: "API playground",
+    interpretation:
+      "Raw curl is a floor, not a ceiling. Language SDKs and types belong on the first API-playground surface.",
+  },
+  {
+    id: "q205",
+    transcriptId: "t15",
+    participant: "P15",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "07:07",
+    quote:
+      "As a developer I honestly don't care about all this noise. I just want a list of my agents.",
+    theme: "Setup friction",
+    interpretation:
+      "The information architecture buries what the developer actually needs: their agents, keys, and logs.",
+  },
+
+  // --- t16 / P16 (Internal Developer, RCS Getting started 3.0) ---
+  {
+    id: "q210",
+    transcriptId: "t16",
+    participant: "P16",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "03:25",
+    quote:
+      "The ability to send a test message directly is really good.",
+    theme: "Time-to-value",
+    interpretation:
+      "Send-first framing is validated again in 3.0 — this is the load-bearing element.",
+  },
+  {
+    id: "q211",
+    transcriptId: "t16",
+    participant: "P16",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "25:23",
+    quote:
+      "'Go to Production' sounds very final. Like you go from sending a test message directly to production, which isn't really how building solutions usually works. There's usually some step in between.",
+    theme: "Production readiness",
+    interpretation:
+      "Between 'test' and 'live' there is 'build against my own agent.' Framing that as 'Go to Production' skips the step developers actually spend time in.",
+  },
+  {
+    id: "q212",
+    transcriptId: "t16",
+    participant: "P16",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "51:02",
+    quote:
+      "As a developer, getting operator approval isn't the important thing when I'm trying to get started. The important thing is understanding how I can begin building with the API. That path exists, but it's just not very clear how to get there.",
+    theme: "Production readiness",
+    interpretation:
+      "The developer path is present but not surfaced — operator approval steps dominate the checklist instead.",
+  },
+  {
+    id: "q213",
+    transcriptId: "t16",
+    participant: "P16",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "12:01",
+    quote:
+      "When you jump back and forth like I've done now, is it intended that things should remain as they were? Because right now the checklist is gone since I created an access key, but for example it doesn't show that I already ran it once and the logs are gone too.",
+    theme: "Setup friction",
+    interpretation:
+      "State loss between page visits erodes the sense of progress the checklist is meant to create.",
+  },
+  {
+    id: "q214",
+    transcriptId: "t16",
+    participant: "P16",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "22:40",
+    quote:
+      "What actually is an agent? I don't know that completely myself. I understand that it's needed and why. But for example I didn't know you had to specify use cases for an agent.",
+    theme: "Resource creation",
+    interpretation:
+      "Even an internal developer arrives without a mental model of what an agent is — the term is under-explained and its constraints (irreversible use-case selection) surface too late.",
+  },
+
+  // --- t17 / P17 (External Developer, RCS Getting started 3.0) ---
+  {
+    id: "q220",
+    transcriptId: "t17",
+    participant: "P17",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "08:00",
+    quote:
+      "Very cool that I see the log directly basically when I look at the message. That also gives me the impression that if we build an integration against this, we can get responses very quickly when users do things on their phones.",
+    theme: "Message logs",
+    interpretation:
+      "The log doesn't just verify the test — it seeds confidence in the integration model.",
+  },
+  {
+    id: "q221",
+    transcriptId: "t17",
+    participant: "P17",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "11:45",
+    quote:
+      "I'd want separate keys for test and for production. So the question is a bit how you've thought about that. Whether it should be a separate project maybe. Or how it's done.",
+    theme: "Production readiness",
+    interpretation:
+      "Explicit ask for a real dev/prod split — separate keys, ideally separate projects — not a single 'sandbox → live' toggle.",
+  },
+  {
+    id: "q222",
+    transcriptId: "t17",
+    participant: "P17",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "54:11",
+    quote:
+      "It's a bit unclear with the sandbox specifically, whether it's ours or whether it's Sinch's or where it exists exactly.",
+    theme: "Setup friction",
+    interpretation:
+      "The sandbox is prized in the moment but its scope (mine, shared, ephemeral, persistent) is not conveyed.",
+  },
+  {
+    id: "q223",
+    transcriptId: "t17",
+    participant: "P17",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "45:13",
+    quote:
+      "Yeah, exactly. Just a little summary that this is what you want to do to use production.",
+    theme: "Production readiness",
+    interpretation:
+      "The desired production surface is a single 'here are the values you need to swap' summary — not scattered doc pages.",
+  },
+  {
+    id: "q224",
+    transcriptId: "t17",
+    participant: "P17",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "59:23",
+    quote:
+      "I want a test environment that we can still use continuously in our development. That it should be as similar as possible to production.",
+    theme: "Production readiness",
+    interpretation:
+      "The sandbox is one moment; a persistent 'as-close-to-prod' dev environment is what developers actually need throughout the build.",
+  },
+
+  // --- t18 / P18 (External Non-developer, RCS Getting started 3.0, Swedish) ---
+  {
+    id: "q230",
+    transcriptId: "t18",
+    participant: "P18",
+    persona: "Non-developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "05:44",
+    quote:
+      "I like this feature. I think it's great that you can use Sandbox and get concretely how it looks in my own phone.",
+    originalQuote:
+      "Jag gillar den funktionen. Jag tycker att det är att man kan använda Sandbox och få konkret hur det ser ut I min egen telefon. Jättebra.",
+    originalLanguage: "Swedish",
+    theme: "Time-to-value",
+    interpretation:
+      "For a non-developer, the sandbox landing directly on their own phone is the shortest path to trust.",
+  },
+  {
+    id: "q231",
+    transcriptId: "t18",
+    participant: "P18",
+    persona: "Non-developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "21:47",
+    quote:
+      "If that information had been there, that's what I would have done. You don't want lots of accounts. And you're not sure you're going to use it.",
+    originalQuote:
+      "Ja, om den informationen hade funnits så hade jag gjort det. Man vill inte massa konton. Och man är inte säker att man ska använda den.",
+    originalLanguage: "Swedish",
+    theme: "Time-to-value",
+    interpretation:
+      "Docs and pricing belong in front of the account wall — not behind it — when the user is still evaluating.",
+  },
+  {
+    id: "q232",
+    transcriptId: "t18",
+    participant: "P18",
+    persona: "Non-developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "58:02",
+    quote:
+      "Yeah. Maybe a bit here so — the agent, what does the agent do? Now with all the AI agents and stuff, you don't quite get it — is it an AI agent I'm setting up?",
+    originalQuote:
+      "Ja, men kanske lite där så här — agenten, vad gör agenten? Nu med alla AI-agenter och sånt där så fattar man inte — så är det en AI-agent jag sätter upp?",
+    originalLanguage: "Swedish",
+    theme: "Setup friction",
+    interpretation:
+      "'Agent' collides with AI-agent — the term needs a very early, in-context explanation.",
+  },
+  {
+    id: "q233",
+    transcriptId: "t18",
+    participant: "P18",
+    persona: "Non-developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "25:54",
+    quote:
+      "I would have wanted to see a summary here. It costs twenty dollars a month for Sweden, twenty dollars for Norway. It cost a hundred and nine dollars to register the agents. But then I would have wanted a summary on this. But maybe it will come.",
+    originalQuote:
+      "Okej, jag har lagt till Sverige. Lägger till Norge också. Då hade jag velat se liksom... Det är tjugo dollar I månaden för Sverige, tjugo dollar I månaden för Norge. Det kostade etthundranio dollar att registrera de agenterna. Men då hade jag velat se en Summary på det här. Men det kanske kommer.",
+    originalLanguage: "Swedish",
+    theme: "Production readiness",
+    interpretation:
+      "Country-by-country cost commitments should roll up into a live total as they are added.",
+  },
+  {
+    id: "q234",
+    transcriptId: "t18",
+    participant: "P18",
+    persona: "Non-developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "38:05",
+    quote:
+      "I wouldn't want to do anything as a joke before I knew what I was actually going to send. Sandbox mode was for playing around and seeing how it looks.",
+    originalQuote:
+      "Jag hade inte velat göra någonting på skämt innan jag visste vad jag skulle... Det fanns ju Sandbox-läget till att göra det på skämt och se hur det blir liksom.",
+    originalLanguage: "Swedish",
+    theme: "Production readiness",
+    interpretation:
+      "Users won't fill compliance forms with placeholder data; if they aren't ready to answer them for real, they will stop — the flow needs a genuine 'not yet' state that isn't 'submit fake data.'",
+  },
+
+  // --- t19 / P19 (External Developer, RCS Getting started 3.0) ---
+  {
+    id: "q240",
+    transcriptId: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "14:08",
+    quote:
+      "This is exactly what I meant. I would probably do this instead. Oh, this is fabulous. I would highlight it a bit more instead of it being hidden — like, 'try sandbox' here — because I didn't see that until you pointed it out.",
+    theme: "Setup friction",
+    interpretation:
+      "The sandbox is the strongest hook in the whole flow, but participants don't find it. Discovery, not the sandbox itself, is the gap.",
+  },
+  {
+    id: "q241",
+    transcriptId: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "22:32",
+    quote:
+      "If the costs were clear, then, yeah, probably I'd just put my credit card number in and go.",
+    theme: "Production readiness",
+    interpretation:
+      "Pricing is the last gate before commitment for evaluators — without it, they defer or churn.",
+  },
+  {
+    id: "q242",
+    transcriptId: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "20:33",
+    quote:
+      "The ability to see more detailed logs, the ability to filter. If I was sending to a bunch, I should be able to put the recipient and download multiple more easily.",
+    theme: "Message logs",
+    interpretation:
+      "Once the log lands, developers immediately want it to be a working tool: filter, bulk-download, per-recipient views.",
+  },
+  {
+    id: "q243",
+    transcriptId: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "37:22",
+    quote:
+      "This kind of architectural overview, but of the dashboard itself. That would be really helpful.",
+    theme: "Setup friction",
+    interpretation:
+      "The 'messaging service → channels → agents' picture exists inside a tooltip late in the flow. Participants want it up-front as an entry-point map.",
+  },
+  {
+    id: "q244",
+    transcriptId: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "14:47",
+    quote:
+      "If an LLM integration would be really nice inside this box.",
+    theme: "API playground",
+    interpretation:
+      "Copilot / LLM assistance inside the code panel is a live expectation — not a future 'nice to have.'",
+  },
+  {
+    id: "q245",
+    transcriptId: "t19",
+    participant: "P19",
+    persona: "Developer",
+    concept: "RCS Getting started 3.0",
+    timestamp: "18:57",
+    quote:
+      "One more thing would be nice — to see a sample of what was sent, like how it looks to the user. I see the payload, but I don't see the render.",
+    theme: "Message logs",
+    interpretation:
+      "Payload alone doesn't answer 'what did the recipient see?' A rendered preview belongs next to the log entry.",
+  },
 ];
 
 export const quoteById = (id: string) => quotes.find((q) => q.id === id);

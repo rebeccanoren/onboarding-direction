@@ -6,6 +6,7 @@ export type Persona =
   | "Unknown";
 
 export type Concept =
+  | "RCS Getting started 3.0"
   | "RCS Getting started 2.0"
   | "RCS Getting started 1.0"
   | "Onboarding app"

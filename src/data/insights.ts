@@ -33,12 +33,16 @@ export const insights: Insight[] = [
   },
   {
     id: "i04",
-    title: "RCS Getting started 2.0 is a meaningful improvement over prior versions",
+    title: "Each iteration (1.0 → 2.0 → 3.0) has moved further in the send-first direction",
     body:
-      "Every participant who compared versions preferred RCS Getting started 2.0. P1 preferred its single-page layout and richer message log. P6 preferred its 'more clear self-service style'. P13 said the integration experience was 'super easy'. P15 said the onboarding is 'really great… a lot compared to what I have experienced a few months ago.'",
+      "Every participant who compared versions preferred the newer one. P1 preferred RCS Getting started 1.0's single-page layout and richer log over the Onboarding app. P13 (2.0) called integration 'super easy.' The 3.0 sessions extend that arc: P16 called the send-a-test shortcut 'really good,' P17 pasted the curl example straight into their code, and P19 called the sandbox 'fabulous' once they found it. The direction is validated; each iteration exposes the next layer of blockers (terminology, pricing, dev/prod split) that the previous one didn't have to answer.",
     relatedThemes: ["Time-to-value", "Setup friction"],
-    relatedQuoteIds: ["q006", "q029", "q050", "q064"],
-    relatedConcepts: ["RCS Getting started 2.0"],
+    relatedQuoteIds: ["q006", "q029", "q050", "q210", "q220", "q240"],
+    relatedConcepts: [
+      "RCS Getting started 3.0",
+      "RCS Getting started 2.0",
+      "RCS Getting started 1.0",
+    ],
     confidence: "High",
   },
   {
@@ -80,5 +84,59 @@ export const insights: Insight[] = [
     relatedQuoteIds: ["q002", "q049", "q058"],
     relatedConcepts: ["RCS Getting started 2.0"],
     confidence: "High",
+  },
+  {
+    id: "i09",
+    title: "The sandbox is the strongest hook we have — and half of users don't find it",
+    body:
+      "In 3.0, once participants got into the sandbox they praised it in strong terms: P18 called it 'great,' P19 called it 'fabulous.' But P19 didn't see it until the moderator pointed at it — 'I would highlight it a bit more instead of it being hidden.' P17 used it fluently but couldn't tell whether it was theirs or Sinch's. The sandbox works; the entry-point does not. Landing the send-first experience should be the primary visual affordance of the page.",
+    relatedThemes: ["Time-to-value", "Setup friction"],
+    relatedQuoteIds: ["q240", "q230", "q222", "q210"],
+    relatedConcepts: ["RCS Getting started 3.0"],
+    confidence: "High",
+  },
+  {
+    id: "i10",
+    title: "Pricing is the final gate before commitment — hiding it defers the decision",
+    body:
+      "P19 was explicit: 'if the costs were clear, I'd just put my credit card number in and go.' P18 wanted a live cost summary as countries were added — 'I would have wanted a summary of this.' The 2.0 sessions surfaced the same pattern (P1 wanted pricing 'a lot higher up the list'). Without pricing at the point of decision — before account creation, and again as country selections accumulate — evaluators pause and often churn.",
+    relatedThemes: ["Production readiness", "Time-to-value"],
+    relatedQuoteIds: ["q241", "q233", "q231", "q005"],
+    relatedConcepts: [
+      "RCS Getting started 3.0",
+      "RCS Getting started 2.0",
+      "Onboarding app",
+    ],
+    confidence: "High",
+  },
+  {
+    id: "i11",
+    title: "The messaging-service / agent / channel hierarchy is the persistent blocker",
+    body:
+      "Across 3.0 sessions, participants of both personas couldn't map the vocabulary onto each other: 'agent' collides with AI-agent (P18, P19); 'messaging service' has no analogue in developer tools they know (P15); the relationship between channel, agent, and service surfaces late as a tooltip that P19 said should have been front-and-center. P15 summarised the developer view bluntly: 'the hierarchy and all the layers are what create confusion… I just want a list of my agents.' The concepts themselves are defensible — the entry-point needs a visual architectural map, not more inline copy.",
+    relatedThemes: ["Setup friction", "Resource creation"],
+    relatedQuoteIds: ["q243", "q232", "q214", "q205"],
+    relatedConcepts: ["RCS Getting started 3.0"],
+    confidence: "High",
+  },
+  {
+    id: "i12",
+    title: "Developers want a persistent dev environment, not a single 'go live' jump",
+    body:
+      "3.0 developers described a missing step between sandbox and production. P16: '\"Go to Production\" sounds very final… there's usually some step in between.' P17 wanted 'separate keys for test and for production' and 'a test environment as similar as possible to production' that they could keep using through development. Today the flow offers 'sandbox' (Sinch's) or 'go live' (fully compliant, operator-approved) — nothing in between. The developer path (test → build against my own agent → go live) exists in the product but isn't surfaced as a first-class stage.",
+    relatedThemes: ["Production readiness", "Setup friction"],
+    relatedQuoteIds: ["q211", "q212", "q221", "q224"],
+    relatedConcepts: ["RCS Getting started 3.0"],
+    confidence: "High",
+  },
+  {
+    id: "i13",
+    title: "SDKs, types, and AI-agent scaffolding belong on the first code surface",
+    body:
+      "Raw curl is a good floor but a bad ceiling. P15 spent time hunting for TypeScript types and asked for downloadable 'agent skills' (MCP-style scaffolding for AI coding tools). P17 valued Node and Python examples for 'copy and paste'. P19 asked for LLM/Copilot integration inside the code panel. The API-playground surface should default to a language picker (curl / Node / Python / other) and expose an AI-agent skill / MCP entry-point alongside — not one page deeper.",
+    relatedThemes: ["API playground", "Setup friction"],
+    relatedQuoteIds: ["q204", "q201", "q244", "q220"],
+    relatedConcepts: ["RCS Getting started 3.0"],
+    confidence: "Medium",
   },
 ];

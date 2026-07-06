@@ -49,21 +49,21 @@ import { transcriptAnalysisById } from "./data/transcriptAnalyses";
 const HERO = {
   title: "Messaging Onboarding: Key Insights & Direction",
   supporting: [
-    "Across fourteen usability sessions, a consistent pattern emerged: users first try to validate messaging, then move toward setup and integration when it becomes relevant.",
+    "Across nineteen usability sessions, a consistent pattern emerged: users first try to validate messaging, then move toward setup and integration when it becomes relevant.",
     "This presentation shows what users actually do, where they get blocked, and the onboarding approach that better supports that journey.",
   ],
   stats: [
-    { label: "Research sessions", value: "14" },
+    { label: "Research sessions", value: "19" },
     {
       label: "Personas covered",
-      value: "13 Developers & 1 non-developer",
-      subValue: "8 internal · 6 external",
+      value: "17 Developers & 2 non-developers",
+      subValue: "9 internal · 10 external",
     },
     {
       label: "Prototypes tested",
-      value: "RCS Getting started (1.0 & 2.0) · Onboarding app",
+      value: "RCS Getting started (1.0, 2.0 & 3.0) · Onboarding app",
       hint:
-        "Two iterations of the RCS getting started experience, tested with users alongside the onboarding app to validate the onboarding journey from first test to setup.",
+        "Three iterations of the RCS getting started experience, tested with users alongside the onboarding app to validate the onboarding journey from first test to setup.",
     },
   ] as {
     label: string;
@@ -1491,9 +1491,9 @@ const PRINCIPLES: Principle[] = [
 
 
 const DATA_BULLETS: string[] = [
-  "14 sessions",
+  "19 sessions",
   "Developers and non-developers",
-  "RCS Getting started (1.0 & 2.0) · Onboarding app testing",
+  "RCS Getting started (1.0, 2.0 & 3.0) · Onboarding app testing",
   "Think-aloud tasks",
   "Quotes used as supporting evidence",
   "Swedish sessions translated to English with original transcripts preserved",
