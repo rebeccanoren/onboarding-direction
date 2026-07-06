@@ -137,6 +137,24 @@ const EXEC_SUMMARY: ExecSummaryItem[] = [
   },
   {
     headline:
+      "3.0 finding: the sandbox is our strongest hook — but users don’t find it, and pricing shapes whether they even start",
+    body: [
+      "Across the five 3.0 sessions, participants who reached the sandbox reacted in strong terms — P19 called it “fabulous,” P18 (non-developer) called it “great” for showing how the message rendered on her own phone.",
+      "But P19 didn’t see the sandbox until the moderator pointed at it, and evaluators consistently paused when pricing wasn’t visible — P19: “if the costs were clear, I’d just put my credit card number in and go.”",
+      "The implication is that the sandbox needs to be the primary visual affordance of the entry page, and pricing needs to sit in front of the account wall — not behind it.",
+    ],
+  },
+  {
+    headline:
+      "3.0 finding: developers want a persistent dev environment, not a single “go live” jump",
+    body: [
+      "Today the flow reads sandbox → go-live. Developers described a missing third stage — their own agent, their own keys, close to production — that they keep using through the build.",
+      "P17: “I’d want separate keys for test and for production… a test environment as similar as possible to production.” P16: “‘Go to Production’ sounds very final. There’s usually some step in between.”",
+      "This is a structural implication for how we model environments, not just a copy fix.",
+    ],
+  },
+  {
+    headline:
       "Implication: onboarding should be structured around validation first, with setup and integration introduced only when users have intent",
     body: [
       "Start with a test-first entry point to prove the product works.",
@@ -363,6 +381,33 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "I think, the only thing I think here is, should this be, like, the test key that I won't just disregard because this feels like something that should be in a list somewhere. So if I create number two here, it should be listed. Let's say, I'm IKEA. Should I actually create, like, a new access key that is called IKEA that I reuse later on? Or should I just have a dummy one, like a test IKEA one?",
           },
+          {
+            title: "The sandbox lands \u2014 but users don\u2019t find it",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "This is fabulous. I would highlight it a bit more instead of it being hidden.",
+            long:
+              "This is exactly what I meant. I would probably do this instead. Oh, this is fabulous. I would highlight it a bit more instead of it being hidden \u2014 like, \u201ctry sandbox\u201d here \u2014 because I didn't see that until you pointed it out.",
+          },
+          {
+            title: "Non-devs love a sandbox that lands on their own phone",
+            participant: "P18",
+            persona: "Non-developer",
+            short:
+              "I love this feature \u2014 you can use Sandbox and get concretely how it looks in my own phone.",
+            long:
+              "I like this feature. I think it's great that you can use Sandbox and get concretely how it looks in my own phone. (Translated from Swedish.)",
+          },
+          {
+            title: "Pricing is the last gate before commitment",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "If the costs were clear, I\u2019d just put my credit card number in and go.",
+            long:
+              "If the costs were clear, then, yeah, probably I'd just put my credit card number in and go. If it isn't clear how much this is going to cost me, then I probably want to speak to a human being.",
+          },
         ],
         whyHeadline:
           "At this stage, users are primarily focused on sending a message, not configuring the system.",
@@ -399,6 +444,23 @@ const JOURNEY: JourneyTheme[] = [
               },
             ],
             quoteIndices: [3, 4, 5],
+          },
+          {
+            title: "3.0 finding — the sandbox is our strongest hook, and half of users don’t find it",
+            description:
+              "Once participants got into the sandbox, they reacted in strong terms — but they didn’t discover it on their own.",
+            bullets: [
+              { text: "P19 didn’t see it until the moderator pointed at it, then called it “fabulous.”" },
+              { text: "P18 (non-developer) called it “great” for showing how the message renders on her own phone." },
+              { text: "The sandbox works; the entry-point does not." },
+            ],
+            quoteIndices: [6, 7],
+          },
+          {
+            title: "3.0 finding — pricing shapes whether users even start",
+            description:
+              "P19 was explicit: with clear pricing, they’d have committed on the spot. Without it, evaluators defer. This mirrors P1 in the 2.0 rounds asking for pricing “a lot higher up the list.”",
+            quoteIndices: [8],
           },
         ],
         whyClosing:
@@ -475,6 +537,24 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "I think this is really nice that they could see the message that they send and what\u2019s the status of the message. And if they have any incoming message here \u2014 it\u2019s super nice, I would say.",
           },
+          {
+            title: "Payload alone doesn\u2019t answer \u201cwhat did the recipient see?\u201d",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "A sample of what was sent, like how it looks to the user. I see the payload, but I don\u2019t see the render.",
+            long:
+              "One more thing would be nice \u2014 to see a sample of what was sent, like how it looks to the user. I see the payload, but I don\u2019t see the render.",
+          },
+          {
+            title: "Logs need to be a working tool, not just a receipt",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "The ability to see more detailed logs, the ability to filter.",
+            long:
+              "The ability to see more detailed logs, the ability to filter. If I was sending to a bunch, I should be able to put the recipient and download multiple more easily \u2014 download these JSONs instead of having to click, click, click, click.",
+          },
         ],
         whyHeadline:
           "Sending alone isn’t enough — users look for confirmation of what happened.",
@@ -504,6 +584,12 @@ const JOURNEY: JourneyTheme[] = [
             description:
               "Sending isn’t enough. Replies and incoming events tell users the channel is real, not one-way.",
             quoteIndices: [3],
+          },
+          {
+            title: "3.0 finding — the log is a receipt; it should be a working tool",
+            description:
+              "Once the log lands, users immediately want it to do more — show a rendered preview of what the recipient saw, filter by recipient, bulk-download JSON.",
+            quoteIndices: [4, 5],
           },
         ],
         whyClosing:
@@ -608,6 +694,42 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "When you are in a public documentation, you need to guess all of that because nothing is associated to your account. Here, as you are in the context of your own account and you are already signed in, it means that this platform already has all your information. So they could prefill everything for you to simplify your experience.",
           },
+          {
+            title: "Expose the SDKs earlier",
+            participant: "P15",
+            persona: "Developer",
+            short:
+              "My biggest takeaway is definitely to expose the SDKs much earlier. I spent a long time looking for the types.",
+            long:
+              "My biggest takeaway is definitely to expose the SDKs much earlier. I spent a long time looking for the types. (Translated from Swedish.)",
+          },
+          {
+            title: "Downloadable agent skills, not just docs",
+            participant: "P15",
+            persona: "Developer",
+            short:
+              "Something I look for a lot these days is agent skills in some way. So you can download a skill.",
+            long:
+              "Something I look for a lot these days is agent skills in some way. So you can download a skill. (Translated from Swedish. P15 is referring to MCP-style scaffolding for AI coding tools.)",
+          },
+          {
+            title: "LLM assistance inside the code panel",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "If an LLM integration would be really nice inside this box.",
+            long:
+              "Also, in here, if a LLM integration would be really nice inside this, this box.",
+          },
+          {
+            title: "Docs and sandbox side-by-side, not one-then-the-other",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "Just have the sandbox on the side the whole time, and then the documentation is on one side.",
+            long:
+              "If I could, then this would be maybe one of the first things I do. And then just have the sandbox on the side the whole time, and then the documentation is on one side. So I can go through the documentation, and then I can keep trying things in the sandbox instead of it taking me away from the documentation.",
+          },
         ],
         whyHeadline:
           "Developers consistently tried to run requests themselves, often starting with curl or prefilled examples",
@@ -652,6 +774,18 @@ const JOURNEY: JourneyTheme[] = [
               { text: "Agent", meta: "→ sender identity" },
               { text: "Webhooks", meta: "→ incoming events" },
             ],
+          },
+          {
+            title: "3.0 finding — SDKs, types, and AI-agent scaffolding belong on the first code surface",
+            description:
+              "Raw curl is a good floor but a bad ceiling. Developers now expect a language picker (Node, Python) alongside curl, TypeScript / language types, and downloadable agent scaffolding for AI coding tools — plus LLM assistance inside the code panel itself.",
+            quoteIndices: [5, 6, 7],
+          },
+          {
+            title: "3.0 finding — docs and playground live side-by-side",
+            description:
+              "The desired posture isn’t “docs, then playground” — it’s both, at once. Users want to keep the sandbox on one side and read the reference on the other, without a context switch.",
+            quoteIndices: [8],
           },
         ],
         whyClosing:
@@ -797,6 +931,33 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "I really like this view. I know that as a dev, I am going to need this bit eventually, but I like this view because of the combined \u2014 I can see the code, I can see what I need to do, and I can also see, just visually, what the differences are. It educates me a little bit before I actually start working on a product, which is very nice.",
           },
+          {
+            title: "Give me the architectural overview at the entry-point",
+            participant: "P19",
+            persona: "Developer",
+            short:
+              "This kind of architectural overview, but of the dashboard itself. That would be really helpful.",
+            long:
+              "This is exactly what I meant \u2014 if it was more front and center. This kind of architectural overview, but of the dashboard itself. That would be really helpful.",
+          },
+          {
+            title: "\u201cAgent\u201d collides with AI-agent",
+            participant: "P18",
+            persona: "Non-developer",
+            short:
+              "Is it an AI agent I\u2019m setting up?",
+            long:
+              "Maybe a bit here so \u2014 the agent, what does the agent do? Now with all the AI agents and stuff, you don\u2019t quite get it \u2014 is it an AI agent I\u2019m setting up? (Translated from Swedish.)",
+          },
+          {
+            title: "Even an internal dev doesn\u2019t know what an agent is",
+            participant: "P16",
+            persona: "Developer",
+            short:
+              "What actually is an agent? I don\u2019t know that completely myself.",
+            long:
+              "What actually is an agent? I don\u2019t know that completely myself. I understand that it\u2019s needed and why. But for example I didn\u2019t know you had to specify use cases for an agent. (Translated from Swedish.)",
+          },
         ],
         whyHeadline:
           "Users shift from exploring the product to applying it to their own context.",
@@ -843,6 +1004,12 @@ const JOURNEY: JourneyTheme[] = [
               "This helps users understand the system enough to move forward and makes the next step feel obvious.",
               "At this point, setup is no longer confusing \u2014 but it must still be simple. Users are still exploring, so creating a channel should feel fast and lightweight.",
             ],
+          },
+          {
+            title: "3.0 finding \u2014 the terminology map has to arrive with the first named resource",
+            description:
+              "Learn-by-doing works for what happens when you send a message, but not for the resource hierarchy itself. Non-devs and devs both stalled on \u201cagent\u201d (it collides with AI-agent) and on how messaging service, channel, and agent relate. What P19 asked for is a dashboard-level architectural overview at the entry point \u2014 not a tooltip discovered after the fact.",
+            quoteIndices: [3, 4, 5],
           },
         ],
         valueProps: [
@@ -1084,6 +1251,42 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "I would not like the app to be created for this is just me. I don’t want you to create the app for me just and have me drop into this UI. You started calling it, like, test app. I should be determining, like, what the name is from the very start and know that I’m in the test app creation flow or app creation flow. So maybe, like, add a little banner explaining, now you need to create your app.",
           },
+          {
+            title: "Separate keys for test and production",
+            participant: "P17",
+            persona: "Developer",
+            short:
+              "I’d want separate keys for test and for production.",
+            long:
+              "I’d want separate keys for test and for production. So the question is a bit how you’ve thought about that. Whether it should be a separate project maybe. Or how it’s done. (Translated from Swedish.)",
+          },
+          {
+            title: "A persistent dev environment as close to prod as possible",
+            participant: "P17",
+            persona: "Developer",
+            short:
+              "I want a test environment that we can still use continuously in our development.",
+            long:
+              "I want a test environment that we can still use continuously in our development. That it should be as similar as possible to production. So that we know when we build further on things, that we can test things and so on. (Translated from Swedish.)",
+          },
+          {
+            title: "“Go to Production” is too final — there’s a build stage in between",
+            participant: "P16",
+            persona: "Developer",
+            short:
+              "There’s usually some step in between.",
+            long:
+              "“Go to Production” sounds very final. Like you go from sending a test message directly to production, which isn’t really how building solutions usually works. There’s usually some step in between. (Translated from Swedish.)",
+          },
+          {
+            title: "Give me a single summary of what to swap for prod",
+            participant: "P17",
+            persona: "Developer",
+            short:
+              "Just a little summary that this is what you want to do to use production.",
+            long:
+              "Just a little summary that this is what you want to do to use production. (Translated from Swedish.)",
+          },
         ],
         whyHeadline:
           "Developers shift from exploration to integration.",
@@ -1117,6 +1320,18 @@ const JOURNEY: JourneyTheme[] = [
               { text: "Agent", meta: "→ sender identity" },
               { text: "Webhooks", meta: "→ incoming events" },
             ],
+          },
+          {
+            title: "3.0 finding — between sandbox and go-live is where developers actually live",
+            description:
+              "Today the flow reads as sandbox → go-live. Developers describe a missing third stage — their own agent, their own keys, close to prod — that they can keep using through the build. “Go to Production” is too final; the real ask is a persistent dev environment.",
+            quoteIndices: [3, 4, 5],
+          },
+          {
+            title: "3.0 finding — surface one “here’s what to swap for prod” summary",
+            description:
+              "After building against their own agent, developers want a single surface listing the values (project ID, messaging service ID, keys) they need to change to make a production request — not scattered doc pages.",
+            quoteIndices: [6],
           },
         ],
         whyClosing:
@@ -1223,6 +1438,33 @@ const JOURNEY: JourneyTheme[] = [
             long:
               "I do see, at least initially, when we started talking about, which one was it? Oh, no — it was the use case. Once I got to the use case information, I started to get a sense that this was either regulatory compliance or I'm checking a box for something. What might trip me up, since I have the benefit of making things up on the spot, is if I didn't have that information. If I'm doing an exploratory analysis of Cinch, for example.",
           },
+          {
+            title: "Non-devs won’t fill fields with fake data",
+            participant: "P18",
+            persona: "Non-developer",
+            short:
+              "I wouldn’t want to do anything as a joke before I knew what I was actually going to send.",
+            long:
+              "I wouldn’t want to do anything as a joke before I knew what I was actually going to send. Sandbox mode was for playing around and seeing how it looks. (Translated from Swedish.)",
+          },
+          {
+            title: "Live cost summary as countries are added",
+            participant: "P18",
+            persona: "Non-developer",
+            short:
+              "I would have wanted a summary on this.",
+            long:
+              "Twenty dollars a month for Sweden, twenty dollars for Norway. It cost a hundred and nine dollars to register the agents. But then I would have wanted a summary on this. But maybe it will come. (Translated from Swedish.)",
+          },
+          {
+            title: "Compliance reads as “not my role” for developers",
+            participant: "P15",
+            persona: "Developer",
+            short:
+              "This is a bit over my pay grade. Maybe someone else sets this up.",
+            long:
+              "This is a bit over my pay grade. Maybe someone else sets this up. (Translated from Swedish.)",
+          },
         ],
         whyHeadline:
           "When users reach compliance, they need enough guidance to know how to proceed.",
@@ -1325,6 +1567,24 @@ const JOURNEY: JourneyTheme[] = [
             closing: [
               "Without that clarity, the flow feels linear and blocking. With it, users can confidently continue on their intended path.",
             ],
+          },
+          {
+            title: "3.0 finding — non-devs won’t enter placeholder data",
+            description:
+              "P18 was explicit: without real answers, she wouldn’t fill the compliance fields at all. The flow needs a real “not yet” state — save partial, return later, hand off to a colleague — so evaluation isn’t forced to end at the compliance wall.",
+            quoteIndices: [4],
+          },
+          {
+            title: "3.0 finding — a live cost summary must accompany country selection",
+            description:
+              "Country selection commits money — hundreds of dollars per agent registration plus monthly per country. That commitment needs a running total in the UI, not a mental sum.",
+            quoteIndices: [5],
+          },
+          {
+            title: "3.0 finding — developers explicitly say this isn’t their job",
+            description:
+              "The two-tracks story is validated from the developer side: even a technically strong developer treats go-live compliance as belonging to a different role. The compliance path should support handoff and pause, not assume the developer will drive it end-to-end.",
+            quoteIndices: [6],
           },
         ],
         valueProps: [
@@ -1486,6 +1746,26 @@ const PRINCIPLES: Principle[] = [
       "This was not directly tested as an assisted workflow, but it extends the same observed pattern: users try to make something work, inspect the result, and use feedback to decide what to do next.",
     keyTakeaway:
       "Assisted workflows do not remove the need for onboarding clarity. They increase the need for systems that are executable, observable, and easy to reason about.",
+  },
+  {
+    id: "pr10",
+    title: "Expose pricing where the decision happens",
+    lead:
+      "Pricing is the last gate before commitment. Hiding it defers the decision rather than removing it — evaluators pause, or churn.",
+    implication:
+      "Show a per-country / per-channel estimate before the account wall, and a running total again as the user commits to countries or use-cases.",
+    evidence:
+      "P19 was explicit: “if the costs were clear, I’d just put my credit card number in and go.” P18 wanted a live cost summary as she added Sweden and Norway. P1 had asked for the same in the 2.0 rounds: pricing should be “a lot higher up the list.”",
+  },
+  {
+    id: "pr11",
+    title: "Give developers a persistent “dev” environment",
+    lead:
+      "Sandbox is Sinch’s shared playground; production is fully compliant and expensive. Developers describe a missing third stage — their own agent, their own keys, close to production — that they can keep using through the build.",
+    implication:
+      "Model dev / test / prod as first-class environments with their own keys, and provide a single surface listing “here are the values to swap” when the developer is ready to move.",
+    evidence:
+      "P17: “I want a test environment that we can still use continuously in our development. That it should be as similar as possible to production.” P16: “‘Go to Production’ sounds very final. There’s usually some step in between.”",
   },
 ];
 
